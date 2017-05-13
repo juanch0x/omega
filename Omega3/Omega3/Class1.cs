@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Omega3
 {
     class Class1
-    {ActivationContext
-    }
+    {ActivationContextzxczxczx
+    }class
 }
