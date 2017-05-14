@@ -17,7 +17,7 @@ namespace Omega3.Modelo
         private string localidad;
         private string email;
 
-        public long Id_proveedor {
+        public long gsid_proveedor {
             get { return this.id_proveedor; }
             set { this.id_proveedor = value; }
         }
