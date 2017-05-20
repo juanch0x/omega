@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    public class Proveedor
+    class Cliente
     {
-
-        private long id_proveedor;
-        private string proveedor;
+        private long id_cliente;
+        private string cliente;
         private long telefono;
         private string direccion;
         private string provincia;
         private string localidad;
         private string email;
 
-        public long gsid_proveedor {
-            get { return this.id_proveedor; }
-            set { this.id_proveedor = value; }
+        public long gsid_cliente
+        {
+            get { return this.id_cliente; }
+            set { this.id_cliente = value; }
         }
 
-        public string gsproveedor {
-            get { return this.proveedor; }
-            set { this.proveedor = value; }
+        public string gsproveedor
+        {
+            get { return this.cliente; }
+            set { this.cliente = value; }
 
         }
 
@@ -56,11 +57,6 @@ namespace Omega3.Modelo
         {
             get { return this.email; }
             set { this.email = value; }
-            
         }
-
-   
     }
-    
-
 }
