@@ -9,57 +9,21 @@ namespace Omega3.Modelo
     public class Proveedor
     {
 
-        private long id_proveedor;
-        private string proveedor;
-        private long telefono;
-        private string direccion;
-        private string provincia;
-        private string localidad;
-        private string email;
+        private long _id_proveedor;
+        private string _nombre_proveedor;
+        private long _telefono;
+        private string _direccion;
+        private string _provincia;
+        private string _localidad;
+        private string _email;
 
-        public long gsid_proveedor {
-            get { return this.id_proveedor; }
-            set { this.id_proveedor = value; }
-        }
-
-        public string gsproveedor {
-            get { return this.proveedor; }
-            set { this.proveedor = value; }
-
-        }
-
-        public long gstelefono
-        {
-            get { return this.telefono; }
-            set { this.telefono = value; }
-        }
-
-        public string gsdireccion
-        {
-            get { return this.direccion; }
-            set { this.direccion = value; }
-        }
-
-        public string gsprovincia
-        {
-            get { return this.provincia; }
-            set { this.provincia = value; }
-        }
-
-        public string gslocalidad
-        {
-            get { return this.localidad; }
-            set { this.localidad = value; }
-        }
-
-        public string gsemail
-        {
-            get { return this.email; }
-            set { this.email = value; }
-            
-        }
-
-   
+        public long Id_proveedor { get => _id_proveedor; set => _id_proveedor = value; }
+        public string Nombre_proveedor { get => _nombre_proveedor; set => _nombre_proveedor = value; }
+        public long Telefono { get => _telefono; set => _telefono = value; }
+        public string Direccion { get => _direccion; set => _direccion = value; }
+        public string Provincia { get => _provincia; set => _provincia = value; }
+        public string Localidad { get => _localidad; set => _localidad = value; }
+        public string Email { get => _email; set => _email = value; }
     }
     
 

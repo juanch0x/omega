@@ -38,13 +38,13 @@ namespace Omega3
             System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
 
             Producto a = new Producto();
-            a.gsProducto = "Wea";
-            a.Precio_costo = 17.5m;
-            a.Precio_venta = 99.111m;
-            
-            a.Cantidad = 2;
+            a.Nombre_producto = "Ahora se llama diferente";
+            a.Precio_costo = 55.5m;
+            a.Precio_venta = 55.111m;
+            a.Cod_producto = 14;
+            a.Cantidad = 100;
 
-            ControlProducto.AgregarProducto(a);
+            ControlProducto.EliminarProducto(a);
 
         }
     }
