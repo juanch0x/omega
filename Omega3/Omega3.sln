@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omega3", "Omega3\Omega3.csproj", "{BC32EECD-AC3E-4959-A0E8-37086D707FFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1B79AFB4-BDC9-4232-95F4-F03AC12EF3F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\omega.sql = ..\..\..\..\Desktop\omega.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
