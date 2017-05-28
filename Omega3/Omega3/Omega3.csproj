@@ -65,6 +65,8 @@
     <Compile Include="Controlador\ControlCliente.cs" />
     <Compile Include="Controlador\Conexion.cs" />
     <Compile Include="Controlador\ControlProducto.cs" />
+    <Compile Include="Controlador\ControlUsuario.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>

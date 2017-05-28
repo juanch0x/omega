@@ -18,6 +18,8 @@ namespace Omega3
     {
 
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
+        public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
+
 
         public Principal()
         {

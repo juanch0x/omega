@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Omega3.Controlador;
+using Omega3.Modelo;
 
 namespace Omega3.Vista
 {
@@ -25,9 +27,18 @@ namespace Omega3.Vista
         private void btn_login_Click(object sender, EventArgs e)
         {
             Principal f1 = (Principal)this.MdiParent;
-
             f1.menu.Visible = true;
 
+            this.Hide();
+
+            Usuario user = new Usuario();
+            user.User = txt_usuario.Text;
+            user.Password = txt_pwd.Text;
+
+            ControlUsuario login = new ControlUsuario();
+            login.login(user);
+
+            f1.MenuVentas.Visible = true;
 
         }
     }
