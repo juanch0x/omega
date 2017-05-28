@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2017 a las 03:13:22
+-- Tiempo de generación: 28-05-2017 a las 04:35:12
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -23,48 +23,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `productos` (
-  `cod_producto` int(200) NOT NULL,
-  `producto` varchar(200) NOT NULL,
-  `cantidad` int(10) NOT NULL,
-  `precio_compra` decimal(10,0) NOT NULL,
-  `precio_venta` decimal(10,3) NOT NULL
+CREATE TABLE `usuarios` (
+  `usuario` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `id_rol` int(3) NOT NULL,
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `productos` (`cod_producto`, `producto`, `cantidad`, `precio_compra`, `precio_venta`) VALUES
-(14, 'Wea', 2, '17', '15.000'),
-(15, 'Wea', 2, '200', '15.140'),
-(16, 'Wea', 2, '200', '99.111'),
-(17, 'Wea', 2, '200', '99.111'),
-(18, 'Wea', 2, '200', '99.111'),
-(19, 'Wea', 2, '200', '99.111');
+INSERT INTO `usuarios` (`usuario`, `password`, `id_rol`, `nombre`) VALUES
+('juanch0x', 'asdqwe123', 1, 'Juan Portugal');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`cod_producto`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-  MODIFY `cod_producto` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
