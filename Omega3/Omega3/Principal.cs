@@ -12,6 +12,7 @@ using Omega3.Modelo;
 using System.Globalization;
 using Omega3.Vista;
 
+
 namespace Omega3
 {
     public partial class Principal : Form
@@ -19,6 +20,7 @@ namespace Omega3
 
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
         public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
+        public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
 
 
         public Principal()
@@ -73,6 +75,12 @@ namespace Omega3
 
         }
 
-
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Productos.AgregarProducto agregarProducto = new Vista.Productos.AgregarProducto();
+            agregarProducto.StartPosition = FormStartPosition.CenterScreen;
+            agregarProducto.MdiParent = this;
+            agregarProducto.Show();
+        }
     }
 }

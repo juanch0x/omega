@@ -39,6 +39,7 @@ namespace Omega3.Vista
             login.login(user);
 
             f1.MenuVentas.Visible = true;
+            f1.MenuProducto.Visible = true;
 
         }
     }

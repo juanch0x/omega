@@ -19,7 +19,7 @@ namespace Omega3.Controlador
             //  List<Cliente> _lista = new List<Cliente>();
             Usuario validar = new Usuario();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-                "SELECT * FROM Usuarios  where usuario ='{0}' AND password='{1}'", a.User, a.Password), Conexion.ObtenerConexion());
+                "SELECT * FROM usuarios  where usuario ='{0}' AND password='{1}'", a.User, a.Password), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
