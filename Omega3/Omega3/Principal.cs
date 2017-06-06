@@ -52,28 +52,7 @@ namespace Omega3
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-            
-            //IMPORTANTISIMO//
-           // Esta función hace que se conviertan las COMAS de todo el proyecto a puntos, si esta función no está, no se puede insertar los decimales en MYSQL//
-            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
-            customCulture.NumberFormat.NumberDecimalSeparator = ".";
-
-            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
-
-            Producto a = new Producto();
-            a.Nombre_producto = "Ahora se llama diferente";
-            a.Precio_costo = 55.5m;
-            a.Precio_venta = 55.111m;
-            a.Cod_producto = 14;
-            a.Cantidad = 100;
-
-            ControlProducto.EliminarProducto(a);
-
-        }
+       
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {

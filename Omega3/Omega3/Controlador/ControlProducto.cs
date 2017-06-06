@@ -17,12 +17,13 @@ namespace Omega3.Controlador
             int retorno = 0;
 
 
-            producto.Precio_costo = 199.5m;
-            Console.WriteLine(producto.Precio_costo);
+            //producto.Precio_costo = 199.5m;
+            
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, precio_venta) values ('{0}','{1}','{2}', '{3}')",
-                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta), Conexion.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, precio_venta, stock_minimo) values ('{0}','{1}','{2}', '{3}','{4}')",
+                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Stock_minimo), Conexion.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            
             return retorno;
         }
 
