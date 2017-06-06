@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Omega3.Modelo;
 
@@ -20,8 +21,8 @@ namespace Omega3.Controlador
             //producto.Precio_costo = 199.5m;
             
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, precio_venta, stock_minimo) values ('{0}','{1}','{2}', '{3}','{4}')",
-                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Stock_minimo), Conexion.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, precio_venta, stock_minimo, cod_producto) values ('{0}','{1}','{2}', '{3}','{4}','{5}')",
+                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Stock_minimo,producto.Cod_producto), Conexion.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             
             return retorno;
@@ -55,6 +56,56 @@ namespace Omega3.Controlador
 
             return retorno;
 
+        }
+
+        public static void autoCompletarProducto(ComboBox combo_producto) {
+
+            try
+            {
+             
+                
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+                    "SELECT producto FROM productos"), Conexion.ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+             
+                    combo_producto.AutoCompleteCustomSource.Add(_reader["producto"].ToString());
+                    Console.WriteLine(_reader["producto"].ToString());
+                    combo_producto.Items.Add(_reader["producto"].ToString());
+
+                }
+                _reader.Close();
+            }
+            catch ( Exception ex)
+            {
+                MessageBox.Show("Error funcion autoCompletarProducto" + ex.ToString());
+            }
+        }
+
+        public static string obtenerCodigoPorNombre(string producto) {
+            string auxiliar = null;
+            try
+            {
+
+
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+                    "SELECT cod_producto FROM productos WHERE producto='{0}'",producto), Conexion.ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+
+                    auxiliar = _reader["cod_producto"].ToString();
+
+                }
+                _reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error funcion obtenerCodigoPorNombre" + ex.ToString());
+            }
+
+            return auxiliar;
         }
 
     }

@@ -61,5 +61,13 @@ namespace Omega3
             agregarProducto.MdiParent = this;
             agregarProducto.Show();
         }
+
+        private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Productos.EliminarProductos eliminarproducto= new Vista.Productos.EliminarProductos();
+            eliminarproducto.StartPosition = FormStartPosition.CenterScreen;
+            eliminarproducto.MdiParent = this;
+            eliminarproducto.Show();
+        }
     }
 }
