@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Omega3.Modelo;
+using System.Data;
 
 namespace Omega3.Controlador
 {
@@ -108,5 +109,25 @@ namespace Omega3.Controlador
             return auxiliar;
         }
 
+        public static void llenarTabla(DataGridView cuadro) {
+             
+
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                string sqlSelectAll = "SELECT * from productos";
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                cuadro.DataSource = bSource;
+            
+
+        }
+
+
     }
-}
+ }
