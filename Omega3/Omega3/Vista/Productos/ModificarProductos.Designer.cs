@@ -31,6 +31,7 @@
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.filtro = new System.Windows.Forms.TextBox();
             this.lbl_filtro = new System.Windows.Forms.Label();
+            this.columna_borrar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,9 @@
             this.dgv_tabla.AllowUserToAddRows = false;
             this.dgv_tabla.AllowUserToDeleteRows = false;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_tabla.Location = new System.Drawing.Point(-1, 128);
+            this.dgv_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columna_borrar});
+            this.dgv_tabla.Location = new System.Drawing.Point(15, 119);
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.ShowEditingIcon = false;
@@ -63,6 +66,13 @@
             this.lbl_filtro.TabIndex = 2;
             this.lbl_filtro.Text = "Filtrar";
             // 
+            // columna_borrar
+            // 
+            this.columna_borrar.HeaderText = "Borrar";
+            this.columna_borrar.Image = global::Omega3.Properties.Resources.cancel;
+            this.columna_borrar.Name = "columna_borrar";
+            this.columna_borrar.ReadOnly = true;
+            // 
             // ModificarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,5 +95,6 @@
         private System.Windows.Forms.DataGridView dgv_tabla;
         private System.Windows.Forms.TextBox filtro;
         private System.Windows.Forms.Label lbl_filtro;
+        private System.Windows.Forms.DataGridViewImageColumn columna_borrar;
     }
 }

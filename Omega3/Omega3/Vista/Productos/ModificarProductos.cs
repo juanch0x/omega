@@ -22,7 +22,8 @@ namespace Omega3.Vista.Productos
             
             Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+            dgv_tabla.Columns["columna_borrar"].DisplayIndex = 6;
+            
 
         }
 
