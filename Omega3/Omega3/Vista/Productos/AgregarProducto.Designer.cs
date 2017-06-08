@@ -40,6 +40,8 @@
             this.txt_stock_minimo = new System.Windows.Forms.TextBox();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
+            this.lbl_cantidad = new System.Windows.Forms.Label();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_producto
@@ -124,29 +126,47 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(89, 179);
+            this.btn_agregar.Location = new System.Drawing.Point(89, 205);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(75, 23);
-            this.btn_agregar.TabIndex = 10;
+            this.btn_agregar.TabIndex = 11;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(185, 179);
+            this.btn_salir.Location = new System.Drawing.Point(183, 205);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(75, 23);
-            this.btn_salir.TabIndex = 11;
+            this.btn_salir.TabIndex = 12;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
+            // lbl_cantidad
+            // 
+            this.lbl_cantidad.AutoSize = true;
+            this.lbl_cantidad.Location = new System.Drawing.Point(24, 163);
+            this.lbl_cantidad.Name = "lbl_cantidad";
+            this.lbl_cantidad.Size = new System.Drawing.Size(35, 13);
+            this.lbl_cantidad.TabIndex = 13;
+            this.lbl_cantidad.Text = "Stock";
+            // 
+            // txt_cantidad
+            // 
+            this.txt_cantidad.Location = new System.Drawing.Point(147, 156);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(163, 20);
+            this.txt_cantidad.TabIndex = 10;
             // 
             // AgregarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 227);
+            this.ClientSize = new System.Drawing.Size(348, 257);
+            this.Controls.Add(this.txt_cantidad);
+            this.Controls.Add(this.lbl_cantidad);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.txt_stock_minimo);
@@ -180,5 +200,7 @@
         private System.Windows.Forms.TextBox txt_stock_minimo;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Label lbl_cantidad;
+        private System.Windows.Forms.TextBox txt_cantidad;
     }
 }

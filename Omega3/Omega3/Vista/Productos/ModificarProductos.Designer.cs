@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.filtro = new System.Windows.Forms.TextBox();
-            this.lbl_filtro = new System.Windows.Forms.Label();
+            this.txt_filtro_nombre = new System.Windows.Forms.TextBox();
+            this.lbl_filtro_producto = new System.Windows.Forms.Label();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.filtro_codigo = new System.Windows.Forms.Label();
+            this.txt_filtro_codigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,22 +51,22 @@
             this.dgv_tabla.Size = new System.Drawing.Size(769, 287);
             this.dgv_tabla.TabIndex = 0;
             // 
-            // filtro
+            // txt_filtro_nombre
             // 
-            this.filtro.Location = new System.Drawing.Point(50, 19);
-            this.filtro.Name = "filtro";
-            this.filtro.Size = new System.Drawing.Size(100, 20);
-            this.filtro.TabIndex = 1;
-            this.filtro.TextChanged += new System.EventHandler(this.filtro_TextChanged);
+            this.txt_filtro_nombre.Location = new System.Drawing.Point(115, 19);
+            this.txt_filtro_nombre.Name = "txt_filtro_nombre";
+            this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
+            this.txt_filtro_nombre.TabIndex = 1;
+            this.txt_filtro_nombre.TextChanged += new System.EventHandler(this.filtro_TextChanged);
             // 
-            // lbl_filtro
+            // lbl_filtro_producto
             // 
-            this.lbl_filtro.AutoSize = true;
-            this.lbl_filtro.Location = new System.Drawing.Point(12, 22);
-            this.lbl_filtro.Name = "lbl_filtro";
-            this.lbl_filtro.Size = new System.Drawing.Size(32, 13);
-            this.lbl_filtro.TabIndex = 2;
-            this.lbl_filtro.Text = "Filtrar";
+            this.lbl_filtro_producto.AutoSize = true;
+            this.lbl_filtro_producto.Location = new System.Drawing.Point(12, 22);
+            this.lbl_filtro_producto.Name = "lbl_filtro_producto";
+            this.lbl_filtro_producto.Size = new System.Drawing.Size(95, 13);
+            this.lbl_filtro_producto.TabIndex = 2;
+            this.lbl_filtro_producto.Text = "Filtrar por producto";
             // 
             // btn_agregar
             // 
@@ -84,6 +86,7 @@
             this.btn_modificar.TabIndex = 4;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_eliminar
             // 
@@ -95,16 +98,35 @@
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
+            // filtro_codigo
+            // 
+            this.filtro_codigo.AutoSize = true;
+            this.filtro_codigo.Location = new System.Drawing.Point(276, 22);
+            this.filtro_codigo.Name = "filtro_codigo";
+            this.filtro_codigo.Size = new System.Drawing.Size(85, 13);
+            this.filtro_codigo.TabIndex = 6;
+            this.filtro_codigo.Text = "Filtrar por codigo";
+            // 
+            // txt_filtro_codigo
+            // 
+            this.txt_filtro_codigo.Location = new System.Drawing.Point(383, 22);
+            this.txt_filtro_codigo.Name = "txt_filtro_codigo";
+            this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 20);
+            this.txt_filtro_codigo.TabIndex = 7;
+            this.txt_filtro_codigo.TextChanged += new System.EventHandler(this.txt_filtro_codigo_TextChanged);
+            // 
             // ModificarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 406);
+            this.Controls.Add(this.txt_filtro_codigo);
+            this.Controls.Add(this.filtro_codigo);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_agregar);
-            this.Controls.Add(this.lbl_filtro);
-            this.Controls.Add(this.filtro);
+            this.Controls.Add(this.lbl_filtro_producto);
+            this.Controls.Add(this.txt_filtro_nombre);
             this.Controls.Add(this.dgv_tabla);
             this.Name = "ModificarProductos";
             this.Text = "ModificarProductos";
@@ -118,10 +140,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_tabla;
-        private System.Windows.Forms.TextBox filtro;
-        private System.Windows.Forms.Label lbl_filtro;
+        private System.Windows.Forms.TextBox txt_filtro_nombre;
+        private System.Windows.Forms.Label lbl_filtro_producto;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Label filtro_codigo;
+        private System.Windows.Forms.TextBox txt_filtro_codigo;
     }
 }

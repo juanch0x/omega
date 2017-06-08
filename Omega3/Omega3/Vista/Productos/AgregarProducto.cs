@@ -33,6 +33,7 @@ namespace Omega3.Vista.Productos
             producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
             producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
             producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
+            producto.Cantidad = Int32.Parse(txt_cantidad.Text);
 
             ControlProducto.AgregarProducto(producto);
 
@@ -43,6 +44,7 @@ namespace Omega3.Vista.Productos
             txt_precio_costo.Text = "";
             txt_precio_venta.Text = "";
             txt_stock_minimo.Text = "";
+            txt_cantidad.Text = "";
             
 
         }

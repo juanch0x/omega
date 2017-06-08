@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    class Producto
+    public class Producto
     {
 
         private long _cod_producto;

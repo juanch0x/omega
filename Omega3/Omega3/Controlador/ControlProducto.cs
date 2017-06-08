@@ -34,8 +34,8 @@ namespace Omega3.Controlador
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Update Productos set producto='{0}', cantidad='{1}', precio_compra='{2}', precio_venta='{3}' where cod_producto={4}",
-                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Cod_producto), conexion);
+            MySqlCommand comando = new MySqlCommand(string.Format("Update Productos set producto='{0}', cantidad='{1}', precio_compra='{2}', precio_venta='{3}', stock_minimo='{4}' where cod_producto={5}",
+                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Cantidad, producto.Cod_producto), conexion);
 
             retorno = comando.ExecuteNonQuery();
             conexion.Close();
