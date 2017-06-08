@@ -54,22 +54,7 @@ namespace Omega3
 
        
 
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Vista.Productos.AgregarProducto agregarProducto = new Vista.Productos.AgregarProducto();
-            agregarProducto.StartPosition = FormStartPosition.CenterScreen;
-            agregarProducto.MdiParent = this;
-            agregarProducto.Show();
-        }
-
-        private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Vista.Productos.EliminarProductos eliminarproducto= new Vista.Productos.EliminarProductos();
-            eliminarproducto.StartPosition = FormStartPosition.CenterScreen;
-            eliminarproducto.MdiParent = this;
-            eliminarproducto.Show();
-        }
-
+    
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Vista.Productos.ModificarProductos modificarproducto = new Vista.Productos.ModificarProductos();
