@@ -96,6 +96,12 @@
     <Compile Include="Vista\Productos\EliminarProductos.Designer.cs">
       <DependentUpon>EliminarProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Productos\ModificarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Productos\ModificarProducto.Designer.cs">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Productos\ModificarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Productos\EliminarProductos.resx">
       <DependentUpon>EliminarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Productos\ModificarProducto.resx">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Productos\ModificarProductos.resx">
       <DependentUpon>ModificarProductos.cs</DependentUpon>

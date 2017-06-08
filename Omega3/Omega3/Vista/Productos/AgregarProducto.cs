@@ -21,7 +21,7 @@ namespace Omega3.Vista.Productos
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)

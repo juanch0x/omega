@@ -22,7 +22,7 @@ namespace Omega3.Vista.Productos
             
             Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_tabla.Columns["columna_borrar"].DisplayIndex = 6;
+
             
 
         }
@@ -36,6 +36,28 @@ namespace Omega3.Vista.Productos
 
 
 
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            Omega3.Modelo.Producto producto = new Modelo.Producto();
+            producto.Cod_producto = long.Parse(Convert.ToString(dgv_tabla.CurrentRow.Cells[0].Value));
+            DialogResult boton = MessageBox.Show("¿Realmente desea eliminar el producto?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (boton == DialogResult.OK)
+            {
+                Omega3.Controlador.ControlProducto.EliminarProducto(producto);
+                Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
+                MessageBox.Show("El producto se eliminó correctamente.");
+            }   
+            
+        }
+
+        private void btn_agregar_Click(object sender, EventArgs e)
+        {
+            Vista.Productos.AgregarProducto agregarProducto = new Vista.Productos.AgregarProducto();
+            agregarProducto.StartPosition = FormStartPosition.CenterScreen;
+            agregarProducto.ShowDialog();
+            Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
         }
     }
 }
