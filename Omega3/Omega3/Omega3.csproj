@@ -96,11 +96,11 @@
     <Compile Include="Vista\Productos\ModificarProducto.Designer.cs">
       <DependentUpon>ModificarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Productos\ModificarProductos.cs">
+    <Compile Include="Vista\Productos\ABMProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\Productos\ModificarProductos.Designer.cs">
-      <DependentUpon>ModificarProductos.cs</DependentUpon>
+    <Compile Include="Vista\Productos\ABMProductos.Designer.cs">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="Vista\Productos\ModificarProducto.resx">
       <DependentUpon>ModificarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\Productos\ModificarProductos.resx">
-      <DependentUpon>ModificarProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\Productos\ABMProductos.resx">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

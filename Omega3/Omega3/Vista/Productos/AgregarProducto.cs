@@ -26,26 +26,54 @@ namespace Omega3.Vista.Productos
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            Producto producto = new Producto();
+            if (txt_producto.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Producto es obligatorio");
+            }
+            else if (txt_cantidad.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Stock es obligatorio");
+            }
+            else if (txt_codigo.Text.Trim() == "")
+            {
+                MessageBox.Show("El Campo Codigo de Barras es obligatorio");
+            }
+            else if (txt_precio_costo.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Precio de Costo es obligatorio");
+            }
+            else if (txt_precio_venta.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Precio de Venta es obligatorio");
+            }
+            else if (txt_stock_minimo.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Stock Minimo es obligatorio");
+            }
+            else
+            {
 
-            producto.Nombre_producto = txt_producto.Text;
-            producto.Cod_producto = long.Parse(txt_codigo.Text);
-            producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
-            producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
-            producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
-            producto.Cantidad = Int32.Parse(txt_cantidad.Text);
 
-            ControlProducto.AgregarProducto(producto);
+                Producto producto = new Producto();
 
-            MessageBox.Show("El producto se agregó correctamente!");
+                producto.Nombre_producto = txt_producto.Text;
+                producto.Cod_producto = long.Parse(txt_codigo.Text);
+                producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
+                producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
+                producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
+                producto.Cantidad = Int32.Parse(txt_cantidad.Text);
 
-            txt_producto.Text = "";
-            txt_codigo.Text = "";
-            txt_precio_costo.Text = "";
-            txt_precio_venta.Text = "";
-            txt_stock_minimo.Text = "";
-            txt_cantidad.Text = "";
-            
+                ControlProducto.AgregarProducto(producto);
+
+                MessageBox.Show("El producto se agregó correctamente!");
+
+                txt_producto.Text = "";
+                txt_codigo.Text = "";
+                txt_precio_costo.Text = "";
+                txt_precio_venta.Text = "";
+                txt_stock_minimo.Text = "";
+                txt_cantidad.Text = "";
+            }
 
         }
     }

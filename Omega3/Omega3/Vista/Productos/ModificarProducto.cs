@@ -42,20 +42,42 @@ namespace Omega3.Vista.Productos
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-
-            
-            producto.Nombre_producto = txt_producto.Text;
-            producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
-            producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
-            producto.Stock_minimo = Convert.ToInt32(txt_stock_minimo.Text);
-            producto.Cantidad = Convert.ToInt32(txt_cantidad.Text);
-            try
+            if (txt_producto.Text.Trim() == "")
             {
-                Omega3.Controlador.ControlProducto.ModificarProducto(producto);
-            }catch(Exception ex) { Console.WriteLine("Error modificando producto"+ ex); }
-            MessageBox.Show("El producto fue modificado correctamente.");
-            this.Close();
+                MessageBox.Show("El campo Producto es obligatorio");
+            }
+            else if (txt_cantidad.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Stock es obligatorio");
+            }
+            else if (txt_precio_costo.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Precio de Costo es obligatorio");
+            }
+            else if (txt_precio_venta.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Precio de Venta es obligatorio");
+            }
+            else if (txt_stock_minimo.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Stock Minimo es obligatorio");
+            }
+            else
+            {
 
+                producto.Nombre_producto = txt_producto.Text;
+                producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
+                producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
+                producto.Stock_minimo = Convert.ToInt32(txt_stock_minimo.Text);
+                producto.Cantidad = Convert.ToInt32(txt_cantidad.Text);
+                try
+                {
+                    Omega3.Controlador.ControlProducto.ModificarProducto(producto);
+                }
+                catch (Exception ex) { Console.WriteLine("Error modificando producto" + ex); }
+                MessageBox.Show("El producto fue modificado correctamente.");
+                this.Close();
+            }
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Omega3.Vista.Productos
 {
-    public partial class ModificarProductos : Form
+    public partial class ABMProductos : Form
     {
-        public ModificarProductos()
+        public ABMProductos()
         {
             InitializeComponent();
         }
@@ -21,6 +21,9 @@ namespace Omega3.Vista.Productos
         {
             
             Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
+
+            //Convert.ToString(dgv_tabla.CurrentRow.Cells[2].Value;
+
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             
@@ -115,6 +118,30 @@ namespace Omega3.Vista.Productos
                 return;
 
             }
+        }
+
+        private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+                foreach (DataGridViewRow Myrow in dgv_tabla.Rows)
+                {            //Here 2 cell is target value and 1 cell is Volume
+                    if (Convert.ToInt32(Myrow.Cells[2].Value) < Convert.ToInt32(Myrow.Cells[5].Value))// Or your condition 
+                    {
+                    Myrow.Cells[2].Style.BackColor = Color.Red;
+                    Myrow.Cells[2].Style.ForeColor = Color.Black;
+                }
+                    else
+                    {
+                    //    Myrow.DefaultCellStyle.BackColor = Color.Green;
+                    Myrow.Cells[2].Style.ForeColor = Color.Green;
+
+                }
+                }
+
+
+            
+
+
         }
     }
 }

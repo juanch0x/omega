@@ -1,6 +1,6 @@
 ﻿namespace Omega3.Vista.Productos
 {
-    partial class ModificarProductos
+    partial class ABMProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             this.dgv_tabla.ShowEditingIcon = false;
             this.dgv_tabla.Size = new System.Drawing.Size(769, 287);
             this.dgv_tabla.TabIndex = 0;
+            this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
             // txt_filtro_nombre
             // 
@@ -117,7 +118,7 @@
             this.txt_filtro_codigo.TextChanged += new System.EventHandler(this.txt_filtro_codigo_TextChanged);
             this.txt_filtro_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_codigo_KeyPress);
             // 
-            // ModificarProductos
+            // ABMProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +131,7 @@
             this.Controls.Add(this.lbl_filtro_producto);
             this.Controls.Add(this.txt_filtro_nombre);
             this.Controls.Add(this.dgv_tabla);
-            this.Name = "ModificarProductos";
+            this.Name = "ABMProductos";
             this.Text = "Modificar Productos";
             this.Load += new System.EventHandler(this.ModificarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();

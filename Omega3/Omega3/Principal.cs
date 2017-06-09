@@ -58,7 +58,7 @@ namespace Omega3
     
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ModificarProductos modificarproducto;// = new Vista.Productos.ModificarProductos();
+            Vista.Productos.ABMProductos modificarproducto;// = new Vista.Productos.ModificarProductos();
             //modificarproducto.StartPosition = FormStartPosition.CenterScreen;
             //modificarproducto.MdiParent = this;
             //modificarproducto.Show();
@@ -79,7 +79,7 @@ namespace Omega3
             if (!encontrado)
             {
                 
-                modificarproducto = new ModificarProductos();
+                modificarproducto = new ABMProductos();
                 modificarproducto.StartPosition = FormStartPosition.CenterScreen;
                 modificarproducto.MdiParent = this;
                 modificarproducto.Show();
