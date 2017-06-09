@@ -11,13 +11,14 @@ using Omega3.Controlador;
 using Omega3.Modelo;
 using System.Globalization;
 using Omega3.Vista;
+using Omega3.Vista.Productos;
 
 
 namespace Omega3
 {
     public partial class Principal : Form
     {
-
+        
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
         public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
         public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
@@ -57,10 +58,37 @@ namespace Omega3
     
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ModificarProductos modificarproducto = new Vista.Productos.ModificarProductos();
-            modificarproducto.StartPosition = FormStartPosition.CenterScreen;
-            modificarproducto.MdiParent = this;
-            modificarproducto.Show();
+            Vista.Productos.ModificarProductos modificarproducto;// = new Vista.Productos.ModificarProductos();
+            //modificarproducto.StartPosition = FormStartPosition.CenterScreen;
+            //modificarproducto.MdiParent = this;
+            //modificarproducto.Show();
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+                
+                if (form.Name.Equals("ModificarProductos"))
+                {
+                    
+                    encontrado = true;
+                    form.Show();
+                }
+                
+            }
+
+            if (!encontrado)
+            {
+                
+                modificarproducto = new ModificarProductos();
+                modificarproducto.StartPosition = FormStartPosition.CenterScreen;
+                modificarproducto.MdiParent = this;
+                modificarproducto.Show();
+            }
+
         }
+
+    
+
     }
-}
+    }
+

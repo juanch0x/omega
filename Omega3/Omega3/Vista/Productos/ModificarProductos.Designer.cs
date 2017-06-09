@@ -58,6 +58,7 @@
             this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
             this.txt_filtro_nombre.TabIndex = 1;
             this.txt_filtro_nombre.TextChanged += new System.EventHandler(this.filtro_TextChanged);
+            this.txt_filtro_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_nombre_KeyPress);
             // 
             // lbl_filtro_producto
             // 
@@ -114,6 +115,7 @@
             this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 20);
             this.txt_filtro_codigo.TabIndex = 7;
             this.txt_filtro_codigo.TextChanged += new System.EventHandler(this.txt_filtro_codigo_TextChanged);
+            this.txt_filtro_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_codigo_KeyPress);
             // 
             // ModificarProductos
             // 
@@ -129,7 +131,7 @@
             this.Controls.Add(this.txt_filtro_nombre);
             this.Controls.Add(this.dgv_tabla);
             this.Name = "ModificarProductos";
-            this.Text = "ModificarProductos";
+            this.Text = "Modificar Productos";
             this.Load += new System.EventHandler(this.ModificarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);

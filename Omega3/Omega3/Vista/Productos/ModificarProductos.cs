@@ -16,7 +16,7 @@ namespace Omega3.Vista.Productos
         {
             InitializeComponent();
         }
-
+        //Se ejecuta cuando se abre el form (lo uso para llenar la tabla)
         private void ModificarProductos_Load(object sender, EventArgs e)
         {
             
@@ -26,7 +26,7 @@ namespace Omega3.Vista.Productos
             
 
         }
-
+        //Filtro para el nombre del Producto
         private void filtro_TextChanged(object sender, EventArgs e)
         {
             var bd = (BindingSource)dgv_tabla.DataSource;
@@ -34,6 +34,18 @@ namespace Omega3.Vista.Productos
             dt.DefaultView.RowFilter = string.Format("producto like '%{0}%'", txt_filtro_nombre.Text.Trim().Replace("'", "''"));
             dgv_tabla.Refresh();
 
+
+
+        }
+        //Filtro para el Codigo de Barras
+        private void txt_filtro_codigo_TextChanged(object sender, EventArgs e)
+        {
+
+
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("convert(cod_producto, 'System.String') Like '{0}%' ", txt_filtro_codigo.Text.Trim().Replace("'", "''"));
+            dgv_tabla.Refresh();
 
 
         }
@@ -83,27 +95,26 @@ namespace Omega3.Vista.Productos
 
         }
 
-        private void txt_filtro_codigo_TextChanged(object sender, EventArgs e)
+        //Valido que solo se ingresen numeros en el Filtro del Codigo
+        private void txt_filtro_codigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*var bd = (BindingSource)dgv_tabla.DataSource;
-            var dt = (DataTable)bd.DataSource;
-
-            int i = 0;
-
-            if (Int32.TryParse(txt_filtro_codigo.Text, out i))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                dt.DefaultView.RowFilter = "Convert(cod_producto,System.String) LIKE  %"+ i+"%";
-                //Convert([Some Column], System.String) LIKE '12%
-                /*if (txt_filtro_codigo.Text == "") {
-                    dt.DefaultView.RowFilter = "cod_producto = ''";
-                }
+                e.Handled = true;
+                return;
+                
+            }
+        }
+        //Valido que en el filtro de producto solo se puedan ingresar letras y numeros.
+        
+        private void txt_filtro_nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back)))
+            { 
+                e.Handled = true;
+                return;
 
             }
-
-           
-            dgv_tabla.Refresh();
-            */
-
         }
     }
 }
