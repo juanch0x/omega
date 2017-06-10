@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Omega3.Modelo;
+using System.Data;
+using System.Windows.Forms;
 
 
 namespace Omega3.Controlador
@@ -51,6 +53,48 @@ namespace Omega3.Controlador
             return retorno;
 
         }
+
+        public static void llenarTabla(DataGridView cuadro)
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT id_proveedor AS Codigo, proveedor AS Proveedor, direccion AS Direccion, provincia AS Provincia, telefono AS Telefono, email AS Email FROM proveedores";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                cuadro.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de productos: " + ex); }
+        }
+
+        public static void AutoFill(DataGridView dgv_tabla)
+        {
+            dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            int i;
+            for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
+            {
+                //store autosized widths
+                int colw = dgv_tabla.Columns[i].Width;
+                //remove autosizing
+                dgv_tabla.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //set width to calculated by autosize
+                dgv_tabla.Columns[i].Width = colw;
+            }
+
+        }
+
+
     }
 }
 

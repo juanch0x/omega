@@ -33,27 +33,12 @@ namespace Omega3.Vista.Productos
             //Hago que solo se pueda seleccionar la fila completa
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            
+
 
             //Acomodo el tamaño de las cabaceras al tamaño del datagridview
-            dgv_tabla.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv_tabla.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv_tabla.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv_tabla.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            int i;
-            for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
-            {
-                //store autosized widths
-                int colw = dgv_tabla.Columns[i].Width;
-                //remove autosizing
-                dgv_tabla.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                //set width to calculated by autosize
-                dgv_tabla.Columns[i].Width = colw;
-            }
+            Omega3.Controlador.ControlProducto.AutoFill(dgv_tabla);
 
-            
+
 
         }
         //Filtro para el nombre del Producto
@@ -63,7 +48,7 @@ namespace Omega3.Vista.Productos
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("producto like '%{0}%'", txt_filtro_nombre.Text.Trim().Replace("'", "''"));
             dgv_tabla.Refresh();
-
+            Omega3.Controlador.ControlProducto.AutoFill(dgv_tabla);
 
 
         }
@@ -76,7 +61,7 @@ namespace Omega3.Vista.Productos
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("convert(cod_producto, 'System.String') Like '{0}%' ", txt_filtro_codigo.Text.Trim().Replace("'", "''"));
             dgv_tabla.Refresh();
-
+            Omega3.Controlador.ControlProducto.AutoFill(dgv_tabla);
 
         }
 
@@ -169,6 +154,16 @@ namespace Omega3.Vista.Productos
                                
 
 
+        }
+
+        private void txt_filtro_nombre_Enter(object sender, EventArgs e)
+        {
+            txt_filtro_codigo.Text = "";
+        }
+
+        private void txt_filtro_codigo_Enter(object sender, EventArgs e)
+        {
+            txt_filtro_nombre.Text = "";
         }
     }
 }

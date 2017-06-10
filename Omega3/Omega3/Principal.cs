@@ -42,7 +42,7 @@ namespace Omega3
             menuStrip1.Visible = false;
             GetProductoToolStripMenuItem().Visible = false;
             ventasToolStripMenuItem.Visible = false;
-            clientesToolStripMenuItem.Visible = false;
+            //clientesToolStripMenuItem.Visible = false;
 
 
         }
@@ -87,8 +87,32 @@ namespace Omega3
 
         }
 
-    
+        private void solicitarStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Pedidos.Solicitar_stock solicitarstock;
 
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Solicitar_stock"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                solicitarstock = new Vista.Pedidos.Solicitar_stock();
+                solicitarstock.StartPosition = FormStartPosition.CenterScreen;
+                solicitarstock.MdiParent = this;
+                solicitarstock.Show();
+            }
+        }
     }
     }
 

@@ -84,6 +84,24 @@
     <Compile Include="Vista\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Pedidos\ElegirProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Pedidos\ElegirProveedor.Designer.cs">
+      <DependentUpon>ElegirProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Pedidos\Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Pedidos\Pedidos.Designer.cs">
+      <DependentUpon>Pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Pedidos\Solicitar_stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Pedidos\Solicitar_stock.Designer.cs">
+      <DependentUpon>Solicitar_stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Productos\AgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +135,15 @@
     </Compile>
     <EmbeddedResource Include="Vista\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Pedidos\ElegirProveedor.resx">
+      <DependentUpon>ElegirProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Pedidos\pedidos.resx">
+      <DependentUpon>Pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Pedidos\Solicitar_stock.resx">
+      <DependentUpon>Solicitar_stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Productos\AgregarProducto.resx">
       <DependentUpon>AgregarProducto.cs</DependentUpon>
@@ -154,6 +181,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icocico.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa2020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick_tabla.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

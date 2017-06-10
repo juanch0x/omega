@@ -49,7 +49,7 @@
             this.dgv_tabla.AllowUserToDeleteRows = false;
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
-            this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -60,7 +60,7 @@
             this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -75,7 +75,7 @@
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.ShowEditingIcon = false;
             this.dgv_tabla.Size = new System.Drawing.Size(753, 275);
-            this.dgv_tabla.TabIndex = 0;
+            this.dgv_tabla.TabIndex = 6;
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
             // txt_filtro_nombre
@@ -85,6 +85,7 @@
             this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
             this.txt_filtro_nombre.TabIndex = 1;
             this.txt_filtro_nombre.TextChanged += new System.EventHandler(this.filtro_TextChanged);
+            this.txt_filtro_nombre.Enter += new System.EventHandler(this.txt_filtro_nombre_Enter);
             this.txt_filtro_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_nombre_KeyPress);
             // 
             // lbl_filtro_producto
@@ -140,8 +141,9 @@
             this.txt_filtro_codigo.Location = new System.Drawing.Point(364, 24);
             this.txt_filtro_codigo.Name = "txt_filtro_codigo";
             this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 20);
-            this.txt_filtro_codigo.TabIndex = 7;
+            this.txt_filtro_codigo.TabIndex = 2;
             this.txt_filtro_codigo.TextChanged += new System.EventHandler(this.txt_filtro_codigo_TextChanged);
+            this.txt_filtro_codigo.Enter += new System.EventHandler(this.txt_filtro_codigo_Enter);
             this.txt_filtro_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_codigo_KeyPress);
             // 
             // panel1

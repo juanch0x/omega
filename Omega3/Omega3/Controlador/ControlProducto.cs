@@ -134,6 +134,23 @@ namespace Omega3.Controlador
             MessageBox.Show("El campo "+campo+" es obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
 
+        public static void AutoFill(DataGridView dgv_tabla)
+        {
+            dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-    }
+            int i;
+            for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
+            {
+                //store autosized widths
+                int colw = dgv_tabla.Columns[i].Width;
+                //remove autosizing
+                dgv_tabla.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //set width to calculated by autosize
+                dgv_tabla.Columns[i].Width = colw;
+            }
+            
+        }
+
+      }
+
  }
