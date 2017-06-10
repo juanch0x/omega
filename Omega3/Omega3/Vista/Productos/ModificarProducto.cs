@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Modelo;
+using Omega3.Controlador;
 
 namespace Omega3.Vista.Productos
 {
@@ -44,23 +45,27 @@ namespace Omega3.Vista.Productos
         {
             if (txt_producto.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Producto es obligatorio");
+                ControlProducto.validarTextboxVacio("producto");
             }
             else if (txt_cantidad.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Stock es obligatorio");
+                ControlProducto.validarTextboxVacio("stock");
+            }
+            else if (txt_codigo.Text.Trim() == "")
+            {
+                ControlProducto.validarTextboxVacio("código");
             }
             else if (txt_precio_costo.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Precio de Costo es obligatorio");
+                ControlProducto.validarTextboxVacio("precio de costo");
             }
             else if (txt_precio_venta.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Precio de Venta es obligatorio");
+                ControlProducto.validarTextboxVacio("precio de venta");
             }
             else if (txt_stock_minimo.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Stock Minimo es obligatorio");
+                ControlProducto.validarTextboxVacio("stock mínimo");
             }
             else
             {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Modelo;
 using Omega3.Controlador;
+using System.Globalization;
 
 namespace Omega3.Vista.Productos
 {
@@ -28,27 +29,27 @@ namespace Omega3.Vista.Productos
         {
             if (txt_producto.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Producto es obligatorio");
+                ControlProducto.validarTextboxVacio("producto");
             }
             else if (txt_cantidad.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Stock es obligatorio");
+                ControlProducto.validarTextboxVacio("stock");
             }
             else if (txt_codigo.Text.Trim() == "")
             {
-                MessageBox.Show("El Campo Codigo de Barras es obligatorio");
+                ControlProducto.validarTextboxVacio("código");
             }
             else if (txt_precio_costo.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Precio de Costo es obligatorio");
+                ControlProducto.validarTextboxVacio("precio de costo");
             }
             else if (txt_precio_venta.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Precio de Venta es obligatorio");
+                ControlProducto.validarTextboxVacio("precio de venta");
             }
             else if (txt_stock_minimo.Text.Trim() == "")
             {
-                MessageBox.Show("El campo Stock Minimo es obligatorio");
+                ControlProducto.validarTextboxVacio("stock mínimo");
             }
             else
             {
@@ -74,7 +75,137 @@ namespace Omega3.Vista.Productos
                 txt_stock_minimo.Text = "";
                 txt_cantidad.Text = "";
             }
+            txt_producto.Focus();
 
+        }
+
+        private void txt_producto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+
+        private void txt_codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+
+        private void txt_precio_costo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+             CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+              if (char.IsNumber(e.KeyChar) ||
+              e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator || (e.KeyChar == (char)Keys.Back)
+              )
+                  e.Handled = false;
+              else
+                  e.Handled = true;
+
+            if (e.KeyChar == '.'
+             && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txt_precio_venta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+            e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator || (e.KeyChar == (char)Keys.Back)
+            )
+                e.Handled = false;
+            else
+                e.Handled = true;
+
+            if (e.KeyChar == '.'
+             && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_stock_minimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+
+        private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+
+        private void txt_cantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                
+                btn_agregar_Click(this, new EventArgs());
+            }
+        }
+
+        private void txt_producto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                txt_codigo.Focus();
+            }
+        }
+
+        private void txt_codigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                txt_precio_costo.Focus();
+            }
+        }
+
+        private void txt_precio_costo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                txt_precio_venta.Focus();
+            }
+        }
+
+        private void txt_precio_venta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                txt_stock_minimo.Focus();
+            }
+        }
+
+        private void txt_stock_minimo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                txt_cantidad.Focus();
+            }
         }
     }
 }

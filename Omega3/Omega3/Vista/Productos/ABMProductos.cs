@@ -19,12 +19,39 @@ namespace Omega3.Vista.Productos
         //Se ejecuta cuando se abre el form (lo uso para llenar la tabla)
         private void ModificarProductos_Load(object sender, EventArgs e)
         {
-            
+            //Lleno los datos del datagridview
             Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
 
-            //Convert.ToString(dgv_tabla.CurrentRow.Cells[2].Value;
+            //Renombro los headers de cada columna
+            dgv_tabla.Columns[0].HeaderText = "Código";
+            dgv_tabla.Columns[1].HeaderText = "Producto";
+            dgv_tabla.Columns[2].HeaderText = "Stock";
+            dgv_tabla.Columns[3].HeaderText = "Precio de Costo";
+            dgv_tabla.Columns[4].HeaderText = "Precio de Venta";
+            dgv_tabla.Columns[5].HeaderText = "Stock Mínimo";
 
+            //Hago que solo se pueda seleccionar la fila completa
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            
+
+            //Acomodo el tamaño de las cabaceras al tamaño del datagridview
+            dgv_tabla.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv_tabla.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv_tabla.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv_tabla.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            int i;
+            for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
+            {
+                //store autosized widths
+                int colw = dgv_tabla.Columns[i].Width;
+                //remove autosizing
+                dgv_tabla.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //set width to calculated by autosize
+                dgv_tabla.Columns[i].Width = colw;
+            }
 
             
 
@@ -112,7 +139,7 @@ namespace Omega3.Vista.Productos
         
         private void txt_filtro_nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back)))
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             { 
                 e.Handled = true;
                 return;
@@ -127,19 +154,19 @@ namespace Omega3.Vista.Productos
                 {            //Here 2 cell is target value and 1 cell is Volume
                     if (Convert.ToInt32(Myrow.Cells[2].Value) < Convert.ToInt32(Myrow.Cells[5].Value))// Or your condition 
                     {
-                    Myrow.Cells[2].Style.BackColor = Color.Red;
+                    
+                    Myrow.Cells[2].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#F5D846");
                     Myrow.Cells[2].Style.ForeColor = Color.Black;
                 }
                     else
                     {
-                    //    Myrow.DefaultCellStyle.BackColor = Color.Green;
-                    Myrow.Cells[2].Style.ForeColor = Color.Green;
+                    
+                    Myrow.Cells[2].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#C5F6B4");
 
                 }
                 }
 
-
-            
+                               
 
 
         }

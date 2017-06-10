@@ -114,6 +114,9 @@ namespace Omega3.Controlador
 
                 MySqlDataAdapter MyDA = new MySqlDataAdapter();
                 string sqlSelectAll = "SELECT * from productos";
+            try
+            {
+
                 MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
 
                 DataTable table = new DataTable();
@@ -124,8 +127,11 @@ namespace Omega3.Controlador
 
 
                 cuadro.DataSource = bSource;
-            
+            }catch(Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de productos: " + ex); }
+        }
 
+        public static void validarTextboxVacio(string campo) {
+            MessageBox.Show("El campo "+campo+" es obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
 
 

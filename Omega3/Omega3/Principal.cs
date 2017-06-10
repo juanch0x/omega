@@ -67,7 +67,7 @@ namespace Omega3
             foreach (Form form in this.MdiChildren)
             {
                 
-                if (form.Name.Equals("ModificarProductos"))
+                if (form.Name.Equals("ABMProductos"))
                 {
                     
                     encontrado = true;

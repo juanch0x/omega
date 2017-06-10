@@ -95,6 +95,8 @@
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(163, 20);
             this.txt_producto.TabIndex = 5;
+            this.txt_producto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_producto_KeyDown);
+            this.txt_producto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_producto_KeyPress);
             // 
             // txt_codigo
             // 
@@ -102,6 +104,8 @@
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.Size = new System.Drawing.Size(163, 20);
             this.txt_codigo.TabIndex = 6;
+            this.txt_codigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_codigo_KeyDown);
+            this.txt_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_KeyPress);
             // 
             // txt_precio_costo
             // 
@@ -109,6 +113,8 @@
             this.txt_precio_costo.Name = "txt_precio_costo";
             this.txt_precio_costo.Size = new System.Drawing.Size(163, 20);
             this.txt_precio_costo.TabIndex = 7;
+            this.txt_precio_costo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_precio_costo_KeyDown);
+            this.txt_precio_costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_costo_KeyPress);
             // 
             // txt_precio_venta
             // 
@@ -116,6 +122,8 @@
             this.txt_precio_venta.Name = "txt_precio_venta";
             this.txt_precio_venta.Size = new System.Drawing.Size(163, 20);
             this.txt_precio_venta.TabIndex = 8;
+            this.txt_precio_venta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_precio_venta_KeyDown);
+            this.txt_precio_venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_venta_KeyPress);
             // 
             // txt_stock_minimo
             // 
@@ -123,6 +131,8 @@
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 20);
             this.txt_stock_minimo.TabIndex = 9;
+            this.txt_stock_minimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_stock_minimo_KeyDown);
+            this.txt_stock_minimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_minimo_KeyPress);
             // 
             // btn_agregar
             // 
@@ -159,6 +169,8 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(163, 20);
             this.txt_cantidad.TabIndex = 10;
+            this.txt_cantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_cantidad_KeyDown);
+            this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
             // 
             // AgregarProducto
             // 
