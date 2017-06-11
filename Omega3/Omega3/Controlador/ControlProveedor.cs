@@ -79,7 +79,7 @@ namespace Omega3.Controlador
 
         public static void AutoFill(DataGridView dgv_tabla)
         {
-            dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             int i;
             for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)

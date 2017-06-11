@@ -41,7 +41,10 @@ namespace Omega3.Vista.Pedidos
 
             //Pongo el boton al fondo
             tabla_proveedores.Columns[0].DisplayIndex = 6; // or 1, 2, 3 etc
-            
+            tabla_proveedores.Columns[3].HeaderText = "Dirección";
+            tabla_proveedores.Columns[5].HeaderText = "Teléfono";
+
+
 
         }
 
