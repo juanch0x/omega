@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2017 a las 03:18:27
+-- Tiempo de generación: 12-06-2017 a las 03:50:27
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -23,11 +23,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `localidad`
+--
+
+CREATE TABLE `localidad` (
+  `codigo_postal` int(5) NOT NULL,
+  `localidad` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `localidad`
+--
+
+INSERT INTO `localidad` (`codigo_postal`, `localidad`) VALUES
+(5500, 'Ciudad');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `id_pedido` int(11) NOT NULL,
+  `id_producto` bigint(200) NOT NULL,
+  `cantidad` int(3) NOT NULL,
+  `user_pedido` varchar(20) NOT NULL,
+  `user_compra` varchar(20) NOT NULL,
+  `fecha_pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha_compra` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `cantidad_comprada` int(3) NOT NULL,
+  `realizado` tinyint(1) NOT NULL,
+  `id_proveedor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
-  `cod_producto` int(200) NOT NULL,
+  `cod_producto` bigint(200) NOT NULL,
   `producto` varchar(200) NOT NULL,
   `cantidad` int(10) NOT NULL,
   `precio_compra` decimal(10,2) NOT NULL,
@@ -41,7 +78,45 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`cod_producto`, `producto`, `cantidad`, `precio_compra`, `precio_venta`, `stock_minimo`) VALUES
 (0, 'pepe en patinetas', 0, '292.20', '994.20', 1919),
-(20, 'Gilada', 0, '200.00', '25.15', 0);
+(1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, '1.00', '1.00', 1),
+(20, 'Huevada', 0, '200.00', '25.15', 0),
+(77, 'asd', 6, '123.00', '4.00', 1),
+(89, '98', 98, '89.00', '98.00', 98),
+(111, 'aaa', 4, '141.00', '111.00', 1),
+(444, 'nico', 1, '1.00', '1.00', 1),
+(819, 'lkjad', 1, '8118.00', '181.00', 1),
+(848, 'kjld', 2, '831.00', '18.00', 1),
+(1377, 'juancho', 4, '189.00', '894.00', 84),
+(8189, 'nocp', 48, '189.00', '12893.00', 81),
+(81932989, 'julian', 49, '1412.12', '123.11', 85),
+(89128932, 'JOrge', 14, '11231.00', '44181.00', 15),
+(98199191, 'jldksjla', 1919, '1818.00', '1818.00', 1919),
+(894189891, 'Hierba', 15, '15.15', '51.51', 10),
+(6935364070854, 'ahorasi', 72, '27.00', '72.00', 72);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(30) NOT NULL,
+  `proveedor` varchar(20) NOT NULL,
+  `telefono` bigint(20) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `provincia` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `codigo_postal` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id_proveedor`, `proveedor`, `telefono`, `direccion`, `provincia`, `email`, `codigo_postal`) VALUES
+(1, 'McDonalds', 4258169, 'Av San Martin 585', 'Mendoza', 'mcdonalds@hotmail.com', 5500),
+(2, 'Burger King', 4215819, 'Av Siempre Viva 1337', 'Tuíuman', 'burger@yahoo.com.ar', 5511);
 
 -- --------------------------------------------------------
 
@@ -87,10 +162,28 @@ INSERT INTO `usuarios` (`usuario`, `password`, `id_rol`, `nombre`) VALUES
 --
 
 --
+-- Indices de la tabla `localidad`
+--
+ALTER TABLE `localidad`
+  ADD PRIMARY KEY (`codigo_postal`);
+
+--
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id_pedido`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`cod_producto`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`);
 
 --
 -- Indices de la tabla `roles`
@@ -108,6 +201,16 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `id_proveedor` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
