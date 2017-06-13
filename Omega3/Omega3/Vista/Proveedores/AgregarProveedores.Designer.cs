@@ -33,7 +33,7 @@
             this.lbl_telefono = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
             this.lbl_direccion = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_direccion = new System.Windows.Forms.TextBox();
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.txt_provincia = new System.Windows.Forms.TextBox();
             this.txt_codigo_postal = new System.Windows.Forms.TextBox();
@@ -86,12 +86,12 @@
             this.lbl_direccion.TabIndex = 4;
             this.lbl_direccion.Text = "Dirección";
             // 
-            // textBox1
+            // txt_direccion
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 5;
+            this.txt_direccion.Location = new System.Drawing.Point(90, 84);
+            this.txt_direccion.Name = "txt_direccion";
+            this.txt_direccion.Size = new System.Drawing.Size(160, 20);
+            this.txt_direccion.TabIndex = 5;
             // 
             // lbl_provincia
             // 
@@ -149,6 +149,7 @@
             this.btn_agregar.TabIndex = 12;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // btn_limpiar
             // 
@@ -158,6 +159,7 @@
             this.btn_limpiar.TabIndex = 13;
             this.btn_limpiar.Text = "Limpiar";
             this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
@@ -167,6 +169,7 @@
             this.btn_salir.TabIndex = 14;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // AgregarProveedores
             // 
@@ -182,7 +185,7 @@
             this.Controls.Add(this.txt_codigo_postal);
             this.Controls.Add(this.txt_provincia);
             this.Controls.Add(this.lbl_provincia);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_direccion);
             this.Controls.Add(this.lbl_direccion);
             this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.lbl_telefono);
@@ -202,7 +205,7 @@
         private System.Windows.Forms.Label lbl_telefono;
         private System.Windows.Forms.TextBox txt_telefono;
         private System.Windows.Forms.Label lbl_direccion;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.Label lbl_provincia;
         private System.Windows.Forms.TextBox txt_provincia;
         private System.Windows.Forms.TextBox txt_codigo_postal;

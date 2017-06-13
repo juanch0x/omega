@@ -113,6 +113,14 @@ namespace Omega3
                 solicitarstock.Show();
             }
         }
+
+        private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Proveedores.AgregarProveedores a = new Vista.Proveedores.AgregarProveedores();
+            a.MdiParent = this;
+            a.Show();
+
+        }
     }
     }
 

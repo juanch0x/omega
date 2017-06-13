@@ -17,10 +17,15 @@ namespace Omega3.Controlador
         {
 
             int retorno = 0;
+            try
+            {
+                Console.WriteLine(proveedor.Codigo_postal);
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email) values ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                    proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), Conexion.ObtenerConexion());
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (nombre, telefono, direccion, provincia, localidad, email) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Localidad, proveedor.Email), Conexion.ObtenerConexion());
-            retorno = comando.ExecuteNonQuery();
+                retorno = comando.ExecuteNonQuery();
+            }
+            catch (Exception ex) { Console.WriteLine("Error agregando el proveedor: "+ ex); }
             return retorno;
         }
 
@@ -29,8 +34,8 @@ namespace Omega3.Controlador
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set nombre='{1}', telefono='{2}', direccion='{3}', provincia='{4}', localidad='{5}', email='{6}' where id_proveedor={0}",
-                proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Localidad, proveedor.Email), conexion);
+            MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', localidad='{5}', email='{6}' where id_proveedor={0}",
+                proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), conexion);
 
             retorno = comando.ExecuteNonQuery();
             conexion.Close();
