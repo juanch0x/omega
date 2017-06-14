@@ -116,7 +116,7 @@ namespace Omega3
 
         private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Proveedores.AgregarProveedores a = new Vista.Proveedores.AgregarProveedores();
+            Vista.Proveedores.ABMProveedores a = new Vista.Proveedores.ABMProveedores();
             a.MdiParent = this;
             a.Show();
 

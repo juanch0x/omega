@@ -60,6 +60,7 @@
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.Size = new System.Drawing.Size(160, 20);
             this.txt_proveedor.TabIndex = 1;
+            this.txt_proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_proveedor_KeyPress);
             // 
             // lbl_telefono
             // 
@@ -76,6 +77,7 @@
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(160, 20);
             this.txt_telefono.TabIndex = 3;
+            this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // lbl_direccion
             // 
@@ -92,6 +94,7 @@
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(160, 20);
             this.txt_direccion.TabIndex = 5;
+            this.txt_direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_direccion_KeyPress);
             // 
             // lbl_provincia
             // 
@@ -108,6 +111,7 @@
             this.txt_provincia.Name = "txt_provincia";
             this.txt_provincia.Size = new System.Drawing.Size(160, 20);
             this.txt_provincia.TabIndex = 7;
+            this.txt_provincia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_provincia_KeyPress);
             // 
             // txt_codigo_postal
             // 
@@ -115,6 +119,7 @@
             this.txt_codigo_postal.Name = "txt_codigo_postal";
             this.txt_codigo_postal.Size = new System.Drawing.Size(160, 20);
             this.txt_codigo_postal.TabIndex = 8;
+            this.txt_codigo_postal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_postal_KeyPress);
             // 
             // lbl_codigo_postal
             // 

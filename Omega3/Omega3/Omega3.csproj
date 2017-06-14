@@ -120,11 +120,23 @@
     <Compile Include="Vista\Productos\ABMProductos.Designer.cs">
       <DependentUpon>ABMProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Proveedores\ABMProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Proveedores\ABMProveedores.Designer.cs">
+      <DependentUpon>ABMProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Proveedores\AgregarProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\Proveedores\AgregarProveedores.Designer.cs">
       <DependentUpon>AgregarProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Proveedores\ModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -160,8 +172,14 @@
     <EmbeddedResource Include="Vista\Productos\ABMProductos.resx">
       <DependentUpon>ABMProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Proveedores\ABMProveedores.resx">
+      <DependentUpon>ABMProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\AgregarProveedores.resx">
       <DependentUpon>AgregarProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

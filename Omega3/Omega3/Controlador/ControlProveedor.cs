@@ -29,17 +29,21 @@ namespace Omega3.Controlador
             return retorno;
         }
 
-        public static int ModificarCliente(Proveedor proveedor)
+        public static int ModificarProveedor(Proveedor proveedor)
         {
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
-
-            MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', localidad='{5}', email='{6}' where id_proveedor={0}",
-                proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), conexion);
-
-            retorno = comando.ExecuteNonQuery();
-            conexion.Close();
-
+            try
+            {
+                
+                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}' where id_proveedor={0}",
+                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), conexion);
+                Console.WriteLine(comando.CommandText);
+                Console.WriteLine(comando);
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex) { MessageBox.Show("Error en el metodo ModificarProveedor\n"+ ex); }
             return retorno;
 
 
@@ -99,6 +103,40 @@ namespace Omega3.Controlador
 
         }
 
+        public static void validarCaracteresNumerosyLetras(KeyPressEventArgs e)
+        {
+
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+                return;
+
+            }
+
+        }
+
+        public static void validarCaracteresNumericos(KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+        public static void validarCaracteresLetras(KeyPressEventArgs e) {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                return;
+                }
+
+        }
+
+        public static void validarTextboxVacio(string campo)
+        {
+            MessageBox.Show("El campo " + campo + " es obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+        }
 
     }
 }

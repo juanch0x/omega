@@ -7,30 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Omega3.Modelo;
 using Omega3.Controlador;
 
 namespace Omega3.Vista.Proveedores
 {
-    public partial class AgregarProveedores : Form
+    public partial class ModificarProveedor : Form
     {
-        public AgregarProveedores()
+        Proveedor proveedor;
+        public ModificarProveedor(Proveedor a)
         {
             InitializeComponent();
+            this.proveedor = a;
+            txt_id_proveedor.Text = Convert.ToString(proveedor.Id_proveedor);
+            txt_proveedor.Text = proveedor.Nombre_proveedor;
+            txt_provincia.Text = proveedor.Provincia;
+            txt_telefono.Text = Convert.ToString(proveedor.Telefono);
+            txt_codigo_postal.Text = Convert.ToString(proveedor.Codigo_postal);
+            txt_direccion.Text = proveedor.Direccion;
+            txt_email.Text = proveedor.Email;
+
         }
 
-        private void limpiar() {
-
-            txt_codigo_postal.Text = "";
-            txt_email.Text = "";
-            txt_proveedor.Text = "";
-            txt_provincia.Text = "";
-            txt_telefono.Text = "";
-            txt_direccion.Text = "";
-        }
-
-        private void btn_limpiar_Click(object sender, EventArgs e)
+        private void ModificarProveedor_Load(object sender, EventArgs e)
         {
-            limpiar();
+
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -38,10 +39,8 @@ namespace Omega3.Vista.Proveedores
             this.Close();
         }
 
-        private void btn_agregar_Click(object sender, EventArgs e)
+        private void btn_modificar_Click(object sender, EventArgs e)
         {
-            Omega3.Modelo.Proveedor proveedor = new Modelo.Proveedor();
-
             if (txt_codigo_postal.Text == "") { ControlProveedor.validarTextboxVacio("Codigo postal"); }
             else if (txt_direccion.Text == "") { ControlProveedor.validarTextboxVacio("Dirección"); }
             else if (txt_email.Text == "") { ControlProveedor.validarTextboxVacio("Email"); }
@@ -50,19 +49,18 @@ namespace Omega3.Vista.Proveedores
             else if (txt_telefono.Text == "") { ControlProveedor.validarTextboxVacio("Telefono"); }
             else
             {
-
-                proveedor.Nombre_proveedor = txt_proveedor.Text;
-                proveedor.Telefono = Convert.ToInt32(txt_telefono.Text);
-                proveedor.Direccion = txt_direccion.Text;
                 proveedor.Codigo_postal = Convert.ToInt32(txt_codigo_postal.Text);
+                proveedor.Direccion = txt_direccion.Text;
                 proveedor.Email = txt_email.Text;
+                proveedor.Id_proveedor = long.Parse(txt_id_proveedor.Text);
+                proveedor.Nombre_proveedor = txt_proveedor.Text;
                 proveedor.Provincia = txt_provincia.Text;
-
-                Controlador.ControlProveedor.AgregarProveedor(proveedor);
-
-                MessageBox.Show("El proveedor se agregó correctamente!");
-                limpiar();
+                proveedor.Telefono = Convert.ToInt32(txt_telefono.Text);
+                
+                ControlProveedor.ModificarProveedor(proveedor);
             }
+            MessageBox.Show("El proveedor fue modificado correctamente");
+            this.Close();
         }
 
         private void txt_proveedor_KeyPress(object sender, KeyPressEventArgs e)
@@ -89,5 +87,7 @@ namespace Omega3.Vista.Proveedores
         {
             ControlProveedor.validarCaracteresNumericos(e);
         }
+
+        
     }
 }
