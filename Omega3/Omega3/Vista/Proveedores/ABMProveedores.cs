@@ -52,6 +52,8 @@ namespace Omega3.Vista.Proveedores
             AgregarProveedores a = new AgregarProveedores();
             a.StartPosition = FormStartPosition.CenterScreen;
             a.ShowDialog();
+            Controlador.ControlProveedor.llenarTabla(tabla_proveedores);
+            Controlador.ControlProveedor.AutoFill(tabla_proveedores);
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace Omega3.Vista.Proveedores
         private void btn_modificar_Click(object sender, EventArgs e)
         {
 
-            if (tabla_proveedores.SelectedRows.Count < 0)
+            if (tabla_proveedores.SelectedRows.Count > 0)
             {
 
                 Omega3.Modelo.Proveedor proveedor = new Modelo.Proveedor();

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Vista.Pedidos;
+using Omega3.Modelo;
+using Omega3.Controlador;
 
 namespace Omega3.Vista.Pedidos
 {
@@ -94,6 +96,37 @@ namespace Omega3.Vista.Pedidos
             proveedor.StartPosition = FormStartPosition.CenterScreen;
             proveedor.ShowDialog();
             
+        }
+
+        private void txt_cantidad_solicitada_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Controlador.ControlProveedor.validarCaracteresNumericos(e);
+        }
+
+        private void btn_solicitar_Click(object sender, EventArgs e)
+        {
+            Pedido pedido = new Pedido();
+
+            if (txt_cantidad_solicitada.Text == "")
+            {
+                ControlProveedor.validarTextboxVacio("Cantidad Solicitdad");
+            }
+            else
+            {
+
+                pedido.Id_producto = long.Parse(txt_codigo.Text);
+                pedido.Cantidad = Convert.ToInt32(txt_cantidad_solicitada.Text);
+                pedido.Fecha_pedido = DateTime.Now;
+
+                if (txt_proveedor.Text != "")
+                {
+                    pedido.Id_proveedor = long.Parse(txt_proveedor.Text);
+                }
+            }
+
+
+            //ControlPedidos.AgregarPedido(a);
+
         }
     }
 }
