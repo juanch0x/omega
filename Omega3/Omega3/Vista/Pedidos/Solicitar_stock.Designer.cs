@@ -49,6 +49,7 @@
             this.lbl_stock = new System.Windows.Forms.Label();
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.lbl_codigo = new System.Windows.Forms.Label();
+            this.btn_solicitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -148,6 +149,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_solicitar);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.txt_proveedor);
             this.panel3.Controls.Add(this.lbl_proveedor);
@@ -198,6 +200,7 @@
             this.txt_cantidad_solicitada.Name = "txt_cantidad_solicitada";
             this.txt_cantidad_solicitada.Size = new System.Drawing.Size(100, 20);
             this.txt_cantidad_solicitada.TabIndex = 7;
+            this.txt_cantidad_solicitada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_solicitada_KeyPress);
             // 
             // lbl_cantidad_solicitada
             // 
@@ -259,6 +262,16 @@
             this.lbl_codigo.TabIndex = 0;
             this.lbl_codigo.Text = "Codigo";
             // 
+            // btn_solicitar
+            // 
+            this.btn_solicitar.Location = new System.Drawing.Point(578, 57);
+            this.btn_solicitar.Name = "btn_solicitar";
+            this.btn_solicitar.Size = new System.Drawing.Size(75, 23);
+            this.btn_solicitar.TabIndex = 12;
+            this.btn_solicitar.Text = "Solicitar";
+            this.btn_solicitar.UseVisualStyleBackColor = true;
+            this.btn_solicitar.Click += new System.EventHandler(this.btn_solicitar_Click);
+            // 
             // Solicitar_stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,5 +316,6 @@
         private System.Windows.Forms.TextBox txt_cantidad_solicitada;
         private System.Windows.Forms.Label lbl_cantidad_solicitada;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_solicitar;
     }
 }
