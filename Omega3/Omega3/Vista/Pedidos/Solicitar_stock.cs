@@ -95,20 +95,5 @@ namespace Omega3.Vista.Pedidos
             proveedor.ShowDialog();
             
         }
-
-        private void txt_cantidad_solicitada_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Controlador.ControlProveedor.validarCaracteresNumericos(e);
-        }
-
-        private void txt_filtro_nombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Controlador.ControlProveedor.validarCaracteresNumerosyLetras(e);
-        }
-
-        private void txt_filtro_codigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Controlador.ControlProveedor.validarCaracteresNumericos(e);
-        }
     }
 }
