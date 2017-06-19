@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Omega3.Vista.Pedidos;
 using Omega3.Modelo;
 using Omega3.Controlador;
-
+//Probando si funciona git.......
 namespace Omega3.Vista.Pedidos
 {
     public partial class Solicitar_stock : Form
