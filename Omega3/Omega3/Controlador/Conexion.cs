@@ -13,9 +13,16 @@ namespace Omega3.Controlador
         public static MySqlConnection ObtenerConexion()
         {
             MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=omega; Uid=root; pwd=;");
-            
-            conectar.Open();
+            try
+            {              
+
+                conectar.Open();
+                
+            }
+            catch (MySqlException e) { Console.WriteLine("Error en la base de datos" + e); }
+
             return conectar;
+
         }
 
     }

@@ -31,12 +31,12 @@ namespace Omega3.Vista
 
             this.Hide();
 
-            Usuario user = new Usuario();
-            user.User = txt_usuario.Text;
-            user.Password = txt_pwd.Text;
+            
+            Usuario.User = txt_usuario.Text;
+            Usuario.Password = txt_pwd.Text;
 
             ControlUsuario login = new ControlUsuario();
-            login.login(user);
+            login.login();
 
             f1.MenuVentas.Visible = true;
             f1.MenuProducto.Visible = true;

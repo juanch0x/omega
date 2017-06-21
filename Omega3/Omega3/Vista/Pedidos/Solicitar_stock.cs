@@ -117,15 +117,17 @@ namespace Omega3.Vista.Pedidos
                 pedido.Id_producto = long.Parse(txt_codigo.Text);
                 pedido.Cantidad = Convert.ToInt32(txt_cantidad_solicitada.Text);
                 pedido.Fecha_pedido = DateTime.Now;
+                pedido.User_pedido = Usuario.User;
 
                 if (txt_proveedor.Text != "")
                 {
                     pedido.Id_proveedor = long.Parse(txt_proveedor.Text);
                 }
+                ControlPedidos.AgregarPedido(pedido);
             }
 
-
-            //ControlPedidos.AgregarPedido(a);
+         
+            
 
         }
     }
