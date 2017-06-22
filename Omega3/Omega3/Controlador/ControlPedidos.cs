@@ -50,7 +50,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "select * from pedidos;Convert Zero Datetime=true";
+            string sqlSelectAll = "select * from pedidos";
             try
             {
 
