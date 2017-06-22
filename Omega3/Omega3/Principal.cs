@@ -12,7 +12,7 @@ using Omega3.Modelo;
 using System.Globalization;
 using Omega3.Vista;
 using Omega3.Vista.Productos;
-
+using Omega3.Vista.Pedidos;
 
 namespace Omega3
 {
@@ -120,6 +120,17 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
 
+        }
+
+        private void reabastecimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+
+                pedidos a = new pedidos();
+                a.MdiParent = this;
+                a.Show();
+
+            }
         }
     }
     }

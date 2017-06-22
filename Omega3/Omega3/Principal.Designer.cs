@@ -32,9 +32,10 @@
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitarStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reabastecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             // 
             this.productoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarProductoToolStripMenuItem,
-            this.solicitarStockToolStripMenuItem});
+            this.solicitarStockToolStripMenuItem,
+            this.reabastecimientoToolStripMenuItem});
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
             this.productoToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.productoToolStripMenuItem.Text = "Producto";
@@ -73,12 +75,6 @@
             this.solicitarStockToolStripMenuItem.Text = "Solicitar Stock";
             this.solicitarStockToolStripMenuItem.Click += new System.EventHandler(this.solicitarStockToolStripMenuItem_Click);
             // 
-            // ventasToolStripMenuItem
-            // 
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.ventasToolStripMenuItem.Text = "Ventas";
-            // 
             // proveedorToolStripMenuItem
             // 
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -93,6 +89,19 @@
             this.administrarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.administrarProveedoresToolStripMenuItem.Text = "Administrar Proveedores";
             this.administrarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.administrarProveedoresToolStripMenuItem_Click);
+            // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.ventasToolStripMenuItem.Text = "Ventas";
+            // 
+            // reabastecimientoToolStripMenuItem
+            // 
+            this.reabastecimientoToolStripMenuItem.Name = "reabastecimientoToolStripMenuItem";
+            this.reabastecimientoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.reabastecimientoToolStripMenuItem.Text = "Reabastecimiento";
+            this.reabastecimientoToolStripMenuItem.Click += new System.EventHandler(this.reabastecimientoToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -122,6 +131,7 @@
         private System.Windows.Forms.ToolStripMenuItem solicitarStockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarProveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reabastecimientoToolStripMenuItem;
     }
 }
 

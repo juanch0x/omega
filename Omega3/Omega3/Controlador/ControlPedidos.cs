@@ -42,5 +42,33 @@ namespace Omega3.Controlador
             return fecha;
         }
 
+
+        //string sqlSelectAll = "SELECT pedidos.id_pedido AS ID_Pedido, productos.producto AS Producto, proveedores.proveedor AS Proveedor, pedidos.cantidad AS Cantidad_Solicitada, pedidos.user_pedido AS Usuario_Pedido , fecha_pedido AS Fecha_Pedido, user_compra AS Usuario_Compra, fecha_compra AS Fecha_Compra, cantidad_comprada AS Cantidad_Comprada FROM pedidos LEFT JOIN productos ON pedidos.id_producto = productos.cod_producto LEFT JOIN proveedores ON proveedores.id_proveedor = pedidos.id_proveedor";
+
+        public static void llenarTabla(DataGridView cuadro)
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "select * from pedidos;Convert Zero Datetime=true";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                cuadro.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de pedidos: " + ex); }
+        }
+
+
+
     }
 }
