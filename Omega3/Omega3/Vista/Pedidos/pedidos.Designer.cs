@@ -32,20 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.combo_filtro = new System.Windows.Forms.ComboBox();
+            this.lbl_filtro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.dgv_tabla);
-            this.panel1.Location = new System.Drawing.Point(30, 63);
+            this.panel1.Location = new System.Drawing.Point(0, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(668, 212);
+            this.panel1.Size = new System.Drawing.Size(1007, 355);
             this.panel1.TabIndex = 0;
             // 
             // dgv_tabla
@@ -72,40 +70,49 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
-            this.dgv_tabla.Location = new System.Drawing.Point(3, 3);
+            this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
             this.dgv_tabla.MultiSelect = false;
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(359, 206);
+            this.dgv_tabla.Size = new System.Drawing.Size(1007, 355);
             this.dgv_tabla.TabIndex = 8;
+            this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
-            // label1
+            // combo_filtro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.combo_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_filtro.FormattingEnabled = true;
+            this.combo_filtro.Items.AddRange(new object[] {
+            "Todos",
+            "Finalizados",
+            "Pendientes"});
+            this.combo_filtro.Location = new System.Drawing.Point(68, 18);
+            this.combo_filtro.Name = "combo_filtro";
+            this.combo_filtro.Size = new System.Drawing.Size(121, 21);
+            this.combo_filtro.TabIndex = 2;
+            this.combo_filtro.SelectedIndexChanged += new System.EventHandler(this.combo_filtro_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // lbl_filtro
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(368, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(297, 206);
-            this.dataGridView1.TabIndex = 2;
+            this.lbl_filtro.AutoSize = true;
+            this.lbl_filtro.Location = new System.Drawing.Point(12, 23);
+            this.lbl_filtro.Name = "lbl_filtro";
+            this.lbl_filtro.Size = new System.Drawing.Size(29, 13);
+            this.lbl_filtro.TabIndex = 3;
+            this.lbl_filtro.Text = "Filtro";
             // 
             // pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(748, 329);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1007, 416);
+            this.Controls.Add(this.lbl_filtro);
+            this.Controls.Add(this.combo_filtro);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "pedidos";
@@ -113,7 +120,6 @@
             this.Load += new System.EventHandler(this.pedidos_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +129,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgv_tabla;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox combo_filtro;
+        private System.Windows.Forms.Label lbl_filtro;
     }
 }
