@@ -20,11 +20,12 @@ namespace Omega3.Vista.Pedidos
             InitializeComponent();
             //LLeno la tabla y adapto los valores
             ControlPedidos.llenarTabla(dgv_tabla);
-            ControlPedidos.ModificarValoresTabla(dgv_tabla);
+            
             //Genero un datatable para poder filtrar con los checkbox abajo..
             bd = (BindingSource)dgv_tabla.DataSource;
             dt = (DataTable)bd.DataSource;
             combo_filtro.SelectedIndex = 0;
+           
         }
 
         private void pedidos_Load(object sender, EventArgs e)
@@ -35,8 +36,10 @@ namespace Omega3.Vista.Pedidos
 
             //Acomodo el tamaño de las cabaceras al tamaño del datagridview
 
-            // Omega3.Controlador.ControlProducto.AutoFill(dgv_tabla);
-            
+            //Pongo el boton al fondo 
+                dgv_tabla.Columns[0].DisplayIndex = 9; // or 1, 2, 3 etc
+            ControlPedidos.ModificarValoresTabla(dgv_tabla);
+            ControlPedidos.administrarImagendgv(dgv_tabla);
 
         }
 
@@ -46,11 +49,13 @@ namespace Omega3.Vista.Pedidos
             foreach (DataGridViewRow Myrow in dgv_tabla.Rows)
             {
                 
-                if (Convert.ToString (Myrow.Cells[6].Value) == "Pendiente")// Or your condition 
+                if (Convert.ToString (Myrow.Cells["Usuario_Compra"].Value) == "Pendiente")
                 {
 
                      Myrow.DefaultCellStyle.ForeColor = Color.Black;
-                                      
+                    //Myrow.DefaultCellStyle.BackColor = Color.Red;
+                    
+
 
                 }
                 else
@@ -59,10 +64,12 @@ namespace Omega3.Vista.Pedidos
                     Myrow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#C5F6B4");
 
                 }
-            }
-        }
 
-        
+            }
+            
+            
+
+        }
 
         private void combo_filtro_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -34,6 +34,8 @@
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.combo_filtro = new System.Windows.Forms.ComboBox();
             this.lbl_filtro = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Status = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +64,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Status});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,6 +109,19 @@
             this.lbl_filtro.TabIndex = 3;
             this.lbl_filtro.Text = "Filtro";
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Estado";
+            this.dataGridViewImageColumn1.Image = global::Omega3.Properties.Resources.Valid_icon;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Estado";
+            this.Status.Image = global::Omega3.Properties.Resources.Valid_icon;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
             // pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,5 +148,7 @@
         private System.Windows.Forms.DataGridView dgv_tabla;
         private System.Windows.Forms.ComboBox combo_filtro;
         private System.Windows.Forms.Label lbl_filtro;
+        private System.Windows.Forms.DataGridViewImageColumn Status;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

@@ -71,12 +71,24 @@ namespace Omega3.Controlador
 
             for (int i = 0; i< cuadro.RowCount; i++)
             {
-                if (Convert.ToString(cuadro.Rows[i].Cells[6].Value) == "")
+                if (Convert.ToString(cuadro.Rows[i].Cells[7].Value) == "")
                 {
-                    cuadro.Rows[i].Cells[7].Value = cuadro.Rows[i].Cells[5].Value;
-                    cuadro.Rows[i].Cells[6].Value = "Pendiente";
+                   // cuadro.Rows[i].Cells[7].Value = cuadro.Rows[i].Cells[5].Value;
+                    cuadro.Rows[i].Cells[7].Value = "Pendiente";
+                    //((DataGridViewImageCell)cuadro.Rows[i].Cells[0]).Value = Properties.Resources.Warning_16x16;
                 }
             }
+        
+
+
+        }
+        public static void administrarImagendgv(DataGridView cuadro) {
+                 foreach (DataGridViewRow row in cuadro.Rows)
+                   {
+                   DataGridViewImageCell cell = row.Cells[0] as DataGridViewImageCell;
+                         cell.Value = (System.Drawing.Image)Properties.Resources.Warning_16x16;
+                    }
+           
 
         }
 
