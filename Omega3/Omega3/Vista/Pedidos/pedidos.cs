@@ -82,7 +82,9 @@ namespace Omega3.Vista.Pedidos
                     
                     DataView dv = new DataView(dt);
                     dv.RowFilter = rowfilter;
+                    
                     dgv_tabla.DataSource = dv;
+                    ControlPedidos.administrarImagendgv(dgv_tabla);
                 }
                 catch (Exception)
                 {
@@ -96,6 +98,7 @@ namespace Omega3.Vista.Pedidos
                 DataView dv = new DataView(dt);
                 dv.RowFilter = rowfilter;
                 dgv_tabla.DataSource = dv;
+                ControlPedidos.administrarImagendgv(dgv_tabla);
             }
             else if(Convert.ToString(combo_filtro.SelectedItem) == "Finalizados")
             {

@@ -83,12 +83,14 @@ namespace Omega3.Controlador
 
         }
         public static void administrarImagendgv(DataGridView cuadro) {
-                 foreach (DataGridViewRow row in cuadro.Rows)
-                   {
-                   DataGridViewImageCell cell = row.Cells[0] as DataGridViewImageCell;
-                         cell.Value = (System.Drawing.Image)Properties.Resources.Warning_16x16;
-                    }
-           
+            foreach (DataGridViewRow row in cuadro.Rows)
+            {
+                DataGridViewImageCell cell = row.Cells[0] as DataGridViewImageCell;
+                if (Convert.ToString(row.Cells[7].Value) == "Pendiente")
+                {
+                    cell.Value = (System.Drawing.Image)Properties.Resources.Warning_16x16;
+                }
+            }
 
         }
 
