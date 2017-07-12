@@ -132,6 +132,17 @@ namespace Omega3
 
             }
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+
+                Vista.Clientes.CrearCliente a = new Vista.Clientes.CrearCliente();
+                a.MdiParent = this;
+                a.Show();
+
+            }
+        }
     }
     }
 

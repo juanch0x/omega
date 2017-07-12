@@ -32,10 +32,11 @@
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitarStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reabastecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reabastecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,8 @@
             this.productoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarProductoToolStripMenuItem,
             this.solicitarStockToolStripMenuItem,
-            this.reabastecimientoToolStripMenuItem});
+            this.reabastecimientoToolStripMenuItem,
+            this.clienteToolStripMenuItem});
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
             this.productoToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.productoToolStripMenuItem.Text = "Producto";
@@ -74,6 +76,13 @@
             this.solicitarStockToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.solicitarStockToolStripMenuItem.Text = "Solicitar Stock";
             this.solicitarStockToolStripMenuItem.Click += new System.EventHandler(this.solicitarStockToolStripMenuItem_Click);
+            // 
+            // reabastecimientoToolStripMenuItem
+            // 
+            this.reabastecimientoToolStripMenuItem.Name = "reabastecimientoToolStripMenuItem";
+            this.reabastecimientoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.reabastecimientoToolStripMenuItem.Text = "Reabastecimiento";
+            this.reabastecimientoToolStripMenuItem.Click += new System.EventHandler(this.reabastecimientoToolStripMenuItem_Click);
             // 
             // proveedorToolStripMenuItem
             // 
@@ -93,15 +102,15 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
             // 
-            // reabastecimientoToolStripMenuItem
+            // clienteToolStripMenuItem
             // 
-            this.reabastecimientoToolStripMenuItem.Name = "reabastecimientoToolStripMenuItem";
-            this.reabastecimientoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.reabastecimientoToolStripMenuItem.Text = "Reabastecimiento";
-            this.reabastecimientoToolStripMenuItem.Click += new System.EventHandler(this.reabastecimientoToolStripMenuItem_Click);
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -132,6 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarProveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reabastecimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
     }
 }
 
