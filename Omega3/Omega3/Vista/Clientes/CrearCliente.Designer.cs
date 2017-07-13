@@ -38,6 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbl_provincia = new System.Windows.Forms.Label();
+            this.lbl_localidad = new System.Windows.Forms.Label();
+            this.combo_provincia = new System.Windows.Forms.ComboBox();
+            this.combo_localidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // combo_documento
@@ -114,7 +118,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(138, 253);
+            this.button1.Location = new System.Drawing.Point(38, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -122,11 +126,49 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbl_provincia
+            // 
+            this.lbl_provincia.AutoSize = true;
+            this.lbl_provincia.Location = new System.Drawing.Point(9, 160);
+            this.lbl_provincia.Name = "lbl_provincia";
+            this.lbl_provincia.Size = new System.Drawing.Size(51, 13);
+            this.lbl_provincia.TabIndex = 10;
+            this.lbl_provincia.Text = "Provincia";
+            // 
+            // lbl_localidad
+            // 
+            this.lbl_localidad.AutoSize = true;
+            this.lbl_localidad.Location = new System.Drawing.Point(411, 160);
+            this.lbl_localidad.Name = "lbl_localidad";
+            this.lbl_localidad.Size = new System.Drawing.Size(53, 13);
+            this.lbl_localidad.TabIndex = 11;
+            this.lbl_localidad.Text = "Localidad";
+            // 
+            // combo_provincia
+            // 
+            this.combo_provincia.FormattingEnabled = true;
+            this.combo_provincia.Location = new System.Drawing.Point(12, 186);
+            this.combo_provincia.Name = "combo_provincia";
+            this.combo_provincia.Size = new System.Drawing.Size(292, 21);
+            this.combo_provincia.TabIndex = 12;
+            // 
+            // combo_localidad
+            // 
+            this.combo_localidad.FormattingEnabled = true;
+            this.combo_localidad.Location = new System.Drawing.Point(414, 186);
+            this.combo_localidad.Name = "combo_localidad";
+            this.combo_localidad.Size = new System.Drawing.Size(201, 21);
+            this.combo_localidad.TabIndex = 13;
+            // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 480);
+            this.ClientSize = new System.Drawing.Size(756, 483);
+            this.Controls.Add(this.combo_localidad);
+            this.Controls.Add(this.combo_provincia);
+            this.Controls.Add(this.lbl_localidad);
+            this.Controls.Add(this.lbl_provincia);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.label1);
@@ -156,5 +198,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_telefono;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_provincia;
+        private System.Windows.Forms.Label lbl_localidad;
+        private System.Windows.Forms.ComboBox combo_provincia;
+        private System.Windows.Forms.ComboBox combo_localidad;
     }
 }

@@ -143,6 +143,17 @@ namespace Omega3
 
             }
         }
+
+        private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+
+                Vista.Venta.Venta_1 a = new Vista.Venta.Venta_1();
+                a.MdiParent = this;
+                a.Show();
+
+            }
+        }
     }
     }
 

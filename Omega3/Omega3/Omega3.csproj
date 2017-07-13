@@ -69,6 +69,7 @@
     <Compile Include="Controlador\Conexion.cs" />
     <Compile Include="Controlador\ControlProducto.cs" />
     <Compile Include="Controlador\ControlUsuario.cs" />
+    <Compile Include="Controlador\ControlVentas.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Principal.cs">
@@ -149,6 +150,12 @@
     <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Venta\Venta_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\Venta_1.Designer.cs">
+      <DependentUpon>Venta_1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\Venta_1.resx">
+      <DependentUpon>Venta_1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
