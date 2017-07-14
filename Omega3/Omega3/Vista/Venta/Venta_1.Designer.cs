@@ -34,8 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.combo_tipo_factura = new System.Windows.Forms.ComboBox();
             this.combo_pago = new System.Windows.Forms.ComboBox();
+            this.Panel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,32 +98,66 @@
             this.combo_pago.Size = new System.Drawing.Size(121, 21);
             this.combo_pago.TabIndex = 5;
             // 
+            // Panel
+            // 
+            this.Panel.Controls.Add(this.label3);
+            this.Panel.Controls.Add(this.combo_pago);
+            this.Panel.Controls.Add(this.label1);
+            this.Panel.Controls.Add(this.combo_tipo_factura);
+            this.Panel.Controls.Add(this.label2);
+            this.Panel.Controls.Add(this.combo_condicion);
+            this.Panel.Location = new System.Drawing.Point(1, 274);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(608, 111);
+            this.Panel.TabIndex = 6;
+            this.Panel.Visible = false;
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.combo_pago);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.combo_tipo_factura);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.combo_condicion);
-            this.panel1.Location = new System.Drawing.Point(1, 274);
+            this.panel1.Location = new System.Drawing.Point(1, 144);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(608, 111);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 7;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 8;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(103, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(608, 439);
+            this.ClientSize = new System.Drawing.Size(612, 439);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Panel);
             this.Name = "Venta_1";
             this.Text = "Venta_1";
             this.Load += new System.EventHandler(this.Venta_1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Panel.ResumeLayout(false);
+            this.Panel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,6 +169,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combo_tipo_factura;
         private System.Windows.Forms.ComboBox combo_pago;
+        private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }

@@ -20,13 +20,10 @@ namespace Omega3.Modelo
         private string _mail_contacto;
         private string _mail_factura;
         private string _impositiva;
-        private string _data;
 
-        public string data { get => _data; set => _data = value; }
         public int Tipo_documento { get => _tipo_documento; set => _tipo_documento = value; }
         public long Documento { get => _documento; set => _documento = value; }
         public string Razon { get => _razon; set => _razon = value; }
-        public string nombre { get => _razon; set => _razon = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
         public long Telefono { get => _telefono; set => _telefono = value; }
         public string Provincia { get => _provincia; set => _provincia = value; }
@@ -37,4 +34,8 @@ namespace Omega3.Modelo
         public string Mail_factura { get => _mail_factura; set => _mail_factura = value; }
         public string Impositiva { get => _impositiva; set => _impositiva = value; }
     }
+
+
+
 }
+
