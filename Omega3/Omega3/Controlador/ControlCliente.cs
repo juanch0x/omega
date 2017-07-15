@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Omega3.Modelo;
 using System.Data;
 
+
 namespace Omega3.Controlador
 {
     class ControlCliente
@@ -65,7 +66,7 @@ namespace Omega3.Controlador
 
         }
 
-        public static int AgregarCliente(Cliente cliente)
+        public static int AgregarCliente(Omega3.Modelo.Cliente cliente)
         {
             Console.WriteLine("ME EJECUTO");
             int retorno = 0;
@@ -100,7 +101,9 @@ namespace Omega3.Controlador
 
             MessageBox.Show(aux);
 
+            ComprobantesClient client = new ComprobantesClient();
 
+        
             return aux;
 
         }

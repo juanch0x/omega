@@ -28,5 +28,11 @@ namespace Omega3.Vista.Venta
         {
             ControlVentas.llenarFacturas(combo_tipo_factura, Convert.ToInt32(combo_condicion.SelectedValue));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ControlVenta control = new ControlVenta();
+            control.Venta();
+        }
     }
 }

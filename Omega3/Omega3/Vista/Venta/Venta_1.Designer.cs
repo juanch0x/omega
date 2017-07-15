@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,12 +142,23 @@
             this.radioButton2.Text = "radioButton2";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(129, 96);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(346, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "FACTURALA PAPA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(612, 439);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.panel1);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button button1;
     }
 }

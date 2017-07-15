@@ -53,6 +53,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,12 +66,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Comprobantes.cs" />
     <Compile Include="Controlador\ControlCliente.cs" />
     <Compile Include="Controlador\ControlPedidos.cs" />
     <Compile Include="Controlador\ControlProveedor.cs" />
     <Compile Include="Controlador\Conexion.cs" />
     <Compile Include="Controlador\ControlProducto.cs" />
     <Compile Include="Controlador\ControlUsuario.cs" />
+    <Compile Include="Controlador\ControlVenta.cs" />
     <Compile Include="Controlador\ControlVentas.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Usuario.cs" />
@@ -206,6 +210,7 @@
     <EmbeddedResource Include="Vista\Venta\Venta_1.resx">
       <DependentUpon>Venta_1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="output.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
