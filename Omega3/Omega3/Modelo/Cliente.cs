@@ -13,7 +13,7 @@ namespace Omega3.Modelo
         private string _razon;
         private string _direccion;
         private long _telefono;
-        private string _provincia;
+        private int _cod_provincia;
         private string _localidad;
         private int _codigo_postal;
         private string _contacto;
@@ -26,7 +26,7 @@ namespace Omega3.Modelo
         public string Razon { get => _razon; set => _razon = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
         public long Telefono { get => _telefono; set => _telefono = value; }
-        public string Provincia { get => _provincia; set => _provincia = value; }
+        public int Cod_provincia { get => _cod_provincia; set => _cod_provincia = value; }
         public string Localidad { get => _localidad; set => _localidad = value; }
         public int Codigo_postal { get => _codigo_postal; set => _codigo_postal = value; }
         public string Contacto { get => _contacto; set => _contacto = value; }

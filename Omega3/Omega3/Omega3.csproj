@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\ControlCliente.cs" />
     <Compile Include="Controlador\ControlPedidos.cs" />
     <Compile Include="Controlador\ControlProveedor.cs" />
     <Compile Include="Controlador\Conexion.cs" />

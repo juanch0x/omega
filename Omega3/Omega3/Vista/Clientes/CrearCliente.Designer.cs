@@ -37,11 +37,9 @@
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.lbl_localidad = new System.Windows.Forms.Label();
             this.combo_provincia = new System.Windows.Forms.ComboBox();
-            this.combo_localidad = new System.Windows.Forms.ComboBox();
             this.facturacion = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.combo_pago = new System.Windows.Forms.ComboBox();
@@ -50,15 +48,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.combo_condicion = new System.Windows.Forms.ComboBox();
             this.datos_generales = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cargar = new System.Windows.Forms.Button();
+            this.txt_localidad = new System.Windows.Forms.TextBox();
             this.txt_cod_postal = new System.Windows.Forms.TextBox();
+            this.cargar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_crear = new System.Windows.Forms.Button();
+            this.lbl_contacto = new System.Windows.Forms.Label();
+            this.txt_contacto = new System.Windows.Forms.TextBox();
+            this.txt_mail_contacto = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_cod_postal = new System.Windows.Forms.Label();
             this.facturacion.SuspendLayout();
             this.datos_generales.SuspendLayout();
             this.SuspendLayout();
             // 
             // combo_documento
             // 
+            this.combo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_documento.FormattingEnabled = true;
             this.combo_documento.Location = new System.Drawing.Point(30, 83);
             this.combo_documento.Name = "combo_documento";
@@ -129,16 +135,6 @@
             this.txt_telefono.Size = new System.Drawing.Size(268, 20);
             this.txt_telefono.TabIndex = 8;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(344, 448);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lbl_provincia
             // 
             this.lbl_provincia.AutoSize = true;
@@ -151,7 +147,7 @@
             // lbl_localidad
             // 
             this.lbl_localidad.AutoSize = true;
-            this.lbl_localidad.Location = new System.Drawing.Point(429, 193);
+            this.lbl_localidad.Location = new System.Drawing.Point(429, 248);
             this.lbl_localidad.Name = "lbl_localidad";
             this.lbl_localidad.Size = new System.Drawing.Size(53, 13);
             this.lbl_localidad.TabIndex = 11;
@@ -159,19 +155,12 @@
             // 
             // combo_provincia
             // 
+            this.combo_provincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_provincia.FormattingEnabled = true;
             this.combo_provincia.Location = new System.Drawing.Point(30, 209);
             this.combo_provincia.Name = "combo_provincia";
             this.combo_provincia.Size = new System.Drawing.Size(292, 21);
             this.combo_provincia.TabIndex = 12;
-            // 
-            // combo_localidad
-            // 
-            this.combo_localidad.FormattingEnabled = true;
-            this.combo_localidad.Location = new System.Drawing.Point(432, 209);
-            this.combo_localidad.Name = "combo_localidad";
-            this.combo_localidad.Size = new System.Drawing.Size(268, 21);
-            this.combo_localidad.TabIndex = 13;
             // 
             // facturacion
             // 
@@ -181,9 +170,9 @@
             this.facturacion.Controls.Add(this.combo_tipo_factura);
             this.facturacion.Controls.Add(this.label4);
             this.facturacion.Controls.Add(this.combo_condicion);
-            this.facturacion.Location = new System.Drawing.Point(7, 313);
+            this.facturacion.Location = new System.Drawing.Point(7, 423);
             this.facturacion.Name = "facturacion";
-            this.facturacion.Size = new System.Drawing.Size(726, 111);
+            this.facturacion.Size = new System.Drawing.Size(737, 111);
             this.facturacion.TabIndex = 14;
             // 
             // label3
@@ -202,7 +191,7 @@
             this.combo_pago.FormattingEnabled = true;
             this.combo_pago.Location = new System.Drawing.Point(434, 76);
             this.combo_pago.Name = "combo_pago";
-            this.combo_pago.Size = new System.Drawing.Size(121, 21);
+            this.combo_pago.Size = new System.Drawing.Size(274, 21);
             this.combo_pago.TabIndex = 5;
             // 
             // label2
@@ -221,7 +210,7 @@
             this.combo_tipo_factura.FormattingEnabled = true;
             this.combo_tipo_factura.Location = new System.Drawing.Point(434, 46);
             this.combo_tipo_factura.Name = "combo_tipo_factura";
-            this.combo_tipo_factura.Size = new System.Drawing.Size(121, 21);
+            this.combo_tipo_factura.Size = new System.Drawing.Size(274, 21);
             this.combo_tipo_factura.TabIndex = 4;
             // 
             // label4
@@ -239,18 +228,23 @@
             this.combo_condicion.FormattingEnabled = true;
             this.combo_condicion.Location = new System.Drawing.Point(39, 76);
             this.combo_condicion.Name = "combo_condicion";
-            this.combo_condicion.Size = new System.Drawing.Size(121, 21);
+            this.combo_condicion.Size = new System.Drawing.Size(292, 21);
             this.combo_condicion.TabIndex = 2;
             this.combo_condicion.SelectedIndexChanged += new System.EventHandler(this.combo_condicion_SelectedIndexChanged);
             // 
             // datos_generales
             // 
+            this.datos_generales.Controls.Add(this.lbl_cod_postal);
+            this.datos_generales.Controls.Add(this.label6);
+            this.datos_generales.Controls.Add(this.txt_mail_contacto);
+            this.datos_generales.Controls.Add(this.txt_contacto);
+            this.datos_generales.Controls.Add(this.lbl_contacto);
+            this.datos_generales.Controls.Add(this.txt_localidad);
             this.datos_generales.Controls.Add(this.txt_cod_postal);
             this.datos_generales.Controls.Add(this.cargar);
             this.datos_generales.Controls.Add(this.label5);
             this.datos_generales.Controls.Add(this.combo_documento);
             this.datos_generales.Controls.Add(this.lbl_tipo);
-            this.datos_generales.Controls.Add(this.combo_localidad);
             this.datos_generales.Controls.Add(this.txt_documento);
             this.datos_generales.Controls.Add(this.combo_provincia);
             this.datos_generales.Controls.Add(this.lbl_razon);
@@ -261,10 +255,33 @@
             this.datos_generales.Controls.Add(this.lbl_direccion);
             this.datos_generales.Controls.Add(this.txt_telefono);
             this.datos_generales.Controls.Add(this.label1);
-            this.datos_generales.Location = new System.Drawing.Point(15, 12);
+            this.datos_generales.Location = new System.Drawing.Point(7, 12);
             this.datos_generales.Name = "datos_generales";
-            this.datos_generales.Size = new System.Drawing.Size(718, 295);
+            this.datos_generales.Size = new System.Drawing.Size(737, 405);
             this.datos_generales.TabIndex = 15;
+            // 
+            // txt_localidad
+            // 
+            this.txt_localidad.Location = new System.Drawing.Point(432, 264);
+            this.txt_localidad.Name = "txt_localidad";
+            this.txt_localidad.Size = new System.Drawing.Size(268, 20);
+            this.txt_localidad.TabIndex = 17;
+            // 
+            // txt_cod_postal
+            // 
+            this.txt_cod_postal.Location = new System.Drawing.Point(432, 210);
+            this.txt_cod_postal.Name = "txt_cod_postal";
+            this.txt_cod_postal.Size = new System.Drawing.Size(268, 20);
+            this.txt_cod_postal.TabIndex = 16;
+            // 
+            // cargar
+            // 
+            this.cargar.Location = new System.Drawing.Point(320, 83);
+            this.cargar.Name = "cargar";
+            this.cargar.Size = new System.Drawing.Size(29, 22);
+            this.cargar.TabIndex = 15;
+            this.cargar.UseVisualStyleBackColor = true;
+            this.cargar.Click += new System.EventHandler(this.cargar_Click);
             // 
             // label5
             // 
@@ -276,32 +293,68 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Datos Generales";
             // 
-            // cargar
+            // btn_crear
             // 
-            this.cargar.Location = new System.Drawing.Point(320, 83);
-            this.cargar.Name = "cargar";
-            this.cargar.Size = new System.Drawing.Size(29, 22);
-            this.cargar.TabIndex = 15;
-            this.cargar.UseVisualStyleBackColor = true;
-            this.cargar.Click += new System.EventHandler(this.cargar_Click);
+            this.btn_crear.Location = new System.Drawing.Point(335, 540);
+            this.btn_crear.Name = "btn_crear";
+            this.btn_crear.Size = new System.Drawing.Size(75, 23);
+            this.btn_crear.TabIndex = 16;
+            this.btn_crear.Text = "Crear";
+            this.btn_crear.UseVisualStyleBackColor = true;
+            this.btn_crear.Click += new System.EventHandler(this.btn_Crear_Click);
             // 
-            // txt_cod_postal
+            // lbl_contacto
             // 
-            this.txt_cod_postal.Location = new System.Drawing.Point(432, 248);
-            this.txt_cod_postal.Name = "txt_cod_postal";
-            this.txt_cod_postal.Size = new System.Drawing.Size(268, 20);
-            this.txt_cod_postal.TabIndex = 16;
+            this.lbl_contacto.AutoSize = true;
+            this.lbl_contacto.Location = new System.Drawing.Point(31, 248);
+            this.lbl_contacto.Name = "lbl_contacto";
+            this.lbl_contacto.Size = new System.Drawing.Size(50, 13);
+            this.lbl_contacto.TabIndex = 18;
+            this.lbl_contacto.Text = "Contacto";
+            // 
+            // txt_contacto
+            // 
+            this.txt_contacto.Location = new System.Drawing.Point(30, 264);
+            this.txt_contacto.Name = "txt_contacto";
+            this.txt_contacto.Size = new System.Drawing.Size(292, 20);
+            this.txt_contacto.TabIndex = 19;
+            // 
+            // txt_mail_contacto
+            // 
+            this.txt_mail_contacto.Location = new System.Drawing.Point(30, 310);
+            this.txt_mail_contacto.Name = "txt_mail_contacto";
+            this.txt_mail_contacto.Size = new System.Drawing.Size(292, 20);
+            this.txt_mail_contacto.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 294);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Mail Contacto";
+            // 
+            // lbl_cod_postal
+            // 
+            this.lbl_cod_postal.AutoSize = true;
+            this.lbl_cod_postal.Location = new System.Drawing.Point(429, 193);
+            this.lbl_cod_postal.Name = "lbl_cod_postal";
+            this.lbl_cod_postal.Size = new System.Drawing.Size(72, 13);
+            this.lbl_cod_postal.TabIndex = 22;
+            this.lbl_cod_postal.Text = "Codigo Postal";
             // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 483);
+            this.ClientSize = new System.Drawing.Size(756, 600);
+            this.Controls.Add(this.btn_crear);
             this.Controls.Add(this.datos_generales);
             this.Controls.Add(this.facturacion);
-            this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearCliente";
-            this.Text = "Form1";
+            this.Text = "Nuevo Usuario";
             this.Load += new System.EventHandler(this.CrearCliente_Load);
             this.facturacion.ResumeLayout(false);
             this.facturacion.PerformLayout();
@@ -322,11 +375,9 @@
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_telefono;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_provincia;
         private System.Windows.Forms.Label lbl_localidad;
         private System.Windows.Forms.ComboBox combo_provincia;
-        private System.Windows.Forms.ComboBox combo_localidad;
         private System.Windows.Forms.Panel facturacion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combo_pago;
@@ -338,5 +389,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cargar;
         private System.Windows.Forms.TextBox txt_cod_postal;
+        private System.Windows.Forms.TextBox txt_localidad;
+        private System.Windows.Forms.Button btn_crear;
+        private System.Windows.Forms.Label lbl_cod_postal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_mail_contacto;
+        private System.Windows.Forms.TextBox txt_contacto;
+        private System.Windows.Forms.Label lbl_contacto;
     }
 }
