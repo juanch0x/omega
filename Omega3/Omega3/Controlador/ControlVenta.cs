@@ -1,8 +1,15 @@
-﻿using System;
+﻿
+
+
+
+
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using FacturanteMVC.API;
 using FacturanteMVC.API.DTOs;
 using System.Windows.Forms;
@@ -21,13 +28,15 @@ namespace Omega3.Controlador
         }
         public void Venta()
         {
+            ComprobantesClient client = new ComprobantesClient();
 
+            
             ComprobantesClient comprobanteClient = new ComprobantesClient();
 
             CrearComprobanteRequest request = new CrearComprobanteRequest();
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "[usuario]";
-            request.Autenticacion.Hash = "[contraseña]";
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
             request.Autenticacion.Empresa = 0; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new Cliente();
