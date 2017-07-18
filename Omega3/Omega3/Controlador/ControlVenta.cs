@@ -35,8 +35,8 @@ namespace Omega3.Controlador
 
             CrearComprobanteRequest request = new CrearComprobanteRequest();
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Usuario = "dsilicato@omegasaneamientos.com ";
+            request.Autenticacion.Hash = "dsilicato";
             request.Autenticacion.Empresa = 0; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new Cliente();

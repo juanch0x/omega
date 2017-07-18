@@ -22,6 +22,7 @@ namespace Omega3.Vista.Venta
         {
             ControlVentas.llenarCondicion(combo_condicion);
             ControlVentas.llenarMedios_de_Pago(combo_pago);
+            
         }
 
         private void combo_condicion_SelectedIndexChanged(object sender, EventArgs e)

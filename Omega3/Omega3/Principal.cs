@@ -154,6 +154,13 @@ namespace Omega3
 
             }
         }
+
+        private void presupuestoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Presupuesto.Presupuesto a = new Vista.Presupuesto.Presupuesto();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
     }
 
