@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Omega3.Modelo;
 using System.Windows.Forms;
 using Omega3.Vista;
+using Omega3.Controlador;
 
 namespace Omega3.Controlador
 {
@@ -58,7 +59,7 @@ namespace Omega3.Controlador
                 Importe = (decimal)(20 * 52.80),
             };
             listaArticulos.Add(item2);
-
+            
             return listaArticulos;
         }
 
@@ -69,7 +70,7 @@ namespace Omega3.Controlador
             return rdm.Next();
         }
 
-        public void InvoiceGenerate(DataGridView dgvdetalle)
+        public static void InvoiceGenerate(DataGridView dgvdetalle)
         {
             //
             //Hacemos una instancia de la clase EFactura para
@@ -93,41 +94,44 @@ namespace Omega3.Controlador
                 //Vamos tomando los valores de las celdas del row que estamos 
                 //recorriendo actualmente y asignamos su valor a la propiedad de la clase intanciada
                 //
-                article.Numero = Convert.ToInt32(row.Cells["columnNumero"].Value);
-                article.Cod = Convert.ToString(row.Cells["columnCod"].Value);
-                article.Descripcion = Convert.ToString(row.Cells["columnDescripcion"].Value);
-                article.Cantidad = Convert.ToDecimal(row.Cells["columnCantidad"].Value);
-                article.Precio = Convert.ToDecimal(row.Cells["columnPrecio"].Value);
-                article.Importe = Convert.ToDecimal(row.Cells["columnImporte"].Value);
+                article.Numero = Convert.ToInt32(row.Cells[0].Value);
+                article.Cod = Convert.ToString(row.Cells[1].Value);
+                article.Descripcion = Convert.ToString(row.Cells[2].Value);
+                article.Cantidad = Convert.ToDecimal(row.Cells[3].Value);
+                article.Precio = Convert.ToDecimal(row.Cells[4].Value);
+                article.Importe = Convert.ToDecimal(row.Cells[5].Value);
 
                 //
                 //Vamos agregando el Item a la lista del detalle
                 //
                 Cabecera.Detail.Add(article);
-
-                Vista.Presupuesto.Informe frm = new Vista.Presupuesto.Informe();
-
-
-                //
-
-
-                //
-                //Recuerde que invoice es una Lista Generica declarada en el FacturaRtp, es una lista
-                //porque el origen de datos del LocalReport unicamente permite ser enlazado a objetos que 
-                //implementen IEnumerable.
-                //
-                //Usamos el metod Add porque Invoice es una lista e invoice es una entidad simple
-                frm.Invoice.Add(Cabecera);
-
-                //
-                //Enviamos el detalle de la Factura, como Detail es una lista e invoide.Details tambien
-                //es un lista del tipo EArticulo bastara con igualarla
-                //
-                frm.Detail = Cabecera.Detail;
-
-                frm.Show();
-
             }
+
+            //
+            //Creamos una instancia del Formulario que contiene nuestro
+            //ReportViewer
+            //
+            Vista.Presupuesto.Informe frm = new Vista.Presupuesto.Informe();
+            
+            //
+            //Usamos las propiedades publicas del formulario, aqui es donde enviamos el valor
+            //que se mostrara en los parametros creados en el LocalReport, para este ejemplo
+            //estamos Seteando los valores directamente pero usted puede usar algun control
+            //
+         
+            //
+            //Recuerde que invoice es una Lista Generica declarada en el FacturaRtp, es una lista
+            //porque el origen de datos del LocalReport unicamente permite ser enlazado a objetos que 
+            //implementen IEnumerable.
+            //
+            //Usamos el metod Add porque Invoice es una lista e invoice es una entidad simple
+            frm.Cabecera.Add(Cabecera);
+            //
+            //Enviamos el detalle de la Factura, como Detail es una lista e invoide.Details tambien
+            //es un lista del tipo EArticulo bastara con igualarla
+            //
+            frm.Detalle = Cabecera.Detail;
+            frm.Show();
 
         }
     }

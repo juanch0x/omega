@@ -15,8 +15,8 @@ namespace Omega3.Vista.Presupuesto
     public partial class Informe : Form
     {
 
-        public List<EFactura> Invoice = new List<EFactura>();
-        public List<EArticulo> Detail = new List<EArticulo>();
+        public List<EFactura> Cabecera = new List<EFactura>();
+        public List<EArticulo> Detalle = new List<EArticulo>();
         //
 
         public Informe()
@@ -38,8 +38,8 @@ namespace Omega3.Vista.Presupuesto
             //
             //Establezcamos la lista como Datasource del informe
             //
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Encabezado", Invoice));
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Detalle", Detail));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Cabecera", Cabecera));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Detalle", Detalle));
             //
             //
             //Hagamos un refresh al reportViewer

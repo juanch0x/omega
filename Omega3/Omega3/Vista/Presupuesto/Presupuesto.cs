@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Controlador;
+using Omega3.Modelo;
 namespace Omega3.Vista.Presupuesto
+
 {
     public partial class Presupuesto : Form
     {
@@ -19,39 +21,26 @@ namespace Omega3.Vista.Presupuesto
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
-            //
-            //La funcion GenerateNumber() se utiliza unicamente para generar un Número
-            //aleatorio que simulara ser el numerod e factura
-           
 
-            //Establecemos la propiedad AutoGenerateColumns en False para evitar que se agreguen
-            //nuevas columnas a la derecha de las que creamos en tiempo de diseño.
-            //
-            dgvdetalle.AutoGenerateColumns = false;
-            //
-            //Establecemos el DataSource del control DataGridView
-            //
-            dgvdetalle.DataSource = Omega3.Controlador.ControlPresupuesto.FillDgv();
-            //
-            //Mapeamos las propiedades de la clase devuelta por la Funcion FillDgv()
-            //recuerde que esta funcion devuelve una lista del tipo EArticulo
-            //
-            dgvdetalle.Columns["columnNumero"].DataPropertyName = "Numero";
-            dgvdetalle.Columns["columnCod"].DataPropertyName = "Codigo";
-            dgvdetalle.Columns["columnDescripcion"].DataPropertyName = "Descripcion";
-            dgvdetalle.Columns["columnCantidad"].DataPropertyName = "Cantidad";
-            dgvdetalle.Columns["columnPrecio"].DataPropertyName = "Precio";
-            dgvdetalle.Columns["columnImporte"].DataPropertyName = "Importe";
-            
-            
+            dataGridView1.DataSource = ControlPresupuesto.FillDgv();
+
+            dataGridView1.AutoGenerateColumns = false;
+      
+
+
+            dataGridView1.Columns[0].DataPropertyName = "Numero";
+            dataGridView1.Columns[1].DataPropertyName = "Cod";
+            dataGridView1.Columns[2].DataPropertyName = "Descripcion";
+            dataGridView1.Columns[3].DataPropertyName = "Cantidad";
+            dataGridView1.Columns[4].DataPropertyName = "Precio";
+            dataGridView1.Columns[5].DataPropertyName = "Importe";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Creamos una instancia del Formulario que contiene nuestro
-            //ReportViewer
-            //
- 
+
+            ControlPresupuesto.InvoiceGenerate(dataGridView1);
+
         }
     }
 }

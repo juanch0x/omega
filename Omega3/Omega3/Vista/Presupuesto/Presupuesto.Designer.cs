@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvdetalle = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdetalle)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvdetalle
-            // 
-            this.dgvdetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdetalle.Location = new System.Drawing.Point(12, 12);
-            this.dgvdetalle.Name = "dgvdetalle";
-            this.dgvdetalle.Size = new System.Drawing.Size(522, 329);
-            this.dgvdetalle.TabIndex = 0;
             // 
             // button1
             // 
@@ -51,24 +43,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(64, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(339, 276);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // Presupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 434);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvdetalle);
             this.Name = "Presupuesto";
             this.Text = "Presupuesto";
             this.Load += new System.EventHandler(this.Presupuesto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvdetalle;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
