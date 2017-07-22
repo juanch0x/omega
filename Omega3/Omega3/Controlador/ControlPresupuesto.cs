@@ -59,7 +59,129 @@ namespace Omega3.Controlador
                 Importe = (decimal)(20 * 52.80),
             };
             listaArticulos.Add(item2);
-            
+            EArticulo item3 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item3);
+
+            EArticulo item4 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item4);
+
+            EArticulo item5 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item5);
+
+            EArticulo item6 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item6);
+
+            EArticulo item7 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item7);
+
+            EArticulo item8 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item8);
+
+            EArticulo item9 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item9);
+
+            EArticulo item10 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item10);
+
+            EArticulo item11 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item11);
+
+            EArticulo item12 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item12);
+
+            EArticulo item13 = new EArticulo
+            {
+                Numero = 3,
+                Cod = "0412200805610",
+                Descripcion = "Descripción del artículo 3",
+                Cantidad = 20,
+                Precio = new decimal(52.80),
+                Importe = (decimal)(20 * 52.80),
+            };
+            listaArticulos.Add(item13);
+
+
+
             return listaArticulos;
         }
 
