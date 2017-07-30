@@ -13,6 +13,10 @@ using System.Xml.Serialization;
 using FacturanteMVC.API;
 using FacturanteMVC.API.DTOs;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+using System.Data;
+
 namespace Omega3.Controlador
 {
     class ControlVenta
@@ -120,6 +124,35 @@ namespace Omega3.Controlador
 
             MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
             comprobanteClient.Close();
+        }
+
+        public static void llenarClientes(ComboBox combo)
+        {
+
+            string query = "SELECT documento, razon_social from cliente";
+
+            MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
+
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da1.Fill(dt);
+
+            combo.ValueMember = "documento";
+            combo.DisplayMember = "razon_social";
+            combo.DataSource = dt;
+       
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado 
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["razon_social"]));
+            }
+
+            combo.AutoCompleteCustomSource = coleccion;
+            combo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
         }
 
 

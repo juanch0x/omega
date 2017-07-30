@@ -54,16 +54,10 @@ namespace Omega3.Vista.Clientes
         private void CrearCliente_Load(object sender, EventArgs e)
         {
             ControlVentas.llenarCondicion(combo_condicion);
-            ControlVentas.llenarMedios_de_Pago(combo_pago);
             ControlCliente.llenarProvincias(combo_provincia);
             ControlCliente.llenarTipoDocumento(combo_documento);
         }
 
-        private void combo_condicion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ControlVentas.llenarFacturas(combo_tipo_factura, Convert.ToInt32(combo_condicion.SelectedValue));
-
-        }
 
         private void cargar_Click(object sender, EventArgs e)
         {

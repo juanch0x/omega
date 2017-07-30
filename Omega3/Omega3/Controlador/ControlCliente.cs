@@ -66,9 +66,12 @@ namespace Omega3.Controlador
 
         }
 
-        public static int AgregarCliente(Omega3.Modelo.Cliente cliente)
+        public static int AgregarCliente(Cliente cliente)
         {
-            Console.WriteLine("ME EJECUTO");
+            cliente.Documento = 20068955670;
+            Console.WriteLine(cliente.Razon + cliente.Documento);
+
+
             int retorno = 0;
             
             try {
@@ -76,7 +79,7 @@ namespace Omega3.Controlador
                 MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
                     cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
-                
+
             }
             catch ( Exception e)
             {
