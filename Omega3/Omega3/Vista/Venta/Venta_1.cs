@@ -64,13 +64,26 @@ namespace Omega3.Vista.Venta
         private void button2_Click(object sender, EventArgs e)
         {
             Cliente a = new Cliente();
-            a = ControlVentas.obtenerCliente(long.Parse(filtro_cuit.Text));
 
-            razon.Text = a.Razon;
-            domicilio.Text = a.Direccion;
-            iva.Text = a.Impositiva;
-            email.Text = a.Mail_contacto;
-            cuit.Text = Convert.ToString(a.Documento);
+            if (combo_cliente.Text == "")
+            {
+                a = ControlVentas.obtenerCliente(long.Parse(filtro_cuit.Text));
+
+                razon.Text = a.Razon;
+                domicilio.Text = a.Direccion;
+                iva.Text = a.Impositiva;
+                email.Text = a.Mail_contacto;
+                cuit.Text = Convert.ToString(a.Documento);
+            }
+            else
+            {
+                a = ControlVentas.obtenerCliente(combo_cliente.Text);
+                razon.Text = a.Razon;
+                domicilio.Text = a.Direccion;
+                iva.Text = a.Impositiva;
+                email.Text = a.Mail_contacto;
+                cuit.Text = Convert.ToString(a.Documento);
+            }
 
         }
 

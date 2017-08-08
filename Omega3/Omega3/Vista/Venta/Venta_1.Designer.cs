@@ -31,6 +31,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.combo_pago = new System.Windows.Forms.ComboBox();
             this.Panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_cliente = new System.Windows.Forms.Panel();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.combo_cliente = new System.Windows.Forms.ComboBox();
@@ -47,17 +48,10 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btn_siguiente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -74,24 +68,8 @@
             this.tab_cliente = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
-            this.panel_ventas_item = new System.Windows.Forms.Panel();
-            this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.lbl_venta_codigo = new System.Windows.Forms.Label();
-            this.lbl_venta_descripcion = new System.Windows.Forms.Label();
-            this.lbl_venta_precio = new System.Windows.Forms.Label();
-            this.lbl_venta_lista = new System.Windows.Forms.Label();
-            this.lbl_venta_iva = new System.Windows.Forms.Label();
-            this.lbl_venta_subtotal = new System.Windows.Forms.Label();
-            this.txt_ventas_cantidad = new System.Windows.Forms.TextBox();
-            this.txt_ventas_codigo = new System.Windows.Forms.TextBox();
-            this.txt_ventas_descripcion = new System.Windows.Forms.TextBox();
-            this.txt_ventas_precio = new System.Windows.Forms.TextBox();
-            this.txt_ventas_lista = new System.Windows.Forms.TextBox();
-            this.txt_ventas_iva = new System.Windows.Forms.TextBox();
-            this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
             this.panel_ventas_detalle = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,18 +77,33 @@
             this.Lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dg_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel_ventas_item = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
+            this.txt_ventas_iva = new System.Windows.Forms.TextBox();
+            this.txt_ventas_lista = new System.Windows.Forms.TextBox();
+            this.txt_ventas_precio = new System.Windows.Forms.TextBox();
+            this.txt_ventas_descripcion = new System.Windows.Forms.TextBox();
+            this.txt_ventas_codigo = new System.Windows.Forms.TextBox();
+            this.txt_ventas_cantidad = new System.Windows.Forms.TextBox();
+            this.lbl_venta_subtotal = new System.Windows.Forms.Label();
+            this.lbl_venta_iva = new System.Windows.Forms.Label();
+            this.lbl_venta_lista = new System.Windows.Forms.Label();
+            this.lbl_venta_precio = new System.Windows.Forms.Label();
+            this.lbl_venta_descripcion = new System.Windows.Forms.Label();
+            this.lbl_venta_codigo = new System.Windows.Forms.Label();
+            this.lbl_venta_cantidad = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_datos.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel_principal.SuspendLayout();
             this.tab_cliente.SuspendLayout();
             this.tab_venta.SuspendLayout();
-            this.panel_ventas_item.SuspendLayout();
             this.panel_ventas_detalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
+            this.panel_ventas_item.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -142,15 +135,25 @@
             this.Panel.Size = new System.Drawing.Size(608, 61);
             this.Panel.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Condición de Venta:";
+            // 
             // panel_cliente
             // 
             this.panel_cliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel_cliente.Controls.Add(this.btn_buscar);
-            this.panel_cliente.Controls.Add(this.combo_cliente);
             this.panel_cliente.Controls.Add(this.btn_nuevo);
+            this.panel_cliente.Controls.Add(this.combo_cliente);
             this.panel_cliente.Controls.Add(this.filtro_cuit);
             this.panel_cliente.Controls.Add(this.label4);
-            this.panel_cliente.Location = new System.Drawing.Point(10, 44);
+            this.panel_cliente.Location = new System.Drawing.Point(10, 34);
             this.panel_cliente.Name = "panel_cliente";
             this.panel_cliente.Size = new System.Drawing.Size(608, 48);
             this.panel_cliente.TabIndex = 7;
@@ -168,7 +171,7 @@
             // combo_cliente
             // 
             this.combo_cliente.FormattingEnabled = true;
-            this.combo_cliente.Location = new System.Drawing.Point(10, 13);
+            this.combo_cliente.Location = new System.Drawing.Point(10, 11);
             this.combo_cliente.Name = "combo_cliente";
             this.combo_cliente.Size = new System.Drawing.Size(217, 21);
             this.combo_cliente.TabIndex = 15;
@@ -304,16 +307,6 @@
             this.razon.TabIndex = 0;
             this.razon.Text = "Razón Social";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Condición de Venta:";
-            // 
             // btn_siguiente
             // 
             this.btn_siguiente.BackColor = System.Drawing.Color.Lime;
@@ -354,65 +347,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(136, 21);
             this.comboBox1.TabIndex = 5;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(10, 44);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(608, 48);
-            this.panel2.TabIndex = 7;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(505, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 22);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(10, 13);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(217, 21);
-            this.comboBox2.TabIndex = 15;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(424, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 20);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "NUEVO";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(269, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Enter += new System.EventHandler(this.filtro_cuit_Enter);
-            this.textBox1.Leave += new System.EventHandler(this.filtro_cuit_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(248, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "ó";
             // 
             // panel3
             // 
@@ -554,7 +488,6 @@
             // 
             this.tab_cliente.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tab_cliente.Controls.Add(this.label17);
-            this.tab_cliente.Controls.Add(this.panel2);
             this.tab_cliente.Controls.Add(this.panel_cliente);
             this.tab_cliente.Controls.Add(this.Panel);
             this.tab_cliente.Controls.Add(this.button5);
@@ -567,7 +500,7 @@
             this.tab_cliente.Location = new System.Drawing.Point(4, 22);
             this.tab_cliente.Name = "tab_cliente";
             this.tab_cliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_cliente.Size = new System.Drawing.Size(768, 427);
+            this.tab_cliente.Size = new System.Drawing.Size(1095, 417);
             this.tab_cliente.TabIndex = 0;
             this.tab_cliente.Text = "Cliente";
             // 
@@ -593,155 +526,6 @@
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             this.tab_venta.Click += new System.EventHandler(this.tab_venta_Click);
-            // 
-            // panel_ventas_item
-            // 
-            this.panel_ventas_item.BackColor = System.Drawing.Color.White;
-            this.panel_ventas_item.Controls.Add(this.button1);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_subtotal);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_iva);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_lista);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_precio);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_descripcion);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_codigo);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_cantidad);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_subtotal);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_iva);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_lista);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_precio);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_descripcion);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_codigo);
-            this.panel_ventas_item.Controls.Add(this.lbl_venta_cantidad);
-            this.panel_ventas_item.Location = new System.Drawing.Point(6, 19);
-            this.panel_ventas_item.Name = "panel_ventas_item";
-            this.panel_ventas_item.Size = new System.Drawing.Size(1082, 75);
-            this.panel_ventas_item.TabIndex = 0;
-            // 
-            // lbl_venta_cantidad
-            // 
-            this.lbl_venta_cantidad.AutoSize = true;
-            this.lbl_venta_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_cantidad.Location = new System.Drawing.Point(9, 9);
-            this.lbl_venta_cantidad.Name = "lbl_venta_cantidad";
-            this.lbl_venta_cantidad.Size = new System.Drawing.Size(70, 16);
-            this.lbl_venta_cantidad.TabIndex = 0;
-            this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // lbl_venta_codigo
-            // 
-            this.lbl_venta_codigo.AutoSize = true;
-            this.lbl_venta_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_codigo.Location = new System.Drawing.Point(94, 9);
-            this.lbl_venta_codigo.Name = "lbl_venta_codigo";
-            this.lbl_venta_codigo.Size = new System.Drawing.Size(58, 16);
-            this.lbl_venta_codigo.TabIndex = 1;
-            this.lbl_venta_codigo.Text = "Código";
-            // 
-            // lbl_venta_descripcion
-            // 
-            this.lbl_venta_descripcion.AutoSize = true;
-            this.lbl_venta_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_descripcion.Location = new System.Drawing.Point(255, 8);
-            this.lbl_venta_descripcion.Name = "lbl_venta_descripcion";
-            this.lbl_venta_descripcion.Size = new System.Drawing.Size(91, 16);
-            this.lbl_venta_descripcion.TabIndex = 2;
-            this.lbl_venta_descripcion.Text = "Descripción";
-            // 
-            // lbl_venta_precio
-            // 
-            this.lbl_venta_precio.AutoSize = true;
-            this.lbl_venta_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_precio.Location = new System.Drawing.Point(580, 8);
-            this.lbl_venta_precio.Name = "lbl_venta_precio";
-            this.lbl_venta_precio.Size = new System.Drawing.Size(53, 16);
-            this.lbl_venta_precio.TabIndex = 3;
-            this.lbl_venta_precio.Text = "Precio";
-            // 
-            // lbl_venta_lista
-            // 
-            this.lbl_venta_lista.AutoSize = true;
-            this.lbl_venta_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_lista.Location = new System.Drawing.Point(695, 9);
-            this.lbl_venta_lista.Name = "lbl_venta_lista";
-            this.lbl_venta_lista.Size = new System.Drawing.Size(41, 16);
-            this.lbl_venta_lista.TabIndex = 4;
-            this.lbl_venta_lista.Text = "Lista";
-            // 
-            // lbl_venta_iva
-            // 
-            this.lbl_venta_iva.AutoSize = true;
-            this.lbl_venta_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_iva.Location = new System.Drawing.Point(784, 8);
-            this.lbl_venta_iva.Name = "lbl_venta_iva";
-            this.lbl_venta_iva.Size = new System.Drawing.Size(32, 16);
-            this.lbl_venta_iva.TabIndex = 5;
-            this.lbl_venta_iva.Text = "IVA";
-            // 
-            // lbl_venta_subtotal
-            // 
-            this.lbl_venta_subtotal.AutoSize = true;
-            this.lbl_venta_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_venta_subtotal.Location = new System.Drawing.Point(868, 8);
-            this.lbl_venta_subtotal.Name = "lbl_venta_subtotal";
-            this.lbl_venta_subtotal.Size = new System.Drawing.Size(65, 16);
-            this.lbl_venta_subtotal.TabIndex = 6;
-            this.lbl_venta_subtotal.Text = "Subtotal";
-            // 
-            // txt_ventas_cantidad
-            // 
-            this.txt_ventas_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_cantidad.Location = new System.Drawing.Point(6, 28);
-            this.txt_ventas_cantidad.Name = "txt_ventas_cantidad";
-            this.txt_ventas_cantidad.Size = new System.Drawing.Size(79, 22);
-            this.txt_ventas_cantidad.TabIndex = 7;
-            // 
-            // txt_ventas_codigo
-            // 
-            this.txt_ventas_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_codigo.Location = new System.Drawing.Point(91, 28);
-            this.txt_ventas_codigo.Name = "txt_ventas_codigo";
-            this.txt_ventas_codigo.Size = new System.Drawing.Size(155, 22);
-            this.txt_ventas_codigo.TabIndex = 8;
-            // 
-            // txt_ventas_descripcion
-            // 
-            this.txt_ventas_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_descripcion.Location = new System.Drawing.Point(252, 28);
-            this.txt_ventas_descripcion.Name = "txt_ventas_descripcion";
-            this.txt_ventas_descripcion.Size = new System.Drawing.Size(319, 22);
-            this.txt_ventas_descripcion.TabIndex = 9;
-            // 
-            // txt_ventas_precio
-            // 
-            this.txt_ventas_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_precio.Location = new System.Drawing.Point(577, 28);
-            this.txt_ventas_precio.Name = "txt_ventas_precio";
-            this.txt_ventas_precio.Size = new System.Drawing.Size(109, 22);
-            this.txt_ventas_precio.TabIndex = 10;
-            // 
-            // txt_ventas_lista
-            // 
-            this.txt_ventas_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_lista.Location = new System.Drawing.Point(692, 28);
-            this.txt_ventas_lista.Name = "txt_ventas_lista";
-            this.txt_ventas_lista.Size = new System.Drawing.Size(83, 22);
-            this.txt_ventas_lista.TabIndex = 11;
-            // 
-            // txt_ventas_iva
-            // 
-            this.txt_ventas_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_iva.Location = new System.Drawing.Point(781, 28);
-            this.txt_ventas_iva.Name = "txt_ventas_iva";
-            this.txt_ventas_iva.Size = new System.Drawing.Size(78, 22);
-            this.txt_ventas_iva.TabIndex = 12;
-            // 
-            // txt_ventas_subtotal
-            // 
-            this.txt_ventas_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_subtotal.Location = new System.Drawing.Point(865, 28);
-            this.txt_ventas_subtotal.Name = "txt_ventas_subtotal";
-            this.txt_ventas_subtotal.Size = new System.Drawing.Size(141, 22);
-            this.txt_ventas_subtotal.TabIndex = 13;
             // 
             // panel_ventas_detalle
             // 
@@ -771,16 +555,6 @@
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.Size = new System.Drawing.Size(1082, 294);
             this.dgv_tabla.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1012, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Cantidad
             // 
@@ -838,6 +612,165 @@
             this.Subtotal.Name = "Subtotal";
             this.Subtotal.ReadOnly = true;
             // 
+            // panel_ventas_item
+            // 
+            this.panel_ventas_item.BackColor = System.Drawing.Color.White;
+            this.panel_ventas_item.Controls.Add(this.button1);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_subtotal);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_iva);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_lista);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_precio);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_descripcion);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_codigo);
+            this.panel_ventas_item.Controls.Add(this.txt_ventas_cantidad);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_subtotal);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_iva);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_lista);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_precio);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_descripcion);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_codigo);
+            this.panel_ventas_item.Controls.Add(this.lbl_venta_cantidad);
+            this.panel_ventas_item.Location = new System.Drawing.Point(6, 19);
+            this.panel_ventas_item.Name = "panel_ventas_item";
+            this.panel_ventas_item.Size = new System.Drawing.Size(1082, 75);
+            this.panel_ventas_item.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1012, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // txt_ventas_subtotal
+            // 
+            this.txt_ventas_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_subtotal.Location = new System.Drawing.Point(865, 28);
+            this.txt_ventas_subtotal.Name = "txt_ventas_subtotal";
+            this.txt_ventas_subtotal.Size = new System.Drawing.Size(141, 22);
+            this.txt_ventas_subtotal.TabIndex = 13;
+            // 
+            // txt_ventas_iva
+            // 
+            this.txt_ventas_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_iva.Location = new System.Drawing.Point(781, 28);
+            this.txt_ventas_iva.Name = "txt_ventas_iva";
+            this.txt_ventas_iva.Size = new System.Drawing.Size(78, 22);
+            this.txt_ventas_iva.TabIndex = 12;
+            // 
+            // txt_ventas_lista
+            // 
+            this.txt_ventas_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_lista.Location = new System.Drawing.Point(692, 28);
+            this.txt_ventas_lista.Name = "txt_ventas_lista";
+            this.txt_ventas_lista.Size = new System.Drawing.Size(83, 22);
+            this.txt_ventas_lista.TabIndex = 11;
+            // 
+            // txt_ventas_precio
+            // 
+            this.txt_ventas_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_precio.Location = new System.Drawing.Point(577, 28);
+            this.txt_ventas_precio.Name = "txt_ventas_precio";
+            this.txt_ventas_precio.Size = new System.Drawing.Size(109, 22);
+            this.txt_ventas_precio.TabIndex = 10;
+            // 
+            // txt_ventas_descripcion
+            // 
+            this.txt_ventas_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_descripcion.Location = new System.Drawing.Point(252, 28);
+            this.txt_ventas_descripcion.Name = "txt_ventas_descripcion";
+            this.txt_ventas_descripcion.Size = new System.Drawing.Size(319, 22);
+            this.txt_ventas_descripcion.TabIndex = 9;
+            // 
+            // txt_ventas_codigo
+            // 
+            this.txt_ventas_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_codigo.Location = new System.Drawing.Point(91, 28);
+            this.txt_ventas_codigo.Name = "txt_ventas_codigo";
+            this.txt_ventas_codigo.Size = new System.Drawing.Size(155, 22);
+            this.txt_ventas_codigo.TabIndex = 8;
+            // 
+            // txt_ventas_cantidad
+            // 
+            this.txt_ventas_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ventas_cantidad.Location = new System.Drawing.Point(6, 28);
+            this.txt_ventas_cantidad.Name = "txt_ventas_cantidad";
+            this.txt_ventas_cantidad.Size = new System.Drawing.Size(79, 22);
+            this.txt_ventas_cantidad.TabIndex = 7;
+            // 
+            // lbl_venta_subtotal
+            // 
+            this.lbl_venta_subtotal.AutoSize = true;
+            this.lbl_venta_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_subtotal.Location = new System.Drawing.Point(868, 8);
+            this.lbl_venta_subtotal.Name = "lbl_venta_subtotal";
+            this.lbl_venta_subtotal.Size = new System.Drawing.Size(65, 16);
+            this.lbl_venta_subtotal.TabIndex = 6;
+            this.lbl_venta_subtotal.Text = "Subtotal";
+            // 
+            // lbl_venta_iva
+            // 
+            this.lbl_venta_iva.AutoSize = true;
+            this.lbl_venta_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_iva.Location = new System.Drawing.Point(784, 8);
+            this.lbl_venta_iva.Name = "lbl_venta_iva";
+            this.lbl_venta_iva.Size = new System.Drawing.Size(32, 16);
+            this.lbl_venta_iva.TabIndex = 5;
+            this.lbl_venta_iva.Text = "IVA";
+            // 
+            // lbl_venta_lista
+            // 
+            this.lbl_venta_lista.AutoSize = true;
+            this.lbl_venta_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_lista.Location = new System.Drawing.Point(695, 9);
+            this.lbl_venta_lista.Name = "lbl_venta_lista";
+            this.lbl_venta_lista.Size = new System.Drawing.Size(41, 16);
+            this.lbl_venta_lista.TabIndex = 4;
+            this.lbl_venta_lista.Text = "Lista";
+            // 
+            // lbl_venta_precio
+            // 
+            this.lbl_venta_precio.AutoSize = true;
+            this.lbl_venta_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_precio.Location = new System.Drawing.Point(580, 8);
+            this.lbl_venta_precio.Name = "lbl_venta_precio";
+            this.lbl_venta_precio.Size = new System.Drawing.Size(53, 16);
+            this.lbl_venta_precio.TabIndex = 3;
+            this.lbl_venta_precio.Text = "Precio";
+            // 
+            // lbl_venta_descripcion
+            // 
+            this.lbl_venta_descripcion.AutoSize = true;
+            this.lbl_venta_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_descripcion.Location = new System.Drawing.Point(255, 8);
+            this.lbl_venta_descripcion.Name = "lbl_venta_descripcion";
+            this.lbl_venta_descripcion.Size = new System.Drawing.Size(91, 16);
+            this.lbl_venta_descripcion.TabIndex = 2;
+            this.lbl_venta_descripcion.Text = "Descripción";
+            // 
+            // lbl_venta_codigo
+            // 
+            this.lbl_venta_codigo.AutoSize = true;
+            this.lbl_venta_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_codigo.Location = new System.Drawing.Point(94, 9);
+            this.lbl_venta_codigo.Name = "lbl_venta_codigo";
+            this.lbl_venta_codigo.Size = new System.Drawing.Size(58, 16);
+            this.lbl_venta_codigo.TabIndex = 1;
+            this.lbl_venta_codigo.Text = "Código";
+            // 
+            // lbl_venta_cantidad
+            // 
+            this.lbl_venta_cantidad.AutoSize = true;
+            this.lbl_venta_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_venta_cantidad.Location = new System.Drawing.Point(9, 9);
+            this.lbl_venta_cantidad.Name = "lbl_venta_cantidad";
+            this.lbl_venta_cantidad.Size = new System.Drawing.Size(70, 16);
+            this.lbl_venta_cantidad.TabIndex = 0;
+            this.lbl_venta_cantidad.Text = "Cantidad";
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -857,18 +790,16 @@
             this.panel_datos.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel_principal.ResumeLayout(false);
             this.tab_cliente.ResumeLayout(false);
             this.tab_cliente.PerformLayout();
             this.tab_venta.ResumeLayout(false);
-            this.panel_ventas_item.ResumeLayout(false);
-            this.panel_ventas_item.PerformLayout();
             this.panel_ventas_detalle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
+            this.panel_ventas_item.ResumeLayout(false);
+            this.panel_ventas_item.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -898,12 +829,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
