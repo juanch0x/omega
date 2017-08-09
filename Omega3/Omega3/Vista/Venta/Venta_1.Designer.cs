@@ -52,12 +52,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -103,7 +97,6 @@
             this.panel_cliente.SuspendLayout();
             this.panel_datos.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel_principal.SuspendLayout();
             this.tab_cliente.SuspendLayout();
@@ -156,11 +149,11 @@
             // 
             this.panel_cliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel_cliente.Controls.Add(this.btn_buscar);
-            this.panel_cliente.Controls.Add(this.combo_cliente);
             this.panel_cliente.Controls.Add(this.btn_nuevo);
+            this.panel_cliente.Controls.Add(this.combo_cliente);
             this.panel_cliente.Controls.Add(this.filtro_cuit);
             this.panel_cliente.Controls.Add(this.label4);
-            this.panel_cliente.Location = new System.Drawing.Point(10, 44);
+            this.panel_cliente.Location = new System.Drawing.Point(10, 34);
             this.panel_cliente.Name = "panel_cliente";
             this.panel_cliente.Size = new System.Drawing.Size(608, 48);
             this.panel_cliente.TabIndex = 7;
@@ -178,7 +171,7 @@
             // combo_cliente
             // 
             this.combo_cliente.FormattingEnabled = true;
-            this.combo_cliente.Location = new System.Drawing.Point(10, 13);
+            this.combo_cliente.Location = new System.Drawing.Point(10, 11);
             this.combo_cliente.Name = "combo_cliente";
             this.combo_cliente.Size = new System.Drawing.Size(217, 21);
             this.combo_cliente.TabIndex = 15;
@@ -355,65 +348,6 @@
             this.comboBox1.Size = new System.Drawing.Size(136, 21);
             this.comboBox1.TabIndex = 5;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(10, 44);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(608, 48);
-            this.panel2.TabIndex = 7;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(505, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 22);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(10, 13);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(217, 21);
-            this.comboBox2.TabIndex = 15;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(424, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 20);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "NUEVO";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(269, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Enter += new System.EventHandler(this.filtro_cuit_Enter);
-            this.textBox1.Leave += new System.EventHandler(this.filtro_cuit_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(248, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "ó";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -554,7 +488,6 @@
             // 
             this.tab_cliente.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tab_cliente.Controls.Add(this.label17);
-            this.tab_cliente.Controls.Add(this.panel2);
             this.tab_cliente.Controls.Add(this.panel_cliente);
             this.tab_cliente.Controls.Add(this.Panel);
             this.tab_cliente.Controls.Add(this.button5);
@@ -857,8 +790,6 @@
             this.panel_datos.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel_principal.ResumeLayout(false);
@@ -898,12 +829,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

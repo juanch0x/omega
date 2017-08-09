@@ -88,6 +88,31 @@ namespace Omega3.Controlador
             return cliente;
 
         }
+        public static Cliente obtenerCliente(string razon)
+        {
+
+            Cliente cliente = new Cliente();
+            cliente.Razon = razon;
+            try
+            {
+                
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+                    "SELECT documento, direccion,impositiva,mail_contacto FROM cliente WHERE razon_social ='{0}'", razon), Conexion.ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    cliente.Documento = long.Parse(_reader.GetString(0));
+                    cliente.Direccion = _reader.GetString(1);
+                    cliente.Impositiva = _reader.GetString(2);
+                    cliente.Mail_contacto = _reader.GetString(3);
+                }
+            }
+            catch (Exception e) { Console.WriteLine(e); }
+
+
+
+            return cliente;
+        }
 
     }
 }
