@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Venta_1));
             this.label3 = new System.Windows.Forms.Label();
             this.combo_pago = new System.Windows.Forms.ComboBox();
             this.Panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_cliente = new System.Windows.Forms.Panel();
             this.btn_buscar = new System.Windows.Forms.Button();
-            this.combo_cliente = new System.Windows.Forms.ComboBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.combo_cliente = new System.Windows.Forms.ComboBox();
             this.filtro_cuit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_datos = new System.Windows.Forms.Panel();
@@ -70,13 +71,6 @@
             this.tab_venta = new System.Windows.Forms.TabPage();
             this.panel_ventas_detalle = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_ventas_item = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
@@ -93,6 +87,14 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dg_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_datos.SuspendLayout();
@@ -168,14 +170,6 @@
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // combo_cliente
-            // 
-            this.combo_cliente.FormattingEnabled = true;
-            this.combo_cliente.Location = new System.Drawing.Point(10, 11);
-            this.combo_cliente.Name = "combo_cliente";
-            this.combo_cliente.Size = new System.Drawing.Size(217, 21);
-            this.combo_cliente.TabIndex = 15;
-            // 
             // btn_nuevo
             // 
             this.btn_nuevo.Location = new System.Drawing.Point(424, 12);
@@ -184,6 +178,14 @@
             this.btn_nuevo.TabIndex = 14;
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            // 
+            // combo_cliente
+            // 
+            this.combo_cliente.FormattingEnabled = true;
+            this.combo_cliente.Location = new System.Drawing.Point(10, 11);
+            this.combo_cliente.Name = "combo_cliente";
+            this.combo_cliente.Size = new System.Drawing.Size(217, 21);
+            this.combo_cliente.TabIndex = 15;
             // 
             // filtro_cuit
             // 
@@ -548,69 +550,15 @@
             this.Precio,
             this.Lista,
             this.dg_iva,
-            this.Subtotal});
+            this.Subtotal,
+            this.Borrar});
             this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.Size = new System.Drawing.Size(1082, 294);
             this.dgv_tabla.TabIndex = 0;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cantidad.Frozen = true;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Cantidad.Width = 74;
-            // 
-            // Codigo
-            // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Codigo.Frozen = true;
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 65;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 88;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Lista
-            // 
-            this.Lista.Frozen = true;
-            this.Lista.HeaderText = "Lista";
-            this.Lista.Name = "Lista";
-            this.Lista.ReadOnly = true;
-            // 
-            // dg_iva
-            // 
-            this.dg_iva.Frozen = true;
-            this.dg_iva.HeaderText = "IVA";
-            this.dg_iva.Name = "dg_iva";
-            this.dg_iva.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.Frozen = true;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             // 
             // panel_ventas_item
             // 
@@ -771,6 +719,70 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cantidad.Frozen = true;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Cantidad.Width = 74;
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Codigo.Frozen = true;
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 65;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 88;
+            // 
+            // Precio
+            // 
+            this.Precio.Frozen = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Lista
+            // 
+            this.Lista.Frozen = true;
+            this.Lista.HeaderText = "Lista";
+            this.Lista.Name = "Lista";
+            this.Lista.ReadOnly = true;
+            // 
+            // dg_iva
+            // 
+            this.dg_iva.Frozen = true;
+            this.dg_iva.HeaderText = "IVA";
+            this.dg_iva.Name = "dg_iva";
+            this.dg_iva.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.Frozen = true;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            this.Borrar.Frozen = true;
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -870,5 +882,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lista;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg_iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
+        private System.Windows.Forms.DataGridViewImageColumn Borrar;
     }
 }

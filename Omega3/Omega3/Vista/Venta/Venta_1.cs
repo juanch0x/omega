@@ -28,6 +28,7 @@ namespace Omega3.Vista.Venta
 
             filtro_cuit.Text = "Buscar por CUIT o DNI";
             filtro_cuit.ForeColor = Color.Gray;
+            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             //DGV TABLA
 
@@ -102,6 +103,18 @@ namespace Omega3.Vista.Venta
 
             dgv_tabla.Rows.Add(txt_ventas_cantidad.Text,txt_ventas_codigo.Text,txt_ventas_descripcion.Text,txt_ventas_precio.Text,txt_ventas_lista.Text,txt_ventas_iva.Text,txt_ventas_subtotal.Text);
                         
+        }
+
+        private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
+                {
+                    if (e.ColumnIndex == 7) //2nd column - DGV_ImageColumn
+                    {
+                        dgv_tabla.Rows.RemoveAt(item.Index);
+                    }
+                }
         }
     }
 }
