@@ -116,5 +116,12 @@ namespace Omega3.Vista.Venta
                     }
                 }
         }
+
+        private void panel_principal_KeyDown(object sender, KeyEventArgs e)
+        {
+                btn_no_factura.Visible = true;
+
+        }
+        }
     }
 }
