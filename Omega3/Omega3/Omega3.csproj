@@ -97,6 +97,7 @@
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Presupuesto.cs" />
     <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Venta.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +189,12 @@
     <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Venta\Comprobante_Oscuro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\Comprobante_Oscuro.Designer.cs">
+      <DependentUpon>Comprobante_Oscuro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Venta\Venta_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +218,7 @@
       <DependentUpon>CrearCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Informes\Presupuesto.rdlc" />
+    <EmbeddedResource Include="Vista\Informes\Venta_Negra.rdlc" />
     <EmbeddedResource Include="Vista\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,13 +255,18 @@
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\Comprobante_Oscuro.resx">
+      <DependentUpon>Comprobante_Oscuro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\Venta_1.resx">
       <DependentUpon>Venta_1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Omega3.Modelo.Cliente.datasource" />
+    <None Include="Properties\DataSources\Omega3.Modelo.Detalle_Negro.datasource" />
     <None Include="Properties\DataSources\Omega3.Modelo.EArticulo.datasource" />
     <None Include="Properties\DataSources\Omega3.Modelo.EFactura.datasource" />
+    <None Include="Properties\DataSources\Omega3.Modelo.Factura_Negro.datasource" />
     <None Include="Properties\DataSources\Omega3.Modelo.Presupuesto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

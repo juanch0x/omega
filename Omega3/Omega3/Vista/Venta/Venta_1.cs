@@ -122,6 +122,18 @@ namespace Omega3.Vista.Venta
                 btn_no_factura.Visible = true;
 
         }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_no_factura_Click(object sender, EventArgs e)
+        {
+
+            ControlVentas.generarFacturaNegro(dgv_tabla);
+
         }
     }
-}
+    }
+

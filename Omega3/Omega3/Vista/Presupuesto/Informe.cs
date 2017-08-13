@@ -17,8 +17,7 @@ namespace Omega3.Vista.Presupuesto
 
         public List<EFactura> Cabecera = new List<EFactura>();
         public List<EArticulo> Detalle = new List<EArticulo>();
-        //
-
+        
         public Informe()
         {
             InitializeComponent();
