@@ -39,6 +39,8 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reparacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reparacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productoToolStripMenuItem,
             this.proveedorToolStripMenuItem,
-            this.ventasToolStripMenuItem});
+            this.ventasToolStripMenuItem,
+            this.reparacionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(435, 24);
@@ -131,6 +134,21 @@
             this.presupuestoToolStripMenuItem.Text = "Presupuesto";
             this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
             // 
+            // reparacionesToolStripMenuItem
+            // 
+            this.reparacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reparacionToolStripMenuItem});
+            this.reparacionesToolStripMenuItem.Name = "reparacionesToolStripMenuItem";
+            this.reparacionesToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.reparacionesToolStripMenuItem.Text = "Reparaciones";
+            // 
+            // reparacionToolStripMenuItem
+            // 
+            this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reparacionToolStripMenuItem.Text = "Crear";
+            this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +181,8 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reparacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reparacionToolStripMenuItem;
     }
 }
 
