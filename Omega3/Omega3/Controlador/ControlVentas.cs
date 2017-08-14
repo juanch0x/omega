@@ -116,67 +116,111 @@ namespace Omega3.Controlador
 
 
         public static void generarFacturaNegro(DataGridView dgvdetalle) {
-            //
-            //Hacemos una instancia de la clase EFactura para
-            //llenarla con los valores contenidos en los controles del Formulario
+
             Factura_Negro Cabecera = new Factura_Negro();
             Cabecera.Nombre = "Martín Mestre";
             Cabecera.Documento = "2234755449222";
             Cabecera.Direccion = "Av. Siempre Viva 289381 Perón";
             Cabecera.Fecha = DateTime.Now;
-            Cabecera.Total = Convert.ToDecimal("22.2");
+            Cabecera.Total = Convert.ToDecimal("0");
             
 
-            //Recorremos los Rows existentes actualmente en el control DataGridView
-            //para asignar los datos a las propiedades
             foreach (DataGridViewRow row in dgvdetalle.Rows)
             {
 
                 Detalle_Negro article = new Detalle_Negro();
-                //
-                //Vamos tomando los valores de las celdas del row que estamos 
-                //recorriendo actualmente y asignamos su valor a la propiedad de la clase intanciada
-                //
+       
                 article.Cantidad = Convert.ToInt32(row.Cells[0].Value);
                 article.Cod = Convert.ToString(row.Cells[1].Value);
                 article.Descripcion = Convert.ToString(row.Cells[2].Value);
                 article.Precio = Convert.ToDecimal(row.Cells[3].Value);
                 article.Lista = Convert.ToInt32(row.Cells[4].Value);
                 article.subtotal = Convert.ToDecimal(row.Cells[5].Value);
+                Cabecera.Total += article.subtotal;
 
-                //
-                //Vamos agregando el Item a la lista del detalle
-                //
+        
                 Cabecera.Detail.Add(article);
             }
 
-            //
-            //Creamos una instancia del Formulario que contiene nuestro
-            //ReportViewer
-            //
+        
              Vista.Venta.Comprobante_Oscuro frm = new Vista.Venta.Comprobante_Oscuro();
 
-            //
-            //Usamos las propiedades publicas del formulario, aqui es donde enviamos el valor
-            //que se mostrara en los parametros creados en el LocalReport, para este ejemplo
-            //estamos Seteando los valores directamente pero usted puede usar algun control
-            //
-
-            //
-            //Recuerde que invoice es una Lista Generica declarada en el FacturaRtp, es una lista
-            //porque el origen de datos del LocalReport unicamente permite ser enlazado a objetos que 
-            //implementen IEnumerable.
-            //
-            //Usamos el metod Add porque Invoice es una lista e invoice es una entidad simple
+         
             frm.Cabecera.Add(Cabecera);
-            //
-            //Enviamos el detalle de la Factura, como Detail es una lista e invoide.Details tambien
-            //es un lista del tipo EArticulo bastara con igualarla
-            //
+       
             frm.Detalle = Cabecera.Detail;
             frm.Show();
 
         }
+
+
+        public static Producto llenarInformacionProducto(string cod) {
+            Producto a = new Producto();
+            
+            try
+            {
+
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+                    "SELECT producto, precio_venta, cantidad FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    
+                    a.Precio_venta = decimal.Parse(_reader.GetString(1));
+                    a.Nombre_producto = _reader.GetString(0);
+                    a.Cantidad = Convert.ToInt32(_reader.GetString(2));
+                    MessageBox.Show(a.Nombre_producto);
+
+                }
+            }
+            catch (Exception e) { Console.WriteLine(e); }
+
+
+            return a;
+           
+
+        }
+
+        public static void AgregarVenta(DataGridView dgv_tabla) {
+
+            Factura_Negro Cabecera = new Factura_Negro();
+            Detalle_Negro Detalle = new Detalle_Negro();
+            string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, lista, iva) VALUES";
+            bool contador = false;
+
+            foreach (DataGridViewRow row in dgv_tabla.Rows)
+            {
+
+                if (contador) {
+                    consulta += ", ("+0+","+row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
+                }
+                else
+                {
+                    consulta += "(2,1,0,10,21)";
+                    contador = true;
+                }
+
+            }
+
+            Console.WriteLine(consulta);
+
+              /*  try
+            {
+
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
+                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva), Conexion.ObtenerConexion());
+                retorno = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error" + e);
+            }
+
+            
+        }*/
+
+    }
 
 
     }

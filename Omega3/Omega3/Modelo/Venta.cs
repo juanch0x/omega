@@ -8,7 +8,10 @@ namespace Omega3.Modelo
 {
     class Venta
 
-    { }
+    {
+
+
+    }
 
     public class Detalle_Negro
     {
@@ -32,8 +35,6 @@ namespace Omega3.Modelo
         public string Direccion { get; set; }
         public decimal Total { get; set; }
         public DateTime Fecha { get; set; }
-
-
         public List<Detalle_Negro> Detail = new List<Detalle_Negro>();
 
 
