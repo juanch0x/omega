@@ -161,6 +161,13 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
         }
+
+        private void reparacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Reparaciones.Reparacion a = new Vista.Reparaciones.Reparacion();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
     }
 
