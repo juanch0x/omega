@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2017 a las 04:09:35
+-- Tiempo de generación: 14-08-2017 a las 04:42:13
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cliente` (
   `tipo_documento` int(1) NOT NULL,
-  `documento` int(15) NOT NULL,
+  `documento` bigint(15) NOT NULL,
   `razon_social` varchar(50) NOT NULL,
   `direccion` varchar(70) NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -46,7 +46,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`tipo_documento`, `documento`, `razon_social`, `direccion`, `telefono`, `cod_provincia`, `localidad`, `cod_postal`, `contacto`, `mail_contacto`, `mail_factura`, `impositiva`) VALUES
-(2, 2147483647, 'RAMOS ESTEBAN MANUEL', 'VALLE LOS MANANTIALES, MANZANA F 16', '2616987081', 7, 'Luzuriaga City', '5513', 'Nicolás Ramos', 'nico.ramos009@gmail.com', '', 'IVA RESPONSABLE INSCRIPTO');
+(0, 0, 'dddd', 'dddddd', '33333', 0, 'ffddff', '445', 'ddffdd', 'ddddddf', '', 'MONOTRIBUTISTA'),
+(0, 1111111, 'sasdsa', 'assadsdsa', '111', 0, 'asds', '444', 'dddsa', '444', '', 'MONOTRIBUTISTA'),
+(0, 20068955670, 'SABATINI LUIS RODOLFO', 'B¿¿ UJEMVI MZNA 5 CASA 19', '5555', 7, 'saddsad', '5539', 'ffff', '1123123', '', 'MONOTRIBUTISTA');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,32 @@ INSERT INTO `condicion_frente_al_iva` (`id`, `condicion`) VALUES
 (3, 'CONSUMIDOR FINAL'),
 (4, 'IVA EXENTO'),
 (5, 'IVA NO RESPONSABLE');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_venta`
+--
+
+CREATE TABLE `detalle_venta` (
+  `id_venta` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `codigo` bigint(200) NOT NULL,
+  `lista` int(11) NOT NULL,
+  `iva` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_venta`
+--
+
+INSERT INTO `detalle_venta` (`id_venta`, `cantidad`, `codigo`, `lista`, `iva`) VALUES
+(0, 1, 0, 10, 21),
+(2, 1, 0, 10, 21),
+(3, 1, 0, 10, 21),
+(2, 1, 0, 10, 21),
+(0, 1, 1, 1, 21),
+(0, 1, 1, 1, 21);
 
 -- --------------------------------------------------------
 
@@ -364,6 +392,28 @@ INSERT INTO `usuarios` (`usuario`, `password`, `id_rol`, `nombre`) VALUES
 ('admin', 'admin', 1, 'administrador'),
 ('juanch0x', 'asdqwe123', 1, 'Juan Portugal');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `venta`
+--
+
+CREATE TABLE `venta` (
+  `id` int(11) NOT NULL,
+  `cliente_documento` bigint(20) NOT NULL,
+  `medio_de_pago` int(11) NOT NULL,
+  `vencimiento` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `nro_factura` varchar(20) NOT NULL DEFAULT '0',
+  `tipo_factura` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`id`, `cliente_documento`, `medio_de_pago`, `vencimiento`, `nro_factura`, `tipo_factura`) VALUES
+(1, 0, 0, '0000-00-00 00:00:00', '0', 0);
+
 --
 -- Índices para tablas volcadas
 --
@@ -447,6 +497,12 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`usuario`);
 
 --
+-- Indices de la tabla `venta`
+--
+ALTER TABLE `venta`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -485,6 +541,11 @@ ALTER TABLE `tipo_documento`
 --
 ALTER TABLE `tipo_factura`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT de la tabla `venta`
+--
+ALTER TABLE `venta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
