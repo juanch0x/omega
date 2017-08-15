@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    class Venta
+    public class Venta
 
     {
 
+        public long documento { get; set; }
+        public int medio_de_pago { get; set; }
+        public DateTime fecha_vencimiento_cheque { get; set; }
+        public long nrofactura { get; set; }
+        public int tipo_factura { get; set; }
+        public DateTime fecha_venta { get; set; }
 
     }
 

@@ -14,12 +14,13 @@ namespace Omega3.Vista.Venta
 {
     public partial class Venta_1 : Form
     {
-
+        
         public Venta_1()
         {
             InitializeComponent();
-       
 
+            fecha_pago.Visible = false;
+            
         }
 
         private void Venta_1_Load(object sender, EventArgs e)
@@ -29,9 +30,12 @@ namespace Omega3.Vista.Venta
 
             ControlVenta.llenarClientes(combo_cliente);
 
+            ControlVentas.llenarProductosCombo(combo_producto);
+            
+
             filtro_cuit.Text = "Buscar por CUIT o DNI";
             filtro_cuit.ForeColor = Color.Gray;
-            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             //DGV TABLA
 
@@ -48,7 +52,7 @@ namespace Omega3.Vista.Venta
 
             txt_ventas_cantidad.Text = "1";
             txt_ventas_codigo.Text = "";
-            txt_ventas_descripcion.Text = "";
+            
             txt_ventas_iva.Text = "";
             txt_ventas_precio.Text = "";
 
@@ -136,8 +140,30 @@ namespace Omega3.Vista.Venta
         private void btn_no_factura_Click(object sender, EventArgs e)
         {
 
-            ControlVentas.AgregarVenta(dgv_tabla);
-            //ControlVentas.generarFacturaNegro(dgv_tabla);
+            Omega3.Modelo.Venta venta = new Modelo.Venta();
+
+            venta.documento = long.Parse(cuit.Text);
+            venta.medio_de_pago = combo_pago.SelectedIndex;
+
+            if(combo_pago.Text == "Cheque")
+            {
+                venta.fecha_vencimiento_cheque = fecha_pago.Value;
+                
+            }
+
+            venta.nrofactura = 0;
+            venta.tipo_factura = 0;
+            venta.fecha_venta = DateTime.Now;
+
+            Factura_Negro factura = new Factura_Negro();
+            factura.Nombre = razon.Text;
+            factura.Documento = cuit.Text;
+            factura.Direccion = domicilio.Text;
+            factura.Fecha = DateTime.Now;
+            
+        
+            ControlVentas.AgregarVenta(dgv_tabla,venta);
+            ControlVentas.generarFacturaNegro(dgv_tabla, factura);
 
         }
 
@@ -149,17 +175,18 @@ namespace Omega3.Vista.Venta
                 Producto a = new Producto();
                 a = ControlVentas.llenarInformacionProducto(txt_ventas_codigo.Text);
 
-                txt_ventas_descripcion.Text = a.Nombre_producto;
+                combo_producto.Text = a.Nombre_producto;
                 txt_ventas_precio.Text = a.Precio_venta.ToString();
                 calcularSubtotal();
-                    
-                //dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, txt_ventas_descripcion.Text, txt_ventas_precio.Text, txt_ventas_lista.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text);
+                button1.Focus();
+                
             }
         }
 
         private void btn_Agregar_Click_1(object sender, EventArgs e)
         {
-            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, txt_ventas_descripcion.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text);
+            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text);
+            txt_ventas_codigo.Focus();
 
         }
 
@@ -199,6 +226,16 @@ namespace Omega3.Vista.Venta
         private void txt_ventas_iva_Leave(object sender, EventArgs e)
         {
             calcularSubtotal();
+        }
+
+        private void combo_pago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if(combo_pago.Text == "Cheque") {
+                fecha_pago.Visible = true;
+                
+                }
+            else {fecha_pago.Visible = false;}
         }
     }
     }

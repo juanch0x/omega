@@ -68,7 +68,7 @@ namespace Omega3.Controlador
 
         public static int AgregarCliente(Cliente cliente)
         {
-            cliente.Documento = 20068955670;
+            
             Console.WriteLine(cliente.Razon + cliente.Documento);
 
 

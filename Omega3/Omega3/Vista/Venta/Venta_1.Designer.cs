@@ -57,13 +57,19 @@
             this.btn_no_factura = new System.Windows.Forms.Button();
             this.panel_ventas_detalle = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dg_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_ventas_item = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
             this.txt_ventas_iva = new System.Windows.Forms.TextBox();
             this.txt_ventas_lista = new System.Windows.Forms.TextBox();
             this.txt_ventas_precio = new System.Windows.Forms.TextBox();
-            this.txt_ventas_descripcion = new System.Windows.Forms.TextBox();
             this.txt_ventas_codigo = new System.Windows.Forms.TextBox();
             this.txt_ventas_cantidad = new System.Windows.Forms.TextBox();
             this.lbl_venta_subtotal = new System.Windows.Forms.Label();
@@ -73,13 +79,8 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.combo_producto = new System.Windows.Forms.ComboBox();
+            this.fecha_pago = new System.Windows.Forms.DateTimePicker();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -99,10 +100,12 @@
             this.combo_pago.Name = "combo_pago";
             this.combo_pago.Size = new System.Drawing.Size(169, 21);
             this.combo_pago.TabIndex = 5;
+            this.combo_pago.SelectedIndexChanged += new System.EventHandler(this.combo_pago_SelectedIndexChanged);
             // 
             // Panel
             // 
             this.Panel.BackColor = System.Drawing.Color.White;
+            this.Panel.Controls.Add(this.fecha_pago);
             this.Panel.Controls.Add(this.label1);
             this.Panel.Controls.Add(this.combo_pago);
             this.Panel.Location = new System.Drawing.Point(192, 360);
@@ -194,7 +197,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Lime;
-            this.button5.Font = new System.Drawing.Font("Mistral", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Magenta;
             this.button5.Location = new System.Drawing.Point(849, 416);
             this.button5.Name = "button5";
@@ -403,15 +406,72 @@
             this.dgv_tabla.TabIndex = 0;
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cantidad.Frozen = true;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Cantidad.Width = 74;
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Codigo.Frozen = true;
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 65;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 88;
+            // 
+            // Precio
+            // 
+            this.Precio.Frozen = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // dg_iva
+            // 
+            this.dg_iva.Frozen = true;
+            this.dg_iva.HeaderText = "IVA";
+            this.dg_iva.Name = "dg_iva";
+            this.dg_iva.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.Frozen = true;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            this.Borrar.Frozen = true;
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            // 
             // panel_ventas_item
             // 
             this.panel_ventas_item.BackColor = System.Drawing.Color.White;
+            this.panel_ventas_item.Controls.Add(this.combo_producto);
             this.panel_ventas_item.Controls.Add(this.button1);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_subtotal);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_iva);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_lista);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_precio);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_descripcion);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_codigo);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_cantidad);
             this.panel_ventas_item.Controls.Add(this.lbl_venta_subtotal);
@@ -473,14 +533,6 @@
             this.txt_ventas_precio.TabIndex = 10;
             this.txt_ventas_precio.Text = "0.00";
             this.txt_ventas_precio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_ventas_descripcion
-            // 
-            this.txt_ventas_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_descripcion.Location = new System.Drawing.Point(252, 28);
-            this.txt_ventas_descripcion.Name = "txt_ventas_descripcion";
-            this.txt_ventas_descripcion.Size = new System.Drawing.Size(319, 22);
-            this.txt_ventas_descripcion.TabIndex = 9;
             // 
             // txt_ventas_codigo
             // 
@@ -570,62 +622,22 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
-            // Cantidad
+            // combo_producto
             // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cantidad.Frozen = true;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Cantidad.Width = 74;
+            this.combo_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combo_producto.FormattingEnabled = true;
+            this.combo_producto.Location = new System.Drawing.Point(252, 26);
+            this.combo_producto.Name = "combo_producto";
+            this.combo_producto.Size = new System.Drawing.Size(319, 24);
+            this.combo_producto.TabIndex = 15;
             // 
-            // Codigo
+            // fecha_pago
             // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Codigo.Frozen = true;
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 65;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 88;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // dg_iva
-            // 
-            this.dg_iva.Frozen = true;
-            this.dg_iva.HeaderText = "IVA";
-            this.dg_iva.Name = "dg_iva";
-            this.dg_iva.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.Frozen = true;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            // 
-            // Borrar
-            // 
-            this.Borrar.Frozen = true;
-            this.Borrar.HeaderText = "Borrar";
-            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
-            this.Borrar.Name = "Borrar";
-            this.Borrar.ReadOnly = true;
+            this.fecha_pago.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_pago.Location = new System.Drawing.Point(424, 26);
+            this.fecha_pago.Name = "fecha_pago";
+            this.fecha_pago.Size = new System.Drawing.Size(200, 20);
+            this.fecha_pago.TabIndex = 7;
             // 
             // Venta_1
             // 
@@ -678,7 +690,6 @@
         private System.Windows.Forms.TextBox txt_ventas_iva;
         private System.Windows.Forms.TextBox txt_ventas_lista;
         private System.Windows.Forms.TextBox txt_ventas_precio;
-        private System.Windows.Forms.TextBox txt_ventas_descripcion;
         private System.Windows.Forms.TextBox txt_ventas_codigo;
         private System.Windows.Forms.TextBox txt_ventas_cantidad;
         private System.Windows.Forms.Label lbl_venta_subtotal;
@@ -708,5 +719,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dg_iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
+        private System.Windows.Forms.ComboBox combo_producto;
+        private System.Windows.Forms.DateTimePicker fecha_pago;
     }
 }

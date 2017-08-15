@@ -63,6 +63,20 @@ namespace Omega3.Controlador
             combo.DataSource = dt;
 
         }
+        public static void llenarProductosCombo(ComboBox combo)
+        {
+            string query = "SELECT cod_producto, producto FROM productos";
+            MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da1.Fill(dt);
+
+            combo.ValueMember = "cod_producto";
+            combo.DisplayMember = "producto";
+            combo.DataSource = dt;
+
+
+        }
 
         public static Cliente obtenerCliente(long documento)
         {
@@ -115,21 +129,14 @@ namespace Omega3.Controlador
         }
 
 
-        public static void generarFacturaNegro(DataGridView dgvdetalle) {
+        public static void generarFacturaNegro(DataGridView dgvdetalle, Factura_Negro Cabecera) {
 
-            Factura_Negro Cabecera = new Factura_Negro();
-            Cabecera.Nombre = "Martín Mestre";
-            Cabecera.Documento = "2234755449222";
-            Cabecera.Direccion = "Av. Siempre Viva 289381 Perón";
-            Cabecera.Fecha = DateTime.Now;
-            Cabecera.Total = Convert.ToDecimal("0");
             
-
             foreach (DataGridViewRow row in dgvdetalle.Rows)
             {
 
                 Detalle_Negro article = new Detalle_Negro();
-       
+                
                 article.Cantidad = Convert.ToInt32(row.Cells[0].Value);
                 article.Cod = Convert.ToString(row.Cells[1].Value);
                 article.Descripcion = Convert.ToString(row.Cells[2].Value);
@@ -169,7 +176,7 @@ namespace Omega3.Controlador
                     a.Precio_venta = decimal.Parse(_reader.GetString(1));
                     a.Nombre_producto = _reader.GetString(0);
                     a.Cantidad = Convert.ToInt32(_reader.GetString(2));
-                    MessageBox.Show(a.Nombre_producto);
+                    
 
                 }
             }
@@ -181,7 +188,29 @@ namespace Omega3.Controlador
 
         }
 
-        public static void AgregarVenta(DataGridView dgv_tabla) {
+        public static void AgregarVenta(DataGridView dgv_tabla,Venta venta) {
+
+            int retorno;
+
+            string fecha_vencimiento = convertirFecha(venta.fecha_vencimiento_cheque);
+            string fecha_venta = convertirFecha(venta.fecha_venta);
+            //MessageBox.Show(fecha_venta);
+             try
+          {
+
+              MySqlCommand comando = new MySqlCommand(string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta) values ('{0}','{1}','{2}', '{3}','{4}','{5}')",
+                  venta.documento,venta.medio_de_pago,fecha_vencimiento,venta.nrofactura,venta.tipo_factura,fecha_venta), Conexion.ObtenerConexion());
+              retorno = comando.ExecuteNonQuery();
+
+          }
+          catch (Exception e)
+          {
+              Console.WriteLine("Error" + e);
+          }
+
+            
+      
+
 
             Factura_Negro Cabecera = new Factura_Negro();
             Detalle_Negro Detalle = new Detalle_Negro();
@@ -192,36 +221,27 @@ namespace Omega3.Controlador
             {
 
                 if (contador) {
-                    consulta += ", ("+0+","+row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
+                    consulta += ", ((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
                 }
                 else
                 {
-                    consulta += "(2,1,0,10,21)";
+                    consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
                     contador = true;
                 }
 
             }
 
-            Console.WriteLine(consulta);
+            MySqlCommand detalle = new MySqlCommand(consulta,Conexion.ObtenerConexion());
+            retorno = detalle.ExecuteNonQuery();
 
-              /*  try
-            {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
-                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva), Conexion.ObtenerConexion());
-                retorno = comando.ExecuteNonQuery();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error" + e);
-            }
-
-            
-        }*/
 
     }
-
+        public static String convertirFecha(DateTime dt)
+        {
+            string fecha = dt.ToString("yyyy-MM-dd HH:mm:ss");
+            return fecha;
+        }
 
     }
 }
