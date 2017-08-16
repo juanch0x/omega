@@ -31,20 +31,12 @@ namespace Omega3.Vista.Venta
             this.Informe_Comprobante.RefreshReport();
 
             Informe_Comprobante.LocalReport.DataSources.Clear();
-            //
-            //Establezcamos los parámetros que enviaremos al reporte
-            //recuerde que son dos para el titulo del reporte y para el nombre de la empresa
-            //
-
-            //
-            //Establezcamos la lista como Datasource del informe
-            //
+ 
+            
             Informe_Comprobante.LocalReport.DataSources.Add(new ReportDataSource("Cabecera", Cabecera));
             Informe_Comprobante.LocalReport.DataSources.Add(new ReportDataSource("Detalle", Detalle));
-            //
-            //
-            //Hagamos un refresh al reportViewer
-            //
+            
+
             Informe_Comprobante.RefreshReport();
 
         }

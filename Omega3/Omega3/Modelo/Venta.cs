@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    class Venta
+    public class Venta
 
-    { }
+    {
+
+        public long documento { get; set; }
+        public int medio_de_pago { get; set; }
+        public DateTime fecha_vencimiento_cheque { get; set; }
+        public long nrofactura { get; set; }
+        public int tipo_factura { get; set; }
+        public DateTime fecha_venta { get; set; }
+
+    }
 
     public class Detalle_Negro
     {
@@ -32,8 +41,6 @@ namespace Omega3.Modelo
         public string Direccion { get; set; }
         public decimal Total { get; set; }
         public DateTime Fecha { get; set; }
-
-
         public List<Detalle_Negro> Detail = new List<Detalle_Negro>();
 
 
