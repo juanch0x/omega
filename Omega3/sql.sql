@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2017 a las 04:42:13
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 16-08-2017 a las 02:09:58
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -47,8 +49,11 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`tipo_documento`, `documento`, `razon_social`, `direccion`, `telefono`, `cod_provincia`, `localidad`, `cod_postal`, `contacto`, `mail_contacto`, `mail_factura`, `impositiva`) VALUES
 (0, 0, 'dddd', 'dddddd', '33333', 0, 'ffddff', '445', 'ddffdd', 'ddddddf', '', 'MONOTRIBUTISTA'),
-(0, 1111111, 'sasdsa', 'assadsdsa', '111', 0, 'asds', '444', 'dddsa', '444', '', 'MONOTRIBUTISTA'),
-(0, 20068955670, 'SABATINI LUIS RODOLFO', 'B¿¿ UJEMVI MZNA 5 CASA 19', '5555', 7, 'saddsad', '5539', 'ffff', '1123123', '', 'MONOTRIBUTISTA');
+(0, 1, 'sasdsa', 'assadsdsa', '111', 0, 'asds', '444', 'dddsa', '444', '', 'MONOTRIBUTISTA'),
+(0, 36859019, 'Juan Portugal', 'Espejo 232 3º Piso', '4251860', 7, 'Mendoza', '5500', 'Juan Portugal', 'thejuasz@gmail.com', '', 'IVA EXENTO'),
+(0, 20068955670, 'adsaa', 'asdasdsd', '123', 0, 'asdsda', '11', 'asdsas', 'asdas', '', 'CONSUMIDOR FINAL'),
+(0, 20068955671, 'SABATINI LUIS RODOLFO', 'B¿¿ UJEMVI MZNA 5 CASA 19', '5555', 7, 'saddsad', '5539', 'ffff', '1123123', '', 'MONOTRIBUTISTA'),
+(0, 30687307123, 'CINEMARK ARGENTINA SOCIEDAD DE RESPONSABILIDAD LIM', 'BERUTI 3399 Piso:5', '75848498', 0, 'Godoy Cruz', '1425', 'Jorge Perez', 'asd@hotmail.com', '', 'CONSUMIDOR FINAL');
 
 -- --------------------------------------------------------
 
@@ -91,12 +96,17 @@ CREATE TABLE `detalle_venta` (
 --
 
 INSERT INTO `detalle_venta` (`id_venta`, `cantidad`, `codigo`, `lista`, `iva`) VALUES
-(0, 1, 0, 10, 21),
-(2, 1, 0, 10, 21),
-(3, 1, 0, 10, 21),
-(2, 1, 0, 10, 21),
-(0, 1, 1, 1, 21),
-(0, 1, 1, 1, 21);
+(17, 1, 0, 10, 21),
+(17, 1, 0, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21),
+(18, 1, 111, 10, 21);
 
 -- --------------------------------------------------------
 
@@ -173,8 +183,7 @@ INSERT INTO `medio_de_pago` (`id`, `descripcion`) VALUES
 (2, 'Cuenta Corriente'),
 (3, 'Tarjeta de Debito'),
 (4, 'Tarjeta de Credito'),
-(5, 'Cheque'),
-(6, 'Efectivo');
+(5, 'Cheque');
 
 -- --------------------------------------------------------
 
@@ -404,15 +413,33 @@ CREATE TABLE `venta` (
   `medio_de_pago` int(11) NOT NULL,
   `vencimiento` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `nro_factura` varchar(20) NOT NULL DEFAULT '0',
-  `tipo_factura` int(11) NOT NULL
+  `tipo_factura` int(11) NOT NULL,
+  `fecha_venta` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
 
-INSERT INTO `venta` (`id`, `cliente_documento`, `medio_de_pago`, `vencimiento`, `nro_factura`, `tipo_factura`) VALUES
-(1, 0, 0, '0000-00-00 00:00:00', '0', 0);
+INSERT INTO `venta` (`id`, `cliente_documento`, `medio_de_pago`, `vencimiento`, `nro_factura`, `tipo_factura`, `fecha_venta`) VALUES
+(1, 0, 0, '0000-00-00 00:00:00', '0', 0, '0000-00-00 00:00:00'),
+(2, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:50:03'),
+(3, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:50:30'),
+(4, 36859019, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:52:20'),
+(5, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:52:44'),
+(6, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 01:03:25'),
+(7, 0, 4, '2017-09-01 01:04:55', '0', 0, '2017-08-15 01:05:09'),
+(8, 0, 4, '2017-09-02 01:12:15', '0', 0, '2017-08-15 01:12:26'),
+(9, 36859019, 3, '0000-00-00 00:00:00', '0', 0, '2017-08-15 01:16:08'),
+(10, 30687307123, 4, '2017-09-07 02:37:43', '0', 0, '2017-08-15 02:38:07'),
+(11, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 22:51:57'),
+(12, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 22:54:51'),
+(13, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:05:39'),
+(14, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:08:10'),
+(15, 20068955671, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:08:48'),
+(16, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:09:38'),
+(17, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:11:25'),
+(18, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:14:06');
 
 --
 -- Índices para tablas volcadas
@@ -515,7 +542,7 @@ ALTER TABLE `condicion_frente_al_iva`
 -- AUTO_INCREMENT de la tabla `medio_de_pago`
 --
 ALTER TABLE `medio_de_pago`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
@@ -545,7 +572,8 @@ ALTER TABLE `tipo_factura`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

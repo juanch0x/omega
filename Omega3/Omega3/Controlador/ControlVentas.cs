@@ -76,6 +76,17 @@ namespace Omega3.Controlador
             combo.DataSource = dt;
 
 
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado 
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["producto"]));
+            }
+
+            combo.AutoCompleteCustomSource = coleccion;
+            combo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
         }
 
         public static Cliente obtenerCliente(long documento)
@@ -221,16 +232,16 @@ namespace Omega3.Controlador
             {
 
                 if (contador) {
-                    consulta += ", ((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
+                    consulta += ", ((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+")";
                 }
                 else
                 {
-                    consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+1+","+row.Cells[4].Value+")";
+                    consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+")";
                     contador = true;
                 }
 
             }
-
+            
             MySqlCommand detalle = new MySqlCommand(consulta,Conexion.ObtenerConexion());
             retorno = detalle.ExecuteNonQuery();
 

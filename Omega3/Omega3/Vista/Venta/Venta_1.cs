@@ -20,7 +20,10 @@ namespace Omega3.Vista.Venta
             InitializeComponent();
 
             fecha_pago.Visible = false;
-            
+            txt_ventas_cantidad.Text = "1";
+            txt_ventas_iva.Text = "21";
+            txt_ventas_lista.Text = "10";
+
         }
 
         private void Venta_1_Load(object sender, EventArgs e)
@@ -39,9 +42,7 @@ namespace Omega3.Vista.Venta
 
             //DGV TABLA
 
-            txt_ventas_cantidad.Text = "1";
-            txt_ventas_iva.Text = "21";
-            txt_ventas_lista.Text = "10";
+           
         
 
 
@@ -59,7 +60,7 @@ namespace Omega3.Vista.Venta
 
         }
 
-
+        //¿QUE ES ESTO??
         private void button1_Click(object sender, EventArgs e)
         {
             ControlVenta control = new ControlVenta();
@@ -143,7 +144,7 @@ namespace Omega3.Vista.Venta
             Omega3.Modelo.Venta venta = new Modelo.Venta();
 
             venta.documento = long.Parse(cuit.Text);
-            venta.medio_de_pago = combo_pago.SelectedIndex;
+            venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
             if(combo_pago.Text == "Cheque")
             {
@@ -170,7 +171,7 @@ namespace Omega3.Vista.Venta
         private void txt_ventas_codigo_KeyDown(object sender, KeyEventArgs e)
         {
 
-    
+            if (txt_ventas_codigo.Text != "") { 
             if (e.KeyCode == Keys.Enter) {
                 Producto a = new Producto();
                 a = ControlVentas.llenarInformacionProducto(txt_ventas_codigo.Text);
@@ -179,13 +180,21 @@ namespace Omega3.Vista.Venta
                 txt_ventas_precio.Text = a.Precio_venta.ToString();
                 calcularSubtotal();
                 button1.Focus();
-                
+
+                                    }
+
+                                            }
+            else
+            {
+
+                MessageBox.Show("El campo código no puede estar vacío");
+                txt_ventas_codigo.Focus();
             }
-        }
+        }   
 
         private void btn_Agregar_Click_1(object sender, EventArgs e)
         {
-            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text);
+            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
             txt_ventas_codigo.Focus();
 
         }
@@ -236,6 +245,16 @@ namespace Omega3.Vista.Venta
                 
                 }
             else {fecha_pago.Visible = false;}
+        }
+
+        private void combo_producto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Producto a = new Producto();
+            txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
+            a = ControlVentas.llenarInformacionProducto(combo_producto.SelectedValue.ToString());
+            combo_producto.Text = a.Nombre_producto;
+            txt_ventas_precio.Text = a.Precio_venta.ToString();
+            calcularSubtotal();
         }
     }
     }
