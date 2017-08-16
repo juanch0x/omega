@@ -17,19 +17,9 @@ namespace Omega3.Vista.Reparaciones
             InitializeComponent();
         }
 
-        private void lbl_subtotal_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void text_trabajo_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reparacion));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.text_trabajo = new System.Windows.Forms.TextBox();
             this.text_maquina = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -37,7 +40,6 @@
             this.lbl_subtotal = new System.Windows.Forms.Label();
             this.lbl_entrega = new System.Windows.Forms.Label();
             this.lbl_cliente = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_maquina = new System.Windows.Forms.Label();
             this.text_cliente = new System.Windows.Forms.TextBox();
@@ -45,18 +47,19 @@
             this.lbl_comentarios = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_repuestos = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.text_trabajo);
@@ -75,12 +78,33 @@
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Omega3.Properties.Resources.lupa2020;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
+            this.dataGridView1.Name = "dataGridView1";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.pictureBox4, "pictureBox4");
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.TabStop = false;
+            // 
             // text_trabajo
             // 
             this.text_trabajo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.text_trabajo, "text_trabajo");
             this.text_trabajo.Name = "text_trabajo";
-            this.text_trabajo.TextChanged += new System.EventHandler(this.text_trabajo_TextChanged);
             // 
             // text_maquina
             // 
@@ -109,7 +133,6 @@
             resources.ApplyResources(this.lbl_subtotal, "lbl_subtotal");
             this.lbl_subtotal.BackColor = System.Drawing.Color.Transparent;
             this.lbl_subtotal.Name = "lbl_subtotal";
-            this.lbl_subtotal.Click += new System.EventHandler(this.lbl_subtotal_Click);
             // 
             // lbl_entrega
             // 
@@ -122,14 +145,6 @@
             resources.ApplyResources(this.lbl_cliente, "lbl_cliente");
             this.lbl_cliente.BackColor = System.Drawing.Color.Transparent;
             this.lbl_cliente.Name = "lbl_cliente";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
             // 
             // dateTimePicker1
             // 
@@ -175,14 +190,6 @@
             this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_repuestos.Name = "lbl_repuestos";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
             // Reparacion
             // 
             resources.ApplyResources(this, "$this");
@@ -192,11 +199,11 @@
             this.Name = "Reparacion";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,5 +227,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button button1;
     }
 }
