@@ -168,6 +168,16 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
         }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Presupuesto.ListaPresupuestos a = new Vista.Presupuesto.ListaPresupuestos();
+
+            a.MdiParent = this;
+
+            a.Show();
+        }
     }
     }
 

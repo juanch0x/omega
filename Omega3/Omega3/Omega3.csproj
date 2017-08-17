@@ -152,6 +152,12 @@
     <Compile Include="Vista\Presupuesto\Informe.Designer.cs">
       <DependentUpon>Informe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Presupuesto\ListaPresupuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Presupuesto\ListaPresupuestos.Designer.cs">
+      <DependentUpon>ListaPresupuestos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Presupuesto\Presupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,12 @@
     </Compile>
     <Compile Include="Vista\Proveedores\AgregarProveedores.Designer.cs">
       <DependentUpon>AgregarProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Proveedores\detallepresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Proveedores\detallepresupuesto.Designer.cs">
+      <DependentUpon>detallepresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Proveedores\ModificarProveedor.cs">
       <SubType>Form</SubType>
@@ -246,6 +258,9 @@
     <EmbeddedResource Include="Vista\Presupuesto\Informe.resx">
       <DependentUpon>Informe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Presupuesto\ListaPresupuestos.resx">
+      <DependentUpon>ListaPresupuestos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Presupuesto\Presupuesto.resx">
       <DependentUpon>Presupuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\AgregarProveedores.resx">
       <DependentUpon>AgregarProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Proveedores\detallepresupuesto.resx">
+      <DependentUpon>detallepresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>

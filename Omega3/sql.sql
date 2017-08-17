@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2017 a las 02:09:58
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 17-08-2017 a las 03:14:59
+-- Versión del servidor: 10.1.22-MariaDB
+-- Versión de PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,6 +76,28 @@ INSERT INTO `condicion_frente_al_iva` (`id`, `condicion`) VALUES
 (3, 'CONSUMIDOR FINAL'),
 (4, 'IVA EXENTO'),
 (5, 'IVA NO RESPONSABLE');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_presupuesto`
+--
+
+CREATE TABLE `detalle_presupuesto` (
+  `id_presupuesto` int(10) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `codigo` bigint(20) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `producto` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_presupuesto`
+--
+
+INSERT INTO `detalle_presupuesto` (`id_presupuesto`, `cantidad`, `codigo`, `precio`, `producto`) VALUES
+(1, 10, 0, '300.00', 'pepe en patineta'),
+(1, 3, 20, '50.00', 'huevada');
 
 -- --------------------------------------------------------
 
@@ -209,9 +231,30 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `id_producto`, `cantidad`, `user_pedido`, `user_compra`, `fecha_pedido`, `fecha_compra`, `cantidad_comprada`, `realizado`, `id_proveedor`) VALUES
-(3, 0, 3, 'juanch0x', 'juanch0x', '2017-06-26 17:40:03', '2017-06-28 08:35:12', 0, 0, 0),
-(4, 0, 3, 'juanch0x', '', '2017-06-15 23:15:51', '0000-00-00 00:00:00', 0, 0, 0),
-(5, 0, 3, 'juanch0x', '', '2017-06-15 23:19:05', '0000-00-00 00:00:00', 0, 0, 0);
+(3, 0, 3, 'juanch0x', 'juanch0x', '2017-06-26 20:40:03', '2017-06-28 11:35:12', 0, 0, 0),
+(4, 0, 3, 'juanch0x', '', '2017-06-16 02:15:51', '0000-00-00 00:00:00', 0, 0, 0),
+(5, 0, 3, 'juanch0x', '', '2017-06-16 02:19:05', '0000-00-00 00:00:00', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `presupuestos`
+--
+
+CREATE TABLE `presupuestos` (
+  `id` int(10) NOT NULL,
+  `cliente_documento` bigint(20) NOT NULL,
+  `total` decimal(20,2) NOT NULL,
+  `fecha_presupuesto` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `presupuestos`
+--
+
+INSERT INTO `presupuestos` (`id`, `cliente_documento`, `total`, `fecha_presupuesto`) VALUES
+(1, 36859019, '300.00', '2017-08-17 00:33:14'),
+(2, 0, '500.00', '2017-08-17 00:33:20');
 
 -- --------------------------------------------------------
 
@@ -423,23 +466,23 @@ CREATE TABLE `venta` (
 
 INSERT INTO `venta` (`id`, `cliente_documento`, `medio_de_pago`, `vencimiento`, `nro_factura`, `tipo_factura`, `fecha_venta`) VALUES
 (1, 0, 0, '0000-00-00 00:00:00', '0', 0, '0000-00-00 00:00:00'),
-(2, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:50:03'),
-(3, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:50:30'),
-(4, 36859019, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:52:20'),
-(5, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 00:52:44'),
-(6, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 01:03:25'),
-(7, 0, 4, '2017-09-01 01:04:55', '0', 0, '2017-08-15 01:05:09'),
-(8, 0, 4, '2017-09-02 01:12:15', '0', 0, '2017-08-15 01:12:26'),
-(9, 36859019, 3, '0000-00-00 00:00:00', '0', 0, '2017-08-15 01:16:08'),
-(10, 30687307123, 4, '2017-09-07 02:37:43', '0', 0, '2017-08-15 02:38:07'),
-(11, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 22:51:57'),
-(12, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 22:54:51'),
-(13, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:05:39'),
-(14, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:08:10'),
-(15, 20068955671, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:08:48'),
-(16, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:09:38'),
-(17, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:11:25'),
-(18, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-08-15 23:14:06');
+(2, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 03:50:03'),
+(3, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 03:50:30'),
+(4, 36859019, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 03:52:20'),
+(5, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-15 03:52:44'),
+(6, 0, 4, '0000-00-00 00:00:00', '0', 0, '2017-08-15 04:03:25'),
+(7, 0, 4, '2017-09-01 04:04:55', '0', 0, '2017-08-15 04:05:09'),
+(8, 0, 4, '2017-09-02 04:12:15', '0', 0, '2017-08-15 04:12:26'),
+(9, 36859019, 3, '0000-00-00 00:00:00', '0', 0, '2017-08-15 04:16:08'),
+(10, 30687307123, 4, '2017-09-07 05:37:43', '0', 0, '2017-08-15 05:38:07'),
+(11, 36859019, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 01:51:57'),
+(12, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 01:54:51'),
+(13, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:05:39'),
+(14, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:08:10'),
+(15, 20068955671, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:08:48'),
+(16, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:09:38'),
+(17, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:11:25'),
+(18, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:14:06');
 
 --
 -- Índices para tablas volcadas
@@ -480,6 +523,12 @@ ALTER TABLE `medio_de_pago`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id_pedido`);
+
+--
+-- Indices de la tabla `presupuestos`
+--
+ALTER TABLE `presupuestos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -548,6 +597,11 @@ ALTER TABLE `medio_de_pago`
 --
 ALTER TABLE `pedidos`
   MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `presupuestos`
+--
+ALTER TABLE `presupuestos`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --

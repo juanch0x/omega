@@ -7,7 +7,8 @@ using Omega3.Modelo;
 using System.Windows.Forms;
 using Omega3.Vista;
 using Omega3.Controlador;
-
+using MySql.Data.MySqlClient;
+using System.Data;
 namespace Omega3.Controlador
 {
     class ControlPresupuesto
@@ -256,6 +257,72 @@ namespace Omega3.Controlador
             frm.Show();
 
         }
+
+        public static void llenarTabla(DataGridView cuadro)
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT presupuestos.id,presupuestos.cliente_documento,presupuestos.total,presupuestos.fecha_presupuesto,cliente.razon_social FROM presupuestos LEFT JOIN cliente on presupuestos.cliente_documento = cliente.documento";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                cuadro.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de presupuestos: " + ex); }
+        }
+
+        public static void AutoFill(DataGridView dgv_tabla)
+        {
+            dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            int i;
+            for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
+            {
+                //store autosized widths
+                int colw = dgv_tabla.Columns[i].Width;
+                //remove autosizing
+                dgv_tabla.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //set width to calculated by autosize
+                dgv_tabla.Columns[i].Width = colw;
+            }
+
+        }
+
+        public static void LlenarDetalle(DataGridView cuadro, Int64 id)
+        {
+         
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT * FROM detalle_presupuesto WHERE detalle_presupuesto.id_presupuesto ={0}", id;
+
+            
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                cuadro.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de presupuestos: " + ex); }
+
+        }
+
     }
 }
 
