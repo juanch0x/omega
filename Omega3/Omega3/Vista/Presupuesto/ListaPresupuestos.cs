@@ -24,12 +24,20 @@ namespace Omega3.Vista.Presupuesto
 
         private void btn_llenar_Click(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void ListaPresupuestos_Load(object sender, EventArgs e)
+        {
             Omega3.Controlador.ControlPresupuesto.llenarTabla(dgv_presupuestos);
 
+
             dgv_presupuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_presupuestos.Columns[0].DisplayIndex = 5;
+            
 
             Omega3.Controlador.ControlPresupuesto.AutoFill(dgv_presupuestos);
-
 
         }
     }

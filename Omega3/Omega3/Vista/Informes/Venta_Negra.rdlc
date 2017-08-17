@@ -755,14 +755,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Numero1">
+                    <Textbox Name="Cantidad">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Numero.Value</Value>
+                              <Value>=Fields!Cantidad.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -771,7 +771,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Numero1</rd:DefaultName>
+                      <rd:DefaultName>Cantidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -783,6 +783,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -948,7 +949,7 @@
         <Top>9.68928cm</Top>
         <Left>0.35278cm</Left>
         <Height>1.75875cm</Height>
-        <Width>20.14808cm</Width>
+        <Width>20.14809cm</Width>
         <ZIndex>21</ZIndex>
         <Style>
           <Border>

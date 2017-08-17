@@ -40,12 +40,7 @@ namespace Omega3.Vista.Venta
             filtro_cuit.ForeColor = Color.Gray;
            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //DGV TABLA
-
-           
-        
-
-
+          
         }
 
         private void limpiar()
@@ -59,6 +54,9 @@ namespace Omega3.Vista.Venta
 
 
         }
+
+
+        
 
         //¿QUE ES ESTO??
         private void button1_Click(object sender, EventArgs e)

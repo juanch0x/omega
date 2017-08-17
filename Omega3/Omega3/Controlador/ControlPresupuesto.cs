@@ -186,6 +186,38 @@ namespace Omega3.Controlador
             return listaArticulos;
         }
 
+        public static void generarFacturaNegro(DataGridView dgvdetalle, EFactura Cabecera)
+        {
+
+
+            foreach (DataGridViewRow row in dgvdetalle.Rows)
+            {
+
+                EArticulo article = new EArticulo();
+
+                article.Cantidad = Convert.ToInt32(row.Cells[0].Value);
+                article.Cod = Convert.ToString(row.Cells[1].Value);
+                article.Descripcion = Convert.ToString(row.Cells[2].Value);
+                article.Precio = Convert.ToDecimal(row.Cells[3].Value);
+                article.Importe = Convert.ToDecimal(row.Cells[5]);
+                
+                Cabecera.Total += article.Importe;
+
+
+                Cabecera.Detail.Add(article);
+            }
+
+
+            
+            Vista.Presupuesto.Informe frm = new Vista.Presupuesto.Informe();
+
+            frm.Cabecera.Add(Cabecera);
+
+            frm.Detalle = Cabecera.Detail;
+            frm.Show();
+
+        }
+
         private static int GenerateNumber()
         {
             Random rdm = new Random();
@@ -263,7 +295,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT presupuestos.id,presupuestos.cliente_documento,presupuestos.total,presupuestos.fecha_presupuesto,cliente.razon_social FROM presupuestos LEFT JOIN cliente on presupuestos.cliente_documento = cliente.documento";
+            string sqlSelectAll = "SELECT presupuestos.id ID,cliente.razon_social Cliente,presupuestos.cliente_documento Documento,presupuestos.total Total,presupuestos.fecha_presupuesto Fecha FROM presupuestos LEFT JOIN cliente on presupuestos.cliente_documento = cliente.documento";
             try
             {
 
@@ -302,7 +334,7 @@ namespace Omega3.Controlador
         {
          
 
-            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+           /* MySqlDataAdapter MyDA = new MySqlDataAdapter();
             string sqlSelectAll = "SELECT * FROM detalle_presupuesto WHERE detalle_presupuesto.id_presupuesto ={0}", id;
 
             
@@ -321,7 +353,7 @@ namespace Omega3.Controlador
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de presupuestos: " + ex); }
 
-        }
+       */ }
 
     }
 }

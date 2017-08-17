@@ -30,6 +30,7 @@
         {
             this.dgv_presupuestos = new System.Windows.Forms.DataGridView();
             this.btn_llenar = new System.Windows.Forms.Button();
+            this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_presupuestos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,6 +39,8 @@
             this.dgv_presupuestos.AllowUserToAddRows = false;
             this.dgv_presupuestos.AllowUserToDeleteRows = false;
             this.dgv_presupuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_presupuestos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ver});
             this.dgv_presupuestos.Location = new System.Drawing.Point(12, 72);
             this.dgv_presupuestos.Name = "dgv_presupuestos";
             this.dgv_presupuestos.ReadOnly = true;
@@ -55,6 +58,13 @@
             this.btn_llenar.UseVisualStyleBackColor = true;
             this.btn_llenar.Click += new System.EventHandler(this.btn_llenar_Click);
             // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Image = global::Omega3.Properties.Resources.lupa2020;
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
+            // 
             // ListaPresupuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -64,6 +74,7 @@
             this.Controls.Add(this.dgv_presupuestos);
             this.Name = "ListaPresupuestos";
             this.Text = "ListaPresupuestos";
+            this.Load += new System.EventHandler(this.ListaPresupuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_presupuestos)).EndInit();
             this.ResumeLayout(false);
 
@@ -73,5 +84,6 @@
 
         private System.Windows.Forms.DataGridView dgv_presupuestos;
         private System.Windows.Forms.Button btn_llenar;
+        private System.Windows.Forms.DataGridViewImageColumn Ver;
     }
 }
