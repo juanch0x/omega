@@ -25,6 +25,17 @@ namespace Omega3.Vista.Venta
             txt_ventas_lista.Text = "10";
 
         }
+ //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
 
         private void Venta_1_Load(object sender, EventArgs e)
         {
@@ -253,6 +264,14 @@ namespace Omega3.Vista.Venta
             combo_producto.Text = a.Nombre_producto;
             txt_ventas_precio.Text = a.Precio_venta.ToString();
             calcularSubtotal();
+        }
+
+        private void Venta_1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
     }
