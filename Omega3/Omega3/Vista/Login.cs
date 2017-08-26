@@ -29,18 +29,41 @@ namespace Omega3.Vista
             Principal f1 = (Principal)this.MdiParent;
             f1.menu.Visible = true;
 
-            this.Hide();
+            //this.Hide();
 
+            Boolean logueocorrecto = false;
             
             Usuario.User = txt_usuario.Text;
             Usuario.Password = txt_pwd.Text;
 
             ControlUsuario login = new ControlUsuario();
-            login.login();
+
+            logueocorrecto = login.login();
+            this.Visible = false;
+                if (logueocorrecto){
+
+                this.Hide();
+
+                                    }
+
+                else {
+                
+                    this.Visible = true;
+                    txt_usuario.Text = "";
+                    txt_pwd.Text = "";
+                    txt_usuario.Focus();
+                    }
 
             f1.MenuVentas.Visible = true;
             f1.MenuProducto.Visible = true;
 
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {
+                btn_login_Click(sender,e);
+            }
         }
     }
 }

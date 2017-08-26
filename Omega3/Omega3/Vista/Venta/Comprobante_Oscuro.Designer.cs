@@ -31,12 +31,20 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.Informe_Comprobante = new Microsoft.Reporting.WinForms.ReportViewer();
             this.Detalle_NegroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Factura_NegroBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Informe_Comprobante = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.Detalle_NegroBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Factura_NegroBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Detalle_NegroBindingSource
+            // 
+            this.Detalle_NegroBindingSource.DataSource = typeof(Omega3.Modelo.Detalle_Negro);
+            // 
+            // Factura_NegroBindingSource
+            // 
+            this.Factura_NegroBindingSource.DataSource = typeof(Omega3.Modelo.Factura_Negro);
             // 
             // Informe_Comprobante
             // 
@@ -54,14 +62,6 @@
             this.Informe_Comprobante.Size = new System.Drawing.Size(495, 343);
             this.Informe_Comprobante.TabIndex = 0;
             // 
-            // Detalle_NegroBindingSource
-            // 
-            this.Detalle_NegroBindingSource.DataSource = typeof(Omega3.Modelo.Detalle_Negro);
-            // 
-            // Factura_NegroBindingSource
-            // 
-            this.Factura_NegroBindingSource.DataSource = typeof(Omega3.Modelo.Factura_Negro);
-            // 
             // Comprobante_Oscuro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,7 +69,7 @@
             this.ClientSize = new System.Drawing.Size(495, 343);
             this.Controls.Add(this.Informe_Comprobante);
             this.Name = "Comprobante_Oscuro";
-            this.Text = "Comprobante_Oscuro";
+            this.Text = "Comprobante de Venta";
             this.Load += new System.EventHandler(this.Comprobante_Oscuro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Detalle_NegroBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Factura_NegroBindingSource)).EndInit();

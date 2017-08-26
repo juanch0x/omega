@@ -178,6 +178,22 @@ namespace Omega3
 
             a.Show();
         }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            
+           DialogResult a =  MessageBox.Show("\t¿Esta seguro que quiere cerrar sesión? \n\t¡Todas las ventanas se cerrarán!",
+    "¡Alerta!",
+    MessageBoxButtons.YesNoCancel,
+    MessageBoxIcon.Exclamation,
+    MessageBoxDefaultButton.Button1);
+
+            if(a == DialogResult.Yes) {
+                Application.Restart();
+            }
+
+        }
     }
     }
 

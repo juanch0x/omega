@@ -97,7 +97,7 @@
             // 
             this.combo_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pago.FormattingEnabled = true;
-            this.combo_pago.Location = new System.Drawing.Point(240, 28);
+            this.combo_pago.Location = new System.Drawing.Point(240, 18);
             this.combo_pago.Name = "combo_pago";
             this.combo_pago.Size = new System.Drawing.Size(169, 21);
             this.combo_pago.TabIndex = 5;
@@ -106,6 +106,7 @@
             // Panel
             // 
             this.Panel.BackColor = System.Drawing.Color.White;
+            this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Panel.Controls.Add(this.fecha_pago);
             this.Panel.Controls.Add(this.label1);
             this.Panel.Controls.Add(this.combo_pago);
@@ -117,7 +118,7 @@
             // fecha_pago
             // 
             this.fecha_pago.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_pago.Location = new System.Drawing.Point(424, 26);
+            this.fecha_pago.Location = new System.Drawing.Point(424, 18);
             this.fecha_pago.Name = "fecha_pago";
             this.fecha_pago.Size = new System.Drawing.Size(200, 20);
             this.fecha_pago.TabIndex = 7;
@@ -126,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 23);
+            this.label1.Location = new System.Drawing.Point(7, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 26);
             this.label1.TabIndex = 6;
@@ -135,6 +136,7 @@
             // panel_cliente
             // 
             this.panel_cliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_cliente.Controls.Add(this.btn_buscar);
             this.panel_cliente.Controls.Add(this.btn_nuevo);
             this.panel_cliente.Controls.Add(this.combo_cliente);
@@ -147,36 +149,46 @@
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(505, 11);
+            this.btn_buscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.Location = new System.Drawing.Point(505, 17);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscar.Size = new System.Drawing.Size(75, 20);
             this.btn_buscar.TabIndex = 16;
             this.btn_buscar.Text = "BUSCAR";
+            this.btn_buscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_nuevo
             // 
-            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nuevo.Location = new System.Drawing.Point(424, 11);
+            this.btn_nuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_nuevo.FlatAppearance.BorderSize = 6;
+            this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.Location = new System.Drawing.Point(424, 17);
             this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(75, 23);
+            this.btn_nuevo.Size = new System.Drawing.Size(75, 20);
             this.btn_nuevo.TabIndex = 14;
             this.btn_nuevo.Text = "NUEVO";
+            this.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_nuevo.UseVisualStyleBackColor = true;
             // 
             // combo_cliente
             // 
             this.combo_cliente.FormattingEnabled = true;
-            this.combo_cliente.Location = new System.Drawing.Point(10, 11);
+            this.combo_cliente.Location = new System.Drawing.Point(11, 16);
             this.combo_cliente.Name = "combo_cliente";
             this.combo_cliente.Size = new System.Drawing.Size(217, 21);
             this.combo_cliente.TabIndex = 15;
             // 
             // filtro_cuit
             // 
-            this.filtro_cuit.Location = new System.Drawing.Point(269, 12);
+            this.filtro_cuit.Location = new System.Drawing.Point(269, 17);
             this.filtro_cuit.Name = "filtro_cuit";
             this.filtro_cuit.Size = new System.Drawing.Size(149, 20);
             this.filtro_cuit.TabIndex = 13;
@@ -187,7 +199,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(248, 16);
+            this.label4.Location = new System.Drawing.Point(246, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 16);
             this.label4.TabIndex = 12;
@@ -226,7 +238,6 @@
             this.panel_principal.Size = new System.Drawing.Size(1104, 528);
             this.panel_principal.TabIndex = 14;
             this.panel_principal.SelectedIndexChanged += new System.EventHandler(this.panel_principal_SelectedIndexChanged);
-            this.panel_principal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.panel_principal_KeyDown);
             // 
             // tab_cliente
             // 
@@ -257,6 +268,7 @@
             // panel_datos
             // 
             this.panel_datos.BackColor = System.Drawing.Color.White;
+            this.panel_datos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_datos.Controls.Add(this.iva);
             this.panel_datos.Controls.Add(this.domicilio);
             this.panel_datos.Controls.Add(this.email);
@@ -277,9 +289,8 @@
             this.iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iva.Location = new System.Drawing.Point(219, 151);
             this.iva.Name = "iva";
-            this.iva.Size = new System.Drawing.Size(28, 20);
+            this.iva.Size = new System.Drawing.Size(0, 20);
             this.iva.TabIndex = 8;
-            this.iva.Text = "iva";
             // 
             // domicilio
             // 
@@ -287,9 +298,8 @@
             this.domicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.domicilio.Location = new System.Drawing.Point(105, 120);
             this.domicilio.Name = "domicilio";
-            this.domicilio.Size = new System.Drawing.Size(69, 20);
+            this.domicilio.Size = new System.Drawing.Size(0, 20);
             this.domicilio.TabIndex = 7;
-            this.domicilio.Text = "domicilio";
             // 
             // email
             // 
@@ -297,9 +307,8 @@
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email.Location = new System.Drawing.Point(80, 90);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(46, 20);
+            this.email.Size = new System.Drawing.Size(0, 20);
             this.email.TabIndex = 6;
-            this.email.Text = "email";
             // 
             // cuit
             // 
@@ -307,9 +316,8 @@
             this.cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuit.Location = new System.Drawing.Point(74, 61);
             this.cuit.Name = "cuit";
-            this.cuit.Size = new System.Drawing.Size(34, 20);
+            this.cuit.Size = new System.Drawing.Size(0, 20);
             this.cuit.TabIndex = 5;
-            this.cuit.Text = "cuit";
             // 
             // lbl_condicion
             // 

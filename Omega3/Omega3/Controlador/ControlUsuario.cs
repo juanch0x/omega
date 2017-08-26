@@ -13,28 +13,22 @@ namespace Omega3.Controlador
     {
         public Boolean login()
         {
+            Boolean retorno = false;
 
-
-
-            //  List<Cliente> _lista = new List<Cliente>();
-          //  Usuario validar = new Usuario();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-                "SELECT * FROM usuarios  where usuario ='{0}' AND password='{1}'", Usuario.User, Usuario.Password), Conexion.ObtenerConexion());
-                MySqlDataReader _reader = _comando.ExecuteReader();
-                while (_reader.Read())
-                {
-                    //Usuario validar = new Usuario();
-                    Usuario.User = _reader.GetString(0);
-                    Usuario.Password = _reader.GetString(1);
-                    Usuario.Id_rol = _reader.GetInt32(2);
-                  
-                    
-                }
-
-          MessageBox.Show(Usuario.User);
-
-
-            return false;
+                "SELECT count(usuario) FROM usuarios  where usuario ='{0}' AND password='{1}'", Usuario.User, Usuario.Password), Conexion.ObtenerConexion());
+            string resultado = Convert.ToString(_comando.ExecuteScalar());
+            if (resultado == "1")
+            {
+                MessageBox.Show("Bienvenido " + Usuario.User + " que disfrutes de tu trabajo!");
+                retorno = true;
+            }
+            else
+            {
+                MessageBox.Show("Usuario invalido, vuelva a intentarlo");
+                retorno = false;
+            }
+            return retorno;
 
         }
     }

@@ -141,11 +141,7 @@ namespace Omega3.Vista.Venta
                 }
         }
 
-        private void panel_principal_KeyDown(object sender, KeyEventArgs e)
-        {
-                btn_no_factura.Visible = true;
 
-        }
 
         private void btn_no_factura_Click(object sender, EventArgs e)
         {
@@ -268,9 +264,21 @@ namespace Omega3.Vista.Venta
 
         private void Venta_1_KeyDown(object sender, KeyEventArgs e)
         {
+
+
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            }
+
+
+            if (e.KeyCode == Keys.F6)
+            {
+
+                if (!btn_no_factura.Visible)
+                    btn_no_factura.Visible = true;
+                else
+                    btn_no_factura.Visible = false;
             }
         }
     }
