@@ -298,7 +298,8 @@ namespace Omega3.Vista.Venta
         private void txt_ventas_cantidad_Leave(object sender, EventArgs e)
         {
             calcularSubtotal();
-            txt_ventas_iva.Focus();
+            if(Convert.ToInt32(txt_ventas_cantidad.Text.Trim()) <= 0)
+            txt_ventas_cantidad.Text = "1";
         }
 
         private void calcularSubtotal() {
@@ -363,6 +364,16 @@ namespace Omega3.Vista.Venta
                     btn_no_factura.Visible = true;
                 else
                     btn_no_factura.Visible = false;
+            }
+        }
+
+        private void txt_ventas_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+
             }
         }
     }

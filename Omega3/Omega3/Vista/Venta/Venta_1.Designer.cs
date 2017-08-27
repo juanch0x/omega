@@ -589,6 +589,7 @@
             this.txt_ventas_cantidad.Name = "txt_ventas_cantidad";
             this.txt_ventas_cantidad.Size = new System.Drawing.Size(79, 22);
             this.txt_ventas_cantidad.TabIndex = 7;
+            this.txt_ventas_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ventas_cantidad_KeyPress);
             this.txt_ventas_cantidad.Leave += new System.EventHandler(this.txt_ventas_cantidad_Leave);
             // 
             // lbl_venta_subtotal
