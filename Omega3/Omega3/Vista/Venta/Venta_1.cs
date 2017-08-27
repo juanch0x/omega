@@ -14,7 +14,7 @@ namespace Omega3.Vista.Venta
 {
     public partial class Venta_1 : Form
     {
-        
+        List<Producto> lista;
         public Venta_1()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace Omega3.Vista.Venta
             txt_ventas_cantidad.Text = "1";
             txt_ventas_iva.Text = "21";
             txt_ventas_lista.Text = "10";
+            lista = new List<Producto>();
 
         }
  //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
@@ -136,8 +137,17 @@ namespace Omega3.Vista.Venta
                 {
                     if (e.ColumnIndex == 7) //2nd column - DGV_ImageColumn
                     {
-                        dgv_tabla.Rows.RemoveAt(item.Index);
+
+                    foreach (var producto in lista)
+                    {
+                        if (producto.Cod_producto == long.Parse(dgv_tabla.Rows[e.RowIndex].Cells[1].Value.ToString()) )
+                        producto.Cantidad += Convert.ToInt32(dgv_tabla.Rows[e.RowIndex].Cells[0].Value.ToString());
                     }
+
+                    dgv_tabla.Rows.RemoveAt(item.Index);
+                                                           
+                    
+                }
                 }
         }
 
@@ -166,10 +176,19 @@ namespace Omega3.Vista.Venta
             factura.Documento = cuit.Text;
             factura.Direccion = domicilio.Text;
             factura.Fecha = DateTime.Now;
-            
-        
+
+
+            panel_principal.SelectedIndex = 0;
+
+            MessageBox.Show("Venta realizada correctamente!");
+
             ControlVentas.AgregarVenta(dgv_tabla,venta);
             ControlVentas.generarFacturaNegro(dgv_tabla, factura);
+
+            dgv_tabla.Rows.Clear();
+            dgv_tabla.Refresh();
+
+            
 
         }
 
@@ -199,7 +218,72 @@ namespace Omega3.Vista.Venta
 
         private void btn_Agregar_Click_1(object sender, EventArgs e)
         {
-            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+            Producto a = new Producto();
+            bool aux = false;
+
+              foreach (var producto in lista)
+              {
+                if (producto.Cod_producto == Convert.ToInt32(txt_ventas_codigo.Text)) {
+
+                    aux = true;
+                    if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text) ) {
+                        producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                    }
+                    else
+                    {
+                        DialogResult dialogresult = MessageBox.Show("\t No se dispone del stock suficiente\n ¿Desea agregar el producto a la venta de todas maneras?",
+                            "¡Alerta!",
+                                MessageBoxButtons.YesNoCancel,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+
+                        if (dialogresult == DialogResult.Yes)
+                        {
+                            producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
+                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        }
+                        else if (dialogresult == DialogResult.No) {
+                            MessageBox.Show("El producto no fue agregado");
+                        }
+                    }
+                    
+
+                }
+                else { aux = false; }
+
+              }
+
+            if (!aux)
+            {
+                if (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                {
+                    lista.Add(new Producto { Cod_producto = Convert.ToInt32(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
+                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                }
+                else
+                {
+                    DialogResult dialogresult = MessageBox.Show("\t No se dispone del stock suficiente\n ¿Desea agregar el producto a la venta de todas maneras?",
+                        "¡Alerta!",
+                            MessageBoxButtons.YesNoCancel,
+                            MessageBoxIcon.Exclamation,
+                            MessageBoxDefaultButton.Button1);
+
+                    if (dialogresult == DialogResult.Yes)
+                    {
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                    }
+                    else if (dialogresult == DialogResult.No)
+                    {
+                        MessageBox.Show("El producto no fue agregado");
+                    }
+                }
+            }
+            
+  
+
+            
+            
             txt_ventas_codigo.Focus();
 
         }

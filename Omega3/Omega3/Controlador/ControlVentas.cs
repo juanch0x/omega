@@ -254,5 +254,23 @@ namespace Omega3.Controlador
             return fecha;
         }
 
+        public static int chequearStock(int cod) {
+
+            int stock = 0;
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+         "SELECT cantidad FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+
+                stock = Convert.ToInt32(_reader.GetString(0));
+
+
+            }
+           // MessageBox.Show(stock.ToString());
+            return stock;
+        }
+
+
     }
 }

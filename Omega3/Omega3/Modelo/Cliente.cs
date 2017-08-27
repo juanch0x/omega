@@ -35,7 +35,4 @@ namespace Omega3.Modelo
         public string Impositiva { get => _impositiva; set => _impositiva = value; }
     }
 
-
-
 }
-
