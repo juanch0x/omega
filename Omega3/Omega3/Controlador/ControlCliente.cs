@@ -111,6 +111,25 @@ namespace Omega3.Controlador
 
         }
 
+        public static Boolean validardocumento(long documento)
+        {
+            Boolean retorno = false;
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                "SELECT count(documento) FROM cliente  where documento ='{0}'", documento), Conexion.ObtenerConexion());
+            string resultado = Convert.ToString(_comando.ExecuteScalar());
+            if (resultado == "1")
+            {
+                retorno = true;
+            }
+            else
+            {
+                
+                retorno = false;
+            }
+            return retorno;
+        }
+
 
     }
 }

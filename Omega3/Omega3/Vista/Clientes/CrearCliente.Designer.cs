@@ -30,7 +30,6 @@
         {
             this.combo_documento = new System.Windows.Forms.ComboBox();
             this.lbl_tipo = new System.Windows.Forms.Label();
-            this.txt_documento = new System.Windows.Forms.TextBox();
             this.lbl_razon = new System.Windows.Forms.Label();
             this.txt_razon_social = new System.Windows.Forms.TextBox();
             this.lbl_direccion = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.combo_condicion = new System.Windows.Forms.ComboBox();
             this.datos_generales = new System.Windows.Forms.Panel();
+            this.txt_cuit = new System.Windows.Forms.MaskedTextBox();
             this.lbl_cod_postal = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_mail_contacto = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.cargar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_crear = new System.Windows.Forms.Button();
+            this.txt_documento = new System.Windows.Forms.TextBox();
             this.facturacion.SuspendLayout();
             this.datos_generales.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +68,7 @@
             this.combo_documento.Name = "combo_documento";
             this.combo_documento.Size = new System.Drawing.Size(116, 21);
             this.combo_documento.TabIndex = 0;
+            this.combo_documento.SelectedIndexChanged += new System.EventHandler(this.combo_documento_SelectedIndexChanged);
             // 
             // lbl_tipo
             // 
@@ -76,13 +78,6 @@
             this.lbl_tipo.Size = new System.Drawing.Size(101, 13);
             this.lbl_tipo.TabIndex = 1;
             this.lbl_tipo.Text = "Tipo de Documento";
-            // 
-            // txt_documento
-            // 
-            this.txt_documento.Location = new System.Drawing.Point(174, 84);
-            this.txt_documento.Name = "txt_documento";
-            this.txt_documento.Size = new System.Drawing.Size(149, 20);
-            this.txt_documento.TabIndex = 2;
             // 
             // lbl_razon
             // 
@@ -199,6 +194,8 @@
             // 
             // datos_generales
             // 
+            this.datos_generales.Controls.Add(this.txt_documento);
+            this.datos_generales.Controls.Add(this.txt_cuit);
             this.datos_generales.Controls.Add(this.lbl_cod_postal);
             this.datos_generales.Controls.Add(this.label6);
             this.datos_generales.Controls.Add(this.txt_mail_contacto);
@@ -210,7 +207,6 @@
             this.datos_generales.Controls.Add(this.label5);
             this.datos_generales.Controls.Add(this.combo_documento);
             this.datos_generales.Controls.Add(this.lbl_tipo);
-            this.datos_generales.Controls.Add(this.txt_documento);
             this.datos_generales.Controls.Add(this.combo_provincia);
             this.datos_generales.Controls.Add(this.lbl_razon);
             this.datos_generales.Controls.Add(this.lbl_localidad);
@@ -224,6 +220,16 @@
             this.datos_generales.Name = "datos_generales";
             this.datos_generales.Size = new System.Drawing.Size(737, 405);
             this.datos_generales.TabIndex = 15;
+            // 
+            // txt_cuit
+            // 
+            this.txt_cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cuit.Location = new System.Drawing.Point(177, 83);
+            this.txt_cuit.Mask = "99-99999999-9";
+            this.txt_cuit.Name = "txt_cuit";
+            this.txt_cuit.Size = new System.Drawing.Size(101, 22);
+            this.txt_cuit.TabIndex = 23;
+            this.txt_cuit.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // lbl_cod_postal
             // 
@@ -282,7 +288,7 @@
             // 
             // cargar
             // 
-            this.cargar.Location = new System.Drawing.Point(320, 83);
+            this.cargar.Location = new System.Drawing.Point(284, 83);
             this.cargar.Name = "cargar";
             this.cargar.Size = new System.Drawing.Size(29, 22);
             this.cargar.TabIndex = 15;
@@ -309,6 +315,15 @@
             this.btn_crear.UseVisualStyleBackColor = true;
             this.btn_crear.Click += new System.EventHandler(this.btn_Crear_Click);
             // 
+            // txt_documento
+            // 
+            this.txt_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_documento.Location = new System.Drawing.Point(177, 83);
+            this.txt_documento.Name = "txt_documento";
+            this.txt_documento.Size = new System.Drawing.Size(101, 22);
+            this.txt_documento.TabIndex = 24;
+            this.txt_documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_documento_KeyPress);
+            // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,7 +348,6 @@
 
         private System.Windows.Forms.ComboBox combo_documento;
         private System.Windows.Forms.Label lbl_tipo;
-        private System.Windows.Forms.TextBox txt_documento;
         private System.Windows.Forms.Label lbl_razon;
         private System.Windows.Forms.TextBox txt_razon_social;
         private System.Windows.Forms.Label lbl_direccion;
@@ -358,5 +372,7 @@
         private System.Windows.Forms.TextBox txt_mail_contacto;
         private System.Windows.Forms.TextBox txt_contacto;
         private System.Windows.Forms.Label lbl_contacto;
+        private System.Windows.Forms.MaskedTextBox txt_cuit;
+        private System.Windows.Forms.TextBox txt_documento;
     }
 }
