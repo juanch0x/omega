@@ -156,7 +156,10 @@ namespace Omega3.Vista.Venta
         private void btn_no_factura_Click(object sender, EventArgs e)
         {
 
-            Omega3.Modelo.Venta venta = new Modelo.Venta();
+
+            if (cuit.Text != "")
+            {
+                Omega3.Modelo.Venta venta = new Modelo.Venta();
 
             venta.documento = long.Parse(cuit.Text);
             venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
@@ -179,7 +182,7 @@ namespace Omega3.Vista.Venta
 
 
             panel_principal.SelectedIndex = 0;
-
+            
             MessageBox.Show("Venta realizada correctamente!");
 
             ControlVentas.AgregarVenta(dgv_tabla,venta);
@@ -187,8 +190,15 @@ namespace Omega3.Vista.Venta
 
             dgv_tabla.Rows.Clear();
             dgv_tabla.Refresh();
-
+            limpiarParteCliente();
             
+            }
+            else
+            {
+                panel_principal.SelectedIndex = 0;
+                MessageBox.Show("Aún no se seleccionó un cliente");
+            }
+
 
         }
 
@@ -376,6 +386,19 @@ namespace Omega3.Vista.Venta
 
             }
         }
+
+        private void limpiarParteCliente()
+        {
+
+            razon.Text = "Razón Social";
+            cuit.Text = "";
+            email.Text = "";
+            domicilio.Text = "";
+            iva.Text = "";
+
+
+        }
+
     }
     }
 

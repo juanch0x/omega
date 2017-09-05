@@ -226,6 +226,8 @@ namespace Omega3.Controlador
             Factura_Negro Cabecera = new Factura_Negro();
             Detalle_Negro Detalle = new Detalle_Negro();
             string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, lista, iva) VALUES";
+            string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
+            bool updatebool = false;
             bool contador = false;
 
             foreach (DataGridViewRow row in dgv_tabla.Rows)
@@ -239,13 +241,33 @@ namespace Omega3.Controlador
                     consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+")";
                     contador = true;
                 }
+                //PARTE DE UPDATE
+                if (updatebool)
+                {
+                    update += ", ("+ row.Cells[1].Value +","+row.Cells[0].Value+")";
+
+                }
+                else
+                {
+                    update += "(" + row.Cells[1].Value + "," + row.Cells[0].Value + ")";
+                    updatebool = true;
+                }
+
+
 
             }
-            
+
+            update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+
+            Console.WriteLine(update);
+
             MySqlCommand detalle = new MySqlCommand(consulta,Conexion.ObtenerConexion());
             retorno = detalle.ExecuteNonQuery();
 
+            MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+            retorno = restastock.ExecuteNonQuery();
 
+            
 
     }
         public static String convertirFecha(DateTime dt)
