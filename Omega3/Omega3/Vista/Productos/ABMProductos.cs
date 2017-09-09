@@ -165,5 +165,20 @@ namespace Omega3.Vista.Productos
         {
             txt_filtro_nombre.Text = "";
         }
+
+        private void ABMProductos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void ABMProductos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+       
     }
 }

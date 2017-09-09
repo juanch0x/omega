@@ -108,7 +108,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(982, 524);
+            this.dataGridView1.Location = new System.Drawing.Point(567, 144);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(56, 16);
             this.dataGridView1.TabIndex = 2;
@@ -117,10 +117,10 @@
             // 
             this.panel_principal.Controls.Add(this.tab_cliente);
             this.panel_principal.Controls.Add(this.tab_venta);
-            this.panel_principal.Location = new System.Drawing.Point(12, 12);
+            this.panel_principal.Location = new System.Drawing.Point(0, -1);
             this.panel_principal.Name = "panel_principal";
             this.panel_principal.SelectedIndex = 0;
-            this.panel_principal.Size = new System.Drawing.Size(1104, 528);
+            this.panel_principal.Size = new System.Drawing.Size(1106, 528);
             this.panel_principal.TabIndex = 15;
             this.panel_principal.SelectedIndexChanged += new System.EventHandler(this.panel_principal_SelectedIndexChanged);
             // 
@@ -390,7 +390,7 @@
             this.tab_venta.Location = new System.Drawing.Point(4, 22);
             this.tab_venta.Name = "tab_venta";
             this.tab_venta.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_venta.Size = new System.Drawing.Size(1096, 502);
+            this.tab_venta.Size = new System.Drawing.Size(1098, 502);
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
@@ -667,10 +667,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 603);
+            this.ClientSize = new System.Drawing.Size(1104, 528);
             this.Controls.Add(this.panel_principal);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Presupuesto";
             this.Text = "Presupuesto";
             this.Load += new System.EventHandler(this.Presupuesto_Load);

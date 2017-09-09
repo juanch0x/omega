@@ -202,6 +202,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarProducto";
             this.Text = "Agregar Producto";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AgregarProducto_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

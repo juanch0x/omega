@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.dgv_presupuestos = new System.Windows.Forms.DataGridView();
-            this.btn_llenar = new System.Windows.Forms.Button();
             this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btn_llenar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_presupuestos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +48,13 @@
             this.dgv_presupuestos.TabIndex = 0;
             this.dgv_presupuestos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Image = global::Omega3.Properties.Resources.lupa2020;
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
+            // 
             // btn_llenar
             // 
             this.btn_llenar.Location = new System.Drawing.Point(606, 29);
@@ -58,13 +65,6 @@
             this.btn_llenar.UseVisualStyleBackColor = true;
             this.btn_llenar.Click += new System.EventHandler(this.btn_llenar_Click);
             // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Ver";
-            this.Ver.Image = global::Omega3.Properties.Resources.lupa2020;
-            this.Ver.Name = "Ver";
-            this.Ver.ReadOnly = true;
-            // 
             // ListaPresupuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -72,6 +72,7 @@
             this.ClientSize = new System.Drawing.Size(703, 356);
             this.Controls.Add(this.btn_llenar);
             this.Controls.Add(this.dgv_presupuestos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaPresupuestos";
             this.Text = "ListaPresupuestos";
             this.Load += new System.EventHandler(this.ListaPresupuestos_Load);

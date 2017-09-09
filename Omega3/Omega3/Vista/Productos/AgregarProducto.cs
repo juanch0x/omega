@@ -207,5 +207,13 @@ namespace Omega3.Vista.Productos
                 txt_cantidad.Focus();
             }
         }
+
+        private void AgregarProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }
