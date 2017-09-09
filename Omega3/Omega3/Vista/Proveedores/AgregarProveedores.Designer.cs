@@ -103,10 +103,10 @@
             // lbl_proveedor
             // 
             this.lbl_proveedor.AutoSize = true;
-            this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_proveedor.Location = new System.Drawing.Point(129, 93);
             this.lbl_proveedor.Name = "lbl_proveedor";
-            this.lbl_proveedor.Size = new System.Drawing.Size(81, 16);
+            this.lbl_proveedor.Size = new System.Drawing.Size(86, 18);
             this.lbl_proveedor.TabIndex = 0;
             this.lbl_proveedor.Text = "Proveedor";
             // 
@@ -123,10 +123,10 @@
             // lbl_telefono
             // 
             this.lbl_telefono.AutoSize = true;
-            this.lbl_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_telefono.Location = new System.Drawing.Point(129, 125);
             this.lbl_telefono.Name = "lbl_telefono";
-            this.lbl_telefono.Size = new System.Drawing.Size(70, 16);
+            this.lbl_telefono.Size = new System.Drawing.Size(74, 18);
             this.lbl_telefono.TabIndex = 2;
             this.lbl_telefono.Text = "Teléfono";
             // 
@@ -141,10 +141,10 @@
             // lbl_direccion
             // 
             this.lbl_direccion.AutoSize = true;
-            this.lbl_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_direccion.Location = new System.Drawing.Point(129, 154);
             this.lbl_direccion.Name = "lbl_direccion";
-            this.lbl_direccion.Size = new System.Drawing.Size(74, 16);
+            this.lbl_direccion.Size = new System.Drawing.Size(80, 18);
             this.lbl_direccion.TabIndex = 4;
             this.lbl_direccion.Text = "Dirección";
             // 
@@ -159,10 +159,10 @@
             // lbl_provincia
             // 
             this.lbl_provincia.AutoSize = true;
-            this.lbl_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_provincia.Location = new System.Drawing.Point(129, 187);
             this.lbl_provincia.Name = "lbl_provincia";
-            this.lbl_provincia.Size = new System.Drawing.Size(73, 16);
+            this.lbl_provincia.Size = new System.Drawing.Size(78, 18);
             this.lbl_provincia.TabIndex = 6;
             this.lbl_provincia.Text = "Provincia";
             // 
@@ -185,20 +185,20 @@
             // lbl_codigo_postal
             // 
             this.lbl_codigo_postal.AutoSize = true;
-            this.lbl_codigo_postal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_codigo_postal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_codigo_postal.Location = new System.Drawing.Point(129, 217);
             this.lbl_codigo_postal.Name = "lbl_codigo_postal";
-            this.lbl_codigo_postal.Size = new System.Drawing.Size(106, 16);
+            this.lbl_codigo_postal.Size = new System.Drawing.Size(115, 18);
             this.lbl_codigo_postal.TabIndex = 9;
             this.lbl_codigo_postal.Text = "Codigo Postal";
             // 
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
-            this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_email.Location = new System.Drawing.Point(129, 245);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(52, 16);
+            this.lbl_email.Size = new System.Drawing.Size(56, 18);
             this.lbl_email.TabIndex = 10;
             this.lbl_email.Text = "E-mail";
             // 
@@ -249,7 +249,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Location = new System.Drawing.Point(162, 12);
+            this.tabControl1.Location = new System.Drawing.Point(2, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(551, 414);
@@ -647,8 +647,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 507);
+            this.ClientSize = new System.Drawing.Size(552, 419);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarProveedores";
             this.Text = "Agregar Proveedores";
             this.tabControl1.ResumeLayout(false);

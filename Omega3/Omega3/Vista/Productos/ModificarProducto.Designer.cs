@@ -46,9 +46,10 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(162, 227);
+            this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_salir.Location = new System.Drawing.Point(218, 262);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
+            this.btn_salir.Size = new System.Drawing.Size(82, 27);
             this.btn_salir.TabIndex = 7;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(66, 227);
+            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificar.Location = new System.Drawing.Point(12, 262);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.Size = new System.Drawing.Size(105, 27);
             this.btn_modificar.TabIndex = 6;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
@@ -66,28 +68,28 @@
             // 
             // txt_stock_minimo
             // 
-            this.txt_stock_minimo.Location = new System.Drawing.Point(124, 150);
+            this.txt_stock_minimo.Location = new System.Drawing.Point(151, 148);
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 20);
             this.txt_stock_minimo.TabIndex = 4;
             // 
             // txt_precio_venta
             // 
-            this.txt_precio_venta.Location = new System.Drawing.Point(124, 122);
+            this.txt_precio_venta.Location = new System.Drawing.Point(151, 118);
             this.txt_precio_venta.Name = "txt_precio_venta";
             this.txt_precio_venta.Size = new System.Drawing.Size(163, 20);
             this.txt_precio_venta.TabIndex = 3;
             // 
             // txt_precio_costo
             // 
-            this.txt_precio_costo.Location = new System.Drawing.Point(124, 96);
+            this.txt_precio_costo.Location = new System.Drawing.Point(151, 86);
             this.txt_precio_costo.Name = "txt_precio_costo";
             this.txt_precio_costo.Size = new System.Drawing.Size(163, 20);
             this.txt_precio_costo.TabIndex = 2;
             // 
             // txt_codigo
             // 
-            this.txt_codigo.Location = new System.Drawing.Point(124, 70);
+            this.txt_codigo.Location = new System.Drawing.Point(151, 57);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.ReadOnly = true;
             this.txt_codigo.Size = new System.Drawing.Size(163, 20);
@@ -95,7 +97,7 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(124, 42);
+            this.txt_producto.Location = new System.Drawing.Point(151, 28);
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(163, 20);
             this.txt_producto.TabIndex = 0;
@@ -103,51 +105,56 @@
             // lbl_stock_minimo
             // 
             this.lbl_stock_minimo.AutoSize = true;
-            this.lbl_stock_minimo.Location = new System.Drawing.Point(5, 156);
+            this.lbl_stock_minimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_stock_minimo.Location = new System.Drawing.Point(6, 146);
             this.lbl_stock_minimo.Name = "lbl_stock_minimo";
-            this.lbl_stock_minimo.Size = new System.Drawing.Size(71, 13);
+            this.lbl_stock_minimo.Size = new System.Drawing.Size(116, 20);
             this.lbl_stock_minimo.TabIndex = 16;
             this.lbl_stock_minimo.Text = "Stock Minimo";
             // 
             // lbl_precio_venta
             // 
             this.lbl_precio_venta.AutoSize = true;
-            this.lbl_precio_venta.Location = new System.Drawing.Point(5, 128);
+            this.lbl_precio_venta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_precio_venta.Location = new System.Drawing.Point(5, 116);
             this.lbl_precio_venta.Name = "lbl_precio_venta";
-            this.lbl_precio_venta.Size = new System.Drawing.Size(68, 13);
+            this.lbl_precio_venta.Size = new System.Drawing.Size(112, 20);
             this.lbl_precio_venta.TabIndex = 15;
             this.lbl_precio_venta.Text = "Precio Venta";
             // 
             // lbl_precio_costo
             // 
             this.lbl_precio_costo.AutoSize = true;
-            this.lbl_precio_costo.Location = new System.Drawing.Point(6, 102);
+            this.lbl_precio_costo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_precio_costo.Location = new System.Drawing.Point(5, 84);
             this.lbl_precio_costo.Name = "lbl_precio_costo";
-            this.lbl_precio_costo.Size = new System.Drawing.Size(67, 13);
+            this.lbl_precio_costo.Size = new System.Drawing.Size(111, 20);
             this.lbl_precio_costo.TabIndex = 14;
             this.lbl_precio_costo.Text = "Precio Costo";
             // 
             // lbl_codigo
             // 
             this.lbl_codigo.AutoSize = true;
-            this.lbl_codigo.Location = new System.Drawing.Point(6, 72);
+            this.lbl_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_codigo.Location = new System.Drawing.Point(6, 55);
             this.lbl_codigo.Name = "lbl_codigo";
-            this.lbl_codigo.Size = new System.Drawing.Size(40, 13);
+            this.lbl_codigo.Size = new System.Drawing.Size(65, 20);
             this.lbl_codigo.TabIndex = 13;
             this.lbl_codigo.Text = "Codigo";
             // 
             // lbl_producto
             // 
             this.lbl_producto.AutoSize = true;
-            this.lbl_producto.Location = new System.Drawing.Point(6, 42);
+            this.lbl_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_producto.Location = new System.Drawing.Point(6, 26);
             this.lbl_producto.Name = "lbl_producto";
-            this.lbl_producto.Size = new System.Drawing.Size(50, 13);
+            this.lbl_producto.Size = new System.Drawing.Size(81, 20);
             this.lbl_producto.TabIndex = 12;
             this.lbl_producto.Text = "Producto";
             // 
             // txt_cantidad
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(124, 180);
+            this.txt_cantidad.Location = new System.Drawing.Point(151, 178);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(163, 20);
             this.txt_cantidad.TabIndex = 5;
@@ -155,9 +162,10 @@
             // lbl_cantidad
             // 
             this.lbl_cantidad.AutoSize = true;
-            this.lbl_cantidad.Location = new System.Drawing.Point(5, 183);
+            this.lbl_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cantidad.Location = new System.Drawing.Point(6, 176);
             this.lbl_cantidad.Name = "lbl_cantidad";
-            this.lbl_cantidad.Size = new System.Drawing.Size(35, 13);
+            this.lbl_cantidad.Size = new System.Drawing.Size(55, 20);
             this.lbl_cantidad.TabIndex = 24;
             this.lbl_cantidad.Text = "Stock";
             // 
@@ -165,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 262);
+            this.ClientSize = new System.Drawing.Size(336, 316);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.lbl_cantidad);
             this.Controls.Add(this.btn_salir);
@@ -180,6 +188,7 @@
             this.Controls.Add(this.lbl_precio_costo);
             this.Controls.Add(this.lbl_codigo);
             this.Controls.Add(this.lbl_producto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModificarProducto";
             this.Text = "Modificar Productos";
             this.ResumeLayout(false);

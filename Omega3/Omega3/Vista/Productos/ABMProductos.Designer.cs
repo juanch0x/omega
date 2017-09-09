@@ -80,7 +80,7 @@
             // 
             // txt_filtro_nombre
             // 
-            this.txt_filtro_nombre.Location = new System.Drawing.Point(120, 24);
+            this.txt_filtro_nombre.Location = new System.Drawing.Point(212, 29);
             this.txt_filtro_nombre.Name = "txt_filtro_nombre";
             this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
             this.txt_filtro_nombre.TabIndex = 1;
@@ -91,17 +91,19 @@
             // lbl_filtro_producto
             // 
             this.lbl_filtro_producto.AutoSize = true;
+            this.lbl_filtro_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_filtro_producto.Location = new System.Drawing.Point(17, 27);
             this.lbl_filtro_producto.Name = "lbl_filtro_producto";
-            this.lbl_filtro_producto.Size = new System.Drawing.Size(95, 13);
+            this.lbl_filtro_producto.Size = new System.Drawing.Size(163, 20);
             this.lbl_filtro_producto.TabIndex = 2;
             this.lbl_filtro_producto.Text = "Filtrar por producto";
             // 
             // btn_agregar
             // 
+            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(166, 358);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
+            this.btn_agregar.Size = new System.Drawing.Size(90, 29);
             this.btn_agregar.TabIndex = 3;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -109,9 +111,10 @@
             // 
             // btn_modificar
             // 
+            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modificar.Location = new System.Drawing.Point(342, 358);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.Size = new System.Drawing.Size(90, 29);
             this.btn_modificar.TabIndex = 4;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
@@ -119,9 +122,10 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(560, 358);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_eliminar.Size = new System.Drawing.Size(90, 29);
             this.btn_eliminar.TabIndex = 5;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
@@ -130,15 +134,16 @@
             // filtro_codigo
             // 
             this.filtro_codigo.AutoSize = true;
-            this.filtro_codigo.Location = new System.Drawing.Point(273, 27);
+            this.filtro_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filtro_codigo.Location = new System.Drawing.Point(403, 27);
             this.filtro_codigo.Name = "filtro_codigo";
-            this.filtro_codigo.Size = new System.Drawing.Size(85, 13);
+            this.filtro_codigo.Size = new System.Drawing.Size(145, 20);
             this.filtro_codigo.TabIndex = 6;
             this.filtro_codigo.Text = "Filtrar por codigo";
             // 
             // txt_filtro_codigo
             // 
-            this.txt_filtro_codigo.Location = new System.Drawing.Point(364, 24);
+            this.txt_filtro_codigo.Location = new System.Drawing.Point(578, 27);
             this.txt_filtro_codigo.Name = "txt_filtro_codigo";
             this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 20);
             this.txt_filtro_codigo.TabIndex = 2;
@@ -170,6 +175,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(796, 426);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "ABMProductos";
             this.Text = "Modificar Productos";

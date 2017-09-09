@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.Status = new System.Windows.Forms.DataGridViewImageColumn();
             this.combo_filtro = new System.Windows.Forms.ComboBox();
             this.lbl_filtro = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Status = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,13 @@
             this.dgv_tabla.TabIndex = 8;
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
+            // Status
+            // 
+            this.Status.HeaderText = "Estado";
+            this.Status.Image = global::Omega3.Properties.Resources.Valid_icon;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
             // combo_filtro
             // 
             this.combo_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -94,7 +101,7 @@
             "Todos",
             "Finalizados",
             "Pendientes"});
-            this.combo_filtro.Location = new System.Drawing.Point(68, 18);
+            this.combo_filtro.Location = new System.Drawing.Point(92, 22);
             this.combo_filtro.Name = "combo_filtro";
             this.combo_filtro.Size = new System.Drawing.Size(121, 21);
             this.combo_filtro.TabIndex = 2;
@@ -103,9 +110,10 @@
             // lbl_filtro
             // 
             this.lbl_filtro.AutoSize = true;
+            this.lbl_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_filtro.Location = new System.Drawing.Point(12, 23);
             this.lbl_filtro.Name = "lbl_filtro";
-            this.lbl_filtro.Size = new System.Drawing.Size(29, 13);
+            this.lbl_filtro.Size = new System.Drawing.Size(50, 20);
             this.lbl_filtro.TabIndex = 3;
             this.lbl_filtro.Text = "Filtro";
             // 
@@ -114,13 +122,6 @@
             this.dataGridViewImageColumn1.HeaderText = "Estado";
             this.dataGridViewImageColumn1.Image = global::Omega3.Properties.Resources.Valid_icon;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Estado";
-            this.Status.Image = global::Omega3.Properties.Resources.Valid_icon;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
             // 
             // pedidos
             // 
@@ -131,6 +132,7 @@
             this.Controls.Add(this.lbl_filtro);
             this.Controls.Add(this.combo_filtro);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "pedidos";
             this.Text = "PEDIDOS";
