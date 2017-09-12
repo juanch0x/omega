@@ -194,6 +194,22 @@ namespace Omega3
             }
 
         }
+
+        private void facturanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ControlVenta a = new ControlVenta();
+            a.Venta();
+
+        }
+
+        private void errorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ControlVenta a = new ControlVenta();
+            //a.detalleComprobante();
+            Omega3.Vista.Venta.Comprobante_Claro claro = new Vista.Venta.Comprobante_Claro();
+            claro.Show();
+        }
     }
     }
 

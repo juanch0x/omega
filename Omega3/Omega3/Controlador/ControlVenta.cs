@@ -16,6 +16,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Data;
+using System.Xml;
+using System.Net;
 
 namespace Omega3.Controlador
 {
@@ -39,9 +41,9 @@ namespace Omega3.Controlador
 
             CrearComprobanteRequest request = new CrearComprobanteRequest();
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "dsilicato@omegasaneamientos.com ";
-            request.Autenticacion.Hash = "dsilicato";
-            request.Autenticacion.Empresa = 0; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new Cliente();
             request.Cliente.CodigoPostal = "5500";
@@ -50,13 +52,13 @@ namespace Omega3.Controlador
             request.Cliente.DireccionFiscal = "Av. SiempreViva 444";
             request.Cliente.EnviarComprobante = true;
             request.Cliente.Localidad = "Mendoza";
-            request.Cliente.MailContacto = "thejuasz@gmail.com";
-            request.Cliente.MailFacturacion = "thejuasz@gmail.com";
-            request.Cliente.NroDocumento = "38491829";
+            request.Cliente.MailContacto = "bruno.jarg@gmail.com";
+            request.Cliente.MailFacturacion = "bruno.jarg@gmail.com";
+            request.Cliente.NroDocumento = "20146155953";
             request.Cliente.PercibeIIBB = false;
             request.Cliente.PercibeIVA = false;
             request.Cliente.Provincia = "Mendoza";
-            request.Cliente.RazonSocial = "La tarbetna de Moe's";
+            request.Cliente.RazonSocial = "Probando Ventas Facturante julian puto";
             request.Cliente.Telefono = "4251869";
             request.Cliente.TipoDocumento = 1;
             request.Cliente.TratamientoImpositivo = 3;
@@ -65,10 +67,10 @@ namespace Omega3.Controlador
             request.Encabezado.Bienes = 2;
             request.Encabezado.CondicionVenta = 1;
             request.Encabezado.EnviarComprobante = true;
-            request.Encabezado.FechaHora = new DateTime(2015, 09, 30);
-            request.Encabezado.FechaServDesde = new DateTime(2015, 09, 30);
-            request.Encabezado.FechaServHasta = new DateTime(2015, 10, 05);
-            request.Encabezado.FechaVtoPago = new DateTime(2015, 10, 05);
+            request.Encabezado.FechaHora = DateTime.Now;
+            request.Encabezado.FechaServDesde = DateTime.Now;
+            request.Encabezado.FechaServHasta = DateTime.Now;
+            request.Encabezado.FechaVtoPago = DateTime.Now;
             request.Encabezado.ImporteImpuestosInternos = 0;
             request.Encabezado.ImportePercepcionesMunic = 0;
             request.Encabezado.Moneda = 2;
@@ -82,7 +84,7 @@ namespace Omega3.Controlador
             request.Encabezado.SubTotal = (decimal)664.46;
             request.Encabezado.SubTotalExcento = 0;
             request.Encabezado.SubTotalNoAlcanzado = 0;
-            request.Encabezado.TipoComprobante = "FB";
+            request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
             request.Encabezado.Total = 804;
             request.Encabezado.TotalConDescuento = 0;
@@ -120,10 +122,74 @@ namespace Omega3.Controlador
             request.Items[2].PrecioUnitario = 200;
             request.Items[2].Total = 484;
 
+            
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
+            
+            Console.Write(ObjectToXml<CrearComprobanteResponse>(response));
 
-            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+            String id_comprobante = "PEDRO";
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<CrearComprobanteResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+
+            XmlNodeList xnList = xml.SelectNodes("/CrearComprobanteResponse");
+            foreach (XmlNode xn in xnList)
+            {
+
+                id_comprobante = xn["IdComprobante"].InnerText;
+             
+            }
+
+
             comprobanteClient.Close();
+
+            detalleComprobante(id_comprobante);
+        }
+
+
+        public void detalleComprobante(string id_comprobante)
+        {
+            ListadoComprobantesRequest request = new ListadoComprobantesRequest();
+            ComprobantesClient comprobanteClient = new ComprobantesClient();
+
+            
+            request.Autenticacion = new Autenticacion();
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.IdComprobante = Convert.ToInt32(id_comprobante);
+
+            ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
+            
+            String url = "PEDRO";
+
+             XmlDocument xml = new XmlDocument();
+             xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+
+              XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
+              foreach (XmlNode xn in xnList)
+              {
+
+                url = xn["URLPDF"].InnerText;
+                  //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
+               }
+
+            using (WebClient webClient = new WebClient())
+            {
+                webClient.DownloadFile(url, "C:\\carpeta\\Comprobante_"+request.IdComprobante);
+            }
+
+
+            /*
+          Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
+             Form2 f2 = new Form2;
+            f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
+            f2.Show();
+             */
+
+            Omega3.Vista.Venta.Comprobante_Claro MostrarComprobante = new Vista.Venta.Comprobante_Claro(url);
+            MostrarComprobante.Show();
+
         }
 
         public static void llenarClientes(ComboBox combo)

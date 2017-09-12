@@ -206,6 +206,12 @@
     <Compile Include="Vista\Reparaciones\Reparacion.Designer.cs">
       <DependentUpon>Reparacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Venta\Comprobante_Claro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\Comprobante_Claro.Designer.cs">
+      <DependentUpon>Comprobante_Claro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Venta\Comprobante_Oscuro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\Reparacion.resx">
       <DependentUpon>Reparacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\Comprobante_Claro.resx">
+      <DependentUpon>Comprobante_Claro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\Comprobante_Oscuro.resx">
       <DependentUpon>Comprobante_Oscuro.cs</DependentUpon>
@@ -360,6 +369,25 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
