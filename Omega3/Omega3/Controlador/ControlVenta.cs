@@ -174,14 +174,18 @@ namespace Omega3.Controlador
                   //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
                }
 
-            using (WebClient webClient = new WebClient())
+           /* 
+            * Función que hace que los pdf se vallan guardando por si los quiere..
+            * 
+            * using (WebClient webClient = new WebClient())
             {
-                webClient.DownloadFile(url, "C:\\carpeta\\Comprobante_"+request.IdComprobante);
+                webClient.DownloadFile(url, "C:\\carpeta\\Comprobante_"+request.IdComprobante+".pdf");
             }
-
-
-            /*
-          Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
+            
+            
+             *
+             * Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
+             * 
              Form2 f2 = new Form2;
             f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
             f2.Show();
