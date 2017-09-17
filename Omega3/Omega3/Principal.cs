@@ -13,6 +13,9 @@ using System.Globalization;
 using Omega3.Vista;
 using Omega3.Vista.Productos;
 using Omega3.Vista.Pedidos;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Omega3
 {
@@ -29,8 +32,40 @@ namespace Omega3
             InitializeComponent();
         }
 
+        string GETDolar()
+        {
+            string url = "http://ws.geeklab.com.ar/dolar/get-dolar-json.php";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            try
+            {
+                WebResponse response = request.GetResponse();
+                using (Stream responseStream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+                    return reader.ReadToEnd();
+                }
+            }
+            catch (WebException ex)
+            {
+                WebResponse errorResponse = ex.Response;
+                using (Stream responseStream = errorResponse.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
+                    String errorText = reader.ReadToEnd();
+
+                }
+                throw;
+            }
+        }
+
         private void Principal_load(object sender, EventArgs e)
         {
+
+
+            dolar a = new dolar();
+            a = JsonConvert.DeserializeObject<dolar>(GETDolar());
+
+            txt_dolar.Text = (a.libre+new decimal(0.10)).ToString();
 
             this.Visible = true;
 
@@ -212,5 +247,13 @@ namespace Omega3
             claro.Show();
         }
     }
+
+    public class dolar
+    {
+
+        public decimal libre { get; set; }
+
+    }
+
     }
 
