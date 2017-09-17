@@ -1,0 +1,19 @@
+     protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+		esto en el constructor
+
+
+		solicitarstock.StartPosition = FormStartPosition.CenterScreen;
+		esto en el main en la ventana
+
+		this.close
+		en la ventana keydown y agregar la ultima propiedad a true

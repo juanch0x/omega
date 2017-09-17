@@ -24,6 +24,18 @@ namespace Omega3.Vista.Clientes
             InitializeComponent();
             txt_documento.Visible = false;
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
         // Returns JSON string
         string GET(string cuit)
         {
@@ -194,6 +206,14 @@ namespace Omega3.Vista.Clientes
         private void txt_documento_KeyPress(object sender, KeyPressEventArgs e)
         {
             ControlProveedor.validarCaracteresNumericos(e);
+        }
+
+        private void CrearCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 

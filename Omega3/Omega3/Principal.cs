@@ -138,6 +138,7 @@ namespace Omega3
             {
 
                 Vista.Clientes.CrearCliente a = new Vista.Clientes.CrearCliente();
+                a.StartPosition = FormStartPosition.CenterScreen;
                 a.MdiParent = this;
                 a.Show();
 
