@@ -26,7 +26,7 @@ namespace Omega3.Controlador
                 aux = _reader.GetString(0);
             }
 
-            MessageBox.Show(aux);
+           
 
 
             return aux;

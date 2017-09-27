@@ -149,6 +149,36 @@ namespace Omega3.Controlador
             
         }
 
-      }
+      public static int modificarDolar(decimal dolar)
+        {
+
+            int retorno = 0;
+            
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE valor_dolar SET valor={0} WHERE 1",
+                dolar), Conexion.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+            
+        }
+
+        public static decimal obtenerValorDolar()
+        {
+            
+            decimal dolar = new decimal();
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                "SELECT valor FROM valor_dolar WHERE 1"), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                dolar = _reader.GetDecimal(0);
+            }
+       
+            
+
+            return dolar;
+
+        }
+
+    }
 
  }

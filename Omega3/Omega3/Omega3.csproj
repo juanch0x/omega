@@ -182,6 +182,12 @@
     <Compile Include="Vista\Productos\ABMProductos.Designer.cs">
       <DependentUpon>ABMProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Productos\valor_Dolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Productos\valor_Dolar.Designer.cs">
+      <DependentUpon>valor_Dolar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Proveedores\ABMProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Productos\ABMProductos.resx">
       <DependentUpon>ABMProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Productos\valor_Dolar.resx">
+      <DependentUpon>valor_Dolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\ABMProveedores.resx">
       <DependentUpon>ABMProveedores.cs</DependentUpon>

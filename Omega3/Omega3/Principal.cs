@@ -17,6 +17,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 
+
 namespace Omega3
 {
     public partial class Principal : Form
@@ -25,7 +26,8 @@ namespace Omega3
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
         public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
         public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
-
+        public decimal dolar;
+        public decimal dolar_guardado;
 
         public Principal()
         {
@@ -64,8 +66,13 @@ namespace Omega3
 
             dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
+            dolar = a.libre+new decimal(0.10);
+            txt_dolar.Text = dolar.ToString();
 
-            txt_dolar.Text = (a.libre+new decimal(0.10)).ToString();
+            dolar_guardado = new decimal();
+            dolar_guardado = ControlProducto.obtenerValorDolar();
+
+            txt_dolar_guardado.Text = dolar_guardado.ToString();
 
             this.Visible = true;
 
@@ -79,6 +86,7 @@ namespace Omega3
             ventasToolStripMenuItem.Visible = false;
             //clientesToolStripMenuItem.Visible = false;
 
+            panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
 
         }
 
@@ -245,6 +253,14 @@ namespace Omega3
             //a.detalleComprobante();
             Omega3.Vista.Venta.Comprobante_Claro claro = new Vista.Venta.Comprobante_Claro();
             claro.Show();
+        }
+
+        private void dolarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            valor_Dolar b = new valor_Dolar(dolar, dolar_guardado);
+            b.Show();
+
         }
     }
 
