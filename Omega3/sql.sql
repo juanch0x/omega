@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-09-2017 a las 04:16:03
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 28-09-2017 a las 01:41:48
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,17 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `omega`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria_producto`
+--
+
+CREATE TABLE `categoria_producto` (
+  `id` int(11) NOT NULL,
+  `categoria` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -129,7 +138,9 @@ INSERT INTO `detalle_venta` (`id_venta`, `cantidad`, `codigo`, `lista`, `iva`) V
 (18, 1, 111, 10, 21),
 (18, 1, 111, 10, 21),
 (18, 1, 111, 10, 21),
-(3, 15, 0, 10, 21);
+(3, 15, 0, 10, 21),
+(19, 1, 0, 10, 21),
+(20, 1, 0, 10, 21);
 
 -- --------------------------------------------------------
 
@@ -269,30 +280,32 @@ CREATE TABLE `productos` (
   `cantidad` int(10) NOT NULL,
   `precio_compra` decimal(10,2) NOT NULL,
   `precio_venta` decimal(10,2) NOT NULL,
-  `stock_minimo` int(100) NOT NULL
+  `stock_minimo` int(100) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `dolar` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`cod_producto`, `producto`, `cantidad`, `precio_compra`, `precio_venta`, `stock_minimo`) VALUES
-(0, 'pepe en patinetas', 0, '292.20', '994.20', 1919),
-(1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, '1.00', '1.00', 1),
-(20, 'Huevada', 0, '200.00', '25.15', 0),
-(77, 'asd', 6, '123.00', '4.00', 1),
-(89, '98', 98, '89.00', '98.00', 98),
-(111, 'aaa', 4, '141.00', '111.00', 1),
-(444, 'nico', 1, '1.00', '1.00', 1),
-(819, 'lkjad', 1, '8118.00', '181.00', 1),
-(848, 'kjld', 2, '831.00', '18.00', 1),
-(1377, 'juancho', 4, '189.00', '894.00', 84),
-(8189, 'nocp', 48, '189.00', '12893.00', 81),
-(81932989, 'julian', 49, '1412.12', '123.11', 85),
-(89128932, 'JOrge', 14, '11231.00', '44181.00', 15),
-(98199191, 'jldksjla', 1919, '1818.00', '1818.00', 1919),
-(894189891, 'Hierba', 15, '15.15', '51.51', 10),
-(6935364070854, 'ahorasi', 72, '27.00', '72.00', 72);
+INSERT INTO `productos` (`cod_producto`, `producto`, `cantidad`, `precio_compra`, `precio_venta`, `stock_minimo`, `id_categoria`, `dolar`) VALUES
+(0, 'pepe en patinetas', 0, '292.20', '994.20', 1919, 0, 0),
+(1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, '1.00', '1.00', 1, 0, 0),
+(20, 'Huevada', 0, '200.00', '25.15', 0, 0, 0),
+(77, 'asd', 6, '123.00', '4.00', 1, 0, 0),
+(89, '98', 98, '89.00', '98.00', 98, 0, 0),
+(111, 'aaa', 4, '141.00', '111.00', 1, 0, 0),
+(444, 'nico', 1, '1.00', '1.00', 1, 0, 0),
+(819, 'lkjad', 1, '8118.00', '181.00', 1, 0, 0),
+(848, 'kjld', 2, '831.00', '18.00', 1, 0, 0),
+(1377, 'juancho', 4, '189.00', '894.00', 84, 0, 0),
+(8189, 'nocp', 48, '189.00', '12893.00', 81, 0, 0),
+(81932989, 'julian', 49, '1412.12', '123.11', 85, 0, 0),
+(89128932, 'JOrge', 14, '11231.00', '44181.00', 15, 0, 0),
+(98199191, 'jldksjla', 1919, '1818.00', '1818.00', 1919, 0, 0),
+(894189891, 'Hierba', 15, '15.15', '51.51', 10, 0, 0),
+(6935364070854, 'ahorasi', 72, '27.00', '72.00', 72, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -449,6 +462,25 @@ INSERT INTO `usuarios` (`usuario`, `password`, `id_rol`, `nombre`, `meta_mensual
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `valor_dolar`
+--
+
+CREATE TABLE `valor_dolar` (
+  `id` int(3) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `valor` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `valor_dolar`
+--
+
+INSERT INTO `valor_dolar` (`id`, `fecha`, `valor`) VALUES
+(1, '2017-09-27 23:38:57', '4.44');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `venta`
 --
 
@@ -485,11 +517,19 @@ INSERT INTO `venta` (`id`, `cliente_documento`, `medio_de_pago`, `vencimiento`, 
 (15, 20068955671, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:08:48', ''),
 (16, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:09:38', ''),
 (17, 0, 0, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:11:25', ''),
-(18, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:14:06', '');
+(18, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-08-16 02:14:06', ''),
+(19, 20068955671, 1, '0000-00-00 00:00:00', '0', 0, '2017-09-04 20:41:39', ''),
+(20, 0, 1, '0000-00-00 00:00:00', '0', 0, '2017-09-04 20:48:49', '');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `categoria_producto`
+--
+ALTER TABLE `categoria_producto`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `cliente`
@@ -576,6 +616,12 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`usuario`);
 
 --
+-- Indices de la tabla `valor_dolar`
+--
+ALTER TABLE `valor_dolar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `venta`
 --
 ALTER TABLE `venta`
@@ -585,6 +631,11 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `categoria_producto`
+--
+ALTER TABLE `categoria_producto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `condicion_frente_al_iva`
 --
@@ -626,11 +677,15 @@ ALTER TABLE `tipo_documento`
 ALTER TABLE `tipo_factura`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT de la tabla `valor_dolar`
+--
+ALTER TABLE `valor_dolar`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
