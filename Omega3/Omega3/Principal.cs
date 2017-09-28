@@ -64,15 +64,7 @@ namespace Omega3
         {
 
 
-            dolar a = new dolar();
-            a = JsonConvert.DeserializeObject<dolar>(GETDolar());
-            dolar = a.libre+new decimal(0.10);
-            txt_dolar.Text = dolar.ToString();
-
-            dolar_guardado = new decimal();
-            dolar_guardado = ControlProducto.obtenerValorDolar();
-
-            txt_dolar_guardado.Text = dolar_guardado.ToString();
+            actualizarDolar();
 
             this.Visible = true;
 
@@ -95,8 +87,6 @@ namespace Omega3
             return productoToolStripMenuItem;
         }
 
-
-       
 
     
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -262,6 +252,20 @@ namespace Omega3
             b.Show();
 
         }
+
+        private void actualizarDolar()
+        {
+            dolar a = new dolar();
+            a = JsonConvert.DeserializeObject<dolar>(GETDolar());
+            dolar = a.libre + new decimal(0.10);
+            txt_dolar.Text = dolar.ToString();
+
+            dolar_guardado = new decimal();
+            dolar_guardado = ControlProducto.obtenerValorDolar();
+
+            txt_dolar_guardado.Text = dolar_guardado.ToString();
+        }
+
     }
 
     public class dolar
@@ -272,4 +276,3 @@ namespace Omega3
     }
 
     }
-
