@@ -20,8 +20,8 @@ namespace Omega3.Controlador
             
             string fecha = convertirFecha(pedido.Fecha_pedido);
             MessageBox.Show("FechaData" + fecha);
-            pedido.Cantidad = 3;
-            pedido.User_pedido = "juanch0x";
+            
+            
             pedido.Realizado = false;
 
             try

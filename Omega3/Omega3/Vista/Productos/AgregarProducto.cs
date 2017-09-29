@@ -43,7 +43,7 @@ namespace Omega3.Vista.Productos
             {
                 ControlProducto.validarTextboxVacio("precio de costo");
             }
-            else if (txt_precio_venta.Text.Trim() == "")
+            else if (combo_moneda.Text.Trim() == "")
             {
                 ControlProducto.validarTextboxVacio("precio de venta");
             }
@@ -60,10 +60,12 @@ namespace Omega3.Vista.Productos
                 producto.Nombre_producto = txt_producto.Text;
                 producto.Cod_producto = long.Parse(txt_codigo.Text);
                 producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
-                producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
+                //producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
+                
+                producto.Dolar = combo_moneda.SelectedIndex;
                 producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
                 producto.Cantidad = Int32.Parse(txt_cantidad.Text);
-
+                producto.Categoria = Convert.ToInt32(combo_categoria.SelectedValue);
                 ControlProducto.AgregarProducto(producto);
 
                 MessageBox.Show("El producto se agregó correctamente!");
@@ -71,7 +73,7 @@ namespace Omega3.Vista.Productos
                 txt_producto.Text = "";
                 txt_codigo.Text = "";
                 txt_precio_costo.Text = "";
-                txt_precio_venta.Text = "";
+                //txt_precio_venta.Text = "";
                 txt_stock_minimo.Text = "";
                 txt_cantidad.Text = "";
             }
@@ -186,7 +188,7 @@ namespace Omega3.Vista.Productos
             if (e.KeyCode == Keys.Enter)
             {
 
-                txt_precio_venta.Focus();
+                //txt_precio_venta.Focus();
             }
         }
 
@@ -214,6 +216,11 @@ namespace Omega3.Vista.Productos
             {
                 this.Close();
             }
+        }
+
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+            ControlProducto.llenarCategorias(combo_categoria);
         }
     }
 }

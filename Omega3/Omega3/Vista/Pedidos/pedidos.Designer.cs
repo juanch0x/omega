@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.dgv_tabla);
             this.panel1.Location = new System.Drawing.Point(0, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1007, 355);
+            this.panel1.Size = new System.Drawing.Size(1086, 355);
             this.panel1.TabIndex = 0;
             // 
             // dgv_tabla
@@ -82,8 +82,9 @@
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(1007, 355);
+            this.dgv_tabla.Size = new System.Drawing.Size(1086, 355);
             this.dgv_tabla.TabIndex = 8;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
             // Status
@@ -128,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1007, 416);
+            this.ClientSize = new System.Drawing.Size(1098, 459);
             this.Controls.Add(this.lbl_filtro);
             this.Controls.Add(this.combo_filtro);
             this.Controls.Add(this.panel1);

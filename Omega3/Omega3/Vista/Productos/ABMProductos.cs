@@ -27,8 +27,8 @@ namespace Omega3.Vista.Productos
             dgv_tabla.Columns[1].HeaderText = "Producto";
             dgv_tabla.Columns[2].HeaderText = "Stock";
             dgv_tabla.Columns[3].HeaderText = "Precio de Costo";
-            dgv_tabla.Columns[4].HeaderText = "Precio de Venta";
-            dgv_tabla.Columns[5].HeaderText = "Stock Mínimo";
+            dgv_tabla.Columns[4].HeaderText = "Stock Mínimo";
+            dgv_tabla.Columns[5].HeaderText = "Categoría";
 
             //Hago que solo se pueda seleccionar la fila completa
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -98,9 +98,8 @@ namespace Omega3.Vista.Productos
             producto.Nombre_producto = Convert.ToString(dgv_tabla.CurrentRow.Cells[1].Value);
             producto.Cantidad = Convert.ToInt32(Convert.ToString(dgv_tabla.CurrentRow.Cells[2].Value));
             producto.Precio_costo = Convert.ToDecimal(Convert.ToString(dgv_tabla.CurrentRow.Cells[3].Value));
-            producto.Precio_venta = Convert.ToDecimal(Convert.ToString(dgv_tabla.CurrentRow.Cells[4].Value));
-            producto.Stock_minimo = Convert.ToInt32(Convert.ToString(dgv_tabla.CurrentRow.Cells[5].Value));
-            
+            producto.Stock_minimo = Convert.ToInt32(Convert.ToString(dgv_tabla.CurrentRow.Cells[4].Value));
+            producto.Dolar = 1;
 
             Omega3.Vista.Productos.ModificarProducto modificarproducto = new ModificarProducto(producto);
             modificarproducto.StartPosition = FormStartPosition.CenterScreen;
@@ -137,7 +136,7 @@ namespace Omega3.Vista.Productos
             
                 foreach (DataGridViewRow Myrow in dgv_tabla.Rows)
                 {            //Here 2 cell is target value and 1 cell is Volume
-                    if (Convert.ToInt32(Myrow.Cells[2].Value) < Convert.ToInt32(Myrow.Cells[5].Value))// Or your condition 
+                    if (Convert.ToInt32(Myrow.Cells[2].Value) < Convert.ToInt32(Myrow.Cells[4].Value))// Or your condition 
                     {
                     
                     Myrow.Cells[2].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#F5D846");

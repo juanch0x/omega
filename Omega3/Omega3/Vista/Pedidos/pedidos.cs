@@ -116,5 +116,30 @@ namespace Omega3.Vista.Pedidos
                 }
             }
         }
+
+        private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Confirmar_Pedido testDialog = new Confirmar_Pedido();
+            if (dgv_tabla.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            {
+                if (dgv_tabla.CurrentCell != null && dgv_tabla.CurrentCell.Value != null)
+
+                    
+
+                // Show testDialog as a modal dialog and determine if DialogResult = OK.
+                        if (testDialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                        // Read the contents of testDialog's TextBox.
+                        MessageBox.Show(Convert.ToString(testDialog.cantidad));
+                }
+                else
+                {
+                    //this.txtResult.Text = "Cancelled";
+                }
+                testDialog.Dispose();
+
+
+            }
+        }
     }
 }

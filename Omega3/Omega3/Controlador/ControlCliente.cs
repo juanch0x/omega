@@ -26,10 +26,7 @@ namespace Omega3.Controlador
                 aux = _reader.GetString(0);
             }
 
-           
-
-
-            return aux;
+             return aux;
 
         }
 

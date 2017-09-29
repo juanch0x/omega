@@ -33,8 +33,8 @@ namespace Omega3.Vista.Pedidos
             dgv_tabla.Columns[1].HeaderText = "Producto";
             dgv_tabla.Columns[2].HeaderText = "Stock";
             dgv_tabla.Columns[3].HeaderText = "Precio de Costo";
-            dgv_tabla.Columns[4].HeaderText = "Precio de Venta";
-            dgv_tabla.Columns[5].HeaderText = "Stock Mínimo";
+            dgv_tabla.Columns[5].HeaderText = "Categoría";
+            dgv_tabla.Columns[4].HeaderText = "Stock Mínimo";
 
             //Hago que solo se pueda seleccionar la fila completa
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -116,6 +116,7 @@ namespace Omega3.Vista.Pedidos
 
                 pedido.Id_producto = long.Parse(txt_codigo.Text);
                 pedido.Cantidad = Convert.ToInt32(txt_cantidad_solicitada.Text);
+                MessageBox.Show(Convert.ToString(pedido.Cantidad));
                 pedido.Fecha_pedido = DateTime.Now;
                 pedido.User_pedido = Usuario.User;
 

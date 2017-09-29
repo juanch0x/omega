@@ -31,17 +31,19 @@
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.txt_stock_minimo = new System.Windows.Forms.TextBox();
-            this.txt_precio_venta = new System.Windows.Forms.TextBox();
             this.txt_precio_costo = new System.Windows.Forms.TextBox();
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.lbl_stock_minimo = new System.Windows.Forms.Label();
-            this.lbl_precio_venta = new System.Windows.Forms.Label();
             this.lbl_precio_costo = new System.Windows.Forms.Label();
             this.lbl_codigo = new System.Windows.Forms.Label();
             this.lbl_producto = new System.Windows.Forms.Label();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.lbl_cantidad = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.combo_moneda = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.combo_categoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_salir
@@ -72,13 +74,6 @@
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 20);
             this.txt_stock_minimo.TabIndex = 4;
-            // 
-            // txt_precio_venta
-            // 
-            this.txt_precio_venta.Location = new System.Drawing.Point(151, 118);
-            this.txt_precio_venta.Name = "txt_precio_venta";
-            this.txt_precio_venta.Size = new System.Drawing.Size(163, 20);
-            this.txt_precio_venta.TabIndex = 3;
             // 
             // txt_precio_costo
             // 
@@ -111,16 +106,6 @@
             this.lbl_stock_minimo.Size = new System.Drawing.Size(116, 20);
             this.lbl_stock_minimo.TabIndex = 16;
             this.lbl_stock_minimo.Text = "Stock Minimo";
-            // 
-            // lbl_precio_venta
-            // 
-            this.lbl_precio_venta.AutoSize = true;
-            this.lbl_precio_venta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precio_venta.Location = new System.Drawing.Point(5, 116);
-            this.lbl_precio_venta.Name = "lbl_precio_venta";
-            this.lbl_precio_venta.Size = new System.Drawing.Size(112, 20);
-            this.lbl_precio_venta.TabIndex = 15;
-            this.lbl_precio_venta.Text = "Precio Venta";
             // 
             // lbl_precio_costo
             // 
@@ -169,28 +154,70 @@
             this.lbl_cantidad.TabIndex = 24;
             this.lbl_cantidad.Text = "Stock";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Moneda";
+            // 
+            // combo_moneda
+            // 
+            this.combo_moneda.FormattingEnabled = true;
+            this.combo_moneda.Items.AddRange(new object[] {
+            "Pesos",
+            "Dólares"});
+            this.combo_moneda.Location = new System.Drawing.Point(151, 116);
+            this.combo_moneda.Name = "combo_moneda";
+            this.combo_moneda.Size = new System.Drawing.Size(163, 21);
+            this.combo_moneda.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 205);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Categoría";
+            // 
+            // combo_categoria
+            // 
+            this.combo_categoria.FormattingEnabled = true;
+            this.combo_categoria.Location = new System.Drawing.Point(151, 207);
+            this.combo_categoria.Name = "combo_categoria";
+            this.combo_categoria.Size = new System.Drawing.Size(163, 21);
+            this.combo_categoria.TabIndex = 27;
+            // 
             // ModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 316);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.combo_categoria);
+            this.Controls.Add(this.combo_moneda);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.lbl_cantidad);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.txt_stock_minimo);
-            this.Controls.Add(this.txt_precio_venta);
             this.Controls.Add(this.txt_precio_costo);
             this.Controls.Add(this.txt_codigo);
             this.Controls.Add(this.txt_producto);
             this.Controls.Add(this.lbl_stock_minimo);
-            this.Controls.Add(this.lbl_precio_venta);
             this.Controls.Add(this.lbl_precio_costo);
             this.Controls.Add(this.lbl_codigo);
             this.Controls.Add(this.lbl_producto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModificarProducto";
             this.Text = "Modificar Productos";
+            this.Load += new System.EventHandler(this.ModificarProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,16 +228,18 @@
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.TextBox txt_stock_minimo;
-        private System.Windows.Forms.TextBox txt_precio_venta;
         private System.Windows.Forms.TextBox txt_precio_costo;
         private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.TextBox txt_producto;
         private System.Windows.Forms.Label lbl_stock_minimo;
-        private System.Windows.Forms.Label lbl_precio_venta;
         private System.Windows.Forms.Label lbl_precio_costo;
         private System.Windows.Forms.Label lbl_codigo;
         private System.Windows.Forms.Label lbl_producto;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Label lbl_cantidad;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox combo_moneda;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox combo_categoria;
     }
 }

@@ -25,10 +25,14 @@ namespace Omega3.Vista.Productos
             InitializeComponent();
             txt_codigo.Text = Convert.ToString(a.Cod_producto);
             txt_precio_costo.Text = Convert.ToString(a.Precio_costo);
-            txt_precio_venta.Text = Convert.ToString(a.Precio_venta);
+          
             txt_producto.Text = a.Nombre_producto;
             txt_stock_minimo.Text = a.Stock_minimo.ToString();
             txt_cantidad.Text = a.Cantidad.ToString();
+            //combo_moneda.SelectedValue = 0;
+            //combo_categoria.SelectedValue = 2;
+            combo_categoria.SelectedIndex = -1;
+
             txt_producto.Focus();
 
             producto = new Producto();
@@ -59,7 +63,7 @@ namespace Omega3.Vista.Productos
             {
                 ControlProducto.validarTextboxVacio("precio de costo");
             }
-            else if (txt_precio_venta.Text.Trim() == "")
+            else if (combo_moneda.Text.Trim() == "")
             {
                 ControlProducto.validarTextboxVacio("precio de venta");
             }
@@ -72,9 +76,11 @@ namespace Omega3.Vista.Productos
 
                 producto.Nombre_producto = txt_producto.Text;
                 producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
-                producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
                 producto.Stock_minimo = Convert.ToInt32(txt_stock_minimo.Text);
                 producto.Cantidad = Convert.ToInt32(txt_cantidad.Text);
+                producto.Categoria = Convert.ToInt32(combo_categoria.SelectedValue);
+                producto.Dolar = Convert.ToInt32(combo_moneda.SelectedIndex);
+                
                 try
                 {
                     Omega3.Controlador.ControlProducto.ModificarProducto(producto);
@@ -83,6 +89,13 @@ namespace Omega3.Vista.Productos
                 MessageBox.Show("El producto fue modificado correctamente.");
                 this.Close();
             }
+        }
+
+        private void ModificarProducto_Load(object sender, EventArgs e)
+        {
+
+            ControlProducto.llenarCategorias(combo_categoria);
+
         }
     }
 }

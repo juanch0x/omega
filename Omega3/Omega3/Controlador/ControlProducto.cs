@@ -20,8 +20,8 @@ namespace Omega3.Controlador
 
              
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, precio_venta, stock_minimo, cod_producto) values ('{0}','{1}','{2}', '{3}','{4}','{5}')",
-                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Stock_minimo,producto.Cod_producto), Conexion.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Productos (producto, cantidad, precio_compra, dolar, stock_minimo, cod_producto, id_categoria) values ('{0}','{1}','{2}', '{3}','{4}','{5}',{6})",
+                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Dolar, producto.Stock_minimo,producto.Cod_producto,producto.Categoria), Conexion.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             
             return retorno;
@@ -31,9 +31,9 @@ namespace Omega3.Controlador
         {
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
-
-            MySqlCommand comando = new MySqlCommand(string.Format("Update Productos set producto='{0}', cantidad='{1}', precio_compra='{2}', precio_venta='{3}', stock_minimo='{4}' where cod_producto={5}",
-                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Precio_venta, producto.Cantidad, producto.Cod_producto), conexion);
+            
+            MySqlCommand comando = new MySqlCommand(string.Format("Update Productos set producto='{0}', cantidad='{1}', precio_compra='{2}', dolar={3}, stock_minimo='{4}', id_categoria={5} where cod_producto={6}",
+                producto.Nombre_producto, producto.Cantidad, producto.Precio_costo, producto.Dolar,producto.Stock_minimo, producto.Categoria, producto.Cod_producto), conexion);
 
             retorno = comando.ExecuteNonQuery();
             conexion.Close();
@@ -111,7 +111,7 @@ namespace Omega3.Controlador
              
 
                 MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                string sqlSelectAll = "SELECT * from productos";
+                string sqlSelectAll = "SELECT cod_producto, producto, cantidad, precio_compra, stock_minimo, categoria as Categoria, dolar as Dolar FROM productos INNER JOIN categoria_producto as C on productos.id_categoria = c.id";
             try
             {
 
@@ -178,6 +178,25 @@ namespace Omega3.Controlador
             return dolar;
 
         }
+
+
+        public static void llenarCategorias(ComboBox combo)
+        {
+
+            string query = "SELECT id, categoria FROM categoria_producto";
+
+            MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
+
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da1.Fill(dt);
+
+            combo.ValueMember = "id";
+            combo.DisplayMember = "categoria";
+            combo.DataSource = dt;
+
+        }
+
 
     }
 
