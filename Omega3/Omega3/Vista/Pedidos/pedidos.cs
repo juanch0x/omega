@@ -15,6 +15,7 @@ namespace Omega3.Vista.Pedidos
     {
         BindingSource bd;
         DataTable dt;
+        public DataGridView dgv_tablags{ get => dgv_tabla; set => dgv_tabla = value; }
         public pedidos()
         {
             InitializeComponent();
@@ -117,29 +118,43 @@ namespace Omega3.Vista.Pedidos
             }
         }
 
+            /////////////////////////////******************************///////////////////////////////
+           /////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////SIRVE PARA LA LUPITA IMPORTANTE////////////////////////////
+         ///////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////******************************///////////////////////////
+
+
         private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Confirmar_Pedido testDialog = new Confirmar_Pedido();
+            Confirmar_Pedido ventana = new Confirmar_Pedido(1,dgv_tabla);
+
+
+
+
             if (dgv_tabla.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
-            {
+                {
                 if (dgv_tabla.CurrentCell != null && dgv_tabla.CurrentCell.Value != null)
 
-                    
+                    if (Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[7].Value) == "Pendiente")
+                    {
+                        ventana = new Confirmar_Pedido(Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[1].Value),dgv_tabla);
+                        ventana.ShowDialog();
+                        ControlPedidos.llenarTabla(dgv_tabla);
 
-                // Show testDialog as a modal dialog and determine if DialogResult = OK.
-                        if (testDialog.ShowDialog(this) == DialogResult.OK)
-                        {
-                        // Read the contents of testDialog's TextBox.
-                        MessageBox.Show(Convert.ToString(testDialog.cantidad));
-                }
-                else
-                {
-                    //this.txtResult.Text = "Cancelled";
-                }
-                testDialog.Dispose();
+                        ControlPedidos.ModificarValoresTabla(dgv_tabla);
+                        ControlPedidos.administrarImagendgv(dgv_tabla);
+
+
+                    }
+
 
 
             }
+
+            
+
+            
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Omega3.Vista.Proveedores
             txt_provincia.Text = "";
             txt_telefono.Text = "";
             txt_direccion.Text = "";
+            txt_email2.Text = "";
+            txt_email3.Text = "";
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -57,11 +59,26 @@ namespace Omega3.Vista.Proveedores
                 proveedor.Codigo_postal = Convert.ToInt32(txt_codigo_postal.Text);
                 proveedor.Email = txt_email.Text;
                 proveedor.Provincia = txt_provincia.Text;
+                proveedor.Email2 = txt_email2.Text;
+                proveedor.Email3 = txt_email3.Text;
 
-                Controlador.ControlProveedor.AgregarProveedor(proveedor);
+
+
+                proveedor.puntaje.transporte_posicion = Convert.ToInt32(transporte_posicion.SelectedValue);
+
+
+                MessageBox.Show(Convert.ToString(transporte_posicion.SelectedItem));
+
+               // Controlador.ControlProveedor.AgregarProveedor(proveedor);
 
                 MessageBox.Show("El proveedor se agregó correctamente!");
                 limpiar();
+
+
+                
+                
+
+
             }
         }
 
@@ -89,5 +106,7 @@ namespace Omega3.Vista.Proveedores
         {
             ControlProveedor.validarCaracteresNumericos(e);
         }
+
+       
     }
 }

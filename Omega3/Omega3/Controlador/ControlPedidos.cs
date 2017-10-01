@@ -94,5 +94,22 @@ namespace Omega3.Controlador
 
         }
 
+
+        public static int modificarPedido(int cantidad, int pedido)
+        {
+            int retorno = 0;
+            string query = string.Format("Update pedidos set cantidad_comprada={0}, user_compra='{1}', fecha_compra = current_timestamp where id_pedido={2}",
+                cantidad, Usuario._user, pedido);
+            MySqlConnection conexion = Conexion.ObtenerConexion();
+
+            MySqlCommand comando = new MySqlCommand(query,conexion);
+            Console.WriteLine(query);
+            retorno = comando.ExecuteNonQuery();
+            conexion.Close();
+
+            return retorno;
+
+        }
+
     }
 }

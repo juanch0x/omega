@@ -179,7 +179,8 @@ namespace Omega3.Controlador
             {
 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT producto, precio_venta, cantidad FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
+                    "SELECT producto, IF(dolar = 1, round(precio_compra * (SELECT valor FROM valor_dolar),2), precio_compra) as precio_venta, cantidad FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
+
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -230,6 +231,8 @@ namespace Omega3.Controlador
             bool updatebool = false;
             bool contador = false;
 
+            
+
             foreach (DataGridViewRow row in dgv_tabla.Rows)
             {
 
@@ -244,12 +247,14 @@ namespace Omega3.Controlador
                 //PARTE DE UPDATE
                 if (updatebool)
                 {
-                    update += ", ("+ row.Cells[1].Value +","+row.Cells[0].Value+")";
+                    
+                    update += ", (" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = "+ row.Cells[1].Value +")-" + row.Cells[0].Value + ")";
 
                 }
                 else
                 {
-                    update += "(" + row.Cells[1].Value + "," + row.Cells[0].Value + ")";
+                 
+                    update += "(" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = "+ row.Cells[1].Value +")-" + row.Cells[0].Value + ")";
                     updatebool = true;
                 }
 

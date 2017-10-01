@@ -58,6 +58,7 @@
             this.btn_Aceptar.TabIndex = 2;
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
             // btn_salir
             // 
@@ -79,6 +80,7 @@
             this.Controls.Add(this.txt_cantidad);
             this.Name = "Confirmar_Pedido";
             this.Text = "Confirmar_Pedido";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Confirmar_Pedido_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

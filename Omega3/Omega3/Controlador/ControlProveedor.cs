@@ -20,14 +20,15 @@ namespace Omega3.Controlador
             try
             {
                 Console.WriteLine(proveedor.Codigo_postal);
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email) values ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                    proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), Conexion.ObtenerConexion());
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email, email2, email3) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email, proveedor.Email2, proveedor.Email3), Conexion.ObtenerConexion());
 
                 retorno = comando.ExecuteNonQuery();
             }
             catch (Exception ex) { Console.WriteLine("Error agregando el proveedor: "+ ex); }
             return retorno;
         }
+
 
         public static int ModificarProveedor(Proveedor proveedor)
         {
