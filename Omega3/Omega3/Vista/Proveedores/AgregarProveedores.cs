@@ -64,13 +64,27 @@ namespace Omega3.Vista.Proveedores
 
 
 
-                proveedor.puntaje.transporte_posicion = Convert.ToInt32(transporte_posicion.SelectedValue);
+                proveedor.puntaje.transporte_posicion = Convert.ToInt32(transporte_posicion.SelectedItem);
+                proveedor.puntaje.transporte_antecedentes = Convert.ToInt32(transporte_antecedentes.SelectedItem);
+                proveedor.puntaje.transporte_capacidad = Convert.ToInt32(transporte_capacidad.SelectedItem);
+                proveedor.puntaje.transporte_financiera = Convert.ToInt32(transporte_financiera.SelectedItem);
+                proveedor.puntaje.transporte_Prestigio = Convert.ToInt32(transporte_prestigio.SelectedItem);
+                proveedor.puntaje.transporte_transporte = Convert.ToInt32(transporte_pais.SelectedItem);
 
+                proveedor.puntaje.calidad_costo = Convert.ToInt32(calidad_costo.SelectedItem);
+                proveedor.puntaje.calidad_cuidado = Convert.ToInt32(calidad_cuidado.SelectedItem);
+                proveedor.puntaje.calidad_plazos = Convert.ToInt32(calidad_plazo.SelectedItem);
 
-                MessageBox.Show(Convert.ToString(transporte_posicion.SelectedItem));
+                proveedor.puntaje.otros_administrativa = Convert.ToInt32(otros_administrativa.SelectedItem);
+                proveedor.puntaje.otros_pedidos = Convert.ToInt32(otros_capacidad.SelectedItem);
+                proveedor.puntaje.otros_respuesta = Convert.ToInt32(otros_respuesta.SelectedItem);
 
-               // Controlador.ControlProveedor.AgregarProveedor(proveedor);
+                proveedor.puntaje.pago_descuento = Convert.ToInt32(pago_descuento.SelectedItem);
+                proveedor.puntaje.pago_plazo = Convert.ToInt32(pagos_plazo.SelectedItem);
 
+                // Controlador.ControlProveedor.AgregarProveedor(proveedor);
+                Controlador.ControlProveedor.AgregarProveedor(proveedor);
+                limpiarCombos(this);
                 MessageBox.Show("El proveedor se agregó correctamente!");
                 limpiar();
 
@@ -107,6 +121,17 @@ namespace Omega3.Vista.Proveedores
             ControlProveedor.validarCaracteresNumericos(e);
         }
 
+
+        private void limpiarCombos(Control ctrl)
+        {
+            if (ctrl is ComboBox)
+            {
+                ctrl.Text = "";
+            }
+            foreach (Control childCtrl in ctrl.Controls) limpiarCombos(childCtrl);
+
+            
+        }
        
     }
 }

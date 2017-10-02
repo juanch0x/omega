@@ -96,7 +96,7 @@ namespace Omega3.Controlador
             try
             {
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT razon_social, direccion,impositiva,mail_contacto FROM cliente  WHERE documento ={0}", documento), Conexion.ObtenerConexion());
+                    "SELECT razon_social, direccion,impositiva,mail_contacto, lista FROM cliente  WHERE documento ={0}", documento), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -104,6 +104,7 @@ namespace Omega3.Controlador
                     cliente.Direccion = _reader.GetString(1);
                     cliente.Impositiva = _reader.GetString(2);
                     cliente.Mail_contacto = _reader.GetString(3);
+                    cliente.Lista = Convert.ToDecimal(_reader.GetString(4));
                 }
             }
             catch (Exception e) { Console.WriteLine(e); }
@@ -122,7 +123,7 @@ namespace Omega3.Controlador
             {
                 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT documento, direccion,impositiva,mail_contacto FROM cliente WHERE razon_social ='{0}'", razon), Conexion.ObtenerConexion());
+                    "SELECT documento, direccion,impositiva,mail_contacto,lista FROM cliente WHERE razon_social ='{0}'", razon), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -130,6 +131,7 @@ namespace Omega3.Controlador
                     cliente.Direccion = _reader.GetString(1);
                     cliente.Impositiva = _reader.GetString(2);
                     cliente.Mail_contacto = _reader.GetString(3);
+                    cliente.Lista = Convert.ToDecimal(_reader.GetString(4));
                 }
             }
             catch (Exception e) { Console.WriteLine(e); }
@@ -226,7 +228,7 @@ namespace Omega3.Controlador
 
             Factura_Negro Cabecera = new Factura_Negro();
             Detalle_Negro Detalle = new Detalle_Negro();
-            string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, lista, iva) VALUES";
+            string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, lista, iva, subtotal) VALUES";
             string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
             bool updatebool = false;
             bool contador = false;
@@ -237,11 +239,11 @@ namespace Omega3.Controlador
             {
 
                 if (contador) {
-                    consulta += ", ((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+")";
+                    consulta += ", ((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+","+row.Cells[5].Value+")";
                 }
                 else
                 {
-                    consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+")";
+                    consulta += "((select max(id) from venta)," + row.Cells[0].Value+","+row.Cells[1].Value+","+row.Cells[6].Value+","+row.Cells[4].Value+ "," + row.Cells[5].Value+")";
                     contador = true;
                 }
                 //PARTE DE UPDATE

@@ -20,6 +20,8 @@ namespace Omega3.Modelo
         private string _mail_contacto;
         private string _mail_factura;
         private string _impositiva;
+        private decimal _lista;
+
 
         public int Tipo_documento { get => _tipo_documento; set => _tipo_documento = value; }
         public long Documento { get => _documento; set => _documento = value; }
@@ -33,6 +35,7 @@ namespace Omega3.Modelo
         public string Mail_contacto { get => _mail_contacto; set => _mail_contacto = value; }
         public string Mail_factura { get => _mail_factura; set => _mail_factura = value; }
         public string Impositiva { get => _impositiva; set => _impositiva = value; }
+        public decimal Lista { get => _lista; set => _lista = value; }
     }
 
 }

@@ -14,6 +14,8 @@ namespace Omega3.Vista.Venta
 {
     public partial class Venta_1 : Form
     {
+        bool activo;
+        Decimal lista_cliente;
         List<Producto> lista;
         public Venta_1()
         {
@@ -24,6 +26,7 @@ namespace Omega3.Vista.Venta
             txt_ventas_iva.Text = "21";
             txt_ventas_lista.Text = "10";
             lista = new List<Producto>();
+            lista_cliente = new decimal();
 
         }
  //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
@@ -40,19 +43,34 @@ namespace Omega3.Vista.Venta
 
         private void Venta_1_Load(object sender, EventArgs e)
         {
-            
+            //EnableTab(tab_venta, false);
+            DisableTab(tab_venta, false);
             ControlVentas.llenarMedios_de_Pago(combo_pago);
 
             ControlVenta.llenarClientes(combo_cliente);
 
             ControlVentas.llenarProductosCombo(combo_producto);
-            
 
+            button5.Enabled = false;
             filtro_cuit.Text = "Buscar por CUIT o DNI";
             filtro_cuit.ForeColor = Color.Gray;
            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
           
+        }
+
+
+        public void DisableTab(TabPage pagina, bool enable)
+        {
+            if (!enable)
+                panel_principal.TabPages.Remove(pagina);
+            else
+                if (!activo)
+            {
+                panel_principal.TabPages.Add(pagina);
+                activo = true;
+            }
+
         }
 
         private void limpiar()
@@ -110,6 +128,8 @@ namespace Omega3.Vista.Venta
                 iva.Text = a.Impositiva;
                 email.Text = a.Mail_contacto;
                 cuit.Text = Convert.ToString(a.Documento);
+                lbl_lista.Text = Convert.ToString(a.Lista);
+                lista_cliente = a.Lista / 100;
             }
             else
             {
@@ -119,13 +139,19 @@ namespace Omega3.Vista.Venta
                 iva.Text = a.Impositiva;
                 email.Text = a.Mail_contacto;
                 cuit.Text = Convert.ToString(a.Documento);
+                lbl_lista.Text = Convert.ToString(a.Lista);
+                lista_cliente = a.Lista / 100;
             }
-
+            button5.Enabled = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            panel_principal.SelectedIndex = 1;
+        
+                DisableTab(tab_venta, true);
+                panel_principal.SelectedIndex = 1;
+          
+        
         }
 
         
@@ -321,14 +347,16 @@ namespace Omega3.Vista.Venta
             decimal iva;
             decimal lista;
             int cantidad;
-            decimal precio_venta;
+            decimal precio_venta,total;
             decimal subtotal;
 
             iva = (Convert.ToDecimal(txt_ventas_iva.Text)) / 100 + 1;
-            lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100 + 1;
+            lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100 ;
             cantidad = Convert.ToInt32(txt_ventas_cantidad.Text);
             precio_venta = Convert.ToDecimal(txt_ventas_precio.Text);
-            subtotal = Math.Round((precio_venta * iva * cantidad * lista), 3);
+            subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista) * lista_cliente), 3);
+            total = (((precio_venta + (precio_venta * lista_cliente)) * iva) * cantidad);
+            subtotal = total - (total * lista); 
             txt_ventas_subtotal.Text = subtotal.ToString();
 
 

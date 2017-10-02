@@ -82,6 +82,7 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
+            this.lbl_lista = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -269,6 +270,7 @@
             // 
             this.panel_datos.BackColor = System.Drawing.Color.White;
             this.panel_datos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_datos.Controls.Add(this.lbl_lista);
             this.panel_datos.Controls.Add(this.iva);
             this.panel_datos.Controls.Add(this.domicilio);
             this.panel_datos.Controls.Add(this.email);
@@ -280,7 +282,7 @@
             this.panel_datos.Controls.Add(this.razon);
             this.panel_datos.Location = new System.Drawing.Point(192, 128);
             this.panel_datos.Name = "panel_datos";
-            this.panel_datos.Size = new System.Drawing.Size(693, 195);
+            this.panel_datos.Size = new System.Drawing.Size(693, 218);
             this.panel_datos.TabIndex = 12;
             // 
             // iva
@@ -618,9 +620,9 @@
             this.lbl_venta_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_venta_lista.Location = new System.Drawing.Point(697, 6);
             this.lbl_venta_lista.Name = "lbl_venta_lista";
-            this.lbl_venta_lista.Size = new System.Drawing.Size(48, 20);
+            this.lbl_venta_lista.Size = new System.Drawing.Size(56, 20);
             this.lbl_venta_lista.TabIndex = 4;
-            this.lbl_venta_lista.Text = "Lista";
+            this.lbl_venta_lista.Text = "Dscto";
             // 
             // lbl_venta_precio
             // 
@@ -661,6 +663,16 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(81, 20);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
+            // 
+            // lbl_lista
+            // 
+            this.lbl_lista.AutoSize = true;
+            this.lbl_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lista.Location = new System.Drawing.Point(13, 183);
+            this.lbl_lista.Name = "lbl_lista";
+            this.lbl_lista.Size = new System.Drawing.Size(58, 20);
+            this.lbl_lista.TabIndex = 9;
+            this.lbl_lista.Text = "Lista: ";
             // 
             // Venta_1
             // 
@@ -748,5 +760,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lista;
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
+        private System.Windows.Forms.Label lbl_lista;
     }
 }

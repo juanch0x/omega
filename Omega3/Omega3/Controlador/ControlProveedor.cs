@@ -17,8 +17,12 @@ namespace Omega3.Controlador
         {
 
             int retorno = 0;
+            
             try
             {
+
+                        
+
                 Console.WriteLine(proveedor.Codigo_postal);
                 MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email, email2, email3) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
                     proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email, proveedor.Email2, proveedor.Email3), Conexion.ObtenerConexion());
@@ -26,6 +30,9 @@ namespace Omega3.Controlador
                 retorno = comando.ExecuteNonQuery();
             }
             catch (Exception ex) { Console.WriteLine("Error agregando el proveedor: "+ ex); }
+
+            insertarPuntajes(proveedor);
+      
             return retorno;
         }
 
@@ -137,6 +144,37 @@ namespace Omega3.Controlador
         public static void validarTextboxVacio(string campo)
         {
             MessageBox.Show("El campo " + campo + " es obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+        }
+
+
+        public static int insertarPuntajes(Proveedor proveedor)
+        {
+            int retorno = 0;
+            string consulta;
+
+            consulta = "INSERT INTO puntaje_proveedor ( aspecto,puntaje,id_proveedor ) VALUES";
+            consulta += "(1," + proveedor.puntaje.transporte_posicion + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(2," + proveedor.puntaje.transporte_Prestigio + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(3," + proveedor.puntaje.transporte_antecedentes + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(4," + proveedor.puntaje.transporte_financiera + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(5," + proveedor.puntaje.transporte_transporte + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(6," + proveedor.puntaje.transporte_capacidad + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(7," + proveedor.puntaje.calidad_plazos + ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(8," + proveedor.puntaje.calidad_costo+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(9," + proveedor.puntaje.calidad_cuidado+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(10," + proveedor.puntaje.pago_plazo+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(11," + proveedor.puntaje.pago_descuento+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(12," + proveedor.puntaje.otros_respuesta+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(13," + proveedor.puntaje.otros_administrativa+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(14," + proveedor.puntaje.otros_pedidos+ ",(select max(id_proveedor) from proveedores))";
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(consulta, Conexion.ObtenerConexion());
+
+                retorno = comando.ExecuteNonQuery();
+            }catch (MySqlException e) { Console.WriteLine(e); }
+            return retorno;
+
         }
 
     }
