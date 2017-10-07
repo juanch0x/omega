@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\Comprobantes.cs" />
+    <Compile Include="Controlador\ControladorFuncVariadas.cs" />
     <Compile Include="Controlador\ControlCliente.cs" />
     <Compile Include="Controlador\ControlPedidos.cs" />
     <Compile Include="Controlador\ControlPresupuesto.cs" />

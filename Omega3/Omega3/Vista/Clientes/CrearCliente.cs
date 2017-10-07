@@ -75,54 +75,57 @@ namespace Omega3.Vista.Clientes
         private void cargar_Click(object sender, EventArgs e)
         {
             datos a = new datos();
-            if (combo_documento.Text == "CUIT")
-            {
+            if (ControladorFuncVariadas.AccesoInternet()) {
 
-                if (txt_cuit.Text.Trim().Length < 11)
-                {
-                    MessageBox.Show("El campo CUIT se encuentra incompleto");
-                }
-                else
+                if (combo_documento.Text == "CUIT")
                 {
 
-                    a = JsonConvert.DeserializeObject<datos>(GET(txt_cuit.Text));
-                    if (a.data.nombre != null)
-                        txt_razon_social.Text = a.data.nombre;
-                    if (a.data.domicilioFiscal.direccion != null)
-                        txt_direccion.Text = a.data.domicilioFiscal.direccion;
+                    if (txt_cuit.Text.Trim().Length < 11)
+                    {
+                        MessageBox.Show("El campo CUIT se encuentra incompleto");
+                    }
+                    else
+                    {
 
-                    if (Convert.ToString(a.data.domicilioFiscal.codPostal) != "0")
-                        txt_cod_postal.Text = Convert.ToString(a.data.domicilioFiscal.codPostal);
+                        a = JsonConvert.DeserializeObject<datos>(GET(txt_cuit.Text));
+                        if (a.data.nombre != null)
+                            txt_razon_social.Text = a.data.nombre;
+                        if (a.data.domicilioFiscal.direccion != null)
+                            txt_direccion.Text = a.data.domicilioFiscal.direccion;
+
+                        if (Convert.ToString(a.data.domicilioFiscal.codPostal) != "0")
+                            txt_cod_postal.Text = Convert.ToString(a.data.domicilioFiscal.codPostal);
 
 
-                    combo_provincia.SelectedIndex = a.data.domicilioFiscal.idProvincia;
+                        combo_provincia.SelectedIndex = a.data.domicilioFiscal.idProvincia;
+                    }
                 }
-            }
-            else if(combo_documento.Text == "CUIL")
-            {
-
-                if (txt_cuit.Text.Trim().Length < 11)
+                else if (combo_documento.Text == "CUIL")
                 {
-                    MessageBox.Show("El campo CUIL se encuentra incompleto");
-                }
-                else
-                {
 
-                    a = JsonConvert.DeserializeObject<datos>(GET(txt_cuit.Text));
-                    if (a.data.nombre != null)
-                        txt_razon_social.Text = a.data.nombre;
-                    if (a.data.domicilioFiscal.direccion != null)
-                        txt_direccion.Text = a.data.domicilioFiscal.direccion;
+                    if (txt_cuit.Text.Trim().Length < 11)
+                    {
+                        MessageBox.Show("El campo CUIL se encuentra incompleto");
+                    }
+                    else
+                    {
 
-                    if (Convert.ToString(a.data.domicilioFiscal.codPostal) != "0")
-                        txt_cod_postal.Text = Convert.ToString(a.data.domicilioFiscal.codPostal);
+                        a = JsonConvert.DeserializeObject<datos>(GET(txt_cuit.Text));
+                        if (a.data.nombre != null)
+                            txt_razon_social.Text = a.data.nombre;
+                        if (a.data.domicilioFiscal.direccion != null)
+                            txt_direccion.Text = a.data.domicilioFiscal.direccion;
+
+                        if (Convert.ToString(a.data.domicilioFiscal.codPostal) != "0")
+                            txt_cod_postal.Text = Convert.ToString(a.data.domicilioFiscal.codPostal);
 
 
-                    combo_provincia.SelectedIndex = a.data.domicilioFiscal.idProvincia;
-                }
+                        combo_provincia.SelectedIndex = a.data.domicilioFiscal.idProvincia;
+                    }
 
 
-            }
+                } }
+            else { MessageBox.Show("No es posible autocompletar los datos, debido a que no hay conexión a internet"); }
         }
 
 

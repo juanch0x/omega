@@ -33,7 +33,7 @@ namespace Omega3.Vista.Proveedores
 
             //Pongo el boton al fondo
             tabla_proveedores.Columns[3].HeaderText = "Dirección";
-            tabla_proveedores.Columns[5].HeaderText = "Teléfono";
+            tabla_proveedores.Columns[4].HeaderText = "Teléfono";
         }
 
         private void txt_filtro_nombre_TextChanged(object sender, EventArgs e)

@@ -63,22 +63,43 @@ namespace Omega3
         private void Principal_load(object sender, EventArgs e)
         {
 
-
-            actualizarDolar();
-
-            this.Visible = true;
-
             Login login = new Login();
-            login.StartPosition = FormStartPosition.CenterScreen;
-            login.MdiParent = this;
-            login.Show();
+            if (!ControladorFuncVariadas.AccesoInternet())
+            {
+                MessageBox.Show("No hay internet!");
+                actualizarDolarSinConexion();
+                this.Visible = true;
 
-            menuStrip1.Visible = false;
-            GetProductoToolStripMenuItem().Visible = false;
-            ventasToolStripMenuItem.Visible = false;
-            //clientesToolStripMenuItem.Visible = false;
+                
+                login.StartPosition = FormStartPosition.CenterScreen;
+                login.MdiParent = this;
+                login.Show();
 
-            panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
+                menuStrip1.Visible = false;
+                GetProductoToolStripMenuItem().Visible = false;
+                ventasToolStripMenuItem.Visible = false;
+                //clientesToolStripMenuItem.Visible = false;
+
+                panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
+            }
+            else
+            {
+                actualizarDolarInternet();
+
+                this.Visible = true;
+
+
+                login.StartPosition = FormStartPosition.CenterScreen;
+                login.MdiParent = this;
+                login.Show();
+
+                menuStrip1.Visible = false;
+                GetProductoToolStripMenuItem().Visible = false;
+                ventasToolStripMenuItem.Visible = false;
+                //clientesToolStripMenuItem.Visible = false;
+
+                panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
+            }
 
         }
 
@@ -251,7 +272,7 @@ namespace Omega3
 
         }
 
-        private void actualizarDolar()
+        private void actualizarDolarInternet()
         {
             dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
@@ -262,6 +283,16 @@ namespace Omega3
             dolar_guardado = ControlProducto.obtenerValorDolar();
 
             txt_dolar_guardado.Text = dolar_guardado.ToString();
+        }
+
+        private void actualizarDolarSinConexion()
+        {
+
+            txt_dolar.Text = "0";
+            dolar_guardado = new decimal();
+            dolar_guardado = ControlProducto.obtenerValorDolar();
+            txt_dolar_guardado.Text = dolar_guardado.ToString();
+
         }
 
     }

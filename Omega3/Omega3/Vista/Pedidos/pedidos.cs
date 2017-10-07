@@ -42,6 +42,10 @@ namespace Omega3.Vista.Pedidos
             ControlPedidos.ModificarValoresTabla(dgv_tabla);
             ControlPedidos.administrarImagendgv(dgv_tabla);
 
+            //Hago que la selección se transparente
+            //dgv_tabla.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.Transparent;
+
+
         }
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -138,8 +142,11 @@ namespace Omega3.Vista.Pedidos
 
                     if (Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[7].Value) == "Pendiente")
                     {
+
                         ventana = new Confirmar_Pedido(Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[1].Value),dgv_tabla);
+                        ventana.StartPosition = FormStartPosition.CenterScreen;
                         ventana.ShowDialog();
+
                         ControlPedidos.llenarTabla(dgv_tabla);
 
                         ControlPedidos.ModificarValoresTabla(dgv_tabla);
@@ -156,5 +163,14 @@ namespace Omega3.Vista.Pedidos
 
             
         }
+
+        private void dgv_tabla_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ControlPedidos.ModificarValoresTabla(dgv_tabla);
+            ControlPedidos.administrarImagendgv(dgv_tabla);
+        }
+
+       
+
     }
 }

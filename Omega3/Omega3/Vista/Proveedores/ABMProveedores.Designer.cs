@@ -78,7 +78,7 @@
             this.tabla_proveedores.ReadOnly = true;
             this.tabla_proveedores.RowHeadersVisible = false;
             this.tabla_proveedores.ShowEditingIcon = false;
-            this.tabla_proveedores.Size = new System.Drawing.Size(634, 192);
+            this.tabla_proveedores.Size = new System.Drawing.Size(1036, 192);
             this.tabla_proveedores.TabIndex = 8;
             // 
             // panel1
@@ -86,7 +86,7 @@
             this.panel1.Controls.Add(this.tabla_proveedores);
             this.panel1.Location = new System.Drawing.Point(12, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(634, 192);
+            this.panel1.Size = new System.Drawing.Size(1036, 192);
             this.panel1.TabIndex = 9;
             // 
             // lbl_filtro_nombre
@@ -114,7 +114,7 @@
             this.panel2.Controls.Add(this.lbl_filtro_nombre);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 80);
+            this.panel2.Size = new System.Drawing.Size(1036, 80);
             this.panel2.TabIndex = 12;
             // 
             // panel3
@@ -125,7 +125,7 @@
             this.panel3.Controls.Add(this.btn_agregar);
             this.panel3.Location = new System.Drawing.Point(12, 304);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(634, 45);
+            this.panel3.Size = new System.Drawing.Size(1036, 45);
             this.panel3.TabIndex = 13;
             // 
             // btn_eliminar
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 359);
+            this.ClientSize = new System.Drawing.Size(1060, 402);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

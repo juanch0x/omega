@@ -43,7 +43,7 @@ namespace Omega3.Vista.Venta
 
         private void Venta_1_Load(object sender, EventArgs e)
         {
-            //EnableTab(tab_venta, false);
+            
             DisableTab(tab_venta, false);
             ControlVentas.llenarMedios_de_Pago(combo_pago);
 

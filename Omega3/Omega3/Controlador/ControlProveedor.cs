@@ -76,7 +76,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT id_proveedor AS Codigo, proveedor AS Proveedor, direccion AS Direccion, provincia AS Provincia, telefono AS Telefono, email AS Email FROM proveedores";
+            string sqlSelectAll = "SELECT id_proveedor idprov, proveedor Proveedor, provincia Provincia, direccion 'Dirección', telefono 'Teléfono', email 'Email', (SELECT avg(puntaje) FROM puntaje_proveedor a INNER JOIN aspecto_x_grupo b ON a.aspecto = b.id_aspecto WHERE b.grupo = 'transporte' AND a.id_proveedor = idprov) as 'Transporte', (SELECT avg(puntaje) FROM puntaje_proveedor a INNER JOIN aspecto_x_grupo b ON a.aspecto = b.id_aspecto WHERE b.grupo = 'calidad' AND a.id_proveedor = idprov) as 'Calidad', (SELECT avg(puntaje) FROM puntaje_proveedor a INNER JOIN aspecto_x_grupo b ON a.aspecto = b.id_aspecto WHERE b.grupo = 'pagos' AND a.id_proveedor = idprov) as 'Pagos', (SELECT avg(puntaje) FROM puntaje_proveedor a INNER JOIN aspecto_x_grupo b ON a.aspecto = b.id_aspecto WHERE b.grupo = 'otros' AND a.id_proveedor = idprov) as 'Otros' FROM proveedores";
             try
             {
 
@@ -90,13 +90,15 @@ namespace Omega3.Controlador
 
 
                 cuadro.DataSource = bSource;
+                cuadro.Columns[0].Visible = false;
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de productos: " + ex); }
         }
 
         public static void AutoFill(DataGridView dgv_tabla)
         {
-            dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_tabla.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_tabla.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             int i;
             for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
@@ -139,7 +141,7 @@ namespace Omega3.Controlador
                 return;
                 }
 
-        }
+            }
 
         public static void validarTextboxVacio(string campo)
         {

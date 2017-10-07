@@ -37,7 +37,17 @@ namespace Omega3.Vista.Pedidos
 
         private void Confirmar_Pedido_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //MessageBox.Show("LA GILADA");
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
         }
     }
 }

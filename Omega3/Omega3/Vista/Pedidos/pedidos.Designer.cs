@@ -86,6 +86,7 @@
             this.dgv_tabla.TabIndex = 8;
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
+            this.dgv_tabla.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_tabla_ColumnHeaderMouseClick);
             // 
             // Status
             // 
