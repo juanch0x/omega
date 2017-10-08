@@ -40,8 +40,8 @@ namespace Omega3.Controlador
 
             CrearComprobanteRequest request = new CrearComprobanteRequest();
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
             request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new Cliente();
@@ -57,7 +57,7 @@ namespace Omega3.Controlador
             request.Cliente.PercibeIIBB = false;
             request.Cliente.PercibeIVA = false;
             request.Cliente.Provincia = "Mendoza";
-            request.Cliente.RazonSocial = "Probando Ventas Facturante julian puto";
+            request.Cliente.RazonSocial = "Probando Ventas Facturante";
             request.Cliente.Telefono = "4251869";
             request.Cliente.TipoDocumento = 1;
             request.Cliente.TratamientoImpositivo = 3;
@@ -153,8 +153,8 @@ namespace Omega3.Controlador
 
             
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
             request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 

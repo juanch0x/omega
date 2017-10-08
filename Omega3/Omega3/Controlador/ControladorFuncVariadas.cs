@@ -40,6 +40,12 @@ namespace Omega3.Controlador
 
         }
 
+        public static String convertirFecha(DateTime dt)
+        {
+            string fecha = dt.ToString("yyyy-MM-dd HH:mm:ss");
+            return fecha;
+        }
+
     }
 
 }

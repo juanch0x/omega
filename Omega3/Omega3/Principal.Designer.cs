@@ -34,6 +34,7 @@
             this.solicitarStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reabastecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dolarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,7 @@
             this.txt_dolar_guardado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dolarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +113,13 @@
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
+            // dolarToolStripMenuItem
+            // 
+            this.dolarToolStripMenuItem.Name = "dolarToolStripMenuItem";
+            this.dolarToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.dolarToolStripMenuItem.Text = "Dolar";
+            this.dolarToolStripMenuItem.Click += new System.EventHandler(this.dolarToolStripMenuItem_Click);
+            // 
             // proveedorToolStripMenuItem
             // 
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,7 +179,8 @@
             // reparacionesToolStripMenuItem
             // 
             this.reparacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reparacionToolStripMenuItem});
+            this.reparacionToolStripMenuItem,
+            this.crearNToolStripMenuItem});
             this.reparacionesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.reparacionesToolStripMenuItem.Name = "reparacionesToolStripMenuItem";
             this.reparacionesToolStripMenuItem.Size = new System.Drawing.Size(115, 25);
@@ -180,7 +189,7 @@
             // reparacionToolStripMenuItem
             // 
             this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
-            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.reparacionToolStripMenuItem.Text = "Crear";
             this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
             // 
@@ -196,7 +205,7 @@
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -262,12 +271,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dolar: Sugerido";
             // 
-            // dolarToolStripMenuItem
+            // crearNToolStripMenuItem
             // 
-            this.dolarToolStripMenuItem.Name = "dolarToolStripMenuItem";
-            this.dolarToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
-            this.dolarToolStripMenuItem.Text = "Dolar";
-            this.dolarToolStripMenuItem.Click += new System.EventHandler(this.dolarToolStripMenuItem_Click);
+            this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
+            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.crearNToolStripMenuItem.Text = "Crear_N";
+            this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -317,6 +326,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem dolarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearNToolStripMenuItem;
     }
 }
 

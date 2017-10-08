@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    class Reparacion
+    public class Reparacion
     {
 
         public long id { get; set; }

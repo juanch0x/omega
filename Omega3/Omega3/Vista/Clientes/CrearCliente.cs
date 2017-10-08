@@ -147,7 +147,7 @@ namespace Omega3.Vista.Clientes
                     cliente.Documento = long.Parse(txt_cuit.Text);
 
 
-                cliente.Tipo_documento = combo_documento.SelectedIndex;
+                cliente.Tipo_documento = Convert.ToInt32(combo_documento.SelectedValue);
                 cliente.Razon = txt_razon_social.Text;
                 cliente.Direccion = txt_direccion.Text;
                 cliente.Telefono = long.Parse(txt_telefono.Text);
@@ -155,8 +155,8 @@ namespace Omega3.Vista.Clientes
                 cliente.Mail_contacto = txt_mail_contacto.Text;
                 cliente.Codigo_postal = Convert.ToInt32(txt_cod_postal.Text);
                 cliente.Localidad = txt_localidad.Text;
-                cliente.Impositiva = combo_condicion.Text;
-                cliente.Cod_provincia = combo_provincia.SelectedIndex;
+                cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
+                cliente.Cod_provincia = Convert.ToInt32(combo_provincia.SelectedValue);
 
 
                 if (!ControlCliente.validardocumento(cliente.Documento))
@@ -190,6 +190,9 @@ namespace Omega3.Vista.Clientes
                 txt_documento.Visible = false;
                 txt_cuit.Visible = true;
             }
+
+            
+
         }
 
         private void limpiarCampos()

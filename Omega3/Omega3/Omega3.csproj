@@ -92,6 +92,7 @@
     <Compile Include="Controlador\ControlProveedor.cs" />
     <Compile Include="Controlador\Conexion.cs" />
     <Compile Include="Controlador\ControlProducto.cs" />
+    <Compile Include="Controlador\ControlReparaciones.cs" />
     <Compile Include="Controlador\ControlUsuario.cs" />
     <Compile Include="Controlador\ControlVenta.cs" />
     <Compile Include="Controlador\ControlVentas.cs" />
@@ -214,6 +215,12 @@
     <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarCliente.Designer.cs">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\Nueva_Reparacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\BuscarCliente.resx">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\Nueva_Reparacion.resx">
       <DependentUpon>Nueva_Reparacion.cs</DependentUpon>

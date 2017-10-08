@@ -295,6 +295,32 @@ namespace Omega3
 
         }
 
+        private void crearNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Reparaciones.Nueva_Reparacion reparacion;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Nueva_Reparacion"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                reparacion = new Vista.Reparaciones.Nueva_Reparacion();
+                reparacion.StartPosition = FormStartPosition.CenterScreen;
+                reparacion.MdiParent = this;
+                reparacion.Show();
+            }
+        }
     }
 
     public class dolar
