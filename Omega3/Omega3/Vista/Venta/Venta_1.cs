@@ -431,6 +431,58 @@ namespace Omega3.Vista.Venta
 
         }
 
+  
+
+        private void btn_presupuesto_Click(object sender, EventArgs e)
+        {
+
+            if (cuit.Text != "")
+            {
+                if (dgv_tabla.Rows.Count != 0)
+                {
+                    Omega3.Modelo.Venta venta = new Modelo.Venta();
+
+                    venta.documento = long.Parse(cuit.Text);
+                    venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
+
+                    if (combo_pago.Text == "Cheque")
+                    {
+                        venta.fecha_vencimiento_cheque = fecha_pago.Value;
+
+                    }
+
+                    venta.nrofactura = 0;
+                    venta.tipo_factura = 0;
+                    venta.fecha_venta = DateTime.Now;
+
+                    Factura_Negro factura = new Factura_Negro();
+                    factura.Nombre = razon.Text;
+                    factura.Documento = cuit.Text;
+                    factura.Direccion = domicilio.Text;
+                    factura.Fecha = DateTime.Now;
+
+
+                    panel_principal.SelectedIndex = 0;
+
+                    MessageBox.Show("Presupuesto realizado correctamente!");
+
+                   // ControlVentas.AgregarVenta(dgv_tabla, venta);
+                    ControlVentas.generarFacturaNegro(dgv_tabla, factura);
+
+                    dgv_tabla.Rows.Clear();
+                    dgv_tabla.Refresh();
+                    limpiarParteCliente();
+                    lista.Clear();
+                }
+                else { MessageBox.Show("No hay ningun producto agregado"); }
+            }
+            else
+            {
+                panel_principal.SelectedIndex = 0;
+                MessageBox.Show("Aún no se seleccionó un cliente");
+            }
+
+        }
     }
     }
 

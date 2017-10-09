@@ -221,6 +221,18 @@
     <Compile Include="Vista\Reparaciones\BuscarCliente.Designer.cs">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarProducto.Designer.cs">
+      <DependentUpon>BuscarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarReparacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\BuscarReparacion.Designer.cs">
+      <DependentUpon>BuscarReparacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\Nueva_Reparacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +281,7 @@
       <DependentUpon>CrearCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Informes\Presupuesto.rdlc" />
+    <EmbeddedResource Include="Vista\Informes\Report1.rdlc" />
     <EmbeddedResource Include="Vista\Informes\Venta_Negra.rdlc" />
     <EmbeddedResource Include="Vista\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -317,6 +330,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\BuscarProducto.resx">
+      <DependentUpon>BuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\BuscarReparacion.resx">
+      <DependentUpon>BuscarReparacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\Nueva_Reparacion.resx">
       <DependentUpon>Nueva_Reparacion.cs</DependentUpon>

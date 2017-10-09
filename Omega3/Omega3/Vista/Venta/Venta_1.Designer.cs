@@ -45,6 +45,7 @@
             this.tab_cliente = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.panel_datos = new System.Windows.Forms.Panel();
+            this.lbl_lista = new System.Windows.Forms.Label();
             this.iva = new System.Windows.Forms.Label();
             this.domicilio = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.Label();
@@ -82,7 +83,7 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.lbl_lista = new System.Windows.Forms.Label();
+            this.btn_presupuesto = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -285,6 +286,16 @@
             this.panel_datos.Size = new System.Drawing.Size(693, 218);
             this.panel_datos.TabIndex = 12;
             // 
+            // lbl_lista
+            // 
+            this.lbl_lista.AutoSize = true;
+            this.lbl_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lista.Location = new System.Drawing.Point(13, 183);
+            this.lbl_lista.Name = "lbl_lista";
+            this.lbl_lista.Size = new System.Drawing.Size(58, 20);
+            this.lbl_lista.TabIndex = 9;
+            this.lbl_lista.Text = "Lista: ";
+            // 
             // iva
             // 
             this.iva.AutoSize = true;
@@ -374,6 +385,7 @@
             // tab_venta
             // 
             this.tab_venta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab_venta.Controls.Add(this.btn_presupuesto);
             this.tab_venta.Controls.Add(this.btn_no_factura);
             this.tab_venta.Controls.Add(this.panel_ventas_detalle);
             this.tab_venta.Controls.Add(this.panel_ventas_item);
@@ -577,6 +589,7 @@
             // 
             // txt_ventas_codigo
             // 
+            this.txt_ventas_codigo.Enabled = false;
             this.txt_ventas_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ventas_codigo.Location = new System.Drawing.Point(91, 28);
             this.txt_ventas_codigo.Name = "txt_ventas_codigo";
@@ -664,15 +677,15 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
-            // lbl_lista
+            // btn_presupuesto
             // 
-            this.lbl_lista.AutoSize = true;
-            this.lbl_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_lista.Location = new System.Drawing.Point(13, 183);
-            this.lbl_lista.Name = "lbl_lista";
-            this.lbl_lista.Size = new System.Drawing.Size(58, 20);
-            this.lbl_lista.TabIndex = 9;
-            this.lbl_lista.Text = "Lista: ";
+            this.btn_presupuesto.Location = new System.Drawing.Point(165, 429);
+            this.btn_presupuesto.Name = "btn_presupuesto";
+            this.btn_presupuesto.Size = new System.Drawing.Size(87, 23);
+            this.btn_presupuesto.TabIndex = 3;
+            this.btn_presupuesto.Text = "Presupuesto";
+            this.btn_presupuesto.UseVisualStyleBackColor = true;
+            this.btn_presupuesto.Click += new System.EventHandler(this.btn_presupuesto_Click);
             // 
             // Venta_1
             // 
@@ -761,5 +774,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lista;
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
         private System.Windows.Forms.Label lbl_lista;
+        private System.Windows.Forms.Button btn_presupuesto;
     }
 }

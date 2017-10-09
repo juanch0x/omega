@@ -17,6 +17,6 @@ namespace Omega3.Modelo
         public string id_motor { get; set; }
         public string maquina { get; set; }
         public string comentarios { get; set; }
-
+        public decimal lista { get; set; }
     }
 }
