@@ -127,6 +127,41 @@ namespace Omega3.Controlador
             return retorno;
         }
 
+        public static Cliente obtenerCliente(long documento)
+        {
+
+            Cliente cliente = new Cliente();
+
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+               "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                cliente.Tipo_documento = _reader.GetInt32(0);
+                cliente.Razon = _reader.GetString(1);
+                cliente.Direccion = _reader.GetString(2);
+                cliente.Telefono = long.Parse(_reader.GetString(3));
+                cliente.Provincia = _reader.GetString(4);
+                cliente.Localidad = _reader.GetString(5);
+                cliente.Codigo_postal = _reader.GetInt32(6);
+                cliente.Contacto = _reader.GetString(7);
+                cliente.Mail_contacto = _reader.GetString(8);
+                cliente.Mail_factura = _reader.GetString(9);
+                //cliente.Impositiva = _reader.GetInt32(10);
+            }
+
+            //MessageBox.Show(aux);
+
+            
+
+
+            
+
+
+            return cliente;
+        }
+
 
     }
 }

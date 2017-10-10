@@ -225,5 +225,122 @@ namespace Omega3.Controlador
         }
 
 
+
+        public void Facturar(Omega3.Modelo.Venta venta,Cliente cliente, DataGridView dgv_tabla)
+        {
+            ComprobantesClient client = new ComprobantesClient();
+
+
+            ComprobantesClient comprobanteClient = new ComprobantesClient();
+
+            CrearComprobanteRequest request = new CrearComprobanteRequest();
+
+            request.Autenticacion = new Autenticacion();
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            
+            request.Cliente = new Cliente();
+            request.Cliente.CodigoPostal = cliente.CodigoPostal;
+            request.Cliente.CondicionPago = venta.medio_de_pago;
+            request.Cliente.Contacto = cliente.Contacto;
+            request.Cliente.DireccionFiscal = cliente.DireccionFiscal;
+            request.Cliente.EnviarComprobante = true;
+            request.Cliente.Localidad = cliente.Localidad;
+            request.Cliente.MailContacto = cliente.MailContacto;
+            request.Cliente.MailFacturacion = cliente.MailFacturacion;
+            request.Cliente.NroDocumento = cliente.NroDocumento;
+            request.Cliente.PercibeIIBB = false;
+            request.Cliente.PercibeIVA = false;
+            request.Cliente.Provincia = cliente.Provincia;
+            request.Cliente.RazonSocial = cliente.RazonSocial;
+            request.Cliente.Telefono = cliente.Telefono;
+            request.Cliente.TipoDocumento = cliente.TipoDocumento;
+            request.Cliente.TratamientoImpositivo = cliente.TratamientoImpositivo;
+
+            request.Encabezado = new ComprobanteEncabezado();
+            request.Encabezado.Bienes = 2;
+            request.Encabezado.CondicionVenta = 1;
+            request.Encabezado.EnviarComprobante = true;
+            request.Encabezado.FechaHora = DateTime.Now;
+            request.Encabezado.FechaServDesde = DateTime.Now;
+            request.Encabezado.FechaServHasta = DateTime.Now;
+            request.Encabezado.FechaVtoPago = DateTime.Now;
+            request.Encabezado.ImporteImpuestosInternos = 0;
+            request.Encabezado.ImportePercepcionesMunic = 0;
+            request.Encabezado.Moneda = 2;
+            request.Encabezado.Observaciones = "GG LA WEA";
+            request.Encabezado.OrdenCompra = "1487";
+            request.Encabezado.PercepcionIIBB = 0;
+            request.Encabezado.PercepcionIVA = 0;
+            request.Encabezado.PorcentajeIIBB = 0;
+            request.Encabezado.Prefijo = "0002";
+            request.Encabezado.Remito = "444";
+            request.Encabezado.SubTotal = (decimal)664.46;
+            request.Encabezado.SubTotalExcento = 0;
+            request.Encabezado.SubTotalNoAlcanzado = 0;
+            request.Encabezado.TipoComprobante = "PF";
+            request.Encabezado.TipoDeCambio = 1;
+            request.Encabezado.Total = 804;
+            request.Encabezado.TotalConDescuento = 0;
+            request.Encabezado.TotalNeto = (decimal)664.46;
+
+            request.Items = new ComprobanteItem[3];
+
+            request.Items[0] = new ComprobanteItem();
+            request.Items[0].Bonificacion = 0;
+            request.Items[0].Cantidad = 1;
+            request.Items[0].Codigo = "CODPROD";
+            request.Items[0].Detalle = "Producto Uno";
+            request.Items[0].Gravado = true;
+            request.Items[0].IVA = 21;
+            request.Items[0].PrecioUnitario = 100;
+            request.Items[0].Total = 121;
+
+            request.Items[1] = new ComprobanteItem();
+            request.Items[1].Bonificacion = 0;
+            request.Items[1].Cantidad = 1;
+            request.Items[1].Codigo = "CODPROD2";
+            request.Items[1].Detalle = "Producto Dos";
+            request.Items[1].Gravado = true;
+            request.Items[1].IVA = 21;
+            request.Items[1].PrecioUnitario = (decimal)164.46;
+            request.Items[1].Total = 199;
+
+            request.Items[2] = new ComprobanteItem();
+            request.Items[2].Bonificacion = 0;
+            request.Items[2].Cantidad = 2;
+            request.Items[2].Codigo = "CODPROD3";
+            request.Items[2].Detalle = "Producto Tres";
+            request.Items[2].Gravado = true;
+            request.Items[2].IVA = 21;
+            request.Items[2].PrecioUnitario = 200;
+            request.Items[2].Total = 484;
+
+
+            CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
+
+            Console.Write(ObjectToXml<CrearComprobanteResponse>(response));
+
+            String id_comprobante = "PEDRO";
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<CrearComprobanteResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+
+            XmlNodeList xnList = xml.SelectNodes("/CrearComprobanteResponse");
+            foreach (XmlNode xn in xnList)
+            {
+
+                id_comprobante = xn["IdComprobante"].InnerText;
+
+            }
+
+
+            comprobanteClient.Close();
+
+            detalleComprobante(id_comprobante);
+        }
+
+
     }
 }

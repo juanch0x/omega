@@ -87,6 +87,8 @@ namespace Omega3.Controlador
             combo.AutoCompleteMode = AutoCompleteMode.Suggest;
             combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
+      
+
         }
 
         public static Cliente obtenerCliente(long documento)

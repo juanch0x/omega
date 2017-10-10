@@ -72,7 +72,6 @@
             this.combo_producto = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
-            this.txt_ventas_iva = new System.Windows.Forms.TextBox();
             this.txt_ventas_lista = new System.Windows.Forms.TextBox();
             this.txt_ventas_precio = new System.Windows.Forms.TextBox();
             this.txt_ventas_codigo = new System.Windows.Forms.TextBox();
@@ -84,6 +83,7 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
+            this.combo_iva = new System.Windows.Forms.ComboBox();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -516,10 +516,10 @@
             // panel_ventas_item
             // 
             this.panel_ventas_item.BackColor = System.Drawing.Color.White;
+            this.panel_ventas_item.Controls.Add(this.combo_iva);
             this.panel_ventas_item.Controls.Add(this.combo_producto);
             this.panel_ventas_item.Controls.Add(this.button1);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_subtotal);
-            this.panel_ventas_item.Controls.Add(this.txt_ventas_iva);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_lista);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_precio);
             this.panel_ventas_item.Controls.Add(this.txt_ventas_codigo);
@@ -545,6 +545,7 @@
             this.combo_producto.Size = new System.Drawing.Size(319, 24);
             this.combo_producto.TabIndex = 15;
             this.combo_producto.SelectedIndexChanged += new System.EventHandler(this.combo_producto_SelectedIndexChanged);
+            this.combo_producto.Leave += new System.EventHandler(this.combo_producto_Leave);
             // 
             // button1
             // 
@@ -565,17 +566,6 @@
             this.txt_ventas_subtotal.Size = new System.Drawing.Size(141, 22);
             this.txt_ventas_subtotal.TabIndex = 13;
             this.txt_ventas_subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_ventas_iva
-            // 
-            this.txt_ventas_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ventas_iva.Location = new System.Drawing.Point(781, 28);
-            this.txt_ventas_iva.Name = "txt_ventas_iva";
-            this.txt_ventas_iva.Size = new System.Drawing.Size(78, 22);
-            this.txt_ventas_iva.TabIndex = 12;
-            this.txt_ventas_iva.Text = "21";
-            this.txt_ventas_iva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ventas_iva.Leave += new System.EventHandler(this.txt_ventas_iva_Leave);
             // 
             // txt_ventas_lista
             // 
@@ -617,6 +607,8 @@
             this.txt_ventas_cantidad.Name = "txt_ventas_cantidad";
             this.txt_ventas_cantidad.Size = new System.Drawing.Size(79, 22);
             this.txt_ventas_cantidad.TabIndex = 7;
+            this.txt_ventas_cantidad.TextChanged += new System.EventHandler(this.txt_ventas_cantidad_TextChanged);
+            this.txt_ventas_cantidad.Enter += new System.EventHandler(this.txt_ventas_cantidad_Enter);
             this.txt_ventas_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ventas_cantidad_KeyPress);
             this.txt_ventas_cantidad.Leave += new System.EventHandler(this.txt_ventas_cantidad_Leave);
             // 
@@ -690,6 +682,24 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
+            // combo_iva
+            // 
+            this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_iva.FormattingEnabled = true;
+            this.combo_iva.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.combo_iva.Items.AddRange(new object[] {
+            "10.5",
+            "21",
+            "27",
+            "2.5",
+            "5",
+            "0"});
+            this.combo_iva.Location = new System.Drawing.Point(783, 29);
+            this.combo_iva.Name = "combo_iva";
+            this.combo_iva.Size = new System.Drawing.Size(68, 21);
+            this.combo_iva.TabIndex = 4;
+            this.combo_iva.SelectedIndexChanged += new System.EventHandler(this.combo_iva_SelectedIndexChanged);
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,7 +751,6 @@
         private System.Windows.Forms.Panel panel_ventas_item;
         private System.Windows.Forms.Panel panel_ventas_detalle;
         private System.Windows.Forms.TextBox txt_ventas_subtotal;
-        private System.Windows.Forms.TextBox txt_ventas_iva;
         private System.Windows.Forms.TextBox txt_ventas_lista;
         private System.Windows.Forms.TextBox txt_ventas_precio;
         private System.Windows.Forms.TextBox txt_ventas_codigo;
@@ -778,5 +787,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
         private System.Windows.Forms.Label lbl_lista;
         private System.Windows.Forms.Button btn_presupuesto;
+        private System.Windows.Forms.ComboBox combo_iva;
     }
 }

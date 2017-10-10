@@ -22,12 +22,13 @@ namespace Omega3.Vista.Venta
             InitializeComponent();
 
             fecha_pago.Visible = false;
-            txt_ventas_cantidad.Text = "1";
-            txt_ventas_iva.Text = "21";
+            
+            
             txt_ventas_lista.Text = "10";
             lista = new List<Producto>();
             lista_cliente = new decimal();
             txt_ventas_lista.MaxLength = 5;
+            txt_ventas_cantidad.MaxLength = 3;
         }
  //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
         protected override void WndProc(ref Message m)
@@ -45,6 +46,7 @@ namespace Omega3.Vista.Venta
         {
             
             DisableTab(tab_venta, false);
+
             ControlVentas.llenarMedios_de_Pago(combo_pago);
 
             ControlVenta.llenarClientes(combo_cliente);
@@ -55,8 +57,11 @@ namespace Omega3.Vista.Venta
             filtro_cuit.Text = "Buscar por CUIT o DNI";
             filtro_cuit.ForeColor = Color.Gray;
            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
+            combo_iva.SelectedIndex = 1;
+            txt_ventas_cantidad.Text = "1";
+                        
 
-          
         }
 
 
@@ -78,8 +83,8 @@ namespace Omega3.Vista.Venta
 
             txt_ventas_cantidad.Text = "1";
             txt_ventas_codigo.Text = "";
-            
-            txt_ventas_iva.Text = "";
+
+            combo_iva.SelectedIndex = 1;
             txt_ventas_precio.Text = "";
 
 
@@ -268,7 +273,7 @@ namespace Omega3.Vista.Venta
                     aux = true;
                     if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text) ) {
                         producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
-                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
                     }
                     else
                     {
@@ -281,7 +286,7 @@ namespace Omega3.Vista.Venta
                         if (dialogresult == DialogResult.Yes)
                         {
                             producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
-                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
                         }
                         else if (dialogresult == DialogResult.No) {
                             MessageBox.Show("El producto no fue agregado");
@@ -299,7 +304,7 @@ namespace Omega3.Vista.Venta
                 if (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
                 {
                     lista.Add(new Producto { Cod_producto = Convert.ToInt32(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
-                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
                 }
                 else
                 {
@@ -311,7 +316,7 @@ namespace Omega3.Vista.Venta
 
                     if (dialogresult == DialogResult.Yes)
                     {
-                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, txt_ventas_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
                     }
                     else if (dialogresult == DialogResult.No)
                     {
@@ -332,6 +337,7 @@ namespace Omega3.Vista.Venta
         {
             if (panel_principal.SelectedIndex == 1) {
                 txt_ventas_codigo.Focus();
+                txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
             }
         }
 
@@ -344,22 +350,25 @@ namespace Omega3.Vista.Venta
 
         private void calcularSubtotal() {
 
+            
             decimal iva;
             decimal lista;
             int cantidad;
             decimal precio_venta,total;
             decimal subtotal;
-                       
 
-            iva = (Convert.ToDecimal(txt_ventas_iva.Text)) / 100 + 1;
-            lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100 ;
-            cantidad = Convert.ToInt32(txt_ventas_cantidad.Text);
-            precio_venta = Convert.ToDecimal(txt_ventas_precio.Text);
-            subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista) * lista_cliente), 3);
-            total = (((precio_venta + (precio_venta * lista_cliente)) * iva) * cantidad);
-            subtotal = total - (total * lista); 
-            txt_ventas_subtotal.Text = subtotal.ToString();
+            if (txt_ventas_cantidad.Text.Trim() != "")
+            {
 
+                iva = (Convert.ToDecimal(combo_iva.Text)) / 100 + 1;
+                lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100;
+                cantidad = Convert.ToInt32(txt_ventas_cantidad.Text);
+                precio_venta = Convert.ToDecimal(txt_ventas_precio.Text);
+                subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista) * lista_cliente), 3);
+                total = (((precio_venta + (precio_venta * lista_cliente)) * iva) * cantidad);
+                subtotal = total - (total * lista);
+                txt_ventas_subtotal.Text = subtotal.ToString();
+            }
 
 
 
@@ -383,11 +392,16 @@ namespace Omega3.Vista.Venta
         private void combo_producto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Producto a = new Producto();
-            txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
-            a = ControlVentas.llenarInformacionProducto(combo_producto.SelectedValue.ToString());
-            combo_producto.Text = a.Nombre_producto;
-            txt_ventas_precio.Text = a.Precio_venta.ToString();
-            calcularSubtotal();
+
+            if (combo_producto.SelectedIndex != -1)
+            {
+
+                txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
+                a = ControlVentas.llenarInformacionProducto(combo_producto.SelectedValue.ToString());
+                combo_producto.Text = a.Nombre_producto;
+                txt_ventas_precio.Text = a.Precio_venta.ToString();
+                calcularSubtotal();
+            }
         }
 
         private void Venta_1_KeyDown(object sender, KeyEventArgs e)
@@ -495,7 +509,7 @@ namespace Omega3.Vista.Venta
             }
             else
             {
-                //txt_ventas_lista.Text = "0";
+                
                 calcularSubtotal();
                 
             }
@@ -510,6 +524,46 @@ namespace Omega3.Vista.Venta
         {
             txt_ventas_lista.SelectionStart = 0;
             txt_ventas_lista.SelectionLength = txt_ventas_lista.Text.Length;
+        }
+
+        
+        private void combo_iva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calcularSubtotal();
+        }
+
+        private void txt_ventas_cantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_ventas_cantidad.Text.Trim() == "")
+            {
+                txt_ventas_cantidad.Text = "1";
+                txt_ventas_cantidad.SelectionStart = 0;
+                txt_ventas_cantidad.SelectionLength = txt_ventas_cantidad.Text.Length;
+            }
+            else
+            {
+
+                calcularSubtotal();
+
+            }
+        }
+
+        private void txt_ventas_cantidad_Enter(object sender, EventArgs e)
+        {
+            txt_ventas_cantidad.SelectionStart = 0;
+            txt_ventas_cantidad.SelectionLength = txt_ventas_cantidad.Text.Length;
+        }
+
+        private void combo_producto_Leave(object sender, EventArgs e)
+        {
+            if(combo_producto.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe elegir un producto de la lista.");
+                combo_producto.Focus();
+                combo_producto.SelectionStart = 0;
+                combo_producto.SelectionLength = combo_producto.Text.Length;
+                combo_producto.DroppedDown = true;
+            }
         }
     }
     }
