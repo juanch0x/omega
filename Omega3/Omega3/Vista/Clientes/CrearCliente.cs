@@ -221,6 +221,8 @@ namespace Omega3.Vista.Clientes
                 this.Close();
             }
         }
+
+
     }
 
 

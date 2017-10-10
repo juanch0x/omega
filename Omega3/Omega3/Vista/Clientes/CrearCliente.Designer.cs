@@ -191,6 +191,7 @@
             this.combo_condicion.Name = "combo_condicion";
             this.combo_condicion.Size = new System.Drawing.Size(292, 21);
             this.combo_condicion.TabIndex = 2;
+
             // 
             // datos_generales
             // 

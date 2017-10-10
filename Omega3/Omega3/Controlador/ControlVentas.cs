@@ -125,7 +125,7 @@ namespace Omega3.Controlador
             {
                 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT documento, direccion,impositiva,mail_contacto,lista FROM cliente WHERE razon_social ='{0}'", razon), Conexion.ObtenerConexion());
+                    "SELECT documento, direccion,condicion,mail_contacto,lista FROM cliente INNER JOIN condicion_frente_al_iva ON cliente.impositiva = condicion_frente_al_iva.id WHERE razon_social = '{0}'", razon), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
