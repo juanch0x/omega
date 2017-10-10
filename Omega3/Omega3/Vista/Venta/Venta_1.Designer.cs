@@ -56,6 +56,7 @@
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
+            this.btn_presupuesto = new System.Windows.Forms.Button();
             this.btn_no_factura = new System.Windows.Forms.Button();
             this.panel_ventas_detalle = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
@@ -83,7 +84,6 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.btn_presupuesto = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -396,6 +396,16 @@
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
+            // btn_presupuesto
+            // 
+            this.btn_presupuesto.Location = new System.Drawing.Point(165, 429);
+            this.btn_presupuesto.Name = "btn_presupuesto";
+            this.btn_presupuesto.Size = new System.Drawing.Size(87, 23);
+            this.btn_presupuesto.TabIndex = 3;
+            this.btn_presupuesto.Text = "Presupuesto";
+            this.btn_presupuesto.UseVisualStyleBackColor = true;
+            this.btn_presupuesto.Click += new System.EventHandler(this.btn_presupuesto_Click);
+            // 
             // btn_no_factura
             // 
             this.btn_no_factura.Location = new System.Drawing.Point(369, 429);
@@ -575,6 +585,9 @@
             this.txt_ventas_lista.Size = new System.Drawing.Size(83, 22);
             this.txt_ventas_lista.TabIndex = 11;
             this.txt_ventas_lista.Text = "10";
+            this.txt_ventas_lista.TextChanged += new System.EventHandler(this.txt_ventas_lista_TextChanged);
+            this.txt_ventas_lista.Enter += new System.EventHandler(this.txt_ventas_lista_Enter);
+            this.txt_ventas_lista.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ventas_lista_KeyPress);
             // 
             // txt_ventas_precio
             // 
@@ -676,16 +689,6 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(81, 20);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // btn_presupuesto
-            // 
-            this.btn_presupuesto.Location = new System.Drawing.Point(165, 429);
-            this.btn_presupuesto.Name = "btn_presupuesto";
-            this.btn_presupuesto.Size = new System.Drawing.Size(87, 23);
-            this.btn_presupuesto.TabIndex = 3;
-            this.btn_presupuesto.Text = "Presupuesto";
-            this.btn_presupuesto.UseVisualStyleBackColor = true;
-            this.btn_presupuesto.Click += new System.EventHandler(this.btn_presupuesto_Click);
             // 
             // Venta_1
             // 

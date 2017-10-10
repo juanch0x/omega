@@ -27,7 +27,7 @@ namespace Omega3.Vista.Venta
             txt_ventas_lista.Text = "10";
             lista = new List<Producto>();
             lista_cliente = new decimal();
-
+            txt_ventas_lista.MaxLength = 5;
         }
  //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
         protected override void WndProc(ref Message m)
@@ -349,6 +349,7 @@ namespace Omega3.Vista.Venta
             int cantidad;
             decimal precio_venta,total;
             decimal subtotal;
+                       
 
             iva = (Convert.ToDecimal(txt_ventas_iva.Text)) / 100 + 1;
             lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100 ;
@@ -482,6 +483,33 @@ namespace Omega3.Vista.Venta
                 MessageBox.Show("Aún no se seleccionó un cliente");
             }
 
+        }
+
+        private void txt_ventas_lista_TextChanged(object sender, EventArgs e)
+        {
+            if(txt_ventas_lista.Text.Trim() == "" || txt_ventas_lista.Text.Trim() == ".") 
+            {
+                txt_ventas_lista.Text = "0";
+                txt_ventas_lista.SelectionStart = 0;
+                txt_ventas_lista.SelectionLength = txt_ventas_lista.Text.Length;
+            }
+            else
+            {
+                //txt_ventas_lista.Text = "0";
+                calcularSubtotal();
+                
+            }
+        }
+
+        private void txt_ventas_lista_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarNumerosConComas(sender,e);
+        }
+
+        private void txt_ventas_lista_Enter(object sender, EventArgs e)
+        {
+            txt_ventas_lista.SelectionStart = 0;
+            txt_ventas_lista.SelectionLength = txt_ventas_lista.Text.Length;
         }
     }
     }
