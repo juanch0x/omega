@@ -22,8 +22,9 @@ namespace Omega3.Modelo
         private string _impositiva;
         private decimal _lista;
         private string _provincia;
+        private int _impositiva_id;
 
-
+        public int Impositiva_Id { get => _impositiva_id; set => _impositiva_id = value; }
         public int Tipo_documento { get => _tipo_documento; set => _tipo_documento = value; }
         public long Documento { get => _documento; set => _documento = value; }
         public string Razon { get => _razon; set => _razon = value; }

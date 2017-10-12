@@ -69,6 +69,7 @@
             this.Lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_ventas_item = new System.Windows.Forms.Panel();
+            this.combo_iva = new System.Windows.Forms.ComboBox();
             this.combo_producto = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_ventas_subtotal = new System.Windows.Forms.TextBox();
@@ -83,7 +84,9 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.combo_iva = new System.Windows.Forms.ComboBox();
+            this.btn_factura = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.combo_comprobante = new System.Windows.Forms.ComboBox();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -99,7 +102,7 @@
             // 
             this.combo_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pago.FormattingEnabled = true;
-            this.combo_pago.Location = new System.Drawing.Point(240, 18);
+            this.combo_pago.Location = new System.Drawing.Point(286, 18);
             this.combo_pago.Name = "combo_pago";
             this.combo_pago.Size = new System.Drawing.Size(169, 21);
             this.combo_pago.TabIndex = 5;
@@ -109,18 +112,20 @@
             // 
             this.Panel.BackColor = System.Drawing.Color.White;
             this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel.Controls.Add(this.combo_comprobante);
+            this.Panel.Controls.Add(this.label2);
             this.Panel.Controls.Add(this.fecha_pago);
             this.Panel.Controls.Add(this.label1);
             this.Panel.Controls.Add(this.combo_pago);
             this.Panel.Location = new System.Drawing.Point(192, 360);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(693, 61);
+            this.Panel.Size = new System.Drawing.Size(693, 116);
             this.Panel.TabIndex = 6;
             // 
             // fecha_pago
             // 
             this.fecha_pago.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_pago.Location = new System.Drawing.Point(424, 18);
+            this.fecha_pago.Location = new System.Drawing.Point(470, 18);
             this.fecha_pago.Name = "fecha_pago";
             this.fecha_pago.Size = new System.Drawing.Size(200, 20);
             this.fecha_pago.TabIndex = 7;
@@ -385,6 +390,7 @@
             // tab_venta
             // 
             this.tab_venta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab_venta.Controls.Add(this.btn_factura);
             this.tab_venta.Controls.Add(this.btn_presupuesto);
             this.tab_venta.Controls.Add(this.btn_no_factura);
             this.tab_venta.Controls.Add(this.panel_ventas_detalle);
@@ -536,6 +542,24 @@
             this.panel_ventas_item.Size = new System.Drawing.Size(1082, 75);
             this.panel_ventas_item.TabIndex = 0;
             // 
+            // combo_iva
+            // 
+            this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_iva.FormattingEnabled = true;
+            this.combo_iva.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.combo_iva.Items.AddRange(new object[] {
+            "10.5",
+            "21",
+            "27",
+            "2.5",
+            "5",
+            "0"});
+            this.combo_iva.Location = new System.Drawing.Point(783, 29);
+            this.combo_iva.Name = "combo_iva";
+            this.combo_iva.Size = new System.Drawing.Size(68, 21);
+            this.combo_iva.TabIndex = 4;
+            this.combo_iva.SelectedIndexChanged += new System.EventHandler(this.combo_iva_SelectedIndexChanged);
+            // 
             // combo_producto
             // 
             this.combo_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -682,23 +706,34 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
-            // combo_iva
+            // btn_factura
             // 
-            this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_iva.FormattingEnabled = true;
-            this.combo_iva.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.combo_iva.Items.AddRange(new object[] {
-            "10.5",
-            "21",
-            "27",
-            "2.5",
-            "5",
-            "0"});
-            this.combo_iva.Location = new System.Drawing.Point(783, 29);
-            this.combo_iva.Name = "combo_iva";
-            this.combo_iva.Size = new System.Drawing.Size(68, 21);
-            this.combo_iva.TabIndex = 4;
-            this.combo_iva.SelectedIndexChanged += new System.EventHandler(this.combo_iva_SelectedIndexChanged);
+            this.btn_factura.Location = new System.Drawing.Point(506, 436);
+            this.btn_factura.Name = "btn_factura";
+            this.btn_factura.Size = new System.Drawing.Size(75, 23);
+            this.btn_factura.TabIndex = 4;
+            this.btn_factura.Text = "Factura";
+            this.btn_factura.UseVisualStyleBackColor = true;
+            this.btn_factura.Click += new System.EventHandler(this.btn_factura_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(247, 26);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Tipo de Comprobante:";
+            // 
+            // combo_comprobante
+            // 
+            this.combo_comprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_comprobante.FormattingEnabled = true;
+            this.combo_comprobante.Location = new System.Drawing.Point(286, 71);
+            this.combo_comprobante.Name = "combo_comprobante";
+            this.combo_comprobante.Size = new System.Drawing.Size(169, 21);
+            this.combo_comprobante.TabIndex = 9;
             // 
             // Venta_1
             // 
@@ -788,5 +823,8 @@
         private System.Windows.Forms.Label lbl_lista;
         private System.Windows.Forms.Button btn_presupuesto;
         private System.Windows.Forms.ComboBox combo_iva;
+        private System.Windows.Forms.Button btn_factura;
+        private System.Windows.Forms.ComboBox combo_comprobante;
+        private System.Windows.Forms.Label label2;
     }
 }

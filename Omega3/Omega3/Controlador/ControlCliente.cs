@@ -148,15 +148,8 @@ namespace Omega3.Controlador
                 cliente.Contacto = _reader.GetString(7);
                 cliente.Mail_contacto = _reader.GetString(8);
                 cliente.Mail_factura = _reader.GetString(9);
-                //cliente.Impositiva = _reader.GetInt32(10);
+                cliente.Impositiva = _reader.GetString(10);
             }
-
-            //MessageBox.Show(aux);
-
-            
-
-
-            
 
 
             return cliente;

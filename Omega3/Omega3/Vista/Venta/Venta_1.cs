@@ -16,14 +16,31 @@ namespace Omega3.Vista.Venta
     {
         bool activo;
         Decimal lista_cliente;
-        List<Producto> lista;
+        private List<Producto> lista;
+
+      private struct Detalle_Facturante
+        {
+            public decimal Bonificacion;
+            public int cantidad;
+            public string codigo;
+            public string detalle;
+            public bool gravado;
+            public decimal iva;
+            public decimal precio_unitario;
+            public decimal total;
+
+        }
+
+        List<Detalle_Facturante> listado_articulos;
+
         public Venta_1()
+            
         {
             InitializeComponent();
 
             fecha_pago.Visible = false;
-            
-            
+            listado_articulos = new List<Detalle_Facturante>();
+
             txt_ventas_lista.Text = "10";
             lista = new List<Producto>();
             lista_cliente = new decimal();
@@ -52,6 +69,7 @@ namespace Omega3.Vista.Venta
             ControlVenta.llenarClientes(combo_cliente);
 
             ControlVentas.llenarProductosCombo(combo_producto);
+
 
             button5.Enabled = false;
             filtro_cuit.Text = "Buscar por CUIT o DNI";
@@ -146,6 +164,7 @@ namespace Omega3.Vista.Venta
                 cuit.Text = Convert.ToString(a.Documento);
                 lbl_lista.Text = Convert.ToString(a.Lista);
                 lista_cliente = a.Lista / 100;
+                ControlVentas.llenarComboComprobante(combo_comprobante, a.Impositiva_Id);
             }
             button5.Enabled = true;
         }
@@ -204,7 +223,7 @@ namespace Omega3.Vista.Venta
                     }
 
                     venta.nrofactura = 0;
-                    venta.tipo_factura = 0;
+                    venta.tipo_factura = "";
                     venta.fecha_venta = DateTime.Now;
 
                     Factura_Negro factura = new Factura_Negro();
@@ -274,6 +293,16 @@ namespace Omega3.Vista.Venta
                     if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text) ) {
                         producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
                         dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        listado_articulos.Add(new Detalle_Facturante {
+                                Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                                cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                                codigo = txt_ventas_codigo.Text,
+                                detalle = combo_producto.Text,
+                                gravado = true,
+                                iva = Convert.ToDecimal(combo_iva.Text),
+                                precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                                total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text) });
+                        
                     }
                     else
                     {
@@ -287,6 +316,18 @@ namespace Omega3.Vista.Venta
                         {
                             producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
                             dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                            listado_articulos.Add(new Detalle_Facturante
+                            {
+                                Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                                cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                                codigo = txt_ventas_codigo.Text,
+                                detalle = combo_producto.Text,
+                                gravado = true,
+                                iva = Convert.ToDecimal(combo_iva.Text),
+                                precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                                total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                            });
+
                         }
                         else if (dialogresult == DialogResult.No) {
                             MessageBox.Show("El producto no fue agregado");
@@ -305,6 +346,18 @@ namespace Omega3.Vista.Venta
                 {
                     lista.Add(new Producto { Cod_producto = Convert.ToInt32(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
                     dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                    listado_articulos.Add(new Detalle_Facturante
+                    {
+                        Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                        cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                        codigo = txt_ventas_codigo.Text,
+                        detalle = combo_producto.Text,
+                        gravado = true,
+                        iva = Convert.ToDecimal(combo_iva.Text),
+                        precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                        total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                    });
+
                 }
                 else
                 {
@@ -317,6 +370,18 @@ namespace Omega3.Vista.Venta
                     if (dialogresult == DialogResult.Yes)
                     {
                         dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        listado_articulos.Add(new Detalle_Facturante
+                        {
+                            Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                            cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                            codigo = txt_ventas_codigo.Text,
+                            detalle = combo_producto.Text,
+                            gravado = true,
+                            iva = Convert.ToDecimal(combo_iva.Text),
+                            precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                            total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                        });
+
                     }
                     else if (dialogresult == DialogResult.No)
                     {
@@ -467,7 +532,7 @@ namespace Omega3.Vista.Venta
                     }
 
                     venta.nrofactura = 0;
-                    venta.tipo_factura = 0;
+                    venta.tipo_factura = "";
                     venta.fecha_venta = DateTime.Now;
 
                     Factura_Negro factura = new Factura_Negro();
@@ -564,6 +629,33 @@ namespace Omega3.Vista.Venta
                 combo_producto.SelectionLength = combo_producto.Text.Length;
                 combo_producto.DroppedDown = true;
             }
+        }
+
+        private void btn_factura_Click(object sender, EventArgs e)
+        {
+
+            Cliente cliente = new Cliente();
+            Omega3.Modelo.Venta venta = new Omega3.Modelo.Venta();
+            ControlVenta control = new ControlVenta();
+            venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+            cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
+            cliente.Documento = long.Parse(cuit.Text);
+            //MessageBox.Show(cliente.Tipo_documento + cliente.Razon + cliente.Direccion + cliente.Telefono + cliente.Provincia + cliente.Localidad + cliente.Codigo_postal + cliente.Contacto + cliente.Mail_contacto + cliente.Mail_factura + cliente.Impositiva);
+            venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
+
+
+
+            /*foreach (Detalle_Facturante elemento in listado_articulos)
+            {
+                MessageBox.Show("Precio TOTAL" + Convert.ToString(elemento.total));
+                MessageBox.Show("DEtALlE" + Convert.ToString(elemento.detalle));
+                MessageBox.Show("Precio UNITARIO" + Convert.ToString(elemento.precio_unitario));
+            }*/
+            List<Detalle_Facturante> a = new List<Detalle_Facturante>(); 
+
+            control.Facturar(venta, cliente, a);
+
+
         }
     }
     }

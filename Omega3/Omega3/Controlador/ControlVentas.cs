@@ -125,7 +125,7 @@ namespace Omega3.Controlador
             {
                 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT documento, direccion,condicion,mail_contacto,lista FROM cliente INNER JOIN condicion_frente_al_iva ON cliente.impositiva = condicion_frente_al_iva.id WHERE razon_social = '{0}'", razon), Conexion.ObtenerConexion());
+                    "SELECT documento, direccion,condicion,mail_contacto,lista,cliente.impositiva FROM cliente INNER JOIN condicion_frente_al_iva ON cliente.impositiva = condicion_frente_al_iva.id WHERE razon_social = '{0}'", razon), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -134,6 +134,7 @@ namespace Omega3.Controlador
                     cliente.Impositiva = _reader.GetString(2);
                     cliente.Mail_contacto = _reader.GetString(3);
                     cliente.Lista = Convert.ToDecimal(_reader.GetString(4));
+                    cliente.Impositiva_Id = _reader.GetInt32(5);
                 }
             }
             catch (Exception e) { Console.WriteLine(e); }
@@ -301,6 +302,26 @@ namespace Omega3.Controlador
            // MessageBox.Show(stock.ToString());
             return stock;
         }
+
+
+        public static void llenarComboComprobante(ComboBox combo, int impositiva)
+        {
+
+            string query = "SELECT factura, tipo_facturante FROM tipo_factura INNER JOIN factura_x_condicion ON tipo_factura.tipo_facturante = factura_x_condicion.id_factura WHERE factura_x_condicion.id_condicion = " + impositiva;
+
+            MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
+
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da1.Fill(dt);
+
+            combo.ValueMember = "tipo_facturante";
+            combo.DisplayMember = "factura";
+            combo.DataSource = dt;
+
+        }
+
+
 
 
     }

@@ -14,9 +14,23 @@ namespace Omega3.Modelo
         public int medio_de_pago { get; set; }
         public DateTime fecha_vencimiento_cheque { get; set; }
         public long nrofactura { get; set; }
-        public int tipo_factura { get; set; }
+        public string tipo_factura { get; set; }
         public DateTime fecha_venta { get; set; }
+        public List<Detalle_Facturante> listado_articulos { get; set; }
 
+
+}
+
+    public class Detalle_Facturante
+    {
+        public decimal Bonificacion;
+        public int cantidad;
+        public string codigo;
+        public string detalle;
+        public bool gravado;
+        public decimal iva;
+        public decimal precio_unitario;
+        public decimal total;
     }
 
     public class Detalle_Negro
