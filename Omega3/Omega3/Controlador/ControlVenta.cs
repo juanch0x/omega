@@ -18,25 +18,14 @@ using System.Data;
 using System.Xml;
 using System.Net;
 using Omega3.Vista.Venta;
+using Omega3.Modelo;
 
 namespace Omega3.Controlador
 {
      class ControlVenta
     {
         
-        /*
-        public struct Detalle_Facturante
-        {
-            public decimal Bonificacion;
-            public int cantidad;
-            public string codigo;
-            public string detalle;
-            public bool gravado;
-            public decimal iva;
-            public decimal precio_unitario;
-            public decimal total;
 
-        }*/
 
         
 
@@ -70,7 +59,7 @@ namespace Omega3.Controlador
             request.Autenticacion.Hash = "test2016facturante";
             request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
 
-            request.Cliente = new Cliente();
+            request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = "5500";
             request.Cliente.CondicionPago = 1;
             request.Cliente.Contacto = "Jorge Catalino de la Cruz";
@@ -268,7 +257,7 @@ namespace Omega3.Controlador
             request.Autenticacion.Hash = "test2016facturante";
             request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
             
-            request.Cliente = new Cliente();
+            request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
             request.Cliente.CondicionPago = venta.medio_de_pago;
             request.Cliente.Contacto = cliente.Contacto;
@@ -314,7 +303,8 @@ namespace Omega3.Controlador
             request.Encabezado.TipoComprobante = venta.tipo_factura;
             request.Encabezado.TipoDeCambio = 1;
 
-            request.Items = new ComprobanteItem[detalle.Count - 1];
+            MessageBox.Show(Convert.ToString(detalle.Count));
+            request.Items = new ComprobanteItem[detalle.Count];
             int i = 0;
             foreach (Detalle_Facturante elemento in detalle)
             {
@@ -326,7 +316,7 @@ namespace Omega3.Controlador
                 request.Items[i].IVA = elemento.iva;
                 request.Items[i].PrecioUnitario = elemento.precio_unitario;
                 request.Items[i].Total = elemento.total;
-
+                request.Items[i].Cantidad = elemento.cantidad;
                 i++;                
             }
 

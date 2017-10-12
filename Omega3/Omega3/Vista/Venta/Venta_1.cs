@@ -18,7 +18,7 @@ namespace Omega3.Vista.Venta
         Decimal lista_cliente;
         private List<Producto> lista;
 
-      private struct Detalle_Facturante
+     /* private struct Detalle_Facturante
         {
             public decimal Bonificacion;
             public int cantidad;
@@ -29,8 +29,8 @@ namespace Omega3.Vista.Venta
             public decimal precio_unitario;
             public decimal total;
 
-        }
-
+        }*/
+      
         List<Detalle_Facturante> listado_articulos;
 
         public Venta_1()
@@ -651,9 +651,9 @@ namespace Omega3.Vista.Venta
                 MessageBox.Show("DEtALlE" + Convert.ToString(elemento.detalle));
                 MessageBox.Show("Precio UNITARIO" + Convert.ToString(elemento.precio_unitario));
             }*/
-            List<Detalle_Facturante> a = new List<Detalle_Facturante>(); 
 
-            control.Facturar(venta, cliente, a);
+
+                        control.Facturar(venta, cliente, listado_articulos);
 
 
         }
