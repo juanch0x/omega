@@ -117,4 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="Cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Descripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dg_iva.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Subtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lista.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Borrar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Borrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        bwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFxSURBVDhPfZMx
+        a8JAFMevtDgoUUEnz7kfpUNBF0EEEQdBJ8FBdGyc9PuUdrRLl1LagsXa0i6pEoraVChkUfN6LyaXXHLp
+        8IfLu/f/3XvvLgQABC0oPdXyeXVO6eUnpToK1xjDvWC+90HIkUZphxlMJoiQiTmYKwIO5iuJQSrMdSE2
+        wDlZmhwluxIEYF8swMv+KhRg3W6HDKtGAxalkj9mopfgcHxBWJbLANstbIZDHvvudsHa7eC1WoVJOs3j
+        81zugjjT5kHUutk8QEYj2wz7PXywqm5jMVsuBL2ELfCqBADKhjAjWJZgDkD0SIDR69lmi0E0VQ0BHMiv
+        tAWj3+dlzyoVsFg72mAQAtzF40ZoiKt6PdSzC3lvtQTAk6KMQ9eos2t8q9WERNS0WIQp2/PHJsnkufQh
+        zbJZIVGmR0W55i9R9pT/g9wnEssbQk48gAcRfiYZ5AFPJuTY9XkAR8Hf+SWT+WHT3jDj+DmVOhPzgfwB
+        fmwxIVcX0+gAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
