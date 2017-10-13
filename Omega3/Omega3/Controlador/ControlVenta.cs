@@ -321,40 +321,7 @@ namespace Omega3.Controlador
             }
 
 
-            /*
-                        request.Items = new ComprobanteItem[3];
 
-                        request.Items[0] = new ComprobanteItem();
-                        request.Items[0].Bonificacion = 0;
-                        request.Items[0].Cantidad = 1;
-                        request.Items[0].Codigo = "CODPROD";
-                        request.Items[0].Detalle = "Producto Uno";
-                        request.Items[0].Gravado = true;
-                        request.Items[0].IVA = 21;
-                        request.Items[0].PrecioUnitario = 100;
-                        request.Items[0].Total = 121;
-
-
-                        request.Items[1] = new ComprobanteItem();
-                        request.Items[1].Bonificacion = 0;
-                        request.Items[1].Cantidad = 1;
-                        request.Items[1].Codigo = "CODPROD2";
-                        request.Items[1].Detalle = "Producto Dos";
-                        request.Items[1].Gravado = true;
-                        request.Items[1].IVA = 21;
-                        request.Items[1].PrecioUnitario = (decimal)164.46;
-                        request.Items[1].Total = 199;
-
-                        request.Items[2] = new ComprobanteItem();
-                        request.Items[2].Bonificacion = 0;
-                        request.Items[2].Cantidad = 2;
-                        request.Items[2].Codigo = "CODPROD3";
-                        request.Items[2].Detalle = "Producto Tres";
-                        request.Items[2].Gravado = true;
-                        request.Items[2].IVA = 21;
-                        request.Items[2].PrecioUnitario = 200;
-                        request.Items[2].Total = 484;
-            */
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 

@@ -17,6 +17,8 @@ namespace Omega3.Vista.Venta
         bool activo;
         Decimal lista_cliente;
         private List<Producto> lista;
+        int elemento;
+
 
      /* private struct Detalle_Facturante
         {
@@ -46,6 +48,7 @@ namespace Omega3.Vista.Venta
             lista_cliente = new decimal();
             txt_ventas_lista.MaxLength = 5;
             txt_ventas_cantidad.MaxLength = 3;
+            elemento = 0;
         }
  //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
         protected override void WndProc(ref Message m)
@@ -195,7 +198,7 @@ namespace Omega3.Vista.Venta
                     }
 
                     dgv_tabla.Rows.RemoveAt(item.Index);
-                                                           
+                    
                     
                 }
                 }
