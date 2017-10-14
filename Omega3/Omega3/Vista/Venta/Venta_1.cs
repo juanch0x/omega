@@ -17,24 +17,12 @@ namespace Omega3.Vista.Venta
         bool activo;
         Decimal lista_cliente;
         private List<Producto> lista;
-
-     /* private struct Detalle_Facturante
-        {
-            public decimal Bonificacion;
-            public int cantidad;
-            public string codigo;
-            public string detalle;
-            public bool gravado;
-            public decimal iva;
-            public decimal precio_unitario;
-            public decimal total;
-
-        }*/
-      
+        int elemento_clase;
+        decimal totalVenta;
         List<Detalle_Facturante> listado_articulos;
 
         public Venta_1()
-            
+
         {
             InitializeComponent();
 
@@ -46,8 +34,9 @@ namespace Omega3.Vista.Venta
             lista_cliente = new decimal();
             txt_ventas_lista.MaxLength = 5;
             txt_ventas_cantidad.MaxLength = 3;
+            totalVenta = new decimal(0);
         }
- //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
+        //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -61,7 +50,8 @@ namespace Omega3.Vista.Venta
 
         private void Venta_1_Load(object sender, EventArgs e)
         {
-            
+            elemento_clase = 0;
+            crearColumnasDgv_Tabla();
             DisableTab(tab_venta, false);
 
             ControlVentas.llenarMedios_de_Pago(combo_pago);
@@ -74,11 +64,11 @@ namespace Omega3.Vista.Venta
             button5.Enabled = false;
             filtro_cuit.Text = "Buscar por CUIT o DNI";
             filtro_cuit.ForeColor = Color.Gray;
-           dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            
+            dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             combo_iva.SelectedIndex = 1;
             txt_ventas_cantidad.Text = "1";
-                        
+
 
         }
 
@@ -109,7 +99,7 @@ namespace Omega3.Vista.Venta
         }
 
 
-        
+
 
         //¿QUE ES ESTO??
         private void button1_Click(object sender, EventArgs e)
@@ -171,34 +161,35 @@ namespace Omega3.Vista.Venta
 
         private void button5_Click(object sender, EventArgs e)
         {
-        
-                DisableTab(tab_venta, true);
-                panel_principal.SelectedIndex = 1;
-          
-        
+
+            DisableTab(tab_venta, true);
+            panel_principal.SelectedIndex = 1;
+
+
         }
 
-        
+
 
         private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
+
+            foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
+            {
+                if (e.ColumnIndex == 7) //2nd column - DGV_ImageColumn
                 {
-                    if (e.ColumnIndex == 7) //2nd column - DGV_ImageColumn
-                    {
 
                     foreach (var producto in lista)
                     {
-                        if (producto.Cod_producto == long.Parse(dgv_tabla.Rows[e.RowIndex].Cells[1].Value.ToString()) )
-                        producto.Cantidad += Convert.ToInt32(dgv_tabla.Rows[e.RowIndex].Cells[0].Value.ToString());
+                        if (producto.Cod_producto == long.Parse(dgv_tabla.Rows[e.RowIndex].Cells[1].Value.ToString()))
+                            producto.Cantidad += Convert.ToInt32(dgv_tabla.Rows[e.RowIndex].Cells[0].Value.ToString());
                     }
 
+                    listado_articulos.RemoveAll(x => x.elemento == Convert.ToInt32(dgv_tabla.Rows[e.RowIndex].Cells["Numero"].Value.ToString()));
                     dgv_tabla.Rows.RemoveAt(item.Index);
-                                                           
-                    
+
+
                 }
-                }
+            }
         }
 
 
@@ -245,7 +236,7 @@ namespace Omega3.Vista.Venta
                     limpiarParteCliente();
                     lista.Clear();
                 }
-            else { MessageBox.Show("No hay ningun producto agregado"); }
+                else { MessageBox.Show("No hay ningun producto agregado"); }
             }
             else
             {
@@ -259,50 +250,59 @@ namespace Omega3.Vista.Venta
         private void txt_ventas_codigo_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (txt_ventas_codigo.Text != "") { 
-            if (e.KeyCode == Keys.Enter) {
-                Producto a = new Producto();
-                a = ControlVentas.llenarInformacionProducto(txt_ventas_codigo.Text);
+            if (txt_ventas_codigo.Text != "")
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    Producto a = new Producto();
+                    a = ControlVentas.llenarInformacionProducto(txt_ventas_codigo.Text);
 
-                combo_producto.Text = a.Nombre_producto;
-                txt_ventas_precio.Text = a.Precio_venta.ToString();
-                calcularSubtotal();
-                button1.Focus();
+                    combo_producto.Text = a.Nombre_producto;
+                    txt_ventas_precio.Text = a.Precio_venta.ToString();
+                    calcularSubtotal();
+                    button1.Focus();
 
-                                    }
+                }
 
-                                            }
+            }
             else
             {
 
                 MessageBox.Show("El campo código no puede estar vacío");
                 txt_ventas_codigo.Focus();
             }
-        }   
+        }
 
         private void btn_Agregar_Click_1(object sender, EventArgs e)
         {
             Producto a = new Producto();
             bool aux = false;
 
-              foreach (var producto in lista)
-              {
-                if (producto.Cod_producto == Convert.ToInt32(txt_ventas_codigo.Text)) {
+            foreach (var producto in lista)
+            {
+                if (producto.Cod_producto == long.Parse(txt_ventas_codigo.Text))
+                {
 
                     aux = true;
-                    if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text) ) {
+                    if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                    {
                         producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
-                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
-                        listado_articulos.Add(new Detalle_Facturante {
-                                Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
-                                cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
-                                codigo = txt_ventas_codigo.Text,
-                                detalle = combo_producto.Text,
-                                gravado = true,
-                                iva = Convert.ToDecimal(combo_iva.Text),
-                                precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
-                                total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text) });
-                        
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
+
+                        listado_articulos.Add(new Detalle_Facturante
+                        {
+                            elemento = elemento_clase,
+                            Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                            cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                            codigo = txt_ventas_codigo.Text,
+                            detalle = combo_producto.Text,
+                            gravado = true,
+                            iva = Convert.ToDecimal(combo_iva.Text),
+                            precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                            total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+
+                        });
+                        elemento_clase++;
                     }
                     else
                     {
@@ -315,9 +315,10 @@ namespace Omega3.Vista.Venta
                         if (dialogresult == DialogResult.Yes)
                         {
                             producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
-                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
                             listado_articulos.Add(new Detalle_Facturante
                             {
+                                elemento = elemento_clase,
                                 Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
                                 cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
                                 codigo = txt_ventas_codigo.Text,
@@ -327,27 +328,29 @@ namespace Omega3.Vista.Venta
                                 precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
                                 total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
                             });
-
+                            elemento_clase++;
                         }
-                        else if (dialogresult == DialogResult.No) {
+                        else if (dialogresult == DialogResult.No)
+                        {
                             MessageBox.Show("El producto no fue agregado");
                         }
                     }
-                    
+
 
                 }
                 else { aux = false; }
 
-              }
+            }
 
             if (!aux)
             {
-                if (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                if (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
                 {
-                    lista.Add(new Producto { Cod_producto = Convert.ToInt32(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(Convert.ToInt32(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
-                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                    lista.Add(new Producto { Cod_producto = long.Parse(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
+                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
                     listado_articulos.Add(new Detalle_Facturante
                     {
+                        elemento = elemento_clase,
                         Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
                         cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
                         codigo = txt_ventas_codigo.Text,
@@ -357,7 +360,7 @@ namespace Omega3.Vista.Venta
                         precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
                         total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
                     });
-
+                    elemento_clase++;
                 }
                 else
                 {
@@ -369,9 +372,10 @@ namespace Omega3.Vista.Venta
 
                     if (dialogresult == DialogResult.Yes)
                     {
-                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text);
+                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
                         listado_articulos.Add(new Detalle_Facturante
                         {
+                            elemento = elemento_clase,
                             Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
                             cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
                             codigo = txt_ventas_codigo.Text,
@@ -381,6 +385,7 @@ namespace Omega3.Vista.Venta
                             precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
                             total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
                         });
+                        elemento_clase++;
 
                     }
                     else if (dialogresult == DialogResult.No)
@@ -389,18 +394,19 @@ namespace Omega3.Vista.Venta
                     }
                 }
             }
-            
-  
 
-            
-            
+
+
+
+
             txt_ventas_codigo.Focus();
 
         }
 
         private void panel_principal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (panel_principal.SelectedIndex == 1) {
+            if (panel_principal.SelectedIndex == 1)
+            {
                 txt_ventas_codigo.Focus();
                 txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
             }
@@ -409,17 +415,18 @@ namespace Omega3.Vista.Venta
         private void txt_ventas_cantidad_Leave(object sender, EventArgs e)
         {
             calcularSubtotal();
-            if(Convert.ToInt32(txt_ventas_cantidad.Text.Trim()) <= 0)
-            txt_ventas_cantidad.Text = "1";
+            if (Convert.ToInt32(txt_ventas_cantidad.Text.Trim()) <= 0)
+                txt_ventas_cantidad.Text = "1";
         }
 
-        private void calcularSubtotal() {
+        private void calcularSubtotal()
+        {
 
-            
+
             decimal iva;
             decimal lista;
             int cantidad;
-            decimal precio_venta,total;
+            decimal precio_venta, total;
             decimal subtotal;
 
             if (txt_ventas_cantidad.Text.Trim() != "")
@@ -446,12 +453,13 @@ namespace Omega3.Vista.Venta
 
         private void combo_pago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if(combo_pago.Text == "Cheque") {
+
+            if (combo_pago.Text == "Cheque")
+            {
                 fecha_pago.Visible = true;
-                
-                }
-            else {fecha_pago.Visible = false;}
+
+            }
+            else { fecha_pago.Visible = false; }
         }
 
         private void combo_producto_SelectedIndexChanged(object sender, EventArgs e)
@@ -511,7 +519,7 @@ namespace Omega3.Vista.Venta
 
         }
 
-  
+
 
         private void btn_presupuesto_Click(object sender, EventArgs e)
         {
@@ -546,7 +554,7 @@ namespace Omega3.Vista.Venta
 
                     MessageBox.Show("Presupuesto realizado correctamente!");
 
-                   // ControlVentas.AgregarVenta(dgv_tabla, venta);
+                    // ControlVentas.AgregarVenta(dgv_tabla, venta);
                     ControlVentas.generarFacturaNegro(dgv_tabla, factura);
 
                     dgv_tabla.Rows.Clear();
@@ -566,7 +574,7 @@ namespace Omega3.Vista.Venta
 
         private void txt_ventas_lista_TextChanged(object sender, EventArgs e)
         {
-            if(txt_ventas_lista.Text.Trim() == "" || txt_ventas_lista.Text.Trim() == ".") 
+            if (txt_ventas_lista.Text.Trim() == "" || txt_ventas_lista.Text.Trim() == ".")
             {
                 txt_ventas_lista.Text = "0";
                 txt_ventas_lista.SelectionStart = 0;
@@ -574,15 +582,15 @@ namespace Omega3.Vista.Venta
             }
             else
             {
-                
+
                 calcularSubtotal();
-                
+
             }
         }
 
         private void txt_ventas_lista_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControladorFuncVariadas.validarNumerosConComas(sender,e);
+            ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }
 
         private void txt_ventas_lista_Enter(object sender, EventArgs e)
@@ -591,7 +599,7 @@ namespace Omega3.Vista.Venta
             txt_ventas_lista.SelectionLength = txt_ventas_lista.Text.Length;
         }
 
-        
+
         private void combo_iva_SelectedIndexChanged(object sender, EventArgs e)
         {
             calcularSubtotal();
@@ -621,7 +629,7 @@ namespace Omega3.Vista.Venta
 
         private void combo_producto_Leave(object sender, EventArgs e)
         {
-            if(combo_producto.SelectedIndex == -1)
+            if (combo_producto.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe elegir un producto de la lista.");
                 combo_producto.Focus();
@@ -629,6 +637,54 @@ namespace Omega3.Vista.Venta
                 combo_producto.SelectionLength = combo_producto.Text.Length;
                 combo_producto.DroppedDown = true;
             }
+        }
+
+
+        private void crearColumnasDgv_Tabla()
+        {
+            // I created these columns at function scope but if you want to access 
+            // easily from other parts of your class, just move them to class scope.
+            // E.g. Declare them outside of the function...
+            var cantidad = new DataGridViewTextBoxColumn();
+            var codigo = new DataGridViewTextBoxColumn();
+            var descripcion = new DataGridViewTextBoxColumn();
+            var precio = new DataGridViewTextBoxColumn();
+            var iva = new DataGridViewTextBoxColumn();
+            var subtotal = new DataGridViewTextBoxColumn();
+            var lista = new DataGridViewTextBoxColumn();
+            var borrar = new DataGridViewImageColumn();
+            var elemento = new DataGridViewTextBoxColumn();
+
+            cantidad.HeaderText = "Cantidad";
+            cantidad.Name = "Cantidad";
+
+            codigo.HeaderText = "Código";
+            codigo.Name = "Codigo";
+
+            descripcion.HeaderText = "Descripción";
+            descripcion.Name = "Descripcion";
+
+            precio.HeaderText = "Precio";
+            precio.Name = "precio";
+
+            iva.HeaderText = "IVA";
+            iva.Name = "iva";
+
+            subtotal.HeaderText = "Subtotal";
+            subtotal.Name = "Subtotal";
+
+            lista.HeaderText = "Lista";
+            lista.Name = "Lista";
+            lista.Visible = false;
+
+            borrar.HeaderText = "Borrar";
+            borrar.Name = "Borrar";
+
+            elemento.HeaderText = "Numero";
+            elemento.Name = "Numero";
+            elemento.Visible = false;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, subtotal, lista, borrar, elemento });
         }
 
         private void btn_factura_Click(object sender, EventArgs e)
@@ -653,10 +709,44 @@ namespace Omega3.Vista.Venta
             }*/
 
 
-                        control.Facturar(venta, cliente, listado_articulos);
+            control.Facturar(venta, cliente, listado_articulos);
+            elemento_clase = 0;
 
 
         }
+
+        private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgv_tabla.Columns[e.ColumnIndex].Name == "Borrar")
+            {
+                // Your code would go here - below is just the code I used to test 
+                //e.Value = Image.FromFile(@"C:\Pictures\TestImage.jpg");
+                e.Value = Properties.Resources.cancel;
+            }
+        }
+
+        private void calcularTotalVenta()
+        {
+            
+                
+                foreach (DataGridViewRow row in dgv_tabla.Rows)
+                {
+                totalVenta += Convert.ToDecimal(row.Cells["Subtotal"].Value);
+
+            }
+            lbl_ventas_total.Text = Convert.ToString(totalVenta);
+            }
+        
+
+            /*
+             Dim Total As Single
+Dim Col As Integer = Me.DataGridView1.CurrentCell.ColumnIndex
+For Each row As DataGridViewRow In Me.DataGridView1.Rows
+    Total += Val(row.Cells(Col).Value)
+Next
+Me.TextBox1.Text = Total.ToString*/
+
+        
     }
-    }
+}
 

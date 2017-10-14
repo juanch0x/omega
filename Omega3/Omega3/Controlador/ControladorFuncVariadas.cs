@@ -22,7 +22,7 @@ namespace Omega3.Controlador
             }
             catch (Exception es)
             {
-
+                Console.Write(es);
                 return false;
             }
 

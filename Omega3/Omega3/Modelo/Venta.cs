@@ -30,6 +30,7 @@ namespace Omega3.Modelo
         public decimal iva;
         public decimal precio_unitario;
         public decimal total;
+        public int elemento;
     }
 
     public class Detalle_Negro

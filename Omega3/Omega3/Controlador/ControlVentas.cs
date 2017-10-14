@@ -286,7 +286,7 @@ namespace Omega3.Controlador
             return fecha;
         }
 
-        public static int chequearStock(int cod) {
+        public static int chequearStock(long cod) {
 
             int stock = 0;
             MySqlCommand _comando = new MySqlCommand(String.Format(
