@@ -50,6 +50,7 @@ namespace Omega3.Vista.Venta
 
         private void Venta_1_Load(object sender, EventArgs e)
         {
+            
             elemento_clase = 0;
             crearColumnasDgv_Tabla();
             DisableTab(tab_venta, false);
@@ -430,7 +431,7 @@ namespace Omega3.Vista.Venta
             if (panel_principal.SelectedIndex == 1)
             {
                 txt_ventas_codigo.Focus();
-                txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
+                //txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
                 combo_producto.SelectedIndex = -1;
                 txt_ventas_codigo.Text = "";
                 txt_ventas_lista.Text = "";
