@@ -414,7 +414,8 @@
   <ItemGroup>
     <None Include="Resources\field.png" />
     <None Include="Resources\btn16over.png" />
-    <Content Include="Resources\dgv_tabla_cancelar.png" />
+    <None Include="Resources\dgv_tabla_cancelar.png" />
+    <None Include="Resources\cancelar_1616.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

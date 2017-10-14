@@ -57,6 +57,7 @@
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
+            this.lbl_ventas_total = new System.Windows.Forms.Label();
             this.btn_factura = new System.Windows.Forms.Button();
             this.btn_presupuesto = new System.Windows.Forms.Button();
             this.btn_no_factura = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.lbl_ventas_total = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -414,6 +414,15 @@
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
+            // lbl_ventas_total
+            // 
+            this.lbl_ventas_total.AutoSize = true;
+            this.lbl_ventas_total.Location = new System.Drawing.Point(907, 410);
+            this.lbl_ventas_total.Name = "lbl_ventas_total";
+            this.lbl_ventas_total.Size = new System.Drawing.Size(31, 13);
+            this.lbl_ventas_total.TabIndex = 5;
+            this.lbl_ventas_total.Text = "Total";
+            // 
             // btn_factura
             // 
             this.btn_factura.Location = new System.Drawing.Point(506, 436);
@@ -654,15 +663,6 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(81, 20);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // lbl_ventas_total
-            // 
-            this.lbl_ventas_total.AutoSize = true;
-            this.lbl_ventas_total.Location = new System.Drawing.Point(894, 415);
-            this.lbl_ventas_total.Name = "lbl_ventas_total";
-            this.lbl_ventas_total.Size = new System.Drawing.Size(31, 13);
-            this.lbl_ventas_total.TabIndex = 5;
-            this.lbl_ventas_total.Text = "Total";
             // 
             // Venta_1
             // 

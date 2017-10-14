@@ -18,7 +18,7 @@ namespace Omega3.Vista.Venta
         Decimal lista_cliente;
         private List<Producto> lista;
         int elemento_clase;
-        decimal totalVenta;
+
         List<Detalle_Facturante> listado_articulos;
 
         public Venta_1()
@@ -34,7 +34,7 @@ namespace Omega3.Vista.Venta
             lista_cliente = new decimal();
             txt_ventas_lista.MaxLength = 5;
             txt_ventas_cantidad.MaxLength = 3;
-            totalVenta = new decimal(0);
+
         }
         //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
         protected override void WndProc(ref Message m)
@@ -68,6 +68,7 @@ namespace Omega3.Vista.Venta
 
             combo_iva.SelectedIndex = 1;
             txt_ventas_cantidad.Text = "1";
+
 
 
         }
@@ -275,19 +276,93 @@ namespace Omega3.Vista.Venta
 
         private void btn_Agregar_Click_1(object sender, EventArgs e)
         {
+
             Producto a = new Producto();
             bool aux = false;
 
-            foreach (var producto in lista)
+            if (combo_producto.SelectedIndex != -1)
             {
-                if (producto.Cod_producto == long.Parse(txt_ventas_codigo.Text))
-                {
 
-                    aux = true;
-                    if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                foreach (var producto in lista)
+                {
+                    if (producto.Cod_producto == long.Parse(txt_ventas_codigo.Text))
                     {
-                        producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
+
+                        aux = true;
+                        if (producto.Cantidad >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                        {
+                            producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
+                            dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
+                            calcularTotalVenta();
+
+
+
+                            listado_articulos.Add(new Detalle_Facturante
+                            {
+                                elemento = elemento_clase,
+                                Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                                cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                                codigo = txt_ventas_codigo.Text,
+                                detalle = combo_producto.Text,
+                                gravado = true,
+                                iva = Convert.ToDecimal(combo_iva.Text),
+                                precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                                total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+
+                            });
+                            elemento_clase++;
+                            limpiarCamposCabecera();
+                        }
+                        else
+                        {
+                            DialogResult dialogresult = MessageBox.Show("\t No se dispone del stock suficiente\n ¿Desea agregar el producto a la venta de todas maneras?",
+                                "¡Alerta!",
+                                    MessageBoxButtons.YesNoCancel,
+                                    MessageBoxIcon.Exclamation,
+                                    MessageBoxDefaultButton.Button1);
+
+                            if (dialogresult == DialogResult.Yes)
+                            {
+                                producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
+                                dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
+                                calcularTotalVenta();
+
+
+                                listado_articulos.Add(new Detalle_Facturante
+                                {
+                                    elemento = elemento_clase,
+                                    Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
+                                    cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
+                                    codigo = txt_ventas_codigo.Text,
+                                    detalle = combo_producto.Text,
+                                    gravado = true,
+                                    iva = Convert.ToDecimal(combo_iva.Text),
+                                    precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
+                                    total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                                });
+                                elemento_clase++;
+                                limpiarCamposCabecera();
+                            }
+                            else if (dialogresult == DialogResult.No)
+                            {
+                                MessageBox.Show("El producto no fue agregado");
+                            }
+                        }
+
+
+                    }
+                    else { aux = false; }
+
+                }
+
+                if (!aux)
+                {
+                    if (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
+                    {
+                        lista.Add(new Producto { Cod_producto = long.Parse(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
                         dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
+                        calcularTotalVenta();
+
 
                         listado_articulos.Add(new Detalle_Facturante
                         {
@@ -300,9 +375,9 @@ namespace Omega3.Vista.Venta
                             iva = Convert.ToDecimal(combo_iva.Text),
                             precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
                             total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-
                         });
                         elemento_clase++;
+                        limpiarCamposCabecera();
                     }
                     else
                     {
@@ -314,8 +389,10 @@ namespace Omega3.Vista.Venta
 
                         if (dialogresult == DialogResult.Yes)
                         {
-                            producto.Cantidad = producto.Cantidad - Convert.ToInt32(txt_ventas_cantidad.Text);
                             dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
+                            calcularTotalVenta();
+
+
                             listado_articulos.Add(new Detalle_Facturante
                             {
                                 elemento = elemento_clase,
@@ -329,78 +406,23 @@ namespace Omega3.Vista.Venta
                                 total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
                             });
                             elemento_clase++;
+                            limpiarCamposCabecera();
+
                         }
                         else if (dialogresult == DialogResult.No)
                         {
                             MessageBox.Show("El producto no fue agregado");
                         }
                     }
-
-
                 }
-                else { aux = false; }
 
+
+
+
+
+                txt_ventas_codigo.Focus();
             }
-
-            if (!aux)
-            {
-                if (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text)) >= Convert.ToInt32(txt_ventas_cantidad.Text))
-                {
-                    lista.Add(new Producto { Cod_producto = long.Parse(txt_ventas_codigo.Text), Cantidad = (ControlVentas.chequearStock(long.Parse(txt_ventas_codigo.Text))) - (Convert.ToInt32(txt_ventas_cantidad.Text)) });
-                    dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
-                    listado_articulos.Add(new Detalle_Facturante
-                    {
-                        elemento = elemento_clase,
-                        Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
-                        cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
-                        codigo = txt_ventas_codigo.Text,
-                        detalle = combo_producto.Text,
-                        gravado = true,
-                        iva = Convert.ToDecimal(combo_iva.Text),
-                        precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
-                        total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-                    });
-                    elemento_clase++;
-                }
-                else
-                {
-                    DialogResult dialogresult = MessageBox.Show("\t No se dispone del stock suficiente\n ¿Desea agregar el producto a la venta de todas maneras?",
-                        "¡Alerta!",
-                            MessageBoxButtons.YesNoCancel,
-                            MessageBoxIcon.Exclamation,
-                            MessageBoxDefaultButton.Button1);
-
-                    if (dialogresult == DialogResult.Yes)
-                    {
-                        dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, txt_ventas_codigo.Text, combo_producto.Text, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
-                        listado_articulos.Add(new Detalle_Facturante
-                        {
-                            elemento = elemento_clase,
-                            Bonificacion = Convert.ToDecimal(txt_ventas_lista.Text),
-                            cantidad = Convert.ToInt32(txt_ventas_cantidad.Text),
-                            codigo = txt_ventas_codigo.Text,
-                            detalle = combo_producto.Text,
-                            gravado = true,
-                            iva = Convert.ToDecimal(combo_iva.Text),
-                            precio_unitario = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1),
-                            total = Convert.ToDecimal(txt_ventas_precio.Text) * (Convert.ToDecimal(lbl_lista.Text) / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-                        });
-                        elemento_clase++;
-
-                    }
-                    else if (dialogresult == DialogResult.No)
-                    {
-                        MessageBox.Show("El producto no fue agregado");
-                    }
-                }
-            }
-
-
-
-
-
-            txt_ventas_codigo.Focus();
-
+            else { MessageBox.Show("Debe seleccionar un producto"); }
         }
 
         private void panel_principal_SelectedIndexChanged(object sender, EventArgs e)
@@ -409,6 +431,9 @@ namespace Omega3.Vista.Venta
             {
                 txt_ventas_codigo.Focus();
                 txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
+                combo_producto.SelectedIndex = -1;
+                txt_ventas_codigo.Text = "";
+                txt_ventas_lista.Text = "";
             }
         }
 
@@ -721,32 +746,31 @@ namespace Omega3.Vista.Venta
             {
                 // Your code would go here - below is just the code I used to test 
                 //e.Value = Image.FromFile(@"C:\Pictures\TestImage.jpg");
-                e.Value = Properties.Resources.cancel;
+                e.Value = Properties.Resources.dgv_tabla_cancelar;
             }
         }
 
         private void calcularTotalVenta()
         {
-            
-                
-                foreach (DataGridViewRow row in dgv_tabla.Rows)
-                {
+
+            decimal totalVenta = new decimal(0);
+            foreach (DataGridViewRow row in dgv_tabla.Rows)
+            {
                 totalVenta += Convert.ToDecimal(row.Cells["Subtotal"].Value);
 
             }
             lbl_ventas_total.Text = Convert.ToString(totalVenta);
-            }
-        
+        }
 
-            /*
-             Dim Total As Single
-Dim Col As Integer = Me.DataGridView1.CurrentCell.ColumnIndex
-For Each row As DataGridViewRow In Me.DataGridView1.Rows
-    Total += Val(row.Cells(Col).Value)
-Next
-Me.TextBox1.Text = Total.ToString*/
+        private void limpiarCamposCabecera()
+        {
+            txt_ventas_cantidad.Text = "1";
+            txt_ventas_codigo.Text = "";
+            combo_producto.SelectedIndex = -1;
+            txt_ventas_precio.Text = "";
+            txt_ventas_lista.Text = "0";
+        }
 
-        
     }
 }
 
