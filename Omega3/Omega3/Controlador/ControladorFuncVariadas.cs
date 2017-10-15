@@ -65,6 +65,52 @@ namespace Omega3.Controlador
             return fecha;
         }
 
+
+        //AutoCompleteSource para los combos
+
+        public static void autoCompletarCombo(object sender, KeyPressEventArgs e, ComboBox combo_producto)
+        {
+            //ComboBox cb = (ComboBox)sender;
+            combo_producto.DroppedDown = true;
+            string strFindStr = "";
+            if (e.KeyChar == (char)8)
+            {
+                if (combo_producto.SelectionStart <= 1)
+                {
+                    combo_producto.Text = "";
+                    return;
+                }
+
+                if (combo_producto.SelectionLength == 0)
+                    strFindStr = combo_producto.Text.Substring(0, combo_producto.Text.Length - 1);
+                else
+                    strFindStr = combo_producto.Text.Substring(0, combo_producto.SelectionStart - 1);
+            }
+            else
+            {
+                if (combo_producto.SelectionLength == 0)
+                    strFindStr = combo_producto.Text + e.KeyChar;
+                else
+                    strFindStr = combo_producto.Text.Substring(0, combo_producto.SelectionStart) + e.KeyChar;
+            }
+            int intIdx = -1;
+            // Search the string in the ComboBox list.
+            intIdx = combo_producto.FindString(strFindStr);
+            if (intIdx != -1)
+            {
+                combo_producto.SelectedText = "";
+                combo_producto.SelectedIndex = intIdx;
+                combo_producto.SelectionStart = strFindStr.Length;
+                combo_producto.SelectionLength = combo_producto.Text.Length;
+                e.Handled = true;
+            }
+            else
+                e.Handled = true;
+        }
+
     }
 
-}
+
+    }
+
+

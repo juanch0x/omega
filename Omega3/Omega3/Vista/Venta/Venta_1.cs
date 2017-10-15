@@ -776,6 +776,12 @@ namespace Omega3.Vista.Venta
             txt_ventas_lista.Text = "0";
         }
 
+        private void combo_producto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
+
+        }
     }
 }
 

@@ -520,6 +520,7 @@
             // 
             // combo_producto
             // 
+            this.combo_producto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.combo_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_producto.FormattingEnabled = true;
             this.combo_producto.Location = new System.Drawing.Point(252, 26);
@@ -527,6 +528,7 @@
             this.combo_producto.Size = new System.Drawing.Size(319, 24);
             this.combo_producto.TabIndex = 15;
             this.combo_producto.SelectedIndexChanged += new System.EventHandler(this.combo_producto_SelectedIndexChanged);
+            this.combo_producto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combo_producto_KeyPress);
             this.combo_producto.Leave += new System.EventHandler(this.combo_producto_Leave);
             // 
             // button1
