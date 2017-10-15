@@ -83,9 +83,9 @@ namespace Omega3.Controlador
                 coleccion.Add(Convert.ToString(row["producto"]));
             }
 
-            combo.AutoCompleteCustomSource = coleccion;
-            combo.AutoCompleteMode = AutoCompleteMode.Suggest;
-            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+           // combo.AutoCompleteCustomSource = coleccion;
+            //combo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
       
 

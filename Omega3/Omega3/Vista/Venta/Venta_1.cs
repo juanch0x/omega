@@ -422,6 +422,7 @@ namespace Omega3.Vista.Venta
 
 
                 txt_ventas_codigo.Focus();
+                txt_ventas_subtotal.Text = "";
             }
             else { MessageBox.Show("Debe seleccionar un producto"); }
         }
@@ -431,7 +432,7 @@ namespace Omega3.Vista.Venta
             if (panel_principal.SelectedIndex == 1)
             {
                 txt_ventas_codigo.Focus();
-                //txt_ventas_codigo.Text = combo_producto.SelectedValue.ToString();
+                
                 combo_producto.SelectedIndex = -1;
                 txt_ventas_codigo.Text = "";
                 txt_ventas_lista.Text = "";
@@ -455,7 +456,8 @@ namespace Omega3.Vista.Venta
             decimal precio_venta, total;
             decimal subtotal;
 
-            if (txt_ventas_cantidad.Text.Trim() != "")
+            //if (txt_ventas_cantidad.Text.Trim() != "" || txt_ventas_precio.Text.Trim() != "")
+            if (combo_producto.SelectedIndex != -1)
             {
 
                 iva = (Convert.ToDecimal(combo_iva.Text)) / 100 + 1;
@@ -657,11 +659,13 @@ namespace Omega3.Vista.Venta
         {
             if (combo_producto.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe elegir un producto de la lista.");
-                combo_producto.Focus();
-                combo_producto.SelectionStart = 0;
-                combo_producto.SelectionLength = combo_producto.Text.Length;
-                combo_producto.DroppedDown = true;
+                //MessageBox.Show("Debe elegir un producto de la lista.");
+                //panel_principal.SelectedIndex = 1;
+                //combo_producto.Focus();
+                //combo_producto.SelectionStart = 0;
+                //combo_producto.SelectionLength = combo_producto.Text.Length;
+                //combo_producto.DroppedDown = true;
+            //    combo_producto.Text = "";
             }
         }
 
