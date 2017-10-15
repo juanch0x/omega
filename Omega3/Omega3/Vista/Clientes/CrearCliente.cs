@@ -19,10 +19,22 @@ namespace Omega3.Vista.Clientes
 {
     public partial class CrearCliente : Form
     {
+        ComboBox combo_ventana;
+        bool desde_otra_ventana;
+        
+        public CrearCliente (ref ComboBox combo_ventana)
+        {
+
+            this.combo_ventana = combo_ventana;
+            desde_otra_ventana = true;
+            InitializeComponent();
+        }
+
         public CrearCliente()
         {
             InitializeComponent();
             txt_documento.Visible = false;
+            desde_otra_ventana = false;
         }
 
         protected override void WndProc(ref Message m)
@@ -162,9 +174,18 @@ namespace Omega3.Vista.Clientes
                 if (!ControlCliente.validardocumento(cliente.Documento))
                 {
                     ControlCliente.AgregarCliente(cliente);
-
-
+                    
                     MessageBox.Show("El cliente fue agregado correctamente!");
+
+                    if(desde_otra_ventana == true)
+                    {
+                        ControlVenta.llenarClientes(combo_ventana);
+                        combo_ventana.SelectedIndex = combo_ventana.FindStringExact(cliente.Razon);
+                        this.Close();
+                        
+
+                    }
+
                     limpiarCampos();
                 }
                 else { MessageBox.Show("El documento ingresado ya existe"); }

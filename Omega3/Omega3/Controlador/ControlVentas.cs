@@ -321,8 +321,6 @@ namespace Omega3.Controlador
 
         }
 
-
-
-
+        
     }
 }

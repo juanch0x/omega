@@ -195,6 +195,7 @@
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // combo_cliente
             // 

@@ -726,17 +726,8 @@ namespace Omega3.Vista.Venta
             venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
             cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
             cliente.Documento = long.Parse(cuit.Text);
-            //MessageBox.Show(cliente.Tipo_documento + cliente.Razon + cliente.Direccion + cliente.Telefono + cliente.Provincia + cliente.Localidad + cliente.Codigo_postal + cliente.Contacto + cliente.Mail_contacto + cliente.Mail_factura + cliente.Impositiva);
+ 
             venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
-
-
-
-            /*foreach (Detalle_Facturante elemento in listado_articulos)
-            {
-                MessageBox.Show("Precio TOTAL" + Convert.ToString(elemento.total));
-                MessageBox.Show("DEtALlE" + Convert.ToString(elemento.detalle));
-                MessageBox.Show("Precio UNITARIO" + Convert.ToString(elemento.precio_unitario));
-            }*/
 
 
             control.Facturar(venta, cliente, listado_articulos);
@@ -749,8 +740,8 @@ namespace Omega3.Vista.Venta
         {
             if (dgv_tabla.Columns[e.ColumnIndex].Name == "Borrar")
             {
-                // Your code would go here - below is just the code I used to test 
-                //e.Value = Image.FromFile(@"C:\Pictures\TestImage.jpg");
+
+
                 e.Value = Properties.Resources.dgv_tabla_cancelar;
             }
         }
@@ -781,6 +772,19 @@ namespace Omega3.Vista.Venta
 
             ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
 
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            Vista.Clientes.CrearCliente a = new Vista.Clientes.CrearCliente(ref combo_cliente);
+            a.StartPosition = FormStartPosition.CenterScreen;
+            a.ShowDialog();
+            
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
