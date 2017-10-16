@@ -34,7 +34,7 @@
             this.txt_razon_social = new System.Windows.Forms.TextBox();
             this.lbl_direccion = new System.Windows.Forms.Label();
             this.txt_direccion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_telefono = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.lbl_localidad = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.txt_documento = new System.Windows.Forms.TextBox();
             this.txt_cuit = new System.Windows.Forms.MaskedTextBox();
             this.lbl_cod_postal = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_mail = new System.Windows.Forms.Label();
             this.txt_mail_contacto = new System.Windows.Forms.TextBox();
             this.txt_contacto = new System.Windows.Forms.TextBox();
             this.lbl_contacto = new System.Windows.Forms.Label();
@@ -111,14 +111,14 @@
             this.txt_direccion.Size = new System.Drawing.Size(292, 20);
             this.txt_direccion.TabIndex = 6;
             // 
-            // label1
+            // lbl_telefono
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(429, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Telefono";
+            this.lbl_telefono.AutoSize = true;
+            this.lbl_telefono.Location = new System.Drawing.Point(429, 127);
+            this.lbl_telefono.Name = "lbl_telefono";
+            this.lbl_telefono.Size = new System.Drawing.Size(49, 13);
+            this.lbl_telefono.TabIndex = 7;
+            this.lbl_telefono.Text = "Telefono";
             // 
             // txt_telefono
             // 
@@ -126,6 +126,7 @@
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(268, 20);
             this.txt_telefono.TabIndex = 8;
+            this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // lbl_provincia
             // 
@@ -191,14 +192,13 @@
             this.combo_condicion.Name = "combo_condicion";
             this.combo_condicion.Size = new System.Drawing.Size(292, 21);
             this.combo_condicion.TabIndex = 2;
-
             // 
             // datos_generales
             // 
             this.datos_generales.Controls.Add(this.txt_documento);
             this.datos_generales.Controls.Add(this.txt_cuit);
             this.datos_generales.Controls.Add(this.lbl_cod_postal);
-            this.datos_generales.Controls.Add(this.label6);
+            this.datos_generales.Controls.Add(this.lbl_mail);
             this.datos_generales.Controls.Add(this.txt_mail_contacto);
             this.datos_generales.Controls.Add(this.txt_contacto);
             this.datos_generales.Controls.Add(this.lbl_contacto);
@@ -216,7 +216,7 @@
             this.datos_generales.Controls.Add(this.txt_direccion);
             this.datos_generales.Controls.Add(this.lbl_direccion);
             this.datos_generales.Controls.Add(this.txt_telefono);
-            this.datos_generales.Controls.Add(this.label1);
+            this.datos_generales.Controls.Add(this.lbl_telefono);
             this.datos_generales.Location = new System.Drawing.Point(7, 12);
             this.datos_generales.Name = "datos_generales";
             this.datos_generales.Size = new System.Drawing.Size(737, 405);
@@ -250,18 +250,19 @@
             this.lbl_cod_postal.TabIndex = 22;
             this.lbl_cod_postal.Text = "Codigo Postal";
             // 
-            // label6
+            // lbl_mail
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 294);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Mail Contacto";
+            this.lbl_mail.AutoSize = true;
+            this.lbl_mail.Location = new System.Drawing.Point(31, 294);
+            this.lbl_mail.Name = "lbl_mail";
+            this.lbl_mail.Size = new System.Drawing.Size(72, 13);
+            this.lbl_mail.TabIndex = 21;
+            this.lbl_mail.Text = "Mail Contacto";
             // 
             // txt_mail_contacto
             // 
             this.txt_mail_contacto.Location = new System.Drawing.Point(30, 310);
+            this.txt_mail_contacto.MaxLength = 100;
             this.txt_mail_contacto.Name = "txt_mail_contacto";
             this.txt_mail_contacto.Size = new System.Drawing.Size(292, 20);
             this.txt_mail_contacto.TabIndex = 20;
@@ -295,6 +296,7 @@
             this.txt_cod_postal.Name = "txt_cod_postal";
             this.txt_cod_postal.Size = new System.Drawing.Size(268, 20);
             this.txt_cod_postal.TabIndex = 16;
+            this.txt_cod_postal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cod_postal_KeyPress);
             // 
             // cargar
             // 
@@ -355,7 +357,7 @@
         private System.Windows.Forms.TextBox txt_razon_social;
         private System.Windows.Forms.Label lbl_direccion;
         private System.Windows.Forms.TextBox txt_direccion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_telefono;
         private System.Windows.Forms.TextBox txt_telefono;
         private System.Windows.Forms.Label lbl_provincia;
         private System.Windows.Forms.Label lbl_localidad;
@@ -371,7 +373,7 @@
         private System.Windows.Forms.TextBox txt_localidad;
         private System.Windows.Forms.Button btn_crear;
         private System.Windows.Forms.Label lbl_cod_postal;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_mail;
         private System.Windows.Forms.TextBox txt_mail_contacto;
         private System.Windows.Forms.TextBox txt_contacto;
         private System.Windows.Forms.Label lbl_contacto;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -107,6 +108,23 @@ namespace Omega3.Controlador
             else
                 e.Handled = true;
         }
+
+        public static bool validarEmail(string mail)
+        {
+            bool correcto = true;
+            try
+            {
+                var test = new MailAddress(mail);
+            }
+            catch (FormatException ex)
+            {
+                correcto = false;
+            }
+            return correcto;
+        }
+
+
+
 
     }
 
