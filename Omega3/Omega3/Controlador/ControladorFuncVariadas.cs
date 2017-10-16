@@ -124,7 +124,24 @@ namespace Omega3.Controlador
         }
 
 
+//Funcion para fijarme que no haya ningun combo abierto para cerrar la ventana al apretar escape
+        public static bool comboBoxAbierto(params ComboBox[] lista)
+        {
+           for(int i = 0; i< lista.Length; i++)
+            {
 
+                if (lista[i].DroppedDown == true)
+                    return false;
+                //Si está con el filtro activo no funciona, asi que la primera vez que aprieta escape estando en un combo abierto lo manda al siguiente foco
+                //y despues efectivamente manda el true para cerrar la ventana
+                else if (lista[i].DropDownStyle == ComboBoxStyle.DropDown && lista[i].ContainsFocus == true)
+                {
+                    SendKeys.Send("{TAB}");
+                    return false;
+                }
+            }
+            return true;
+        }
 
     }
 

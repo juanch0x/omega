@@ -257,7 +257,9 @@ namespace Omega3.Vista.Clientes
 
         private void CrearCliente_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+
+       
+            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_provincia,combo_documento,combo_condicion))
             {
                 this.Close();
             }
@@ -338,6 +340,17 @@ namespace Omega3.Vista.Clientes
             return true;
         }
 
+        private void CrearCliente_Paint(object sender, PaintEventArgs e)
+        {
+
+            //     e.Graphics.DrawRectangle(new Pen(Color.Black, 3),
+            //                            this.DisplayRectangle);
+
+            Rectangle r = new Rectangle(0, 0, this.Width -1 , this.Height -1);
+            Pen p = new Pen(Color.Black, 3);
+            e.Graphics.DrawRectangle(p, r);
+
+        }
     }
 
 

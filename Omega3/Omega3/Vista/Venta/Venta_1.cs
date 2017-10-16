@@ -509,7 +509,7 @@ namespace Omega3.Vista.Venta
         {
 
 
-            if (e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_cliente,combo_comprobante,combo_iva,combo_pago,combo_producto))
             {
                 this.Close();
             }

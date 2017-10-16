@@ -340,6 +340,7 @@
             this.Name = "CrearCliente";
             this.Text = "Nuevo Usuario";
             this.Load += new System.EventHandler(this.CrearCliente_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CrearCliente_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CrearCliente_KeyDown);
             this.facturacion.ResumeLayout(false);
             this.facturacion.PerformLayout();
