@@ -87,7 +87,9 @@ namespace Omega3.Vista.Clientes
             ControlVentas.llenarCondicion(combo_condicion);
             ControlCliente.llenarProvincias(combo_provincia);
             ControlCliente.llenarTipoDocumento(combo_documento);
+            ControlCliente.llenarListas(combo_lista);
             combo_provincia.SelectedIndex = -1;
+            combo_lista.SelectedIndex = -1;
         }
 
 
@@ -182,6 +184,7 @@ namespace Omega3.Vista.Clientes
                     cliente.Localidad = txt_localidad.Text;
                     cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
                     cliente.Cod_provincia = Convert.ToInt32(combo_provincia.SelectedValue);
+                    cliente.Lista = Convert.ToDecimal( combo_lista.SelectedValue);
 
 
                     if (!ControlCliente.validardocumento(cliente.Documento))
@@ -219,11 +222,13 @@ namespace Omega3.Vista.Clientes
                 txt_documento.Text = "";
                 txt_documento.Visible = true;
                 txt_cuit.Visible = false;
+                txt_documento.Focus();
             }
             else { cargar.Visible = true;
                 txt_cuit.Text = "";
                 txt_documento.Visible = false;
                 txt_cuit.Visible = true;
+                txt_cuit.Focus();
             }
 
             
@@ -244,11 +249,7 @@ namespace Omega3.Vista.Clientes
             combo_documento.SelectedIndex = 0;
             combo_provincia.SelectedIndex = -1;
 
-            foreach (Label lbl in this.Controls.OfType<Label>())
-            {
-                lbl.ForeColor = Color.Black;
-            }
-        }
+         }
 
         private void txt_documento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -259,7 +260,7 @@ namespace Omega3.Vista.Clientes
         {
 
        
-            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_provincia,combo_documento,combo_condicion))
+            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_provincia,combo_documento,combo_condicion,combo_lista))
             {
                 this.Close();
             }
@@ -286,6 +287,16 @@ namespace Omega3.Vista.Clientes
                 txt_direccion.Focus();
                 return false;
             }
+
+            ///LISTA
+            else if (combo_lista.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar una lista");
+                //lbl_provincia.ForeColor = Color.Red;
+                combo_lista.Focus();
+                return false;
+            }
+
             else if(combo_provincia.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar una provincia");
@@ -306,7 +317,16 @@ namespace Omega3.Vista.Clientes
                 //lbl_mail.ForeColor = Color.Red;
                 txt_mail_contacto.Focus();
                 return false;
+            }else if (txt_mail_contacto.Text.Trim() != "")
+            {
+                if (!ControladorFuncVariadas.validarEmail(txt_mail_contacto.Text))
+                {
+                    MessageBox.Show("El E-mail no contiene el formato requerido");
+                    return false;
+                }
             }
+
+      
             else if(txt_razon_social.Text.Trim() == "")
             {
                 MessageBox.Show("La razón social es obligatoria");
@@ -335,6 +355,7 @@ namespace Omega3.Vista.Clientes
                 txt_localidad.Focus();
                 return false;
             }
+    
 
 
             return true;
@@ -343,9 +364,7 @@ namespace Omega3.Vista.Clientes
         private void CrearCliente_Paint(object sender, PaintEventArgs e)
         {
 
-            //     e.Graphics.DrawRectangle(new Pen(Color.Black, 3),
-            //                            this.DisplayRectangle);
-
+       
             Rectangle r = new Rectangle(0, 0, this.Width -1 , this.Height -1);
             Pen p = new Pen(Color.Black, 3);
             e.Graphics.DrawRectangle(p, r);

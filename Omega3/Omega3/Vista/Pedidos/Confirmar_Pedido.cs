@@ -28,11 +28,14 @@ namespace Omega3.Vista.Pedidos
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             int error;
-            error = Omega3.Controlador.ControlPedidos.modificarPedido(Convert.ToInt32(txt_cantidad.Text),id_pedido);
-            if(error == 1) { MessageBox.Show("Datos actualizados correctamente"); }
-            else { MessageBox.Show("Hubo un error"); }
-            this.Close();
 
+            if (this.validarTextboxVacios()) {
+
+                error = Omega3.Controlador.ControlPedidos.modificarPedido(Convert.ToInt32(txt_cantidad.Text), id_pedido);
+                if (error == 1) { MessageBox.Show("Datos actualizados correctamente"); }
+                else { MessageBox.Show("Hubo un error"); }
+                this.Close();
+            }
         }
 
         private void Confirmar_Pedido_FormClosed(object sender, FormClosedEventArgs e)
@@ -49,5 +52,17 @@ namespace Omega3.Vista.Pedidos
         {
             ControladorFuncVariadas.validarSoloNumeros(sender, e);
         }
+
+        private bool validarTextboxVacios()
+        {
+            if (txt_cantidad.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo cantidad es obligatorio!");
+                txt_cantidad.Focus();
+                return false;
+            }
+            return true;
+        }
+
     }
 }

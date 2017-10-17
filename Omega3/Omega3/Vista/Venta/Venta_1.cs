@@ -188,6 +188,7 @@ namespace Omega3.Vista.Venta
 
                     listado_articulos.RemoveAll(x => x.elemento == Convert.ToInt32(dgv_tabla.Rows[e.RowIndex].Cells["Numero"].Value.ToString()));
                     dgv_tabla.Rows.RemoveAt(item.Index);
+                    calcularTotalVenta();
 
 
                 }
@@ -216,7 +217,7 @@ namespace Omega3.Vista.Venta
                     }
 
                     venta.nrofactura = 0;
-                    venta.tipo_factura = "";
+                    venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                     venta.fecha_venta = DateTime.Now;
 
                     Factura_Negro factura = new Factura_Negro();

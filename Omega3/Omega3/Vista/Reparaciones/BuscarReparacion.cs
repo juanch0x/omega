@@ -49,9 +49,9 @@ namespace Omega3.Vista.Reparaciones
         private void BuscarReparacion_Load(object sender, EventArgs e)
         {
             ControlReparaciones.llenarTablaReparaciones(dgv_tabla);
-            dgv_tabla.Columns[0].DisplayIndex = 6;
+            dgv_tabla.Columns[0].DisplayIndex = 8;
             dgv_tabla.Columns[7].DisplayIndex = 0;
-            //ControlReparaciones.AutoFill(dgv_tabla);
+            
         }
 
         private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -66,7 +66,7 @@ namespace Omega3.Vista.Reparaciones
                 reparacion.id_motor = Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[5].Value);
                 reparacion.maquina = Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[6].Value);
                 reparacion.id = Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[7].Value);
-                reparacion.lista = Convert.ToDecimal(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[8].Value);
+                reparacion.lista = Convert.ToDecimal(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[9].Value);
                 
 
 

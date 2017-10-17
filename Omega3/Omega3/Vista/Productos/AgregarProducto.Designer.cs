@@ -176,6 +176,7 @@
             // 
             // combo_moneda
             // 
+            this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
             this.combo_moneda.Items.AddRange(new object[] {
             "Pesos",
@@ -187,6 +188,7 @@
             // 
             // combo_categoria
             // 
+            this.combo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_categoria.FormattingEnabled = true;
             this.combo_categoria.Location = new System.Drawing.Point(207, 191);
             this.combo_categoria.Name = "combo_categoria";

@@ -73,6 +73,7 @@
             this.dgv_tabla.ShowEditingIcon = false;
             this.dgv_tabla.Size = new System.Drawing.Size(284, 261);
             this.dgv_tabla.TabIndex = 10;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             // 
             // Seleccionar
             // 

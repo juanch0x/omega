@@ -300,7 +300,8 @@ namespace Omega3.Controlador
             request.Encabezado.Prefijo = "0002";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
-            request.Encabezado.TipoComprobante = venta.tipo_factura;
+            //request.Encabezado.TipoComprobante = venta.tipo_factura;
+            request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
 
             MessageBox.Show(Convert.ToString(detalle.Count));

@@ -111,16 +111,16 @@ namespace Omega3.Controlador
 
         public static bool validarEmail(string mail)
         {
-            bool correcto = true;
             try
             {
                 var test = new MailAddress(mail);
             }
             catch (FormatException ex)
             {
-                correcto = false;
+                Console.WriteLine(ex);
+                return false;
             }
-            return correcto;
+            return true;
         }
 
 

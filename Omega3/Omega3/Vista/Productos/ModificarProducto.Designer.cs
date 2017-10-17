@@ -74,6 +74,7 @@
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 20);
             this.txt_stock_minimo.TabIndex = 4;
+            this.txt_stock_minimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_minimo_KeyPress);
             // 
             // txt_precio_costo
             // 
@@ -81,6 +82,7 @@
             this.txt_precio_costo.Name = "txt_precio_costo";
             this.txt_precio_costo.Size = new System.Drawing.Size(163, 20);
             this.txt_precio_costo.TabIndex = 2;
+            this.txt_precio_costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_costo_KeyPress);
             // 
             // txt_codigo
             // 
@@ -143,6 +145,7 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(163, 20);
             this.txt_cantidad.TabIndex = 5;
+            this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
             // 
             // lbl_cantidad
             // 
@@ -166,6 +169,7 @@
             // 
             // combo_moneda
             // 
+            this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
             this.combo_moneda.Items.AddRange(new object[] {
             "Pesos",
@@ -187,6 +191,7 @@
             // 
             // combo_categoria
             // 
+            this.combo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_categoria.FormattingEnabled = true;
             this.combo_categoria.Location = new System.Drawing.Point(151, 207);
             this.combo_categoria.Name = "combo_categoria";

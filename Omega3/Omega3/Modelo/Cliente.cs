@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Omega3.Modelo
 {
-    class Cliente
+   public class Cliente
     {
         private int _tipo_documento;
         private long _documento;

@@ -30,12 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reparacion));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_buscar_producto = new System.Windows.Forms.Button();
             this.txt_comentarios = new System.Windows.Forms.TextBox();
             this.txt_nmotor = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_buscar_reparacion = new System.Windows.Forms.Button();
             this.tabla_reparacion = new System.Windows.Forms.DataGridView();
             this.txt_trabajo = new System.Windows.Forms.TextBox();
             this.txt_maquina = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbl_subtotal = new System.Windows.Forms.Label();
             this.lbl_entrega = new System.Windows.Forms.Label();
             this.lbl_cliente = new System.Windows.Forms.Label();
@@ -44,19 +49,17 @@
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.lbl_trabajo = new System.Windows.Forms.Label();
             this.lbl_comentarios = new System.Windows.Forms.Label();
-            this.lbl_repuestos = new System.Windows.Forms.Label();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quitar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lbl_repuestos = new System.Windows.Forms.Label();
+            this.combo_iva = new System.Windows.Forms.ComboBox();
+            this.txt_descuento = new System.Windows.Forms.TextBox();
+            this.lbl_nombre_producto = new System.Windows.Forms.Label();
+            this.lbl_stock_actual = new System.Windows.Forms.Label();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
+            this.lbl_precio = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,12 +69,18 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.lbl_precio);
+            this.panel2.Controls.Add(this.txt_cantidad);
+            this.panel2.Controls.Add(this.lbl_stock_actual);
+            this.panel2.Controls.Add(this.lbl_nombre_producto);
+            this.panel2.Controls.Add(this.txt_descuento);
+            this.panel2.Controls.Add(this.combo_iva);
+            this.panel2.Controls.Add(this.btn_buscar_producto);
             this.panel2.Controls.Add(this.txt_comentarios);
             this.panel2.Controls.Add(this.txt_nmotor);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_buscar_reparacion);
             this.panel2.Controls.Add(this.tabla_reparacion);
             this.panel2.Controls.Add(this.txt_trabajo);
             this.panel2.Controls.Add(this.txt_maquina);
@@ -89,6 +98,13 @@
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
             // 
+            // btn_buscar_producto
+            // 
+            resources.ApplyResources(this.btn_buscar_producto, "btn_buscar_producto");
+            this.btn_buscar_producto.Name = "btn_buscar_producto";
+            this.btn_buscar_producto.UseVisualStyleBackColor = true;
+            this.btn_buscar_producto.Click += new System.EventHandler(this.btn_buscar_producto_Click);
+            // 
             // txt_comentarios
             // 
             resources.ApplyResources(this.txt_comentarios, "txt_comentarios");
@@ -100,23 +116,42 @@
             resources.ApplyResources(this.txt_nmotor, "txt_nmotor");
             this.txt_nmotor.Name = "txt_nmotor";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::Omega3.Properties.Resources.field;
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.TabStop = false;
+            // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Name = "label1";
             // 
+            // btn_buscar_reparacion
+            // 
+            this.btn_buscar_reparacion.BackgroundImage = global::Omega3.Properties.Resources.lupa2020;
+            resources.ApplyResources(this.btn_buscar_reparacion, "btn_buscar_reparacion");
+            this.btn_buscar_reparacion.Name = "btn_buscar_reparacion";
+            this.btn_buscar_reparacion.UseVisualStyleBackColor = true;
+            this.btn_buscar_reparacion.Click += new System.EventHandler(this.btn_buscar_reparacion_Click);
+            // 
             // tabla_reparacion
             // 
+            this.tabla_reparacion.AllowUserToAddRows = false;
+            this.tabla_reparacion.AllowUserToDeleteRows = false;
+            this.tabla_reparacion.AllowUserToOrderColumns = true;
+            this.tabla_reparacion.AllowUserToResizeColumns = false;
+            this.tabla_reparacion.AllowUserToResizeRows = false;
             this.tabla_reparacion.BackgroundColor = System.Drawing.Color.White;
             this.tabla_reparacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabla_reparacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabla_reparacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Articulo,
-            this.Precio,
-            this.Quitar});
             resources.ApplyResources(this.tabla_reparacion, "tabla_reparacion");
             this.tabla_reparacion.Name = "tabla_reparacion";
+            this.tabla_reparacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tabla_reparacion.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tabla_reparacion_CellFormatting);
             // 
             // txt_trabajo
             // 
@@ -129,6 +164,22 @@
             this.txt_maquina.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.txt_maquina, "txt_maquina");
             this.txt_maquina.Name = "txt_maquina";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Omega3.Properties.Resources.field;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Omega3.Properties.Resources.field;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
             // 
             // lbl_subtotal
             // 
@@ -178,65 +229,6 @@
             this.lbl_comentarios.BackColor = System.Drawing.Color.Transparent;
             this.lbl_comentarios.Name = "lbl_comentarios";
             // 
-            // lbl_repuestos
-            // 
-            resources.ApplyResources(this.lbl_repuestos, "lbl_repuestos");
-            this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_repuestos.Name = "lbl_repuestos";
-            // 
-            // Articulo
-            // 
-            this.Articulo.Frozen = true;
-            resources.ApplyResources(this.Articulo, "Articulo");
-            this.Articulo.Name = "Articulo";
-            this.Articulo.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            resources.ApplyResources(this.Precio, "Precio");
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Quitar
-            // 
-            this.Quitar.Frozen = true;
-            resources.ApplyResources(this.Quitar, "Quitar");
-            this.Quitar.Name = "Quitar";
-            this.Quitar.ReadOnly = true;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Omega3.Properties.Resources.lupa2020;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -245,12 +237,50 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // button2
+            // lbl_repuestos
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            resources.ApplyResources(this.lbl_repuestos, "lbl_repuestos");
+            this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_repuestos.Name = "lbl_repuestos";
+            // 
+            // combo_iva
+            // 
+            this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_iva.FormattingEnabled = true;
+            this.combo_iva.Items.AddRange(new object[] {
+            resources.GetString("combo_iva.Items"),
+            resources.GetString("combo_iva.Items1"),
+            resources.GetString("combo_iva.Items2"),
+            resources.GetString("combo_iva.Items3"),
+            resources.GetString("combo_iva.Items4"),
+            resources.GetString("combo_iva.Items5")});
+            resources.ApplyResources(this.combo_iva, "combo_iva");
+            this.combo_iva.Name = "combo_iva";
+            // 
+            // txt_descuento
+            // 
+            resources.ApplyResources(this.txt_descuento, "txt_descuento");
+            this.txt_descuento.Name = "txt_descuento";
+            // 
+            // lbl_nombre_producto
+            // 
+            resources.ApplyResources(this.lbl_nombre_producto, "lbl_nombre_producto");
+            this.lbl_nombre_producto.Name = "lbl_nombre_producto";
+            // 
+            // lbl_stock_actual
+            // 
+            resources.ApplyResources(this.lbl_stock_actual, "lbl_stock_actual");
+            this.lbl_stock_actual.Name = "lbl_stock_actual";
+            // 
+            // txt_cantidad
+            // 
+            resources.ApplyResources(this.txt_cantidad, "txt_cantidad");
+            this.txt_cantidad.Name = "txt_cantidad";
+            // 
+            // lbl_precio
+            // 
+            resources.ApplyResources(this.lbl_precio, "lbl_precio");
+            this.lbl_precio.Name = "lbl_precio";
             // 
             // Reparacion
             // 
@@ -259,10 +289,11 @@
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.Name = "Reparacion";
+            this.Load += new System.EventHandler(this.Reparacion_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -288,14 +319,17 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_buscar_reparacion;
         private System.Windows.Forms.TextBox txt_nmotor;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_comentarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewImageColumn Quitar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_buscar_producto;
+        private System.Windows.Forms.Label lbl_precio;
+        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.Label lbl_stock_actual;
+        private System.Windows.Forms.Label lbl_nombre_producto;
+        private System.Windows.Forms.TextBox txt_descuento;
+        private System.Windows.Forms.ComboBox combo_iva;
     }
 }

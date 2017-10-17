@@ -73,8 +73,8 @@ namespace Omega3.Controlador
             
             try {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
-                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva), Conexion.ObtenerConexion());
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva, lista) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
+                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva,cliente.Lista), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
 
             }
@@ -153,6 +153,23 @@ namespace Omega3.Controlador
 
 
             return cliente;
+        }
+
+        public static void llenarListas(ComboBox combo)
+        {
+                string query = "SELECT id, lista FROM markup";
+
+                MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
+
+                MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da1.Fill(dt);
+
+                combo.ValueMember = "id";
+                combo.DisplayMember = "lista";
+                combo.DataSource = dt;
+
+            
         }
 
 

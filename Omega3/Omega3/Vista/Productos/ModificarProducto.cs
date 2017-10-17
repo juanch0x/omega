@@ -97,5 +97,20 @@ namespace Omega3.Vista.Productos
             ControlProducto.llenarCategorias(combo_categoria);
 
         }
+
+        private void txt_precio_costo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void txt_stock_minimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
+
+        private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
     }
 }
