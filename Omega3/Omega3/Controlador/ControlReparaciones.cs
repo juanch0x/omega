@@ -145,7 +145,7 @@ namespace Omega3.Controlador
                 var iva = new DataGridViewTextBoxColumn();
                 var descuento = new DataGridViewTextBoxColumn();
                 var borrar = new DataGridViewImageColumn();
-                
+                var subtotal = new DataGridViewTextBoxColumn();
 
                 cantidad.HeaderText = "Cantidad";
                 cantidad.Name = "Cantidad";
@@ -156,7 +156,7 @@ namespace Omega3.Controlador
                 descripcion.HeaderText = "Descripción";
                 descripcion.Name = "Descripcion";
 
-                precio.HeaderText = "Precio";
+                precio.HeaderText = "Precio Unitario";
                 precio.Name = "Precio";
 
                 iva.HeaderText = "IVA";
@@ -167,9 +167,13 @@ namespace Omega3.Controlador
 
                 borrar.HeaderText = "Quitar";
                 borrar.Name = "Borrar";
+
+                subtotal.HeaderText = "Subtotal";
+                subtotal.Name = "Subtotal";
+
                 
 
-                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, borrar});
+                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar});
             }
 
         }

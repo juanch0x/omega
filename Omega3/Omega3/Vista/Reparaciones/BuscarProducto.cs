@@ -15,16 +15,18 @@ namespace Omega3.Vista.Reparaciones
     {
         Producto producto = new Producto();
         decimal lista = new decimal();
+        Button boton;
 
         public BuscarProducto()
         {
             InitializeComponent();
         }
-        public BuscarProducto(ref Producto producto, Decimal lista)
+        public BuscarProducto(ref Producto producto, Decimal lista,Button boton)
         {
             InitializeComponent();
             this.producto = producto;
             this.lista = lista / 100 + 1;
+            this.boton = boton;
         }
 
         private void BuscarProducto_Load(object sender, EventArgs e)
@@ -43,6 +45,7 @@ namespace Omega3.Vista.Reparaciones
                 producto.Nombre_producto = Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[2].Value);
                 producto.Cod_producto = long.Parse(Convert.ToString((dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[1].Value)));
                 producto.Cantidad = Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[4].Value);
+                boton.Enabled = true;
                 this.Close();
 
             }

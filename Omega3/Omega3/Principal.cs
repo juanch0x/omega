@@ -84,7 +84,7 @@ namespace Omega3
             }
             else
             {
-                actualizarDolarInternet();
+                //actualizarDolarInternet();
 
                 this.Visible = true;
 

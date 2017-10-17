@@ -215,8 +215,8 @@ namespace Omega3.Controlador
              try
           {
 
-              MySqlCommand comando = new MySqlCommand(string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta) values ('{0}','{1}','{2}', '{3}','{4}','{5}')",
-                  venta.documento,venta.medio_de_pago,fecha_vencimiento,venta.nrofactura,venta.tipo_factura,fecha_venta), Conexion.ObtenerConexion());
+              MySqlCommand comando = new MySqlCommand(string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
+                  venta.documento,venta.medio_de_pago,fecha_vencimiento,venta.nrofactura,venta.tipo_factura,fecha_venta,Usuario.User), Conexion.ObtenerConexion());
               retorno = comando.ExecuteNonQuery();
 
           }

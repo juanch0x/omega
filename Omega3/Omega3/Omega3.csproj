@@ -233,6 +233,12 @@
     <Compile Include="Vista\Reparaciones\BuscarReparacion.Designer.cs">
       <DependentUpon>BuscarReparacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reparaciones\ManoDeObra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\ManoDeObra.Designer.cs">
+      <DependentUpon>ManoDeObra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\Nueva_Reparacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\BuscarReparacion.resx">
       <DependentUpon>BuscarReparacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\ManoDeObra.resx">
+      <DependentUpon>ManoDeObra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\Nueva_Reparacion.resx">
       <DependentUpon>Nueva_Reparacion.cs</DependentUpon>
