@@ -18,5 +18,6 @@ namespace Omega3.Modelo
         public string maquina { get; set; }
         public string comentarios { get; set; }
         public decimal lista { get; set; }
+        public bool entregado { get; set; }
     }
 }

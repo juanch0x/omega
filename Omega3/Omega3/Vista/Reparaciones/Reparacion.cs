@@ -30,7 +30,7 @@ namespace Omega3.Vista.Reparaciones
             txt_cantidad.MaxLength = 3;
             txt_descuento.MaxLength = 3;
             btn_buscar_producto.Enabled = false;
-            
+
             
         }
 
@@ -57,8 +57,9 @@ namespace Omega3.Vista.Reparaciones
             a.ShowDialog();
             txt_maquina.Text = reparacion.maquina;
             txt_nmotor.Text = reparacion.id_motor;
-            txt_trabajo.Text = reparacion.problema;
+            txt_problema.Text = reparacion.problema;
             txt_fecha.Value = reparacion.fecha_salida;
+            ControlReparaciones.llenarComentarios(txt_comentarios, reparacion.id);
 
            
         }
@@ -177,6 +178,36 @@ namespace Omega3.Vista.Reparaciones
                                        
                     tabla_reparacion.Rows.RemoveAt(item.Index);
                     
+                }
+            }
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            Modelo.Reparacion reparacion_update = new Modelo.Reparacion();
+
+            
+
+            if(ControladorFuncVariadas.validarTextBoxVacios(txt_problema,txt_comentarios) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
+            {
+                reparacion_update.id = reparacion.id;
+                reparacion_update.problema = txt_problema.Text;
+                reparacion_update.comentarios = txt_comentarios.Text;
+                reparacion_update.fecha_salida = txt_fecha.Value;
+                reparacion_update.entregado = true;
+
+                if (ControlReparaciones.actualizarReparacion(reparacion_update) == 1)
+                {
+                    MessageBox.Show("Se guardó correctamente");
+                    ControladorFuncVariadas.limpiarTextBox(txt_cliente, txt_maquina, txt_nmotor, txt_problema, txt_comentarios);
+                    txt_fecha.Value = DateTime.Now;
+                    tabla_reparacion.DataSource = null;
+                    tabla_reparacion.Rows.Clear();
+                    btn_buscar_producto.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error en la base de datos");
                 }
             }
         }

@@ -69,7 +69,7 @@ namespace Omega3.Vista.Reparaciones
                 reparacion.maquina = Convert.ToString(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[6].Value);
                 reparacion.id = Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[7].Value);
                 reparacion.lista = Convert.ToDecimal(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[9].Value);
-
+                
                 boton.Enabled = true;
 
                 this.Close();

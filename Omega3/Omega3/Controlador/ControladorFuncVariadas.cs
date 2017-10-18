@@ -143,6 +143,44 @@ namespace Omega3.Controlador
             return true;
         }
 
+        public static bool validarTextBoxVacios(params TextBox[] lista)
+        {
+            for(int i = 0; i<lista.Length; i++)
+            {
+                if(lista[i].Text.Trim() == "")
+                {
+                    MessageBox.Show("El campo " + lista[i].Tag + " es obligatorio");
+                    lista[i].Focus();
+                    
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool validarFechaPasada(params DateTimePicker[] lista)
+        {
+
+            for(int i = 0; i<lista.Length; i++)
+            {
+               if(lista[i].Value <= DateTime.Now)
+                {
+                    MessageBox.Show("La fecha de entrega debe ser no puede ser anterior a la fecha actual");
+                    lista[i].Focus();
+                }
+            }
+
+            return true;
+        }
+
+        public static void limpiarTextBox(params TextBox[] lista)
+        {
+            for (int i = 0; i < lista.Length; i++)
+                lista[i].Text = "";
+        }
+
+
     }
 
 

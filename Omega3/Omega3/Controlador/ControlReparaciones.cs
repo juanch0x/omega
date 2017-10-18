@@ -12,7 +12,7 @@ namespace Omega3.Controlador
 {
     class ControlReparaciones
     {
-   
+
         public static void llenarTablaClientes(DataGridView cuadro)
         {
 
@@ -32,7 +32,7 @@ namespace Omega3.Controlador
 
 
                 cuadro.DataSource = bSource;
-                
+
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de Clientes: " + ex); }
         }
@@ -41,7 +41,7 @@ namespace Omega3.Controlador
         public static void AutoFill(DataGridView dgv_tabla)
         {
             dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-           
+
 
             int i;
             for (i = 0; i <= dgv_tabla.Columns.Count - 1; i++)
@@ -58,7 +58,7 @@ namespace Omega3.Controlador
 
         public static int AgregarReparacion(Reparacion a)
         {
-          
+
             int retorno = 0;
 
             try
@@ -107,9 +107,9 @@ namespace Omega3.Controlador
         public static void llenarTablaProducto(DataGridView cuadro, Decimal lista)
         {
 
-                        
+
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT cod_producto as Cod, producto as Producto, ROUND(IF( dolar = 1, precio_compra * (SELECT valor FROM valor_dolar WHERE id = 1), precio_compra)*"+lista+",2) AS Precio, cantidad AS 'Stock' FROM productos";
+            string sqlSelectAll = "SELECT cod_producto as Cod, producto as Producto, ROUND(IF( dolar = 1, precio_compra * (SELECT valor FROM valor_dolar WHERE id = 1), precio_compra)*" + lista + ",2) AS Precio, cantidad AS 'Stock' FROM productos";
 
             Console.WriteLine(sqlSelectAll);
             try
@@ -126,58 +126,87 @@ namespace Omega3.Controlador
 
                 cuadro.DataSource = bSource;
 
-                
+
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de Productos: " + ex); }
-            
+
         }
 
         public static void armarTablaRepuestos(DataGridView dgv_tabla)
         {
 
-                // I created these columns at function scope but if you want to access 
-                // easily from other parts of your class, just move them to class scope.
-                // E.g. Declare them outside of the function...
-                var cantidad = new DataGridViewTextBoxColumn();
-                var codigo = new DataGridViewTextBoxColumn();
-                var descripcion = new DataGridViewTextBoxColumn();
-                var precio = new DataGridViewTextBoxColumn();
-                var iva = new DataGridViewTextBoxColumn();
-                var descuento = new DataGridViewTextBoxColumn();
-                var borrar = new DataGridViewImageColumn();
-                var subtotal = new DataGridViewTextBoxColumn();
+            // I created these columns at function scope but if you want to access 
+            // easily from other parts of your class, just move them to class scope.
+            // E.g. Declare them outside of the function...
+            var cantidad = new DataGridViewTextBoxColumn();
+            var codigo = new DataGridViewTextBoxColumn();
+            var descripcion = new DataGridViewTextBoxColumn();
+            var precio = new DataGridViewTextBoxColumn();
+            var iva = new DataGridViewTextBoxColumn();
+            var descuento = new DataGridViewTextBoxColumn();
+            var borrar = new DataGridViewImageColumn();
+            var subtotal = new DataGridViewTextBoxColumn();
 
-                cantidad.HeaderText = "Cantidad";
-                cantidad.Name = "Cantidad";
+            cantidad.HeaderText = "Cantidad";
+            cantidad.Name = "Cantidad";
 
-                codigo.HeaderText = "Código";
-                codigo.Name = "Codigo";
+            codigo.HeaderText = "Código";
+            codigo.Name = "Codigo";
 
-                descripcion.HeaderText = "Descripción";
-                descripcion.Name = "Descripcion";
+            descripcion.HeaderText = "Descripción";
+            descripcion.Name = "Descripcion";
 
-                precio.HeaderText = "Precio Unitario";
-                precio.Name = "Precio";
+            precio.HeaderText = "Precio Unitario";
+            precio.Name = "Precio";
 
-                iva.HeaderText = "IVA";
-                iva.Name = "iva";
+            iva.HeaderText = "IVA";
+            iva.Name = "iva";
 
-                descuento.HeaderText = "Bonificación";
-                descuento.Name = "Bonificacion";
+            descuento.HeaderText = "Bonificación";
+            descuento.Name = "Bonificacion";
 
-                borrar.HeaderText = "Quitar";
-                borrar.Name = "Borrar";
+            borrar.HeaderText = "Quitar";
+            borrar.Name = "Borrar";
 
-                subtotal.HeaderText = "Subtotal";
-                subtotal.Name = "Subtotal";
+            subtotal.HeaderText = "Subtotal";
+            subtotal.Name = "Subtotal";
 
-                
 
-                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar});
-            }
 
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
         }
 
+        public static int actualizarReparacion(Modelo.Reparacion reparacion)
+        {
+            int retorno = 0;
+            MySqlConnection conexion = Conexion.ObtenerConexion();
+            int entregado=0;
+            if (reparacion.entregado)
+                entregado = 1;
 
+
+            try
+            {
+
+                MySqlCommand comando = new MySqlCommand(string.Format("Update reparaciones set problema = '{0}', comentarios ='{1}', fecha_salida ='{2}', entregado='{3}' where id={4}",
+                    reparacion.problema, reparacion.comentarios, ControladorFuncVariadas.convertirFecha(reparacion.fecha_salida), entregado,reparacion.id), conexion);
+                Console.WriteLine(comando.CommandText);
+                Console.WriteLine(comando);
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex) { MessageBox.Show("Error en el metodo Actualizar Reparacion\n" + ex); }
+            return retorno;
+
+        }
+        public static void llenarComentarios(TextBox comentarios,long id)
+        {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+               "SELECT comentarios FROM reparaciones WHERE id = {0}", id), Conexion.ObtenerConexion());
+            comentarios.Text = Convert.ToString(_comando.ExecuteScalar());
+        }
     }
+}
 
+
+    
