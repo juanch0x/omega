@@ -194,9 +194,9 @@ namespace Omega3.Vista.Reparaciones
                 reparacion_update.problema = txt_problema.Text;
                 reparacion_update.comentarios = txt_comentarios.Text;
                 reparacion_update.fecha_salida = txt_fecha.Value;
-                reparacion_update.entregado = true;
+                reparacion_update.entregado = false;
 
-                if (ControlReparaciones.actualizarReparacion(reparacion_update) == 1)
+                if (ControlReparaciones.actualizarReparacion(reparacion_update,tabla_reparacion) == 1)
                 {
                     MessageBox.Show("Se guardó correctamente");
                     ControladorFuncVariadas.limpiarTextBox(txt_cliente, txt_maquina, txt_nmotor, txt_problema, txt_comentarios);
@@ -210,6 +210,11 @@ namespace Omega3.Vista.Reparaciones
                     MessageBox.Show("Hubo un error en la base de datos");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion);
         }
     }
 }

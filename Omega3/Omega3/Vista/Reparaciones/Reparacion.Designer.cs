@@ -63,6 +63,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_repuestos = new System.Windows.Forms.Label();
             this.txt_guardar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
@@ -75,6 +76,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txt_guardar);
             this.panel2.Controls.Add(this.btn_mano_de_obra);
             this.panel2.Controls.Add(this.label4);
@@ -342,6 +344,13 @@
             this.txt_guardar.UseVisualStyleBackColor = true;
             this.txt_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Reparacion
             // 
             resources.ApplyResources(this, "$this");
@@ -397,5 +406,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_mano_de_obra;
         private System.Windows.Forms.Button txt_guardar;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -176,7 +176,7 @@ namespace Omega3.Controlador
             dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
         }
 
-        public static int actualizarReparacion(Modelo.Reparacion reparacion)
+        public static int actualizarReparacion(Modelo.Reparacion reparacion, DataGridView dgv_tabla)
         {
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
@@ -194,8 +194,13 @@ namespace Omega3.Controlador
                 Console.WriteLine(comando);
                 retorno = comando.ExecuteNonQuery();
                 conexion.Close();
+
+                
+
             }
+
             catch (Exception ex) { MessageBox.Show("Error en el metodo Actualizar Reparacion\n" + ex); }
+            insertarDetalleReparacion(dgv_tabla, reparacion.id);
             return retorno;
 
         }
@@ -205,6 +210,89 @@ namespace Omega3.Controlador
                "SELECT comentarios FROM reparaciones WHERE id = {0}", id), Conexion.ObtenerConexion());
             comentarios.Text = Convert.ToString(_comando.ExecuteScalar());
         }
+
+        
+        public static void insertarDetalleReparacion(DataGridView dgv_tabla,long id)
+        {
+            string consulta = "INSERT INTO detalle_reparaciones (id_reparacion, cod_producto, precio, cantidad, iva, bonificacion, subtotal) VALUES";
+            string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
+            bool updatebool = false;
+            bool contador = false;
+
+
+          //  dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
+            foreach (DataGridViewRow row in dgv_tabla.Rows)
+            {
+
+                if (contador)
+                {
+                    consulta += ", ("+id+",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
+                }
+                else
+                {
+                    consulta += "(" + id + ",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
+                    contador = true;
+                }
+                //PARTE DE UPDATE
+                if (updatebool)
+                {
+
+                    update += ", (" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = " + row.Cells[1].Value + ")-" + row.Cells[0].Value + ")";
+
+                }
+                else
+                {
+
+                    update += "(" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = " + row.Cells[1].Value + ")-" + row.Cells[0].Value + ")";
+                    updatebool = true;
+                }
+
+
+
+            }
+
+            update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+
+            Console.WriteLine(consulta);
+            int retorno = 0;
+            MySqlCommand detalle = new MySqlCommand(consulta, Conexion.ObtenerConexion());
+            retorno = detalle.ExecuteNonQuery();
+
+           // MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+            //retorno = restastock.ExecuteNonQuery();
+        }
+
+        public static void llenarTablaArticulosReparacion(DataGridView dgv_tabla)
+        {
+            int cantidad;
+            string descripcion = "Descripcion";
+            string cod_producto;
+            double precio = new double();
+            double iva = new double();
+            double bonificacion = new double();
+            double subtotal = new double();
+
+            //  dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                 "SELECT cantidad,cod_producto,precio,iva,bonificacion,subtotal FROM detalle_reparaciones  WHERE id_reparacion ={0}", 5), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                cantidad = _reader.GetInt32(0);
+                cod_producto = _reader.GetString(1);
+                precio = _reader.GetDouble(2);
+                iva = _reader.GetDouble(3);
+                bonificacion = _reader.GetDouble(4);
+                subtotal = _reader.GetDouble(5);
+
+                dgv_tabla.Rows.Add(cantidad, cod_producto, descripcion, precio, iva, bonificacion, subtotal, null);
+            }
+
+        }
+
+
+
+
     }
 }
 
