@@ -72,7 +72,7 @@
             this.ClientSize = new System.Drawing.Size(703, 356);
             this.Controls.Add(this.btn_llenar);
             this.Controls.Add(this.dgv_presupuestos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "ListaPresupuestos";
             this.Text = "ListaPresupuestos";
             this.Load += new System.EventHandler(this.ListaPresupuestos_Load);

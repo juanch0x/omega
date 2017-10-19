@@ -136,7 +136,7 @@
             this.tab_cliente.Location = new System.Drawing.Point(4, 22);
             this.tab_cliente.Name = "tab_cliente";
             this.tab_cliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_cliente.Size = new System.Drawing.Size(1096, 502);
+            this.tab_cliente.Size = new System.Drawing.Size(1098, 502);
             this.tab_cliente.TabIndex = 0;
             this.tab_cliente.Text = "Cliente";
             // 
@@ -671,7 +671,7 @@
             this.Controls.Add(this.panel_principal);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Presupuesto";
             this.Text = "Presupuesto";
             this.Load += new System.EventHandler(this.Presupuesto_Load);

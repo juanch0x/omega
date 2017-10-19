@@ -226,7 +226,7 @@
             this.Controls.Add(this.lbl_precio_costo);
             this.Controls.Add(this.lbl_codigo);
             this.Controls.Add(this.lbl_producto);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AgregarProducto";
             this.Text = "Agregar Producto";
             this.Load += new System.EventHandler(this.AgregarProducto_Load);

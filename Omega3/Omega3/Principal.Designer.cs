@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,7 @@
             this.errorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +54,6 @@
             this.txt_dolar_guardado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1268, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,9 +190,16 @@
             // reparacionToolStripMenuItem
             // 
             this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
-            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.reparacionToolStripMenuItem.Text = "Crear";
             this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
+            // 
+            // crearNToolStripMenuItem
+            // 
+            this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
+            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.crearNToolStripMenuItem.Text = "Crear_N";
+            this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
             // 
             // presupuestosToolStripMenuItem
             // 
@@ -205,7 +213,7 @@
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -236,7 +244,7 @@
             this.panel_dolar.Controls.Add(this.label2);
             this.panel_dolar.Controls.Add(this.label1);
             this.panel_dolar.Controls.Add(this.txt_dolar);
-            this.panel_dolar.Location = new System.Drawing.Point(920, 2);
+            this.panel_dolar.Location = new System.Drawing.Point(686, 2);
             this.panel_dolar.Name = "panel_dolar";
             this.panel_dolar.Size = new System.Drawing.Size(344, 24);
             this.panel_dolar.TabIndex = 5;
@@ -271,20 +279,17 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dolar: Sugerido";
             // 
-            // crearNToolStripMenuItem
-            // 
-            this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
-            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.crearNToolStripMenuItem.Text = "Crear_N";
-            this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 301);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1034, 491);
             this.Controls.Add(this.panel_dolar);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";

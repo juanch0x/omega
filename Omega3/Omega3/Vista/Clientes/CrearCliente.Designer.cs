@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.combo_condicion = new System.Windows.Forms.ComboBox();
             this.datos_generales = new System.Windows.Forms.Panel();
+            this.combo_lista = new System.Windows.Forms.ComboBox();
+            this.lbl_lista = new System.Windows.Forms.Label();
             this.txt_documento = new System.Windows.Forms.TextBox();
             this.txt_cuit = new System.Windows.Forms.MaskedTextBox();
             this.lbl_cod_postal = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.cargar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_crear = new System.Windows.Forms.Button();
-            this.lbl_lista = new System.Windows.Forms.Label();
-            this.combo_lista = new System.Windows.Forms.ComboBox();
             this.facturacion.SuspendLayout();
             this.datos_generales.SuspendLayout();
             this.SuspendLayout();
@@ -226,6 +226,24 @@
             this.datos_generales.Size = new System.Drawing.Size(737, 405);
             this.datos_generales.TabIndex = 2;
             // 
+            // combo_lista
+            // 
+            this.combo_lista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_lista.FormattingEnabled = true;
+            this.combo_lista.Location = new System.Drawing.Point(432, 310);
+            this.combo_lista.Name = "combo_lista";
+            this.combo_lista.Size = new System.Drawing.Size(268, 21);
+            this.combo_lista.TabIndex = 24;
+            // 
+            // lbl_lista
+            // 
+            this.lbl_lista.AutoSize = true;
+            this.lbl_lista.Location = new System.Drawing.Point(429, 294);
+            this.lbl_lista.Name = "lbl_lista";
+            this.lbl_lista.Size = new System.Drawing.Size(29, 13);
+            this.lbl_lista.TabIndex = 23;
+            this.lbl_lista.Text = "Lista";
+            // 
             // txt_documento
             // 
             this.txt_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,24 +349,6 @@
             this.btn_crear.UseVisualStyleBackColor = true;
             this.btn_crear.Click += new System.EventHandler(this.btn_Crear_Click);
             // 
-            // lbl_lista
-            // 
-            this.lbl_lista.AutoSize = true;
-            this.lbl_lista.Location = new System.Drawing.Point(429, 294);
-            this.lbl_lista.Name = "lbl_lista";
-            this.lbl_lista.Size = new System.Drawing.Size(29, 13);
-            this.lbl_lista.TabIndex = 23;
-            this.lbl_lista.Text = "Lista";
-            // 
-            // combo_lista
-            // 
-            this.combo_lista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_lista.FormattingEnabled = true;
-            this.combo_lista.Location = new System.Drawing.Point(432, 310);
-            this.combo_lista.Name = "combo_lista";
-            this.combo_lista.Size = new System.Drawing.Size(268, 21);
-            this.combo_lista.TabIndex = 24;
-            // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,7 +357,7 @@
             this.Controls.Add(this.btn_crear);
             this.Controls.Add(this.datos_generales);
             this.Controls.Add(this.facturacion);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Name = "CrearCliente";
             this.Text = "Nuevo Usuario";

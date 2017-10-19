@@ -39,50 +39,56 @@
             // 
             // txt_precio
             // 
-            this.txt_precio.Location = new System.Drawing.Point(93, 35);
+            this.txt_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_precio.Location = new System.Drawing.Point(143, 29);
             this.txt_precio.Name = "txt_precio";
-            this.txt_precio.Size = new System.Drawing.Size(121, 20);
+            this.txt_precio.Size = new System.Drawing.Size(121, 26);
             this.txt_precio.TabIndex = 0;
             this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
             // 
             // lbl_precio
             // 
             this.lbl_precio.AutoSize = true;
+            this.lbl_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_precio.Location = new System.Drawing.Point(22, 35);
             this.lbl_precio.Name = "lbl_precio";
-            this.lbl_precio.Size = new System.Drawing.Size(37, 13);
+            this.lbl_precio.Size = new System.Drawing.Size(59, 20);
             this.lbl_precio.TabIndex = 1;
             this.lbl_precio.Text = "Precio";
             // 
             // lbl_iva
             // 
             this.lbl_iva.AutoSize = true;
-            this.lbl_iva.Location = new System.Drawing.Point(22, 65);
+            this.lbl_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_iva.Location = new System.Drawing.Point(22, 69);
             this.lbl_iva.Name = "lbl_iva";
-            this.lbl_iva.Size = new System.Drawing.Size(24, 13);
+            this.lbl_iva.Size = new System.Drawing.Size(39, 20);
             this.lbl_iva.TabIndex = 2;
             this.lbl_iva.Text = "IVA";
             // 
             // lbl_descuento
             // 
             this.lbl_descuento.AutoSize = true;
-            this.lbl_descuento.Location = new System.Drawing.Point(22, 94);
+            this.lbl_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_descuento.Location = new System.Drawing.Point(22, 101);
             this.lbl_descuento.Name = "lbl_descuento";
-            this.lbl_descuento.Size = new System.Drawing.Size(59, 13);
+            this.lbl_descuento.Size = new System.Drawing.Size(96, 20);
             this.lbl_descuento.TabIndex = 3;
             this.lbl_descuento.Text = "Descuento";
             // 
             // txt_descuento
             // 
-            this.txt_descuento.Location = new System.Drawing.Point(93, 92);
+            this.txt_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_descuento.Location = new System.Drawing.Point(143, 95);
             this.txt_descuento.Name = "txt_descuento";
-            this.txt_descuento.Size = new System.Drawing.Size(121, 20);
+            this.txt_descuento.Size = new System.Drawing.Size(121, 26);
             this.txt_descuento.TabIndex = 4;
             this.txt_descuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_descuento_KeyPress);
             // 
             // combo_iva
             // 
             this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_iva.FormattingEnabled = true;
             this.combo_iva.Items.AddRange(new object[] {
             "10.5",
@@ -91,16 +97,17 @@
             "2.5",
             "5",
             "0"});
-            this.combo_iva.Location = new System.Drawing.Point(93, 62);
+            this.combo_iva.Location = new System.Drawing.Point(143, 61);
             this.combo_iva.Name = "combo_iva";
-            this.combo_iva.Size = new System.Drawing.Size(121, 21);
+            this.combo_iva.Size = new System.Drawing.Size(121, 28);
             this.combo_iva.TabIndex = 5;
             // 
             // btn_aceptar
             // 
-            this.btn_aceptar.Location = new System.Drawing.Point(75, 128);
+            this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptar.Location = new System.Drawing.Point(90, 137);
             this.btn_aceptar.Name = "btn_aceptar";
-            this.btn_aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_aceptar.Size = new System.Drawing.Size(83, 35);
             this.btn_aceptar.TabIndex = 6;
             this.btn_aceptar.Text = "Aceptar";
             this.btn_aceptar.UseVisualStyleBackColor = true;
@@ -110,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 163);
+            this.ClientSize = new System.Drawing.Size(293, 184);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.combo_iva);
             this.Controls.Add(this.txt_descuento);

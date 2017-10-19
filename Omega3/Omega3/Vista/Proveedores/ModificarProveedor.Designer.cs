@@ -198,9 +198,10 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(272, 18);
+            this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_salir.Location = new System.Drawing.Point(267, 18);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
+            this.btn_salir.Size = new System.Drawing.Size(80, 37);
             this.btn_salir.TabIndex = 29;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
@@ -208,9 +209,10 @@
             // 
             // btn_modificar
             // 
+            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modificar.Location = new System.Drawing.Point(46, 18);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.Size = new System.Drawing.Size(93, 37);
             this.btn_modificar.TabIndex = 27;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;

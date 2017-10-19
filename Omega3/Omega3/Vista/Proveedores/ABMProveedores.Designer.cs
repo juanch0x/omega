@@ -93,7 +93,7 @@
             // 
             this.lbl_filtro_nombre.AutoSize = true;
             this.lbl_filtro_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_filtro_nombre.Location = new System.Drawing.Point(10, 22);
+            this.lbl_filtro_nombre.Location = new System.Drawing.Point(3, 33);
             this.lbl_filtro_nombre.Name = "lbl_filtro_nombre";
             this.lbl_filtro_nombre.Size = new System.Drawing.Size(56, 20);
             this.lbl_filtro_nombre.TabIndex = 10;
@@ -101,9 +101,10 @@
             // 
             // txt_filtro_nombre
             // 
-            this.txt_filtro_nombre.Location = new System.Drawing.Point(84, 22);
+            this.txt_filtro_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro_nombre.Location = new System.Drawing.Point(89, 27);
             this.txt_filtro_nombre.Name = "txt_filtro_nombre";
-            this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
+            this.txt_filtro_nombre.Size = new System.Drawing.Size(186, 26);
             this.txt_filtro_nombre.TabIndex = 11;
             this.txt_filtro_nombre.TextChanged += new System.EventHandler(this.txt_filtro_nombre_TextChanged);
             this.txt_filtro_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_nombre_KeyPress);
@@ -130,9 +131,10 @@
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(362, 15);
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Location = new System.Drawing.Point(445, 15);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_eliminar.Size = new System.Drawing.Size(213, 27);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
@@ -140,9 +142,10 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(556, 15);
+            this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_salir.Location = new System.Drawing.Point(820, 15);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
+            this.btn_salir.Size = new System.Drawing.Size(213, 27);
             this.btn_salir.TabIndex = 2;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
@@ -150,9 +153,10 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(281, 15);
+            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificar.Location = new System.Drawing.Point(226, 15);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.Size = new System.Drawing.Size(213, 27);
             this.btn_modificar.TabIndex = 1;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
@@ -160,9 +164,10 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(200, 15);
+            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.Location = new System.Drawing.Point(7, 15);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
+            this.btn_agregar.Size = new System.Drawing.Size(213, 27);
             this.btn_agregar.TabIndex = 0;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -176,7 +181,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "ABMProveedores";
             this.Text = "Administrar Proveedores";
             this.Load += new System.EventHandler(this.ABMProveedores_Load);

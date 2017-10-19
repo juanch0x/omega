@@ -134,7 +134,7 @@
             this.Controls.Add(this.lbl_filtro);
             this.Controls.Add(this.combo_filtro);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "pedidos";
             this.Text = "PEDIDOS";
