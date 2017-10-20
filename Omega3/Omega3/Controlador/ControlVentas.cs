@@ -322,5 +322,31 @@ namespace Omega3.Controlador
         }
 
         
+        public static void llenar_ventas_realizadas(DataGridView dgv_tabla)
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT id, vencimiento, (SELECT descripcion FROM medio_de_pago WHERE id=venta.medio_de_pago) as Pago, nro_factura, tipo_factura, fecha_venta, venta.cobrada, SUM(subtotal) as Total FROM venta INNER JOIN detalle_venta on venta.id=detalle_venta.id_venta GROUP BY venta.id";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
+        }
+
+
     }
-}
+
+    }
+

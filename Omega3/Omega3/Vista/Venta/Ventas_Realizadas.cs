@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Omega3.Controlador;
 
 namespace Omega3.Vista.Venta
 {
@@ -15,6 +16,7 @@ namespace Omega3.Vista.Venta
         public Ventas_Realizadas()
         {
             InitializeComponent();
+            Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);
         }
     }
 }

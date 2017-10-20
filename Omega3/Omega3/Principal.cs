@@ -321,6 +321,33 @@ namespace Omega3
                 reparacion.Show();
             }
         }
+
+        private void ventasRealizadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Venta.Ventas_Realizadas ventas;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Ventas Realizadas"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                ventas = new Vista.Venta.Ventas_Realizadas();
+                ventas.StartPosition = FormStartPosition.CenterScreen;
+                ventas.MdiParent = this;
+                ventas.Show();
+            }
+
+        }
     }
 
     public class dolar

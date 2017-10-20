@@ -54,6 +54,7 @@
             this.txt_dolar_guardado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ventasRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +144,8 @@
             this.nuevaVentaToolStripMenuItem,
             this.presupuestoToolStripMenuItem,
             this.facturanteToolStripMenuItem,
-            this.errorToolStripMenuItem});
+            this.errorToolStripMenuItem,
+            this.ventasRealizadasToolStripMenuItem});
             this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
@@ -152,28 +154,28 @@
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva Venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // presupuestoToolStripMenuItem
             // 
             this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
-            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.presupuestoToolStripMenuItem.Text = "Presupuesto";
             this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
             // 
             // facturanteToolStripMenuItem
             // 
             this.facturanteToolStripMenuItem.Name = "facturanteToolStripMenuItem";
-            this.facturanteToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.facturanteToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.facturanteToolStripMenuItem.Text = "Facturante";
             this.facturanteToolStripMenuItem.Click += new System.EventHandler(this.facturanteToolStripMenuItem_Click);
             // 
             // errorToolStripMenuItem
             // 
             this.errorToolStripMenuItem.Name = "errorToolStripMenuItem";
-            this.errorToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.errorToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.errorToolStripMenuItem.Text = "Error";
             this.errorToolStripMenuItem.Click += new System.EventHandler(this.errorToolStripMenuItem_Click);
             // 
@@ -279,6 +281,13 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dolar: Sugerido";
             // 
+            // ventasRealizadasToolStripMenuItem
+            // 
+            this.ventasRealizadasToolStripMenuItem.Name = "ventasRealizadasToolStripMenuItem";
+            this.ventasRealizadasToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.ventasRealizadasToolStripMenuItem.Text = "Ventas Realizadas";
+            this.ventasRealizadasToolStripMenuItem.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +341,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem dolarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem;
     }
 }
 

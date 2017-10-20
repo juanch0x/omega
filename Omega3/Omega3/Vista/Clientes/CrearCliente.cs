@@ -370,6 +370,7 @@ namespace Omega3.Vista.Clientes
             e.Graphics.DrawRectangle(p, r);
 
         }
+
     }
 
 
