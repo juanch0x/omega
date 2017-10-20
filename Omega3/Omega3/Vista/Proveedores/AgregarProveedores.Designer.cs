@@ -35,6 +35,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.roto3 = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.otros_capacidad = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.otros_administrativa = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pagos_plazo = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -104,8 +106,6 @@
             this.lbl_codigo_postal = new System.Windows.Forms.Label();
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.tabPage6.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -229,6 +229,16 @@
             this.tabPage6.Size = new System.Drawing.Size(690, 508);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Otros";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(301, 34);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(82, 24);
+            this.label24.TabIndex = 24;
+            this.label24.Text = "OTROS";
             // 
             // panel14
             // 
@@ -361,6 +371,16 @@
             this.tabPage4.Size = new System.Drawing.Size(690, 508);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pago";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(161, 43);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(403, 24);
+            this.label23.TabIndex = 19;
+            this.label23.Text = "ASPECTOS DEL PAGO COMO EMPRESA";
             // 
             // panel10
             // 
@@ -1083,26 +1103,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(698, 541);
             this.tabControl1.TabIndex = 15;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(161, 43);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(403, 24);
-            this.label23.TabIndex = 19;
-            this.label23.Text = "ASPECTOS DEL PAGO COMO EMPRESA";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(301, 34);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(82, 24);
-            this.label24.TabIndex = 24;
-            this.label24.Text = "OTROS";
             // 
             // AgregarProveedores
             // 

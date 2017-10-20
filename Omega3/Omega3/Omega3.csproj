@@ -215,6 +215,12 @@
     <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Proveedores\modificar_proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Proveedores\modificar_proveedor.Designer.cs">
+      <DependentUpon>modificar_proveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Proveedores\modificar_proveedor.resx">
+      <DependentUpon>modificar_proveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
