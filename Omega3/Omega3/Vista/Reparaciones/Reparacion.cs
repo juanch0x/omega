@@ -149,6 +149,7 @@ namespace Omega3.Vista.Reparaciones
 
                 a.ShowDialog();
             }
+            else { MessageBox.Show("La mano de obra ya fue agregada, si desea modificarla, elimínela y agréguela nuevamente!"); }
 
         }
 
@@ -167,7 +168,7 @@ namespace Omega3.Vista.Reparaciones
 
             if (rowIndex != -1)
             {
-                MessageBox.Show("La mano de obra ya fue agregada, si desea modificarla, elimínela y agréguela nuevamente!");
+                //MessageBox.Show("La mano de obra ya fue agregada, si desea modificarla, elimínela y agréguela nuevamente!");
                 return true;
             }
             else
@@ -249,6 +250,9 @@ namespace Omega3.Vista.Reparaciones
                                  MessageBox.Show("Hubo un error en la base de datos");
                              }
                          }
+            Cliente a = new Cliente();
+           a =  ControlCliente.obtenerCliente(reparacion.documento);
+         
 
                        
 
@@ -258,7 +262,15 @@ namespace Omega3.Vista.Reparaciones
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            FinalizarReparacion finalizar;
+
+            if (validarManoDeObra())
+            {
+
+                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), 15, tabla_reparacion);
+                finalizar.ShowDialog();
+            }else { MessageBox.Show("Debe agregar el costo de la mano de obra!"); }
+       
         }
 
         private bool nuevasFilas()

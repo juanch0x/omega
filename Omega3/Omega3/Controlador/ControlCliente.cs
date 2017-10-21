@@ -132,6 +132,7 @@ namespace Omega3.Controlador
 
             Cliente cliente = new Cliente();
 
+            cliente.Documento = documento;
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
                "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
@@ -148,7 +149,8 @@ namespace Omega3.Controlador
                 cliente.Contacto = _reader.GetString(7);
                 cliente.Mail_contacto = _reader.GetString(8);
                 cliente.Mail_factura = _reader.GetString(9);
-                cliente.Impositiva = _reader.GetString(10);
+                cliente.Impositiva_Id = _reader.GetInt32(10);
+
             }
 
 

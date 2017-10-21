@@ -239,6 +239,12 @@
     <Compile Include="Vista\Reparaciones\BuscarReparacion.Designer.cs">
       <DependentUpon>BuscarReparacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reparaciones\FinalizarReparacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\FinalizarReparacion.Designer.cs">
+      <DependentUpon>FinalizarReparacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\ManoDeObra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\BuscarReparacion.resx">
       <DependentUpon>BuscarReparacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\FinalizarReparacion.resx">
+      <DependentUpon>FinalizarReparacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\ManoDeObra.resx">
       <DependentUpon>ManoDeObra.cs</DependentUpon>

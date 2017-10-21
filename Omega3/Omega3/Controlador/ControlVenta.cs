@@ -173,6 +173,7 @@ namespace Omega3.Controlador
             request.Autenticacion.Usuario = "TEST_API_GENERICO";
             request.Autenticacion.Hash = "test2016facturante";
             request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
             
@@ -180,7 +181,7 @@ namespace Omega3.Controlador
 
              XmlDocument xml = new XmlDocument();
              xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
-
+            MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
               XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
               foreach (XmlNode xn in xnList)
               {
@@ -189,25 +190,27 @@ namespace Omega3.Controlador
                   //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
                }
 
-           /* 
-            * Función que hace que los pdf se vallan guardando por si los quiere..
+             
+             //Función que hace que los pdf se vallan guardando por si los quiere..
+             
+              using (WebClient webClient = new WebClient())
+             {
+                 webClient.DownloadFile(url, Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
+             }
+            System.Diagnostics.Process.Start(Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
+
+
+            /*
+            *
+            * Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
             * 
-            * using (WebClient webClient = new WebClient())
-            {
-                webClient.DownloadFile(url, "C:\\carpeta\\Comprobante_"+request.IdComprobante+".pdf");
-            }
-            
-            
-             *
-             * Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
-             * 
-             Form2 f2 = new Form2;
-            f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
-            f2.Show();
-             */
+            Form2 f2 = new Form2;
+           f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
+           f2.Show();
+            */
 
             Omega3.Vista.Venta.Comprobante_Claro MostrarComprobante = new Vista.Venta.Comprobante_Claro(url);
-            MostrarComprobante.Show();
+            
 
         }
 
@@ -273,7 +276,7 @@ namespace Omega3.Controlador
             request.Cliente.RazonSocial = cliente.Razon;
             request.Cliente.Telefono = Convert.ToString(cliente.Telefono);
             request.Cliente.TipoDocumento = cliente.Tipo_documento;
-            request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva);
+            request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva_Id);
             
 
             request.Encabezado = new ComprobanteEncabezado();
@@ -347,7 +350,7 @@ namespace Omega3.Controlador
         }
 
 
-        public void FacturarReparacion(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, DataGridView tabla)
+        public void FacturarReparacion(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, DataGridView dgv_tabla)
         {
 
             ComprobantesClient client = new ComprobantesClient();
@@ -378,7 +381,7 @@ namespace Omega3.Controlador
             request.Cliente.RazonSocial = cliente.Razon;
             request.Cliente.Telefono = Convert.ToString(cliente.Telefono);
             request.Cliente.TipoDocumento = cliente.Tipo_documento;
-            request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva);
+            request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva_Id);
 
 
             request.Encabezado = new ComprobanteEncabezado();
@@ -386,7 +389,8 @@ namespace Omega3.Controlador
             request.Encabezado.Bienes = 1;
             request.Encabezado.CondicionVenta = venta.medio_de_pago;
             request.Encabezado.EnviarComprobante = true;
-            request.Encabezado.FechaHora = DateTime.Now;
+            //request.Encabezado.FechaHora = DateTime.Now;
+            request.Encabezado.FechaHora = new DateTime(2017,10,25);
             /*Son obligatorios si ponemos bienes en 2 (servicios) o en 3 (productos y servicios)
             request.Encabezado.FechaServDesde = DateTime.Now;
             request.Encabezado.FechaServHasta = DateTime.Now;*/
@@ -406,26 +410,26 @@ namespace Omega3.Controlador
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             //request.Encabezado.TipoComprobante = venta.tipo_factura;
-            request.Encabezado.TipoComprobante = "PF";
+            request.Encabezado.TipoComprobante = venta.tipo_factura;
             request.Encabezado.TipoDeCambio = 1;
 
-           /* MessageBox.Show(Convert.ToString(detalle.Count));
-            request.Items = new ComprobanteItem[detalle.Count];
+
+            request.Items = new ComprobanteItem[dgv_tabla.Rows.Count];
             int i = 0;
-            foreach (Detalle_Facturante elemento in detalle)
+            foreach(DataGridViewRow item in dgv_tabla.Rows)
             {
                 request.Items[i] = new ComprobanteItem();
-                request.Items[i].Bonificacion = elemento.Bonificacion;
-                request.Items[i].Codigo = elemento.codigo;
-                request.Items[i].Detalle = elemento.detalle;
+                request.Items[i].Bonificacion = Convert.ToDecimal(item.Cells["Bonificacion"].Value);
+                request.Items[i].Cantidad = Convert.ToInt32(item.Cells["Cantidad"].Value);
+                request.Items[i].Codigo = Convert.ToString(item.Cells["Codigo"].Value);
+                request.Items[i].Detalle = Convert.ToString(item.Cells["Descripcion"].Value);
                 request.Items[i].Gravado = true;
-                request.Items[i].IVA = elemento.iva;
-                request.Items[i].PrecioUnitario = elemento.precio_unitario;
-                request.Items[i].Total = elemento.total;
-                request.Items[i].Cantidad = elemento.cantidad;
+                request.Items[i].IVA = Convert.ToDecimal(item.Cells["iva"].Value);
+                request.Items[i].PrecioUnitario = Convert.ToDecimal(item.Cells["Precio"].Value);
+                request.Items[i].Total = Convert.ToDecimal(request.Items[i].Cantidad * Convert.ToDecimal(request.Items[i].PrecioUnitario));
                 i++;
             }
-            */
+
 
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
