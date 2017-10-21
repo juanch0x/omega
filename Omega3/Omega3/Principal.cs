@@ -80,7 +80,7 @@ namespace Omega3
                 ventasToolStripMenuItem.Visible = false;
                 //clientesToolStripMenuItem.Visible = false;
 
-                panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
+                //panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
             }
             else
             {
@@ -98,7 +98,7 @@ namespace Omega3
                 ventasToolStripMenuItem.Visible = false;
                 //clientesToolStripMenuItem.Visible = false;
 
-                panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
+                //panel_dolar.BackColor = Color.FromArgb(248, 248, 248);
             }
 
         }

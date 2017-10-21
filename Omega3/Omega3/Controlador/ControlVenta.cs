@@ -322,40 +322,111 @@ namespace Omega3.Controlador
             }
 
 
-            /*
-                        request.Items = new ComprobanteItem[3];
 
-                        request.Items[0] = new ComprobanteItem();
-                        request.Items[0].Bonificacion = 0;
-                        request.Items[0].Cantidad = 1;
-                        request.Items[0].Codigo = "CODPROD";
-                        request.Items[0].Detalle = "Producto Uno";
-                        request.Items[0].Gravado = true;
-                        request.Items[0].IVA = 21;
-                        request.Items[0].PrecioUnitario = 100;
-                        request.Items[0].Total = 121;
+            CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
+
+            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+
+            String id_comprobante = "PEDRO";
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<CrearComprobanteResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+
+            XmlNodeList xnList = xml.SelectNodes("/CrearComprobanteResponse");
+            foreach (XmlNode xn in xnList)
+            {
+
+                id_comprobante = xn["IdComprobante"].InnerText;
+
+            }
 
 
-                        request.Items[1] = new ComprobanteItem();
-                        request.Items[1].Bonificacion = 0;
-                        request.Items[1].Cantidad = 1;
-                        request.Items[1].Codigo = "CODPROD2";
-                        request.Items[1].Detalle = "Producto Dos";
-                        request.Items[1].Gravado = true;
-                        request.Items[1].IVA = 21;
-                        request.Items[1].PrecioUnitario = (decimal)164.46;
-                        request.Items[1].Total = 199;
+            comprobanteClient.Close();
 
-                        request.Items[2] = new ComprobanteItem();
-                        request.Items[2].Bonificacion = 0;
-                        request.Items[2].Cantidad = 2;
-                        request.Items[2].Codigo = "CODPROD3";
-                        request.Items[2].Detalle = "Producto Tres";
-                        request.Items[2].Gravado = true;
-                        request.Items[2].IVA = 21;
-                        request.Items[2].PrecioUnitario = 200;
-                        request.Items[2].Total = 484;
+            detalleComprobante(id_comprobante);
+        }
+
+
+        public void FacturarReparacion(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, DataGridView tabla)
+        {
+
+            ComprobantesClient client = new ComprobantesClient();
+
+
+            ComprobantesClient comprobanteClient = new ComprobantesClient();
+
+            CrearComprobanteRequest request = new CrearComprobanteRequest();
+
+            request.Autenticacion = new Autenticacion();
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+
+            request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
+            request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
+            request.Cliente.CondicionPago = venta.medio_de_pago;
+            request.Cliente.Contacto = cliente.Contacto;
+            request.Cliente.DireccionFiscal = cliente.Direccion;
+            request.Cliente.EnviarComprobante = true;
+            request.Cliente.Localidad = cliente.Localidad;
+            request.Cliente.MailContacto = cliente.Mail_contacto;
+            request.Cliente.MailFacturacion = cliente.Mail_contacto;
+            request.Cliente.NroDocumento = Convert.ToString(cliente.Documento);
+            request.Cliente.PercibeIIBB = false;
+            request.Cliente.PercibeIVA = false;
+            request.Cliente.Provincia = cliente.Provincia;
+            request.Cliente.RazonSocial = cliente.Razon;
+            request.Cliente.Telefono = Convert.ToString(cliente.Telefono);
+            request.Cliente.TipoDocumento = cliente.Tipo_documento;
+            request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva);
+
+
+            request.Encabezado = new ComprobanteEncabezado();
+            //Definir si vamos a tratar todo como bienes o lo vamos a modificar.
+            request.Encabezado.Bienes = 1;
+            request.Encabezado.CondicionVenta = venta.medio_de_pago;
+            request.Encabezado.EnviarComprobante = true;
+            request.Encabezado.FechaHora = DateTime.Now;
+            /*Son obligatorios si ponemos bienes en 2 (servicios) o en 3 (productos y servicios)
+            request.Encabezado.FechaServDesde = DateTime.Now;
+            request.Encabezado.FechaServHasta = DateTime.Now;*/
+            request.Encabezado.FechaVtoPago = DateTime.Now;
+            request.Encabezado.ImporteImpuestosInternos = 0;
+            request.Encabezado.ImportePercepcionesMunic = 0;
+            request.Encabezado.Moneda = 2;
+            /* No son obligatorios 
+            request.Encabezado.Observaciones = "GG LA WEA";
+            //request.Encabezado.OrdenCompra = "1487"; */
+            //PREGUNTAR
+            request.Encabezado.PercepcionIIBB = 0;
+            request.Encabezado.PercepcionIVA = 0;
+            request.Encabezado.PorcentajeIIBB = 0;
+            //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
+            request.Encabezado.Prefijo = "0002";
+            /*Se siguen usando? No son obligatorios
+            request.Encabezado.Remito = "444";*/
+            //request.Encabezado.TipoComprobante = venta.tipo_factura;
+            request.Encabezado.TipoComprobante = "PF";
+            request.Encabezado.TipoDeCambio = 1;
+
+           /* MessageBox.Show(Convert.ToString(detalle.Count));
+            request.Items = new ComprobanteItem[detalle.Count];
+            int i = 0;
+            foreach (Detalle_Facturante elemento in detalle)
+            {
+                request.Items[i] = new ComprobanteItem();
+                request.Items[i].Bonificacion = elemento.Bonificacion;
+                request.Items[i].Codigo = elemento.codigo;
+                request.Items[i].Detalle = elemento.detalle;
+                request.Items[i].Gravado = true;
+                request.Items[i].IVA = elemento.iva;
+                request.Items[i].PrecioUnitario = elemento.precio_unitario;
+                request.Items[i].Total = elemento.total;
+                request.Items[i].Cantidad = elemento.cantidad;
+                i++;
+            }
             */
+
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 

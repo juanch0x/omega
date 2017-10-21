@@ -16,7 +16,7 @@ namespace Omega3.Vista.Reparaciones
         TextBox txt;
         Omega3.Modelo.Reparacion reparacion;
         Button boton;
-       
+        
 
         public BuscarReparacion()
         {
@@ -39,10 +39,8 @@ namespace Omega3.Vista.Reparaciones
             this.txt = txt;
             this.reparacion = reparacion;
             this.boton = boton;
-           // this.lista = lista;
-            
 
-        }
+         }
 
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;

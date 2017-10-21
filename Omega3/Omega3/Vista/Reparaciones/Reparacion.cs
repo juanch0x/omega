@@ -12,11 +12,13 @@ using Omega3.Modelo;
 
 namespace Omega3.Vista.Reparaciones
 {
-    
+
     public partial class Reparacion : Form
     {
         Omega3.Modelo.Reparacion reparacion = new Modelo.Reparacion();
         Producto producto = new Producto();
+        DataGridView tabla_reestablecer_stock = new DataGridView();
+        string documento;
 
         public Reparacion()
         {
@@ -26,27 +28,27 @@ namespace Omega3.Vista.Reparaciones
         private void Reparacion_Load(object sender, EventArgs e)
         {
             ControlReparaciones.armarTablaRepuestos(tabla_reparacion);
+            ControlReparaciones.armarTablaReestablecerStock(tabla_reestablecer_stock);
+
             limpiarCampos();
             txt_cantidad.MaxLength = 3;
             txt_descuento.MaxLength = 3;
             btn_buscar_producto.Enabled = false;
 
-            
+
         }
 
 
         private void btn_buscar_producto_Click(object sender, EventArgs e)
         {
-            
+
             Vista.Reparaciones.BuscarProducto a = new Vista.Reparaciones.BuscarProducto(ref producto, reparacion.lista, btn_agregar_producto);
-
             
-
             a.ShowDialog();
             lbl_precio.Text = Convert.ToString(producto.Precio_venta);
             lbl_nombre_producto.Text = Convert.ToString(producto.Nombre_producto);
             lbl_stock_actual.Text = Convert.ToString(producto.Cantidad);
-                        
+
 
         }
 
@@ -55,16 +57,18 @@ namespace Omega3.Vista.Reparaciones
             reparacion.fecha_salida = DateTime.Now;
             BuscarReparacion a = new BuscarReparacion(ref txt_cliente, ref reparacion, btn_buscar_producto);
             a.ShowDialog();
+            //MessageBox.Show(Convert.ToString(reparacion.documento));
             txt_maquina.Text = reparacion.maquina;
             txt_nmotor.Text = reparacion.id_motor;
             txt_problema.Text = reparacion.problema;
             txt_fecha.Value = reparacion.fecha_salida;
             ControlReparaciones.llenarComentarios(txt_comentarios, reparacion.id);
-
+            ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion,reparacion.id);
+            btn_buscar_reparacion.Enabled = false;
            
         }
 
-    
+
         private void tabla_reparacion_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (tabla_reparacion.Columns[e.ColumnIndex].Name == "Borrar")
@@ -82,9 +86,11 @@ namespace Omega3.Vista.Reparaciones
             {
 
                 precio = Convert.ToDecimal(lbl_precio.Text) * Convert.ToDecimal(txt_cantidad.Text);
-                
-                tabla_reparacion.Rows.Add(txt_cantidad.Text, producto.Cod_producto, lbl_nombre_producto.Text, lbl_precio.Text, combo_iva.Text, txt_descuento.Text, precio, null);
-                limpiarCampos();
+                if (!validarProductoYaAgregado(Convert.ToString(producto.Cod_producto)))
+                {
+                    tabla_reparacion.Rows.Add(txt_cantidad.Text, producto.Cod_producto, lbl_nombre_producto.Text, lbl_precio.Text, combo_iva.Text, txt_descuento.Text, precio, null, true);
+                    limpiarCampos();
+                }
             }
         }
 
@@ -112,13 +118,13 @@ namespace Omega3.Vista.Reparaciones
 
         private Boolean validarCamposAgregarProducto()
         {
-            if(txt_cantidad.Text.Trim() == "")
+            if (txt_cantidad.Text.Trim() == "")
             {
                 MessageBox.Show("El campo cantidad es obligatorio");
                 txt_cantidad.Focus();
-                return false;                
+                return false;
             }
-            else if(txt_descuento.Text.Trim() == "")
+            else if (txt_descuento.Text.Trim() == "")
             {
                 MessageBox.Show("El campo descuento es obligatorio");
                 txt_descuento.Focus();
@@ -169,15 +175,43 @@ namespace Omega3.Vista.Reparaciones
 
         }
 
+        private Boolean validarProductoYaAgregado(String cod)
+        {
+            int rowIndex = -1;
+            foreach (DataGridViewRow row in tabla_reparacion.Rows)
+            {
+                if (row.Cells["Codigo"].Value.ToString().Equals(cod))
+                {
+                    rowIndex = row.Index;
+                    break;
+                }
+            }
+            if (rowIndex != -1)
+            {
+                MessageBox.Show("El producto que intenta agregar, ya existe en la reparación, para agregar mayor cantidad, debe eliminarlo y agregarlo nuevamente.");
+                return true;
+            }
+            else
+                return false;
+            
+
+        }
+
         private void tabla_reparacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewRow item in this.tabla_reparacion.SelectedRows)
             {
                 if (e.ColumnIndex == tabla_reparacion.Columns["Borrar"].Index) //2nd column - DGV_ImageColumn
                 {
-                                       
-                    tabla_reparacion.Rows.RemoveAt(item.Index);
+
+                    if (!Convert.ToBoolean(tabla_reparacion.Rows[tabla_reparacion.CurrentCell.RowIndex].Cells["nuevoitem"].Value))
+                    {
+                        tabla_reestablecer_stock.Rows.Add(Convert.ToString(tabla_reparacion.Rows[tabla_reparacion.CurrentCell.RowIndex].Cells["Cantidad"].Value), Convert.ToString(tabla_reparacion.Rows[tabla_reparacion.CurrentCell.RowIndex].Cells["Codigo"].Value));
+                    }
+                    tabla_reparacion.Rows.RemoveAt(item.Index);               
                     
+                    
+
                 }
             }
         }
@@ -188,33 +222,62 @@ namespace Omega3.Vista.Reparaciones
 
             
 
-            if(ControladorFuncVariadas.validarTextBoxVacios(txt_problema,txt_comentarios) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
-            {
-                reparacion_update.id = reparacion.id;
-                reparacion_update.problema = txt_problema.Text;
-                reparacion_update.comentarios = txt_comentarios.Text;
-                reparacion_update.fecha_salida = txt_fecha.Value;
-                reparacion_update.entregado = false;
+                         if (ControladorFuncVariadas.validarTextBoxVacios(txt_problema, txt_comentarios) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
+                         {
+                             reparacion_update.id = reparacion.id;
+                             reparacion_update.problema = txt_problema.Text;
+                             reparacion_update.comentarios = txt_comentarios.Text;
+                             reparacion_update.fecha_salida = txt_fecha.Value;
+                             reparacion_update.entregado = false;
 
-                if (ControlReparaciones.actualizarReparacion(reparacion_update,tabla_reparacion) == 1)
-                {
-                    MessageBox.Show("Se guardó correctamente");
-                    ControladorFuncVariadas.limpiarTextBox(txt_cliente, txt_maquina, txt_nmotor, txt_problema, txt_comentarios);
-                    txt_fecha.Value = DateTime.Now;
-                    tabla_reparacion.DataSource = null;
-                    tabla_reparacion.Rows.Clear();
-                    btn_buscar_producto.Enabled = false;
+                            ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock);
+                        if (ControlReparaciones.actualizarReparacion(reparacion_update, tabla_reparacion,nuevasFilas()) == 1)
+                             {
+                                 MessageBox.Show("Se guardó correctamente");
+                                 
+                                 ControladorFuncVariadas.limpiarTextBox(txt_cliente, txt_maquina, txt_nmotor, txt_problema, txt_comentarios);
+                                 txt_fecha.Value = DateTime.Now;
+                                 tabla_reparacion.DataSource = null;
+                                 tabla_reparacion.Rows.Clear();
+                                 tabla_reestablecer_stock.DataSource = null;
+                                 tabla_reestablecer_stock.Rows.Clear();
+                                 btn_buscar_producto.Enabled = false;
+                                 btn_buscar_reparacion.Enabled = true;
                 }
-                else
-                {
-                    MessageBox.Show("Hubo un error en la base de datos");
-                }
+                             else
+                             {
+                                 MessageBox.Show("Hubo un error en la base de datos");
+                             }
+                         }
+
+                       
+
             }
-        }
+            
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion);
+            
         }
+
+        private bool nuevasFilas()
+        {
+            foreach (DataGridViewRow row in tabla_reparacion.Rows) {
+
+
+                if(Convert.ToBoolean(row.Cells["nuevoitem"].Value) == true)
+                {
+                    return true;
+                }
+
+                
+
+            }
+            return false;
+        }
+                
+        
+
     }
 }

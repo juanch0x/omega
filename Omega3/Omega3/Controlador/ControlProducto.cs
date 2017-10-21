@@ -197,6 +197,17 @@ namespace Omega3.Controlador
 
         }
 
+        public static bool validarCodigoExistente(string codigo)
+        {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+               "SELECT count(cod_producto) FROM productos WHERE cod_producto = {0}", codigo), Conexion.ObtenerConexion());
+            string resultado = Convert.ToString(_comando.ExecuteScalar());
+            if (resultado == "1")
+                return true;
+            else
+                return false;
+        }
+
 
     }
 

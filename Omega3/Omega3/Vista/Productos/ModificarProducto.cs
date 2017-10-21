@@ -63,9 +63,9 @@ namespace Omega3.Vista.Productos
             {
                 ControlProducto.validarTextboxVacio("precio de costo");
             }
-            else if (combo_moneda.Text.Trim() == "")
+            else if (combo_moneda.SelectedIndex == -1)
             {
-                ControlProducto.validarTextboxVacio("precio de venta");
+                ControlProducto.validarTextboxVacio("moneda");
             }
             else if (txt_stock_minimo.Text.Trim() == "")
             {

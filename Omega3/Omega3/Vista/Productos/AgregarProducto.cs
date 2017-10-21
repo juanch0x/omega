@@ -51,31 +51,41 @@ namespace Omega3.Vista.Productos
             {
                 ControlProducto.validarTextboxVacio("stock mínimo");
             }
+            else if(combo_moneda.SelectedIndex == -1)
+            {
+                ControlProducto.validarTextboxVacio("Moneda");
+            }
             else
             {
 
 
                 Producto producto = new Producto();
 
-                producto.Nombre_producto = txt_producto.Text;
-                producto.Cod_producto = long.Parse(txt_codigo.Text);
-                producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
-                //producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
-                
-                producto.Dolar = combo_moneda.SelectedIndex;
-                producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
-                producto.Cantidad = Int32.Parse(txt_cantidad.Text);
-                producto.Categoria = Convert.ToInt32(combo_categoria.SelectedValue);
-                ControlProducto.AgregarProducto(producto);
+                if (!ControlProducto.validarCodigoExistente(txt_codigo.Text))
+                {
 
-                MessageBox.Show("El producto se agregó correctamente!");
+                    producto.Nombre_producto = txt_producto.Text;
+                    producto.Cod_producto = long.Parse(txt_codigo.Text);
+                    producto.Precio_costo = Convert.ToDecimal(txt_precio_costo.Text);
+                    //producto.Precio_venta = Convert.ToDecimal(txt_precio_venta.Text);
 
-                txt_producto.Text = "";
-                txt_codigo.Text = "";
-                txt_precio_costo.Text = "";
-                //txt_precio_venta.Text = "";
-                txt_stock_minimo.Text = "";
-                txt_cantidad.Text = "";
+                    producto.Dolar = combo_moneda.SelectedIndex;
+                    producto.Stock_minimo = Int32.Parse(txt_stock_minimo.Text);
+                    producto.Cantidad = Int32.Parse(txt_cantidad.Text);
+                    producto.Categoria = Convert.ToInt32(combo_categoria.SelectedValue);
+                    ControlProducto.AgregarProducto(producto);
+
+                    MessageBox.Show("El producto se agregó correctamente!");
+
+                    txt_producto.Text = "";
+                    txt_codigo.Text = "";
+                    txt_precio_costo.Text = "";
+                    //txt_precio_venta.Text = "";
+                    txt_stock_minimo.Text = "";
+                    txt_cantidad.Text = "";
+                    combo_moneda.SelectedIndex = -1;
+                }
+                else { MessageBox.Show("El código de producto ya existe"); }
             }
             txt_producto.Focus();
 
@@ -221,6 +231,7 @@ namespace Omega3.Vista.Productos
         private void AgregarProducto_Load(object sender, EventArgs e)
         {
             ControlProducto.llenarCategorias(combo_categoria);
+            txt_codigo.MaxLength = 13;
         }
     }
 }

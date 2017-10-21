@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reparacion));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_guardar = new System.Windows.Forms.Button();
             this.btn_mano_de_obra = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@
             this.lbl_comentarios = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_repuestos = new System.Windows.Forms.Label();
-            this.txt_guardar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
@@ -111,6 +111,20 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txt_guardar
+            // 
+            resources.ApplyResources(this.txt_guardar, "txt_guardar");
+            this.txt_guardar.Name = "txt_guardar";
+            this.txt_guardar.UseVisualStyleBackColor = true;
+            this.txt_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_mano_de_obra
             // 
@@ -336,20 +350,6 @@
             resources.ApplyResources(this.lbl_repuestos, "lbl_repuestos");
             this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_repuestos.Name = "lbl_repuestos";
-            // 
-            // txt_guardar
-            // 
-            resources.ApplyResources(this.txt_guardar, "txt_guardar");
-            this.txt_guardar.Name = "txt_guardar";
-            this.txt_guardar.UseVisualStyleBackColor = true;
-            this.txt_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Reparacion
             // 

@@ -145,38 +145,66 @@ namespace Omega3.Controlador
             var iva = new DataGridViewTextBoxColumn();
             var descuento = new DataGridViewTextBoxColumn();
             var borrar = new DataGridViewImageColumn();
+            var nuevoItem = new DataGridViewCheckBoxColumn();
             var subtotal = new DataGridViewTextBoxColumn();
+
+            cantidad.HeaderText = "Cantidad";
+            cantidad.Name = "Cantidad";
+            cantidad.ReadOnly = true;
+
+            codigo.HeaderText = "Código";
+            codigo.Name = "Codigo";
+            codigo.ReadOnly = true;
+
+            descripcion.HeaderText = "Descripción";
+            descripcion.Name = "Descripcion";
+            descripcion.ReadOnly = true;
+
+            precio.HeaderText = "Precio Unitario";
+            precio.Name = "Precio";
+            precio.ReadOnly = true;
+
+            iva.HeaderText = "IVA";
+            iva.Name = "iva";
+            iva.ReadOnly = true;
+
+            descuento.HeaderText = "Bonificación";
+            descuento.Name = "Bonificacion";
+            descuento.ReadOnly = true;
+
+            borrar.HeaderText = "Quitar";
+            borrar.Name = "Borrar";
+            borrar.ReadOnly = true;
+
+            subtotal.HeaderText = "Subtotal";
+            subtotal.Name = "Subtotal";
+            subtotal.ReadOnly = true;
+
+            nuevoItem.HeaderText = "Nuevo Item";
+            nuevoItem.Name = "nuevoitem";
+            nuevoItem.Visible = false;
+            nuevoItem.ReadOnly = true;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar,nuevoItem });
+        }
+
+        public static void armarTablaReestablecerStock(DataGridView dgv_tabla)
+        {
+            var cantidad = new DataGridViewTextBoxColumn();
+            var codigo = new DataGridViewTextBoxColumn();
+            
 
             cantidad.HeaderText = "Cantidad";
             cantidad.Name = "Cantidad";
 
             codigo.HeaderText = "Código";
             codigo.Name = "Codigo";
-
-            descripcion.HeaderText = "Descripción";
-            descripcion.Name = "Descripcion";
-
-            precio.HeaderText = "Precio Unitario";
-            precio.Name = "Precio";
-
-            iva.HeaderText = "IVA";
-            iva.Name = "iva";
-
-            descuento.HeaderText = "Bonificación";
-            descuento.Name = "Bonificacion";
-
-            borrar.HeaderText = "Quitar";
-            borrar.Name = "Borrar";
-
-            subtotal.HeaderText = "Subtotal";
-            subtotal.Name = "Subtotal";
-
-
-
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
+            
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo });
+            dgv_tabla.AllowUserToAddRows = false;
         }
 
-        public static int actualizarReparacion(Modelo.Reparacion reparacion, DataGridView dgv_tabla)
+        public static int actualizarReparacion(Modelo.Reparacion reparacion, DataGridView dgv_tabla,bool nuevasFilas)
         {
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
@@ -200,7 +228,7 @@ namespace Omega3.Controlador
             }
 
             catch (Exception ex) { MessageBox.Show("Error en el metodo Actualizar Reparacion\n" + ex); }
-            insertarDetalleReparacion(dgv_tabla, reparacion.id);
+            insertarDetalleReparacion(dgv_tabla, reparacion.id,nuevasFilas);
             return retorno;
 
         }
@@ -211,61 +239,137 @@ namespace Omega3.Controlador
             comentarios.Text = Convert.ToString(_comando.ExecuteScalar());
         }
 
-        
-        public static void insertarDetalleReparacion(DataGridView dgv_tabla,long id)
+
+        public static void insertarDetalleReparacion(DataGridView dgv_tabla, long id, bool nuevasFilas)
         {
             string consulta = "INSERT INTO detalle_reparaciones (id_reparacion, cod_producto, precio, cantidad, iva, bonificacion, subtotal) VALUES";
             string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
             bool updatebool = false;
             bool contador = false;
+            bool hayupdatecantidad = false;
 
-
-          //  dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
-            foreach (DataGridViewRow row in dgv_tabla.Rows)
+            if (nuevasFilas)
             {
 
-                if (contador)
+                foreach (DataGridViewRow row in dgv_tabla.Rows)
+                    if (Convert.ToInt32(row.Cells["nuevoitem"].Value) == 1)
+                    {
+                        {
+
+                            if (contador)
+                            {
+                                consulta += ", (" + id + ",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
+                            }
+                            else
+                            {
+                                consulta += "(" + id + ",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
+                                contador = true;
+                            }
+                            
+                            if (updatebool)
+                            {
+                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                                {
+                                    update += ", (" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
+                                    
+                                }
+                            }
+                            else
+                            {
+                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                                {
+                                    update += "(" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
+                                    updatebool = true;
+                                    hayupdatecantidad = true;
+                                }
+                            }
+
+                        }
+                    }
+
+                update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+
+                Console.WriteLine(consulta);
+                int retorno = 0;
+                MySqlCommand detalle = new MySqlCommand(consulta, Conexion.ObtenerConexion());
+                retorno = detalle.ExecuteNonQuery();
+                if (hayupdatecantidad)
                 {
-                    consulta += ", ("+id+",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
+                    MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+                    retorno = restastock.ExecuteNonQuery();
                 }
-                else
-                {
-                    consulta += "(" + id + ",'" + row.Cells["Codigo"].Value + "'," + row.Cells["Precio"].Value + "," + row.Cells["Cantidad"].Value + "," + row.Cells["iva"].Value + "," + row.Cells["Bonificacion"].Value + "," + row.Cells["Subtotal"].Value + ")";
-                    contador = true;
-                }
-                //PARTE DE UPDATE
-                if (updatebool)
-                {
-
-                    update += ", (" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = " + row.Cells[1].Value + ")-" + row.Cells[0].Value + ")";
-
-                }
-                else
-                {
-
-                    update += "(" + row.Cells[1].Value + ",(SELECT cantidad as cantidod FROM productos as p WHERE cod_producto = " + row.Cells[1].Value + ")-" + row.Cells[0].Value + ")";
-                    updatebool = true;
-                }
-
-
-
             }
-
-            update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
-
-            Console.WriteLine(consulta);
-            int retorno = 0;
-            MySqlCommand detalle = new MySqlCommand(consulta, Conexion.ObtenerConexion());
-            retorno = detalle.ExecuteNonQuery();
-
-           // MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
-            //retorno = restastock.ExecuteNonQuery();
         }
 
-        public static void llenarTablaArticulosReparacion(DataGridView dgv_tabla)
+        public static void sumarStockEliminadoDeDetalle(DataGridView dgv_tabla)
+        {
+            string delete = "DELETE FROM detalle_reparaciones WHERE ";
+            string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
+            bool updatebool = false;
+            bool contador = false;
+            bool hayupdatecantidad = false;
+
+            if (dgv_tabla.Rows.Count > 0)
+            {
+
+                foreach (DataGridViewRow row in dgv_tabla.Rows)
+
+                {
+                    {
+
+                        if (contador)
+                        {
+                            delete += " OR cod_producto = '" + row.Cells["Codigo"].Value + "'";
+                        }
+                        else
+                        {
+                            delete += "cod_producto = '" + row.Cells["Codigo"].Value + "'";
+                            contador = true;
+                        }
+
+                        if (updatebool)
+                        {
+                            if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                            {
+                                update += ", (" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")+" + row.Cells["Cantidad"].Value + ")";
+                                
+                            }
+                        }
+                        else
+                        {
+                            if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                            {
+                                update += "(" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")+" + row.Cells["Cantidad"].Value + ")";
+                                updatebool = true;
+                                hayupdatecantidad = true;
+
+                            }
+                        }
+
+                    }
+                }
+
+                update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+
+                
+                int retorno = 0;
+                MySqlCommand detalle = new MySqlCommand(delete, Conexion.ObtenerConexion());
+                retorno = detalle.ExecuteNonQuery();
+                 if (hayupdatecantidad)
+                 {
+                     MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+                    Console.WriteLine(delete);
+                    retorno = restastock.ExecuteNonQuery();
+                 }
+            }
+            }
+        
+        
+
+        public static void llenarTablaArticulosReparacion(DataGridView dgv_tabla, long id_reparacion)
         {
             int cantidad;
-            string descripcion = "Descripcion";
+            string descripcion;
             string cod_producto;
             double precio = new double();
             double iva = new double();
@@ -274,7 +378,7 @@ namespace Omega3.Controlador
 
             //  dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, descuento, subtotal, borrar });
             MySqlCommand _comando = new MySqlCommand(String.Format(
-                 "SELECT cantidad,cod_producto,precio,iva,bonificacion,subtotal FROM detalle_reparaciones  WHERE id_reparacion ={0}", 5), Conexion.ObtenerConexion());
+                 "SELECT d.cantidad, d.cod_producto, d.precio, d.iva, d.bonificacion, d.subtotal, IF(d.cod_producto = 'R','Mano de Obra',p.producto) FROM detalle_reparaciones d LEFT JOIN productos p on d.cod_producto = p.cod_producto WHERE id_reparacion ={0}", id_reparacion), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
@@ -284,8 +388,8 @@ namespace Omega3.Controlador
                 iva = _reader.GetDouble(3);
                 bonificacion = _reader.GetDouble(4);
                 subtotal = _reader.GetDouble(5);
-
-                dgv_tabla.Rows.Add(cantidad, cod_producto, descripcion, precio, iva, bonificacion, subtotal, null);
+                descripcion = _reader.GetString(6);
+                dgv_tabla.Rows.Add(cantidad, cod_producto, descripcion, precio, iva, bonificacion, subtotal, null,false);
             }
 
         }

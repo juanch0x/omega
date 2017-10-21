@@ -102,7 +102,7 @@
             this.txt_producto.Location = new System.Drawing.Point(207, 32);
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(163, 20);
-            this.txt_producto.TabIndex = 5;
+            this.txt_producto.TabIndex = 0;
             this.txt_producto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_producto_KeyDown);
             this.txt_producto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_producto_KeyPress);
             // 
@@ -111,7 +111,7 @@
             this.txt_codigo.Location = new System.Drawing.Point(207, 60);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.Size = new System.Drawing.Size(163, 20);
-            this.txt_codigo.TabIndex = 6;
+            this.txt_codigo.TabIndex = 1;
             this.txt_codigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_codigo_KeyDown);
             this.txt_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_KeyPress);
             // 
@@ -120,7 +120,7 @@
             this.txt_precio_costo.Location = new System.Drawing.Point(207, 86);
             this.txt_precio_costo.Name = "txt_precio_costo";
             this.txt_precio_costo.Size = new System.Drawing.Size(163, 20);
-            this.txt_precio_costo.TabIndex = 7;
+            this.txt_precio_costo.TabIndex = 2;
             this.txt_precio_costo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_precio_costo_KeyDown);
             this.txt_precio_costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_costo_KeyPress);
             // 
@@ -129,7 +129,7 @@
             this.txt_stock_minimo.Location = new System.Drawing.Point(207, 140);
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 20);
-            this.txt_stock_minimo.TabIndex = 9;
+            this.txt_stock_minimo.TabIndex = 4;
             this.txt_stock_minimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_stock_minimo_KeyDown);
             this.txt_stock_minimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_minimo_KeyPress);
             // 
@@ -139,7 +139,7 @@
             this.btn_agregar.Location = new System.Drawing.Point(28, 227);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(107, 28);
-            this.btn_agregar.TabIndex = 11;
+            this.btn_agregar.TabIndex = 7;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
@@ -150,7 +150,7 @@
             this.btn_salir.Location = new System.Drawing.Point(271, 227);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(75, 28);
-            this.btn_salir.TabIndex = 12;
+            this.btn_salir.TabIndex = 8;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
@@ -170,7 +170,7 @@
             this.txt_cantidad.Location = new System.Drawing.Point(207, 165);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(163, 20);
-            this.txt_cantidad.TabIndex = 10;
+            this.txt_cantidad.TabIndex = 5;
             this.txt_cantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_cantidad_KeyDown);
             this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
             // 
@@ -184,7 +184,7 @@
             this.combo_moneda.Location = new System.Drawing.Point(207, 113);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(163, 21);
-            this.combo_moneda.TabIndex = 14;
+            this.combo_moneda.TabIndex = 3;
             // 
             // combo_categoria
             // 
@@ -193,7 +193,7 @@
             this.combo_categoria.Location = new System.Drawing.Point(207, 191);
             this.combo_categoria.Name = "combo_categoria";
             this.combo_categoria.Size = new System.Drawing.Size(163, 21);
-            this.combo_categoria.TabIndex = 15;
+            this.combo_categoria.TabIndex = 6;
             // 
             // label1
             // 

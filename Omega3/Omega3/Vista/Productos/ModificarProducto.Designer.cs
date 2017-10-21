@@ -52,7 +52,7 @@
             this.btn_salir.Location = new System.Drawing.Point(218, 262);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(82, 27);
-            this.btn_salir.TabIndex = 7;
+            this.btn_salir.TabIndex = 8;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
@@ -63,7 +63,7 @@
             this.btn_modificar.Location = new System.Drawing.Point(12, 262);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(105, 27);
-            this.btn_modificar.TabIndex = 6;
+            this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
@@ -177,7 +177,7 @@
             this.combo_moneda.Location = new System.Drawing.Point(151, 116);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(163, 21);
-            this.combo_moneda.TabIndex = 26;
+            this.combo_moneda.TabIndex = 3;
             // 
             // label2
             // 
@@ -196,7 +196,7 @@
             this.combo_categoria.Location = new System.Drawing.Point(151, 207);
             this.combo_categoria.Name = "combo_categoria";
             this.combo_categoria.Size = new System.Drawing.Size(163, 21);
-            this.combo_categoria.TabIndex = 27;
+            this.combo_categoria.TabIndex = 6;
             // 
             // ModificarProducto
             // 

@@ -44,7 +44,7 @@ namespace Omega3.Vista.Reparaciones
         {
             if (validarCampos())
             {
-                tabla_reparaciones.Rows.Add(1, "R", "Mano de Obra", txt_precio.Text, combo_iva.Text, txt_descuento.Text, txt_precio.Text, null);
+                tabla_reparaciones.Rows.Add(1, "R", "Mano de Obra", txt_precio.Text, combo_iva.Text, txt_descuento.Text, txt_precio.Text, null,true);
 
                 this.Close();
             }

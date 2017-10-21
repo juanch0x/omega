@@ -43,6 +43,7 @@
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,6 @@
             this.txt_dolar_guardado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ventasRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
@@ -179,6 +179,13 @@
             this.errorToolStripMenuItem.Text = "Error";
             this.errorToolStripMenuItem.Click += new System.EventHandler(this.errorToolStripMenuItem_Click);
             // 
+            // ventasRealizadasToolStripMenuItem
+            // 
+            this.ventasRealizadasToolStripMenuItem.Name = "ventasRealizadasToolStripMenuItem";
+            this.ventasRealizadasToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.ventasRealizadasToolStripMenuItem.Text = "Ventas Realizadas";
+            this.ventasRealizadasToolStripMenuItem.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem_Click);
+            // 
             // reparacionesToolStripMenuItem
             // 
             this.reparacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -281,18 +288,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dolar: Sugerido";
             // 
-            // ventasRealizadasToolStripMenuItem
-            // 
-            this.ventasRealizadasToolStripMenuItem.Name = "ventasRealizadasToolStripMenuItem";
-            this.ventasRealizadasToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.ventasRealizadasToolStripMenuItem.Text = "Ventas Realizadas";
-            this.ventasRealizadasToolStripMenuItem.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1034, 491);
             this.Controls.Add(this.panel_dolar);
             this.Controls.Add(this.menuStrip1);
