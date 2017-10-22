@@ -65,6 +65,7 @@ namespace Omega3.Vista.Reparaciones
             ControlReparaciones.llenarComentarios(txt_comentarios, reparacion.id);
             ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion,reparacion.id);
             btn_buscar_reparacion.Enabled = false;
+            calcularTotal();
            
         }
 
@@ -82,14 +83,20 @@ namespace Omega3.Vista.Reparaciones
         {
             decimal precio = new decimal();
 
+            
+
             if (validarCamposAgregarProducto())
             {
 
                 precio = Convert.ToDecimal(lbl_precio.Text) * Convert.ToDecimal(txt_cantidad.Text);
+                precio = precio - (precio * Convert.ToDecimal(txt_descuento.Text) / 100);
+                precio = precio * (Convert.ToDecimal(combo_iva.Text) / 100 + 1);
+
                 if (!validarProductoYaAgregado(Convert.ToString(producto.Cod_producto)))
                 {
                     tabla_reparacion.Rows.Add(txt_cantidad.Text, producto.Cod_producto, lbl_nombre_producto.Text, lbl_precio.Text, combo_iva.Text, txt_descuento.Text, precio, null, true);
                     limpiarCampos();
+                    calcularTotal();
                 }
             }
         }
@@ -148,6 +155,7 @@ namespace Omega3.Vista.Reparaciones
                 a = new ManoDeObra(tabla_reparacion);
 
                 a.ShowDialog();
+                calcularTotal();
             }
             else { MessageBox.Show("La mano de obra ya fue agregada, si desea modificarla, elimínela y agréguela nuevamente!"); }
 
@@ -209,8 +217,8 @@ namespace Omega3.Vista.Reparaciones
                     {
                         tabla_reestablecer_stock.Rows.Add(Convert.ToString(tabla_reparacion.Rows[tabla_reparacion.CurrentCell.RowIndex].Cells["Cantidad"].Value), Convert.ToString(tabla_reparacion.Rows[tabla_reparacion.CurrentCell.RowIndex].Cells["Codigo"].Value));
                     }
-                    tabla_reparacion.Rows.RemoveAt(item.Index);               
-                    
+                    tabla_reparacion.Rows.RemoveAt(item.Index);
+                    calcularTotal();                   
                     
 
                 }
@@ -267,7 +275,7 @@ namespace Omega3.Vista.Reparaciones
             if (validarManoDeObra())
             {
 
-                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), 15, tabla_reparacion);
+                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), Convert.ToDecimal(lbl_subtotal.Text), tabla_reparacion);
                 finalizar.ShowDialog();
             }else { MessageBox.Show("Debe agregar el costo de la mano de obra!"); }
        
@@ -289,6 +297,17 @@ namespace Omega3.Vista.Reparaciones
             return false;
         }
                 
+        private void calcularTotal()
+        {
+         
+            decimal a = new decimal(0);
+            
+            foreach (DataGridViewRow row in tabla_reparacion.Rows)
+            {
+                a += Convert.ToDecimal(row.Cells["Subtotal"].Value);
+            }
+            lbl_subtotal.Text = Convert.ToString(a);
+        }
         
 
     }

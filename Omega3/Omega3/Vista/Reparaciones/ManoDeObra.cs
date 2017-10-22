@@ -42,9 +42,15 @@ namespace Omega3.Vista.Reparaciones
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
+            //decimal subtotal = new decimal(0);
+            decimal precio = new decimal(0);
             if (validarCampos())
             {
-                tabla_reparaciones.Rows.Add(1, "R", "Mano de Obra", txt_precio.Text, combo_iva.Text, txt_descuento.Text, txt_precio.Text, null,true);
+                precio = Convert.ToDecimal(txt_precio.Text);
+                precio = precio - (precio * Convert.ToDecimal(txt_descuento.Text) / 100);
+                precio = precio * (Convert.ToDecimal(combo_iva.Text) / 100 + 1);
+
+                tabla_reparaciones.Rows.Add(1, "R", "Mano de Obra", txt_precio.Text, combo_iva.Text, txt_descuento.Text, precio, null,true);
 
                 this.Close();
             }
