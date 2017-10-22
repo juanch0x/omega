@@ -454,6 +454,8 @@
     <None Include="Resources\btn16over.png" />
     <None Include="Resources\dgv_tabla_cancelar.png" />
     <None Include="Resources\cancelar_1616.png" />
+    <None Include="Resources\linea.bmp" />
+    <None Include="Resources\lineafondo.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

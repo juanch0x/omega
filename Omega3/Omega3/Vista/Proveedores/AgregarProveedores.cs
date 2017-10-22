@@ -130,9 +130,7 @@ namespace Omega3.Vista.Proveedores
             }
             foreach (Control childCtrl in ctrl.Controls) limpiarCombos(childCtrl);
 
-            
+
         }
-
-
     }
 }

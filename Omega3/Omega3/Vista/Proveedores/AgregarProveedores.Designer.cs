@@ -246,9 +246,9 @@
             // 
             this.pictureBox5.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.ErrorImage")));
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(281, 30);
+            this.pictureBox5.Location = new System.Drawing.Point(299, 30);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(118, 15);
+            this.pictureBox5.Size = new System.Drawing.Size(101, 10);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 25;
             this.pictureBox5.TabStop = false;
@@ -257,7 +257,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(299, 3);
+            this.label24.Location = new System.Drawing.Point(308, 3);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(82, 24);
             this.label24.TabIndex = 24;
@@ -268,7 +268,7 @@
             this.panel14.BackColor = System.Drawing.Color.White;
             this.panel14.Controls.Add(this.otros_capacidad);
             this.panel14.Controls.Add(this.label22);
-            this.panel14.Location = new System.Drawing.Point(6, 189);
+            this.panel14.Location = new System.Drawing.Point(5, 177);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(681, 43);
             this.panel14.TabIndex = 23;
@@ -276,6 +276,7 @@
             // otros_capacidad
             // 
             this.otros_capacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.otros_capacidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_capacidad.FormattingEnabled = true;
             this.otros_capacidad.Items.AddRange(new object[] {
             "1",
@@ -288,18 +289,18 @@
             "8",
             "9",
             "10"});
-            this.otros_capacidad.Location = new System.Drawing.Point(555, 9);
+            this.otros_capacidad.Location = new System.Drawing.Point(559, 9);
             this.otros_capacidad.Name = "otros_capacidad";
-            this.otros_capacidad.Size = new System.Drawing.Size(116, 28);
+            this.otros_capacidad.Size = new System.Drawing.Size(116, 26);
             this.otros_capacidad.TabIndex = 1;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(3, 14);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(336, 16);
+            this.label22.Size = new System.Drawing.Size(366, 19);
             this.label22.TabIndex = 0;
             this.label22.Text = "Capacidad de atender pedidos extraordinarios.";
             // 
@@ -308,7 +309,7 @@
             this.panel12.BackColor = System.Drawing.Color.White;
             this.panel12.Controls.Add(this.otros_respuesta);
             this.panel12.Controls.Add(this.label20);
-            this.panel12.Location = new System.Drawing.Point(6, 91);
+            this.panel12.Location = new System.Drawing.Point(5, 79);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(681, 43);
             this.panel12.TabIndex = 22;
@@ -316,6 +317,7 @@
             // otros_respuesta
             // 
             this.otros_respuesta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.otros_respuesta.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_respuesta.FormattingEnabled = true;
             this.otros_respuesta.Items.AddRange(new object[] {
             "1",
@@ -328,18 +330,18 @@
             "8",
             "9",
             "10"});
-            this.otros_respuesta.Location = new System.Drawing.Point(555, 10);
+            this.otros_respuesta.Location = new System.Drawing.Point(559, 10);
             this.otros_respuesta.Name = "otros_respuesta";
-            this.otros_respuesta.Size = new System.Drawing.Size(116, 28);
+            this.otros_respuesta.Size = new System.Drawing.Size(116, 26);
             this.otros_respuesta.TabIndex = 1;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(3, 15);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(420, 16);
+            this.label20.Size = new System.Drawing.Size(455, 19);
             this.label20.TabIndex = 0;
             this.label20.Text = "Capacidad de respuesta ante problemas con la mercadería";
             // 
@@ -348,7 +350,7 @@
             this.panel13.BackColor = System.Drawing.Color.White;
             this.panel13.Controls.Add(this.otros_administrativa);
             this.panel13.Controls.Add(this.label21);
-            this.panel13.Location = new System.Drawing.Point(6, 140);
+            this.panel13.Location = new System.Drawing.Point(5, 128);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(681, 43);
             this.panel13.TabIndex = 21;
@@ -356,6 +358,7 @@
             // otros_administrativa
             // 
             this.otros_administrativa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.otros_administrativa.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_administrativa.FormattingEnabled = true;
             this.otros_administrativa.Items.AddRange(new object[] {
             "1",
@@ -368,18 +371,18 @@
             "8",
             "9",
             "10"});
-            this.otros_administrativa.Location = new System.Drawing.Point(555, 9);
+            this.otros_administrativa.Location = new System.Drawing.Point(559, 9);
             this.otros_administrativa.Name = "otros_administrativa";
-            this.otros_administrativa.Size = new System.Drawing.Size(116, 28);
+            this.otros_administrativa.Size = new System.Drawing.Size(116, 26);
             this.otros_administrativa.TabIndex = 1;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(3, 14);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(390, 16);
+            this.label21.Size = new System.Drawing.Size(421, 19);
             this.label21.TabIndex = 0;
             this.label21.Text = "Área administrativa (envió de FC, aviso de cta. cte. etc)";
             // 
@@ -400,9 +403,9 @@
             // 
             this.pictureBox4.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.ErrorImage")));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(95, 33);
+            this.pictureBox4.Location = new System.Drawing.Point(139, 28);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(481, 15);
+            this.pictureBox4.Size = new System.Drawing.Size(420, 10);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 21;
             this.pictureBox4.TabStop = false;
@@ -410,10 +413,10 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(133, 6);
+            this.label23.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(156, 3);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(403, 24);
+            this.label23.Size = new System.Drawing.Size(387, 22);
             this.label23.TabIndex = 19;
             this.label23.Text = "ASPECTOS DEL PAGO COMO EMPRESA";
             // 
@@ -422,9 +425,9 @@
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.Controls.Add(this.pagos_plazo);
             this.panel10.Controls.Add(this.label13);
-            this.panel10.Location = new System.Drawing.Point(7, 148);
+            this.panel10.Location = new System.Drawing.Point(7, 79);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(674, 43);
+            this.panel10.Size = new System.Drawing.Size(674, 41);
             this.panel10.TabIndex = 18;
             // 
             // pagos_plazo
@@ -442,7 +445,7 @@
             "8",
             "9",
             "10"});
-            this.pagos_plazo.Location = new System.Drawing.Point(562, 10);
+            this.pagos_plazo.Location = new System.Drawing.Point(562, 7);
             this.pagos_plazo.Name = "pagos_plazo";
             this.pagos_plazo.Size = new System.Drawing.Size(109, 28);
             this.pagos_plazo.TabIndex = 1;
@@ -450,10 +453,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 15);
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 12);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 16);
+            this.label13.Size = new System.Drawing.Size(128, 19);
             this.label13.TabIndex = 0;
             this.label13.Text = "Plazos de Pago";
             // 
@@ -462,7 +465,7 @@
             this.panel11.BackColor = System.Drawing.Color.White;
             this.panel11.Controls.Add(this.pago_descuento);
             this.panel11.Controls.Add(this.label14);
-            this.panel11.Location = new System.Drawing.Point(7, 197);
+            this.panel11.Location = new System.Drawing.Point(7, 126);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(674, 43);
             this.panel11.TabIndex = 17;
@@ -490,10 +493,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(3, 14);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(380, 16);
+            this.label14.Size = new System.Drawing.Size(414, 19);
             this.label14.TabIndex = 0;
             this.label14.Text = "Posibilidad de obtener descuentos / negociar precios";
             // 
@@ -516,9 +519,9 @@
             // 
             this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(84, 30);
+            this.pictureBox3.Location = new System.Drawing.Point(92, 30);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(516, 15);
+            this.pictureBox3.Size = new System.Drawing.Size(496, 10);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
@@ -526,10 +529,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(108, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(465, 24);
+            this.label6.Size = new System.Drawing.Size(449, 22);
             this.label6.TabIndex = 18;
             this.label6.Text = "ASPECTOS SOBRE LA CALIDAD DEL SERVICIO";
             // 
@@ -538,7 +541,7 @@
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.calidad_plazo);
             this.panel9.Controls.Add(this.label9);
-            this.panel9.Location = new System.Drawing.Point(7, 111);
+            this.panel9.Location = new System.Drawing.Point(7, 79);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(680, 43);
             this.panel9.TabIndex = 16;
@@ -546,6 +549,7 @@
             // calidad_plazo
             // 
             this.calidad_plazo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.calidad_plazo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_plazo.FormattingEnabled = true;
             this.calidad_plazo.Items.AddRange(new object[] {
             "1",
@@ -560,16 +564,16 @@
             "10"});
             this.calidad_plazo.Location = new System.Drawing.Point(553, 10);
             this.calidad_plazo.Name = "calidad_plazo";
-            this.calidad_plazo.Size = new System.Drawing.Size(121, 28);
+            this.calidad_plazo.Size = new System.Drawing.Size(121, 26);
             this.calidad_plazo.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 15);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(252, 16);
+            this.label9.Size = new System.Drawing.Size(278, 19);
             this.label9.TabIndex = 0;
             this.label9.Text = "Cumplimiento de plazos de entrega";
             // 
@@ -578,7 +582,7 @@
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.calidad_cuidado);
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Location = new System.Drawing.Point(7, 209);
+            this.panel8.Location = new System.Drawing.Point(7, 177);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(680, 43);
             this.panel8.TabIndex = 3;
@@ -586,6 +590,7 @@
             // calidad_cuidado
             // 
             this.calidad_cuidado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.calidad_cuidado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_cuidado.FormattingEnabled = true;
             this.calidad_cuidado.Items.AddRange(new object[] {
             "1",
@@ -600,16 +605,16 @@
             "10"});
             this.calidad_cuidado.Location = new System.Drawing.Point(553, 9);
             this.calidad_cuidado.Name = "calidad_cuidado";
-            this.calidad_cuidado.Size = new System.Drawing.Size(121, 28);
+            this.calidad_cuidado.Size = new System.Drawing.Size(121, 26);
             this.calidad_cuidado.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 14);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(195, 16);
+            this.label11.Size = new System.Drawing.Size(213, 19);
             this.label11.TabIndex = 0;
             this.label11.Text = "Cuidado con la mercaderia";
             // 
@@ -618,7 +623,7 @@
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.calidad_costo);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Location = new System.Drawing.Point(7, 160);
+            this.panel6.Location = new System.Drawing.Point(7, 128);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(680, 43);
             this.panel6.TabIndex = 1;
@@ -626,6 +631,7 @@
             // calidad_costo
             // 
             this.calidad_costo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.calidad_costo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_costo.FormattingEnabled = true;
             this.calidad_costo.Items.AddRange(new object[] {
             "1",
@@ -640,16 +646,16 @@
             "10"});
             this.calidad_costo.Location = new System.Drawing.Point(553, 9);
             this.calidad_costo.Name = "calidad_costo";
-            this.calidad_costo.Size = new System.Drawing.Size(121, 28);
+            this.calidad_costo.Size = new System.Drawing.Size(121, 26);
             this.calidad_costo.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 14);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(168, 16);
+            this.label10.Size = new System.Drawing.Size(182, 19);
             this.label10.TabIndex = 0;
             this.label10.Text = "Relacion costo calidad";
             // 
@@ -675,9 +681,9 @@
             // 
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(106, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(99, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(516, 15);
+            this.pictureBox1.Size = new System.Drawing.Size(501, 10);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
@@ -695,6 +701,7 @@
             // transporte_pais
             // 
             this.transporte_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_pais.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_pais.FormattingEnabled = true;
             this.transporte_pais.Items.AddRange(new object[] {
             "1",
@@ -709,16 +716,16 @@
             "10"});
             this.transporte_pais.Location = new System.Drawing.Point(553, 8);
             this.transporte_pais.Name = "transporte_pais";
-            this.transporte_pais.Size = new System.Drawing.Size(121, 28);
+            this.transporte_pais.Size = new System.Drawing.Size(121, 26);
             this.transporte_pais.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 16);
+            this.label7.Size = new System.Drawing.Size(214, 19);
             this.label7.TabIndex = 0;
             this.label7.Text = "Transporte por todo el pais";
             // 
@@ -735,6 +742,7 @@
             // transporte_capacidad
             // 
             this.transporte_capacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_capacidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_capacidad.FormattingEnabled = true;
             this.transporte_capacidad.Items.AddRange(new object[] {
             "1",
@@ -749,16 +757,16 @@
             "10"});
             this.transporte_capacidad.Location = new System.Drawing.Point(553, 9);
             this.transporte_capacidad.Name = "transporte_capacidad";
-            this.transporte_capacidad.Size = new System.Drawing.Size(121, 28);
+            this.transporte_capacidad.Size = new System.Drawing.Size(121, 26);
             this.transporte_capacidad.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 14);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 16);
+            this.label8.Size = new System.Drawing.Size(197, 19);
             this.label8.TabIndex = 0;
             this.label8.Text = "Capacidad de transporte";
             // 
@@ -775,6 +783,7 @@
             // transporte_financiera
             // 
             this.transporte_financiera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_financiera.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_financiera.FormattingEnabled = true;
             this.transporte_financiera.Items.AddRange(new object[] {
             "1",
@@ -789,16 +798,16 @@
             "10"});
             this.transporte_financiera.Location = new System.Drawing.Point(553, 11);
             this.transporte_financiera.Name = "transporte_financiera";
-            this.transporte_financiera.Size = new System.Drawing.Size(121, 28);
+            this.transporte_financiera.Size = new System.Drawing.Size(121, 26);
             this.transporte_financiera.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 16);
+            this.label5.Size = new System.Drawing.Size(160, 19);
             this.label5.TabIndex = 0;
             this.label5.Text = "Situacion financiera";
             // 
@@ -815,6 +824,7 @@
             // transporte_antecedentes
             // 
             this.transporte_antecedentes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_antecedentes.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_antecedentes.FormattingEnabled = true;
             this.transporte_antecedentes.Items.AddRange(new object[] {
             "1",
@@ -829,16 +839,16 @@
             "10"});
             this.transporte_antecedentes.Location = new System.Drawing.Point(553, 8);
             this.transporte_antecedentes.Name = "transporte_antecedentes";
-            this.transporte_antecedentes.Size = new System.Drawing.Size(121, 28);
+            this.transporte_antecedentes.Size = new System.Drawing.Size(121, 26);
             this.transporte_antecedentes.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 16);
+            this.label4.Size = new System.Drawing.Size(114, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Antecedentes";
             // 
@@ -855,6 +865,7 @@
             // transporte_prestigio
             // 
             this.transporte_prestigio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_prestigio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_prestigio.FormattingEnabled = true;
             this.transporte_prestigio.Items.AddRange(new object[] {
             "1",
@@ -869,16 +880,16 @@
             "10"});
             this.transporte_prestigio.Location = new System.Drawing.Point(553, 10);
             this.transporte_prestigio.Name = "transporte_prestigio";
-            this.transporte_prestigio.Size = new System.Drawing.Size(121, 28);
+            this.transporte_prestigio.Size = new System.Drawing.Size(121, 26);
             this.transporte_prestigio.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 16);
+            this.label3.Size = new System.Drawing.Size(168, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Prestigio de la marca";
             // 
@@ -895,6 +906,7 @@
             // transporte_posicion
             // 
             this.transporte_posicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transporte_posicion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_posicion.FormattingEnabled = true;
             this.transporte_posicion.Items.AddRange(new object[] {
             "1",
@@ -909,26 +921,26 @@
             "10"});
             this.transporte_posicion.Location = new System.Drawing.Point(553, 9);
             this.transporte_posicion.Name = "transporte_posicion";
-            this.transporte_posicion.Size = new System.Drawing.Size(121, 28);
+            this.transporte_posicion.Size = new System.Drawing.Size(121, 26);
             this.transporte_posicion.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 16);
+            this.label2.Size = new System.Drawing.Size(187, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Posición en el mercado";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(118, 3);
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(117, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(484, 24);
+            this.label1.Size = new System.Drawing.Size(464, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "ASPECTOS DEL TRANSPORTE COMO EMPRESA";
             // 
@@ -967,119 +979,127 @@
             // 
             this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(215, 30);
+            this.pictureBox2.Location = new System.Drawing.Point(223, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(255, 15);
+            this.pictureBox2.Size = new System.Drawing.Size(240, 10);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
             // txt_email2
             // 
-            this.txt_email2.Location = new System.Drawing.Point(344, 250);
+            this.txt_email2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email2.Location = new System.Drawing.Point(344, 271);
             this.txt_email2.Name = "txt_email2";
-            this.txt_email2.Size = new System.Drawing.Size(160, 26);
+            this.txt_email2.Size = new System.Drawing.Size(160, 25);
             this.txt_email2.TabIndex = 6;
             // 
             // txt_email3
             // 
-            this.txt_email3.Location = new System.Drawing.Point(344, 282);
+            this.txt_email3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email3.Location = new System.Drawing.Point(344, 303);
             this.txt_email3.Name = "txt_email3";
-            this.txt_email3.Size = new System.Drawing.Size(160, 26);
+            this.txt_email3.Size = new System.Drawing.Size(160, 25);
             this.txt_email3.TabIndex = 7;
             // 
             // txt_proveedor
             // 
             this.txt_proveedor.BackColor = System.Drawing.Color.White;
             this.txt_proveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_proveedor.Location = new System.Drawing.Point(344, 58);
+            this.txt_proveedor.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proveedor.Location = new System.Drawing.Point(344, 79);
             this.txt_proveedor.Name = "txt_proveedor";
-            this.txt_proveedor.Size = new System.Drawing.Size(160, 26);
+            this.txt_proveedor.Size = new System.Drawing.Size(160, 25);
             this.txt_proveedor.TabIndex = 0;
             this.txt_proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_proveedor_KeyPress);
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Location = new System.Drawing.Point(344, 90);
+            this.txt_telefono.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_telefono.Location = new System.Drawing.Point(344, 111);
             this.txt_telefono.Name = "txt_telefono";
-            this.txt_telefono.Size = new System.Drawing.Size(160, 26);
+            this.txt_telefono.Size = new System.Drawing.Size(160, 25);
             this.txt_telefono.TabIndex = 1;
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(344, 218);
+            this.txt_email.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Location = new System.Drawing.Point(344, 239);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(160, 26);
+            this.txt_email.Size = new System.Drawing.Size(160, 25);
             this.txt_email.TabIndex = 5;
             // 
             // txt_direccion
             // 
-            this.txt_direccion.Location = new System.Drawing.Point(344, 122);
+            this.txt_direccion.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_direccion.Location = new System.Drawing.Point(344, 143);
             this.txt_direccion.Name = "txt_direccion";
-            this.txt_direccion.Size = new System.Drawing.Size(160, 26);
+            this.txt_direccion.Size = new System.Drawing.Size(160, 25);
             this.txt_direccion.TabIndex = 2;
             this.txt_direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_direccion_KeyPress);
             // 
             // txt_codigo_postal
             // 
-            this.txt_codigo_postal.Location = new System.Drawing.Point(344, 186);
+            this.txt_codigo_postal.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_codigo_postal.Location = new System.Drawing.Point(344, 207);
             this.txt_codigo_postal.Name = "txt_codigo_postal";
-            this.txt_codigo_postal.Size = new System.Drawing.Size(160, 26);
+            this.txt_codigo_postal.Size = new System.Drawing.Size(160, 25);
             this.txt_codigo_postal.TabIndex = 4;
             this.txt_codigo_postal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_postal_KeyPress);
             // 
             // txt_provincia
             // 
-            this.txt_provincia.Location = new System.Drawing.Point(344, 154);
+            this.txt_provincia.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_provincia.Location = new System.Drawing.Point(344, 175);
             this.txt_provincia.Name = "txt_provincia";
-            this.txt_provincia.Size = new System.Drawing.Size(160, 26);
+            this.txt_provincia.Size = new System.Drawing.Size(160, 25);
             this.txt_provincia.TabIndex = 3;
             this.txt_provincia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_provincia_KeyPress);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(193, 258);
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(193, 279);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 18);
+            this.label19.Size = new System.Drawing.Size(56, 19);
             this.label19.TabIndex = 19;
             this.label19.Text = "E-mail";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(192, 290);
+            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(192, 311);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 18);
+            this.label18.Size = new System.Drawing.Size(56, 19);
             this.label18.TabIndex = 17;
             this.label18.Text = "E-mail";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(233, 3);
+            this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(242, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(215, 24);
+            this.label12.Size = new System.Drawing.Size(203, 22);
             this.label12.TabIndex = 15;
             this.label12.Text = "CREAR PROVEEDOR";
             // 
             // lbl_proveedor
             // 
             this.lbl_proveedor.AutoSize = true;
-            this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_proveedor.Location = new System.Drawing.Point(193, 66);
+            this.lbl_proveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_proveedor.Location = new System.Drawing.Point(193, 87);
             this.lbl_proveedor.Name = "lbl_proveedor";
-            this.lbl_proveedor.Size = new System.Drawing.Size(86, 18);
+            this.lbl_proveedor.Size = new System.Drawing.Size(89, 19);
             this.lbl_proveedor.TabIndex = 0;
             this.lbl_proveedor.Text = "Proveedor";
             // 
             // btn_salir
             // 
-            this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_salir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_salir.Location = new System.Drawing.Point(438, 402);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(90, 33);
@@ -1090,7 +1110,7 @@
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_limpiar.Location = new System.Drawing.Point(300, 402);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(90, 33);
@@ -1102,17 +1122,17 @@
             // lbl_telefono
             // 
             this.lbl_telefono.AutoSize = true;
-            this.lbl_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_telefono.Location = new System.Drawing.Point(193, 98);
+            this.lbl_telefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_telefono.Location = new System.Drawing.Point(193, 119);
             this.lbl_telefono.Name = "lbl_telefono";
-            this.lbl_telefono.Size = new System.Drawing.Size(74, 18);
+            this.lbl_telefono.Size = new System.Drawing.Size(75, 19);
             this.lbl_telefono.TabIndex = 2;
             this.lbl_telefono.Text = "Teléfono";
             // 
             // btn_agregar
             // 
             this.btn_agregar.FlatAppearance.BorderSize = 0;
-            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(152, 402);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(90, 33);
@@ -1124,40 +1144,40 @@
             // lbl_direccion
             // 
             this.lbl_direccion.AutoSize = true;
-            this.lbl_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_direccion.Location = new System.Drawing.Point(193, 130);
+            this.lbl_direccion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_direccion.Location = new System.Drawing.Point(193, 151);
             this.lbl_direccion.Name = "lbl_direccion";
-            this.lbl_direccion.Size = new System.Drawing.Size(80, 18);
+            this.lbl_direccion.Size = new System.Drawing.Size(82, 19);
             this.lbl_direccion.TabIndex = 4;
             this.lbl_direccion.Text = "Dirección";
             // 
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
-            this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_email.Location = new System.Drawing.Point(193, 226);
+            this.lbl_email.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Location = new System.Drawing.Point(193, 247);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(56, 18);
+            this.lbl_email.Size = new System.Drawing.Size(56, 19);
             this.lbl_email.TabIndex = 10;
             this.lbl_email.Text = "E-mail";
             // 
             // lbl_codigo_postal
             // 
             this.lbl_codigo_postal.AutoSize = true;
-            this.lbl_codigo_postal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_codigo_postal.Location = new System.Drawing.Point(193, 194);
+            this.lbl_codigo_postal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_codigo_postal.Location = new System.Drawing.Point(193, 215);
             this.lbl_codigo_postal.Name = "lbl_codigo_postal";
-            this.lbl_codigo_postal.Size = new System.Drawing.Size(115, 18);
+            this.lbl_codigo_postal.Size = new System.Drawing.Size(117, 19);
             this.lbl_codigo_postal.TabIndex = 9;
             this.lbl_codigo_postal.Text = "Codigo Postal";
             // 
             // lbl_provincia
             // 
             this.lbl_provincia.AutoSize = true;
-            this.lbl_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_provincia.Location = new System.Drawing.Point(193, 162);
+            this.lbl_provincia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_provincia.Location = new System.Drawing.Point(193, 183);
             this.lbl_provincia.Name = "lbl_provincia";
-            this.lbl_provincia.Size = new System.Drawing.Size(78, 18);
+            this.lbl_provincia.Size = new System.Drawing.Size(81, 19);
             this.lbl_provincia.TabIndex = 6;
             this.lbl_provincia.Text = "Provincia";
             // 
@@ -1182,6 +1202,8 @@
             this.ClientSize = new System.Drawing.Size(690, 482);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AgregarProveedores";
             this.Text = "Agregar Proveedores";
             this.tabPage6.ResumeLayout(false);
