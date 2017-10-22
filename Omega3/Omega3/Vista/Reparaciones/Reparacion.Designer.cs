@@ -46,14 +46,11 @@
             this.btn_buscar_producto = new System.Windows.Forms.Button();
             this.txt_comentarios = new System.Windows.Forms.TextBox();
             this.txt_nmotor = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_buscar_reparacion = new System.Windows.Forms.Button();
             this.tabla_reparacion = new System.Windows.Forms.DataGridView();
             this.txt_problema = new System.Windows.Forms.TextBox();
             this.txt_maquina = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbl_subtotal = new System.Windows.Forms.Label();
             this.lbl_entrega = new System.Windows.Forms.Label();
             this.lbl_cliente = new System.Windows.Forms.Label();
@@ -62,14 +59,9 @@
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.lbl_trabajo = new System.Windows.Forms.Label();
             this.lbl_comentarios = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_repuestos = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -92,14 +84,11 @@
             this.panel2.Controls.Add(this.btn_buscar_producto);
             this.panel2.Controls.Add(this.txt_comentarios);
             this.panel2.Controls.Add(this.txt_nmotor);
-            this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btn_buscar_reparacion);
             this.panel2.Controls.Add(this.tabla_reparacion);
             this.panel2.Controls.Add(this.txt_problema);
             this.panel2.Controls.Add(this.txt_maquina);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.lbl_subtotal);
             this.panel2.Controls.Add(this.lbl_entrega);
             this.panel2.Controls.Add(this.lbl_cliente);
@@ -108,7 +97,6 @@
             this.panel2.Controls.Add(this.txt_cliente);
             this.panel2.Controls.Add(this.lbl_trabajo);
             this.panel2.Controls.Add(this.lbl_comentarios);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
             // 
@@ -210,19 +198,11 @@
             // 
             // txt_nmotor
             // 
-            this.txt_nmotor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_nmotor.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.txt_nmotor, "txt_nmotor");
             this.txt_nmotor.Name = "txt_nmotor";
             this.txt_nmotor.ReadOnly = true;
             this.txt_nmotor.Tag = "Nº Motor";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.TabStop = false;
             // 
             // label1
             // 
@@ -256,35 +236,17 @@
             // 
             // txt_problema
             // 
-            this.txt_problema.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.txt_problema, "txt_problema");
             this.txt_problema.Name = "txt_problema";
             this.txt_problema.Tag = "Problema";
             // 
             // txt_maquina
             // 
-            this.txt_maquina.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_maquina.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.txt_maquina, "txt_maquina");
             this.txt_maquina.Name = "txt_maquina";
             this.txt_maquina.ReadOnly = true;
             this.txt_maquina.Tag = "Máquina";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "Máquina";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
             // 
             // lbl_subtotal
             // 
@@ -318,9 +280,9 @@
             // 
             // txt_cliente
             // 
-            this.txt_cliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_cliente.ForeColor = System.Drawing.Color.Black;
+            this.txt_cliente.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.txt_cliente, "txt_cliente");
+            this.txt_cliente.ForeColor = System.Drawing.Color.Black;
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.ReadOnly = true;
             this.txt_cliente.Tag = "Cliente";
@@ -337,14 +299,6 @@
             this.lbl_comentarios.BackColor = System.Drawing.Color.Transparent;
             this.lbl_comentarios.Name = "lbl_comentarios";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Omega3.Properties.Resources.field;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // lbl_repuestos
             // 
             resources.ApplyResources(this.lbl_repuestos, "lbl_repuestos");
@@ -357,15 +311,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Reparacion";
             this.Load += new System.EventHandler(this.Reparacion_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,13 +336,9 @@
         private System.Windows.Forms.TextBox txt_problema;
         private System.Windows.Forms.DateTimePicker txt_fecha;
         private System.Windows.Forms.Label lbl_entrega;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btn_buscar_reparacion;
         private System.Windows.Forms.TextBox txt_nmotor;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_comentarios;
         private System.Windows.Forms.Button btn_buscar_producto;

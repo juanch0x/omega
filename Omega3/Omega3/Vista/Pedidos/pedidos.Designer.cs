@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.Status = new System.Windows.Forms.DataGridViewImageColumn();
@@ -55,25 +55,25 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Status});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
             this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
@@ -98,24 +98,25 @@
             // combo_filtro
             // 
             this.combo_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_filtro.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_filtro.FormattingEnabled = true;
             this.combo_filtro.Items.AddRange(new object[] {
             "Todos",
             "Finalizados",
             "Pendientes"});
-            this.combo_filtro.Location = new System.Drawing.Point(92, 22);
+            this.combo_filtro.Location = new System.Drawing.Point(107, 21);
             this.combo_filtro.Name = "combo_filtro";
-            this.combo_filtro.Size = new System.Drawing.Size(121, 21);
+            this.combo_filtro.Size = new System.Drawing.Size(121, 24);
             this.combo_filtro.TabIndex = 2;
             this.combo_filtro.SelectedIndexChanged += new System.EventHandler(this.combo_filtro_SelectedIndexChanged);
             // 
             // lbl_filtro
             // 
             this.lbl_filtro.AutoSize = true;
-            this.lbl_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_filtro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_filtro.Location = new System.Drawing.Point(12, 23);
             this.lbl_filtro.Name = "lbl_filtro";
-            this.lbl_filtro.Size = new System.Drawing.Size(50, 20);
+            this.lbl_filtro.Size = new System.Drawing.Size(48, 19);
             this.lbl_filtro.TabIndex = 3;
             this.lbl_filtro.Text = "Filtro";
             // 
@@ -136,8 +137,9 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "pedidos";
-            this.Text = "PEDIDOS";
+            this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.pedidos_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();

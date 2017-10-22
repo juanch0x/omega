@@ -73,6 +73,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.calidad_plazo = new System.Windows.Forms.ComboBox();
@@ -84,6 +85,7 @@
             this.calidad_costo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pagos_plazo = new System.Windows.Forms.ComboBox();
@@ -92,6 +94,7 @@
             this.pago_descuento = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.otros_capacidad = new System.Windows.Forms.ComboBox();
@@ -102,9 +105,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.otros_administrativa = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,19 +117,19 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -189,7 +189,7 @@
             // 
             // txt_email2
             // 
-            this.txt_email2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_email2.Location = new System.Drawing.Point(344, 272);
             this.txt_email2.Name = "txt_email2";
             this.txt_email2.Size = new System.Drawing.Size(160, 25);
@@ -197,7 +197,7 @@
             // 
             // txt_email3
             // 
-            this.txt_email3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_email3.Location = new System.Drawing.Point(344, 304);
             this.txt_email3.Name = "txt_email3";
             this.txt_email3.Size = new System.Drawing.Size(160, 25);
@@ -207,7 +207,7 @@
             // 
             this.txt_proveedor.BackColor = System.Drawing.Color.White;
             this.txt_proveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_proveedor.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proveedor.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_proveedor.Location = new System.Drawing.Point(344, 80);
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.Size = new System.Drawing.Size(160, 25);
@@ -215,7 +215,7 @@
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_telefono.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_telefono.Location = new System.Drawing.Point(344, 112);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(160, 25);
@@ -223,7 +223,7 @@
             // 
             // txt_email
             // 
-            this.txt_email.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_email.Location = new System.Drawing.Point(344, 240);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(160, 25);
@@ -231,7 +231,7 @@
             // 
             // txt_direccion
             // 
-            this.txt_direccion.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_direccion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_direccion.Location = new System.Drawing.Point(344, 144);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(160, 25);
@@ -239,7 +239,7 @@
             // 
             // txt_codigo_postal
             // 
-            this.txt_codigo_postal.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_codigo_postal.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_codigo_postal.Location = new System.Drawing.Point(344, 208);
             this.txt_codigo_postal.Name = "txt_codigo_postal";
             this.txt_codigo_postal.Size = new System.Drawing.Size(160, 25);
@@ -247,7 +247,7 @@
             // 
             // txt_provincia
             // 
-            this.txt_provincia.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_provincia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_provincia.Location = new System.Drawing.Point(344, 176);
             this.txt_provincia.Name = "txt_provincia";
             this.txt_provincia.Size = new System.Drawing.Size(160, 25);
@@ -417,7 +417,7 @@
             // transporte_pais
             // 
             this.transporte_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_pais.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_pais.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_pais.FormattingEnabled = true;
             this.transporte_pais.Items.AddRange(new object[] {
             "1",
@@ -432,7 +432,7 @@
             "10"});
             this.transporte_pais.Location = new System.Drawing.Point(553, 8);
             this.transporte_pais.Name = "transporte_pais";
-            this.transporte_pais.Size = new System.Drawing.Size(121, 26);
+            this.transporte_pais.Size = new System.Drawing.Size(121, 25);
             this.transporte_pais.TabIndex = 1;
             // 
             // label7
@@ -458,7 +458,7 @@
             // transporte_capacidad
             // 
             this.transporte_capacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_capacidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_capacidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_capacidad.FormattingEnabled = true;
             this.transporte_capacidad.Items.AddRange(new object[] {
             "1",
@@ -473,7 +473,7 @@
             "10"});
             this.transporte_capacidad.Location = new System.Drawing.Point(553, 9);
             this.transporte_capacidad.Name = "transporte_capacidad";
-            this.transporte_capacidad.Size = new System.Drawing.Size(121, 26);
+            this.transporte_capacidad.Size = new System.Drawing.Size(121, 25);
             this.transporte_capacidad.TabIndex = 1;
             // 
             // label8
@@ -499,7 +499,7 @@
             // transporte_financiera
             // 
             this.transporte_financiera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_financiera.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_financiera.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_financiera.FormattingEnabled = true;
             this.transporte_financiera.Items.AddRange(new object[] {
             "1",
@@ -514,7 +514,7 @@
             "10"});
             this.transporte_financiera.Location = new System.Drawing.Point(553, 11);
             this.transporte_financiera.Name = "transporte_financiera";
-            this.transporte_financiera.Size = new System.Drawing.Size(121, 26);
+            this.transporte_financiera.Size = new System.Drawing.Size(121, 25);
             this.transporte_financiera.TabIndex = 1;
             // 
             // label5
@@ -540,7 +540,7 @@
             // transporte_antecedentes
             // 
             this.transporte_antecedentes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_antecedentes.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_antecedentes.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_antecedentes.FormattingEnabled = true;
             this.transporte_antecedentes.Items.AddRange(new object[] {
             "1",
@@ -555,7 +555,7 @@
             "10"});
             this.transporte_antecedentes.Location = new System.Drawing.Point(553, 8);
             this.transporte_antecedentes.Name = "transporte_antecedentes";
-            this.transporte_antecedentes.Size = new System.Drawing.Size(121, 26);
+            this.transporte_antecedentes.Size = new System.Drawing.Size(121, 25);
             this.transporte_antecedentes.TabIndex = 1;
             // 
             // label4
@@ -581,7 +581,7 @@
             // transporte_prestigio
             // 
             this.transporte_prestigio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_prestigio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_prestigio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_prestigio.FormattingEnabled = true;
             this.transporte_prestigio.Items.AddRange(new object[] {
             "1",
@@ -596,7 +596,7 @@
             "10"});
             this.transporte_prestigio.Location = new System.Drawing.Point(553, 10);
             this.transporte_prestigio.Name = "transporte_prestigio";
-            this.transporte_prestigio.Size = new System.Drawing.Size(121, 26);
+            this.transporte_prestigio.Size = new System.Drawing.Size(121, 25);
             this.transporte_prestigio.TabIndex = 1;
             // 
             // label3
@@ -622,7 +622,7 @@
             // transporte_posicion
             // 
             this.transporte_posicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transporte_posicion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transporte_posicion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transporte_posicion.FormattingEnabled = true;
             this.transporte_posicion.Items.AddRange(new object[] {
             "1",
@@ -637,7 +637,7 @@
             "10"});
             this.transporte_posicion.Location = new System.Drawing.Point(553, 9);
             this.transporte_posicion.Name = "transporte_posicion";
-            this.transporte_posicion.Size = new System.Drawing.Size(121, 26);
+            this.transporte_posicion.Size = new System.Drawing.Size(121, 25);
             this.transporte_posicion.TabIndex = 2;
             // 
             // label2
@@ -676,6 +676,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Calidad";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Omega3.Properties.Resources.lineafondo;
+            this.pictureBox3.Location = new System.Drawing.Point(118, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(463, 10);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 19;
+            this.pictureBox3.TabStop = false;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -699,7 +709,7 @@
             // calidad_plazo
             // 
             this.calidad_plazo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.calidad_plazo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calidad_plazo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_plazo.FormattingEnabled = true;
             this.calidad_plazo.Items.AddRange(new object[] {
             "1",
@@ -714,7 +724,7 @@
             "10"});
             this.calidad_plazo.Location = new System.Drawing.Point(553, 10);
             this.calidad_plazo.Name = "calidad_plazo";
-            this.calidad_plazo.Size = new System.Drawing.Size(121, 26);
+            this.calidad_plazo.Size = new System.Drawing.Size(121, 25);
             this.calidad_plazo.TabIndex = 1;
             // 
             // label9
@@ -740,7 +750,7 @@
             // calidad_cuidado
             // 
             this.calidad_cuidado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.calidad_cuidado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calidad_cuidado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_cuidado.FormattingEnabled = true;
             this.calidad_cuidado.Items.AddRange(new object[] {
             "1",
@@ -755,7 +765,7 @@
             "10"});
             this.calidad_cuidado.Location = new System.Drawing.Point(553, 9);
             this.calidad_cuidado.Name = "calidad_cuidado";
-            this.calidad_cuidado.Size = new System.Drawing.Size(121, 26);
+            this.calidad_cuidado.Size = new System.Drawing.Size(121, 25);
             this.calidad_cuidado.TabIndex = 1;
             // 
             // label11
@@ -781,7 +791,7 @@
             // calidad_costo
             // 
             this.calidad_costo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.calidad_costo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calidad_costo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calidad_costo.FormattingEnabled = true;
             this.calidad_costo.Items.AddRange(new object[] {
             "1",
@@ -796,7 +806,7 @@
             "10"});
             this.calidad_costo.Location = new System.Drawing.Point(553, 9);
             this.calidad_costo.Name = "calidad_costo";
-            this.calidad_costo.Size = new System.Drawing.Size(121, 26);
+            this.calidad_costo.Size = new System.Drawing.Size(121, 25);
             this.calidad_costo.TabIndex = 1;
             // 
             // label10
@@ -822,6 +832,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pago";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Omega3.Properties.Resources.lineafondo;
+            this.pictureBox4.Location = new System.Drawing.Point(151, 28);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(397, 10);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 20;
+            this.pictureBox4.TabStop = false;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -845,7 +865,7 @@
             // pagos_plazo
             // 
             this.pagos_plazo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pagos_plazo.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagos_plazo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pagos_plazo.FormattingEnabled = true;
             this.pagos_plazo.Items.AddRange(new object[] {
             "1",
@@ -860,7 +880,7 @@
             "10"});
             this.pagos_plazo.Location = new System.Drawing.Point(562, 10);
             this.pagos_plazo.Name = "pagos_plazo";
-            this.pagos_plazo.Size = new System.Drawing.Size(109, 28);
+            this.pagos_plazo.Size = new System.Drawing.Size(109, 25);
             this.pagos_plazo.TabIndex = 1;
             // 
             // label13
@@ -886,7 +906,7 @@
             // pago_descuento
             // 
             this.pago_descuento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pago_descuento.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pago_descuento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pago_descuento.FormattingEnabled = true;
             this.pago_descuento.Items.AddRange(new object[] {
             "1",
@@ -901,7 +921,7 @@
             "10"});
             this.pago_descuento.Location = new System.Drawing.Point(562, 9);
             this.pago_descuento.Name = "pago_descuento";
-            this.pago_descuento.Size = new System.Drawing.Size(109, 28);
+            this.pago_descuento.Size = new System.Drawing.Size(109, 25);
             this.pago_descuento.TabIndex = 1;
             // 
             // label14
@@ -929,6 +949,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Otros";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Omega3.Properties.Resources.lineafondo;
+            this.pictureBox5.Location = new System.Drawing.Point(308, 28);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(83, 10);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -952,7 +982,7 @@
             // otros_capacidad
             // 
             this.otros_capacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.otros_capacidad.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otros_capacidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_capacidad.FormattingEnabled = true;
             this.otros_capacidad.Items.AddRange(new object[] {
             "1",
@@ -967,7 +997,7 @@
             "10"});
             this.otros_capacidad.Location = new System.Drawing.Point(555, 9);
             this.otros_capacidad.Name = "otros_capacidad";
-            this.otros_capacidad.Size = new System.Drawing.Size(116, 28);
+            this.otros_capacidad.Size = new System.Drawing.Size(116, 25);
             this.otros_capacidad.TabIndex = 1;
             // 
             // label22
@@ -993,7 +1023,7 @@
             // otros_respuesta
             // 
             this.otros_respuesta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.otros_respuesta.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otros_respuesta.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_respuesta.FormattingEnabled = true;
             this.otros_respuesta.Items.AddRange(new object[] {
             "1",
@@ -1008,7 +1038,7 @@
             "10"});
             this.otros_respuesta.Location = new System.Drawing.Point(555, 10);
             this.otros_respuesta.Name = "otros_respuesta";
-            this.otros_respuesta.Size = new System.Drawing.Size(116, 28);
+            this.otros_respuesta.Size = new System.Drawing.Size(116, 25);
             this.otros_respuesta.TabIndex = 1;
             // 
             // label20
@@ -1034,7 +1064,7 @@
             // otros_administrativa
             // 
             this.otros_administrativa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.otros_administrativa.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otros_administrativa.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otros_administrativa.FormattingEnabled = true;
             this.otros_administrativa.Items.AddRange(new object[] {
             "1",
@@ -1049,7 +1079,7 @@
             "10"});
             this.otros_administrativa.Location = new System.Drawing.Point(555, 9);
             this.otros_administrativa.Name = "otros_administrativa";
-            this.otros_administrativa.Size = new System.Drawing.Size(116, 28);
+            this.otros_administrativa.Size = new System.Drawing.Size(116, 25);
             this.otros_administrativa.TabIndex = 1;
             // 
             // label21
@@ -1061,36 +1091,6 @@
             this.label21.Size = new System.Drawing.Size(421, 19);
             this.label21.TabIndex = 0;
             this.label21.Text = "Área administrativa (envió de FC, aviso de cta. cte. etc)";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Omega3.Properties.Resources.lineafondo;
-            this.pictureBox3.Location = new System.Drawing.Point(118, 28);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(463, 10);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Omega3.Properties.Resources.lineafondo;
-            this.pictureBox4.Location = new System.Drawing.Point(151, 28);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(397, 10);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 20;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Omega3.Properties.Resources.lineafondo;
-            this.pictureBox5.Location = new System.Drawing.Point(308, 28);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(83, 10);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 25;
-            this.pictureBox5.TabStop = false;
             // 
             // modificar_proveedor
             // 
@@ -1122,6 +1122,7 @@
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1130,21 +1131,20 @@
             this.panel6.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

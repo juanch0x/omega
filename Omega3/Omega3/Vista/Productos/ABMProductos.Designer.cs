@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.txt_filtro_nombre = new System.Windows.Forms.TextBox();
             this.lbl_filtro_producto = new System.Windows.Forms.Label();
@@ -50,23 +50,23 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
             this.dgv_tabla.Location = new System.Drawing.Point(20, 63);
             this.dgv_tabla.MultiSelect = false;
@@ -80,9 +80,10 @@
             // 
             // txt_filtro_nombre
             // 
-            this.txt_filtro_nombre.Location = new System.Drawing.Point(212, 29);
+            this.txt_filtro_nombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro_nombre.Location = new System.Drawing.Point(238, 26);
             this.txt_filtro_nombre.Name = "txt_filtro_nombre";
-            this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 20);
+            this.txt_filtro_nombre.Size = new System.Drawing.Size(100, 22);
             this.txt_filtro_nombre.TabIndex = 1;
             this.txt_filtro_nombre.TextChanged += new System.EventHandler(this.filtro_TextChanged);
             this.txt_filtro_nombre.Enter += new System.EventHandler(this.txt_filtro_nombre_Enter);
@@ -91,16 +92,16 @@
             // lbl_filtro_producto
             // 
             this.lbl_filtro_producto.AutoSize = true;
-            this.lbl_filtro_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_filtro_producto.Location = new System.Drawing.Point(17, 27);
+            this.lbl_filtro_producto.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_filtro_producto.Location = new System.Drawing.Point(63, 27);
             this.lbl_filtro_producto.Name = "lbl_filtro_producto";
-            this.lbl_filtro_producto.Size = new System.Drawing.Size(163, 20);
+            this.lbl_filtro_producto.Size = new System.Drawing.Size(165, 19);
             this.lbl_filtro_producto.TabIndex = 2;
             this.lbl_filtro_producto.Text = "Filtrar por producto";
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(166, 358);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(90, 29);
@@ -111,8 +112,8 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(342, 358);
+            this.btn_modificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificar.Location = new System.Drawing.Point(363, 358);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(90, 29);
             this.btn_modificar.TabIndex = 4;
@@ -122,7 +123,7 @@
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(560, 358);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(90, 29);
@@ -134,18 +135,19 @@
             // filtro_codigo
             // 
             this.filtro_codigo.AutoSize = true;
-            this.filtro_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filtro_codigo.Location = new System.Drawing.Point(403, 27);
+            this.filtro_codigo.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filtro_codigo.Location = new System.Drawing.Point(428, 27);
             this.filtro_codigo.Name = "filtro_codigo";
-            this.filtro_codigo.Size = new System.Drawing.Size(145, 20);
+            this.filtro_codigo.Size = new System.Drawing.Size(146, 19);
             this.filtro_codigo.TabIndex = 6;
             this.filtro_codigo.Text = "Filtrar por codigo";
             // 
             // txt_filtro_codigo
             // 
-            this.txt_filtro_codigo.Location = new System.Drawing.Point(578, 27);
+            this.txt_filtro_codigo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro_codigo.Location = new System.Drawing.Point(584, 26);
             this.txt_filtro_codigo.Name = "txt_filtro_codigo";
-            this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 20);
+            this.txt_filtro_codigo.Size = new System.Drawing.Size(109, 22);
             this.txt_filtro_codigo.TabIndex = 2;
             this.txt_filtro_codigo.TextChanged += new System.EventHandler(this.txt_filtro_codigo_TextChanged);
             this.txt_filtro_codigo.Enter += new System.EventHandler(this.txt_filtro_codigo_Enter);
@@ -177,6 +179,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ABMProductos";
             this.Text = "Modificar Productos";
             this.Load += new System.EventHandler(this.ModificarProductos_Load);
