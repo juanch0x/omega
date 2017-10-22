@@ -94,8 +94,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.dgv_tabla);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BuscarProducto";
-            this.Text = "BuscarProducto";
+            this.Text = "Buscar Producto";
             this.Load += new System.EventHandler(this.BuscarProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);

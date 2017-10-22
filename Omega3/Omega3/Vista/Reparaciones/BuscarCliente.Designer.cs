@@ -93,7 +93,7 @@
             this.MinimizeBox = false;
             this.Name = "BuscarCliente";
             this.ShowIcon = false;
-            this.Text = "BuscarCliente";
+            this.Text = "Buscar Cliente";
             this.Load += new System.EventHandler(this.BuscarCliente_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BuscarCliente_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();

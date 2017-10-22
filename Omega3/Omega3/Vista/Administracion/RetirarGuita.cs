@@ -41,12 +41,16 @@ namespace Omega3.Vista.Gastos
 
                 ControladorFuncVariadas.limpiarTextBox(txt_motivo, txt_monto, txt_destino);
             }
-        }
+        } 
 
         private void txt_monto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }
 
+        private void RetirarGuita_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

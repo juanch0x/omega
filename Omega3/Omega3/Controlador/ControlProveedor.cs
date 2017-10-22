@@ -44,14 +44,17 @@ namespace Omega3.Controlador
             try
             {
                 
-                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}' where id_proveedor={0}",
-                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), conexion);
+                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}',email2='{7}',email3='{8}' where id_proveedor={0}",
+                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email,proveedor.Email2,proveedor.Email3), conexion);
                 Console.WriteLine(comando.CommandText);
                 Console.WriteLine(comando);
                 retorno = comando.ExecuteNonQuery();
                 conexion.Close();
             }
             catch (Exception ex) { MessageBox.Show("Error en el metodo ModificarProveedor\n"+ ex); }
+
+            ModificarPuntajes(proveedor);
+
             return retorno;
 
 
@@ -179,6 +182,131 @@ namespace Omega3.Controlador
 
         }
 
+        public static Proveedor buscarEmails(Proveedor proveedor)
+        {
+
+
+            
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                 "SELECT email2,email3,codigo_postal from proveedores WHERE proveedores.id_proveedor = {0}", proveedor.Id_proveedor), Conexion.ObtenerConexion());
+
+
+            try
+            {
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    proveedor.Email2 = _reader.GetString(0);
+
+                    proveedor.Email3 = _reader.GetString(1);
+
+                    proveedor.Codigo_postal = _reader.GetInt32(2);
+                }
+            }catch(MySqlException ex) { Console.WriteLine(ex); }
+
+            
+            return proveedor;
+        }
+
+        public static PuntajeProveedor buscarPuntajes(long id_proveedor)
+        {
+            PuntajeProveedor puntos = new PuntajeProveedor();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+     "SELECT aspecto,puntaje FROM puntaje_proveedor WHERE id_proveedor = {0} ", id_proveedor), Conexion.ObtenerConexion());
+
+
+            try
+            {
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    switch(_reader.GetInt32(0))
+                    {
+
+                        case 1: puntos.transporte_posicion = _reader.GetInt32(1);
+                            break;
+                        case 2: puntos.transporte_Prestigio = _reader.GetInt32(1);
+                            break;
+                    case 3: puntos.transporte_antecedentes = _reader.GetInt32(1);
+                        break;
+                    case 4: puntos.transporte_financiera = _reader.GetInt32(1);
+                        break;
+                    case 5: puntos.transporte_transporte = _reader.GetInt32(1);
+                        break;
+                    case 6: puntos.transporte_capacidad = _reader.GetInt32(1);
+                        break;
+                    case 7: puntos.calidad_plazos = _reader.GetInt32(1);
+                        break;
+                    case 8: puntos.calidad_costo = _reader.GetInt32(1);
+                        break;
+                    case 10: puntos.calidad_cuidado = _reader.GetInt32(1);
+                        break;
+                    case 11: puntos.pago_plazo = _reader.GetInt32(1);
+                        break;
+                    case 12: puntos.pago_descuento = _reader.GetInt32(1);
+                        break;
+                    case 14: puntos.otros_respuesta = _reader.GetInt32(1);
+                        break;
+                    case 15: puntos.otros_administrativa = _reader.GetInt32(1);
+                        break;
+                    case 16: puntos.otros_pedidos = _reader.GetInt32(1);
+                        break;
+
+
+                    }
+                }
+            }
+            catch (MySqlException ex) { Console.WriteLine(ex); }
+
+
+            
+            return puntos;
+        }
+
+
+        public static void ModificarPuntajes(Proveedor proveedor)
+        {
+            int retorno = 0;
+            
+
+            string update = "INSERT INTO puntaje_proveedor (aspecto,puntaje,id_proveedor) VALUES ";
+
+            //Transporte
+            MessageBox.Show(Convert.ToString(proveedor.puntaje.transporte_posicion));
+            update += "(1,"+proveedor.puntaje.transporte_posicion+","+proveedor.Id_proveedor+")";
+            update += ",(2," + proveedor.puntaje.transporte_Prestigio + "," + proveedor.Id_proveedor + ")";
+            update += ",(3," + proveedor.puntaje.transporte_antecedentes + "," + proveedor.Id_proveedor + ")";
+            update += ",(4," + proveedor.puntaje.transporte_financiera + "," + proveedor.Id_proveedor + ")";
+            update += ",(5," + proveedor.puntaje.transporte_transporte + "," + proveedor.Id_proveedor + ")";
+            update += ",(6," + proveedor.puntaje.transporte_capacidad + "," + proveedor.Id_proveedor + ")";
+            
+            //Plazos
+
+            update += ",(7," + proveedor.puntaje.calidad_plazos + "," + proveedor.Id_proveedor + ")";
+            update += ",(8," + proveedor.puntaje.calidad_costo + "," + proveedor.Id_proveedor + ")";
+            update += ",(10," + proveedor.puntaje.calidad_cuidado + "," + proveedor.Id_proveedor + ")";
+
+            //Pago
+            update += ",(11," + proveedor.puntaje.pago_plazo + "," + proveedor.Id_proveedor + ")";
+            update += ",(12," + proveedor.puntaje.pago_descuento + "," + proveedor.Id_proveedor + ")";
+
+            //Otros
+            update += ",(14," + proveedor.puntaje.otros_respuesta + "," + proveedor.Id_proveedor + ")";
+            update += ",(15," + proveedor.puntaje.otros_administrativa + "," + proveedor.Id_proveedor + ")";
+            update += ",(16," + proveedor.puntaje.otros_pedidos + "," + proveedor.Id_proveedor + ")";
+
+            update += " ON DUPLICATE KEY UPDATE puntaje = VALUES(puntaje)";
+
+             
+              
+                    MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+                    retorno = restastock.ExecuteNonQuery();
+                
+            }
+        }
+
+
     }
-}
+
 

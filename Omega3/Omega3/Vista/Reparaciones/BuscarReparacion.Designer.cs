@@ -31,8 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,12 +75,6 @@
             this.dgv_tabla.TabIndex = 10;
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Seleccionar";
-            this.dataGridViewImageColumn1.Image = global::Omega3.Properties.Resources.Valid_icon;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
             // Seleccionar
             // 
             this.Seleccionar.HeaderText = "Seleccionar";
@@ -88,14 +82,22 @@
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Seleccionar";
+            this.dataGridViewImageColumn1.Image = global::Omega3.Properties.Resources.Valid_icon;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
             // BuscarReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 211);
             this.Controls.Add(this.dgv_tabla);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BuscarReparacion";
-            this.Text = "BuscarReparacion";
+            this.Text = "Buscar Reparaciones";
             this.Load += new System.EventHandler(this.BuscarReparacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);

@@ -108,7 +108,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ElegirProveedor";
-            this.Text = "ElegirProveedor";
+            this.Text = "Elegir Proveedor";
             this.Load += new System.EventHandler(this.ElegirProveedor_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabla_proveedores)).EndInit();

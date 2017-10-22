@@ -177,7 +177,5 @@ namespace Omega3.Vista.Productos
                 this.Close();
             }
         }
-
-       
     }
 }
