@@ -87,6 +87,7 @@
     <Compile Include="Controlador\Comprobantes.cs" />
     <Compile Include="Controlador\ControladorFuncVariadas.cs" />
     <Compile Include="Controlador\ControlCliente.cs" />
+    <Compile Include="Controlador\ControlAdministracion.cs" />
     <Compile Include="Controlador\ControlPedidos.cs" />
     <Compile Include="Controlador\ControlPresupuesto.cs" />
     <Compile Include="Controlador\ControlProveedor.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Controlador\ControlUsuario.cs" />
     <Compile Include="Controlador\ControlVenta.cs" />
     <Compile Include="Controlador\ControlVentas.cs" />
+    <Compile Include="Modelo\erogaciones.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Presupuesto.cs" />
     <Compile Include="Modelo\Reparacion.cs" />
@@ -124,6 +126,12 @@
     </Compile>
     <Compile Include="Vista\Clientes\CrearCliente.Designer.cs">
       <DependentUpon>CrearCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Administracion\RetirarGuita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Administracion\RetirarGuita.Designer.cs">
+      <DependentUpon>RetirarGuita.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.cs">
       <SubType>Form</SubType>
@@ -297,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Clientes\CrearCliente.resx">
       <DependentUpon>CrearCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Administracion\RetirarGuita.resx">
+      <DependentUpon>RetirarGuita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Informes\Presupuesto.rdlc" />
     <EmbeddedResource Include="Vista\Informes\Report1.rdlc" />

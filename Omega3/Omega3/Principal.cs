@@ -29,9 +29,12 @@ namespace Omega3
         public decimal dolar;
         public decimal dolar_guardado;
 
+        
+
         public Principal()
         {
             InitializeComponent();
+
         }
 
         string GETDolar()
@@ -63,6 +66,7 @@ namespace Omega3
         private void Principal_load(object sender, EventArgs e)
         {
 
+            
             Login login = new Login();
             if (!ControladorFuncVariadas.AccesoInternet())
             {
@@ -346,6 +350,34 @@ namespace Omega3
                 ventas.MdiParent = this;
                 ventas.Show();
             }
+
+        }
+
+        private void erogacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Gastos.RetirarGuita erogacion;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Erogaciones"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                erogacion = new Vista.Gastos.RetirarGuita();
+                erogacion.StartPosition = FormStartPosition.CenterScreen;
+                erogacion.MdiParent = this;
+                erogacion.Show();
+            }
+
 
         }
     }

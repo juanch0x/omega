@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarProveedores));
             this.label16 = new System.Windows.Forms.Label();
             this.roto2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.roto3 = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.otros_capacidad = new System.Windows.Forms.ComboBox();
@@ -46,6 +48,7 @@
             this.otros_administrativa = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pagos_plazo = new System.Windows.Forms.ComboBox();
@@ -54,6 +57,7 @@
             this.pago_descuento = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.calidad_plazo = new System.Windows.Forms.ComboBox();
@@ -65,6 +69,7 @@
             this.calidad_costo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.transporte_pais = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,6 +90,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txt_email2 = new System.Windows.Forms.TextBox();
             this.txt_email3 = new System.Windows.Forms.TextBox();
             this.txt_proveedor = new System.Windows.Forms.TextBox();
@@ -107,17 +113,21 @@
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -125,6 +135,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,6 +230,7 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage6.Controls.Add(this.pictureBox5);
             this.tabPage6.Controls.Add(this.label24);
             this.tabPage6.Controls.Add(this.panel14);
             this.tabPage6.Controls.Add(this.panel12);
@@ -226,15 +238,26 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(690, 508);
+            this.tabPage6.Size = new System.Drawing.Size(690, 455);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Otros";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.ErrorImage")));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(281, 30);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(118, 15);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(301, 34);
+            this.label24.Location = new System.Drawing.Point(299, 3);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(82, 24);
             this.label24.TabIndex = 24;
@@ -363,20 +386,32 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage4.Controls.Add(this.pictureBox4);
             this.tabPage4.Controls.Add(this.label23);
             this.tabPage4.Controls.Add(this.panel10);
             this.tabPage4.Controls.Add(this.panel11);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(690, 508);
+            this.tabPage4.Size = new System.Drawing.Size(690, 455);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pago";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.ErrorImage")));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(95, 33);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(481, 15);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(161, 43);
+            this.label23.Location = new System.Drawing.Point(133, 6);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(403, 24);
             this.label23.TabIndex = 19;
@@ -465,6 +500,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.panel9);
             this.tabPage3.Controls.Add(this.panel8);
@@ -472,15 +508,26 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(690, 508);
+            this.tabPage3.Size = new System.Drawing.Size(690, 455);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Calidad";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(84, 30);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(516, 15);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(124, 40);
+            this.label6.Location = new System.Drawing.Point(108, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(465, 24);
             this.label6.TabIndex = 18;
@@ -609,6 +656,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.panel7);
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel4);
@@ -619,9 +667,20 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(690, 508);
+            this.tabPage2.Size = new System.Drawing.Size(690, 455);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Transporte";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(106, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(516, 15);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // panel7
             // 
@@ -867,7 +926,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(137, 21);
+            this.label1.Location = new System.Drawing.Point(118, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(484, 24);
             this.label1.TabIndex = 0;
@@ -876,6 +935,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.txt_email2);
             this.tabPage1.Controls.Add(this.txt_email3);
             this.tabPage1.Controls.Add(this.txt_proveedor);
@@ -899,20 +959,31 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(690, 508);
+            this.tabPage1.Size = new System.Drawing.Size(690, 455);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Proveedor";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(215, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(255, 15);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // txt_email2
             // 
-            this.txt_email2.Location = new System.Drawing.Point(335, 284);
+            this.txt_email2.Location = new System.Drawing.Point(344, 250);
             this.txt_email2.Name = "txt_email2";
             this.txt_email2.Size = new System.Drawing.Size(160, 26);
             this.txt_email2.TabIndex = 6;
             // 
             // txt_email3
             // 
-            this.txt_email3.Location = new System.Drawing.Point(335, 316);
+            this.txt_email3.Location = new System.Drawing.Point(344, 282);
             this.txt_email3.Name = "txt_email3";
             this.txt_email3.Size = new System.Drawing.Size(160, 26);
             this.txt_email3.TabIndex = 7;
@@ -921,7 +992,7 @@
             // 
             this.txt_proveedor.BackColor = System.Drawing.Color.White;
             this.txt_proveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_proveedor.Location = new System.Drawing.Point(335, 92);
+            this.txt_proveedor.Location = new System.Drawing.Point(344, 58);
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.Size = new System.Drawing.Size(160, 26);
             this.txt_proveedor.TabIndex = 0;
@@ -929,7 +1000,7 @@
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Location = new System.Drawing.Point(335, 124);
+            this.txt_telefono.Location = new System.Drawing.Point(344, 90);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(160, 26);
             this.txt_telefono.TabIndex = 1;
@@ -937,14 +1008,14 @@
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(335, 252);
+            this.txt_email.Location = new System.Drawing.Point(344, 218);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(160, 26);
             this.txt_email.TabIndex = 5;
             // 
             // txt_direccion
             // 
-            this.txt_direccion.Location = new System.Drawing.Point(335, 156);
+            this.txt_direccion.Location = new System.Drawing.Point(344, 122);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(160, 26);
             this.txt_direccion.TabIndex = 2;
@@ -952,7 +1023,7 @@
             // 
             // txt_codigo_postal
             // 
-            this.txt_codigo_postal.Location = new System.Drawing.Point(335, 220);
+            this.txt_codigo_postal.Location = new System.Drawing.Point(344, 186);
             this.txt_codigo_postal.Name = "txt_codigo_postal";
             this.txt_codigo_postal.Size = new System.Drawing.Size(160, 26);
             this.txt_codigo_postal.TabIndex = 4;
@@ -960,7 +1031,7 @@
             // 
             // txt_provincia
             // 
-            this.txt_provincia.Location = new System.Drawing.Point(335, 188);
+            this.txt_provincia.Location = new System.Drawing.Point(344, 154);
             this.txt_provincia.Name = "txt_provincia";
             this.txt_provincia.Size = new System.Drawing.Size(160, 26);
             this.txt_provincia.TabIndex = 3;
@@ -970,7 +1041,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(184, 292);
+            this.label19.Location = new System.Drawing.Point(193, 258);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 18);
             this.label19.TabIndex = 19;
@@ -980,7 +1051,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(183, 324);
+            this.label18.Location = new System.Drawing.Point(192, 290);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 18);
             this.label18.TabIndex = 17;
@@ -990,17 +1061,17 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(249, 45);
+            this.label12.Location = new System.Drawing.Point(233, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(164, 24);
+            this.label12.Size = new System.Drawing.Size(215, 24);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Crear Proveedor";
+            this.label12.Text = "CREAR PROVEEDOR";
             // 
             // lbl_proveedor
             // 
             this.lbl_proveedor.AutoSize = true;
             this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_proveedor.Location = new System.Drawing.Point(184, 100);
+            this.lbl_proveedor.Location = new System.Drawing.Point(193, 66);
             this.lbl_proveedor.Name = "lbl_proveedor";
             this.lbl_proveedor.Size = new System.Drawing.Size(86, 18);
             this.lbl_proveedor.TabIndex = 0;
@@ -1032,7 +1103,7 @@
             // 
             this.lbl_telefono.AutoSize = true;
             this.lbl_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_telefono.Location = new System.Drawing.Point(184, 132);
+            this.lbl_telefono.Location = new System.Drawing.Point(193, 98);
             this.lbl_telefono.Name = "lbl_telefono";
             this.lbl_telefono.Size = new System.Drawing.Size(74, 18);
             this.lbl_telefono.TabIndex = 2;
@@ -1054,7 +1125,7 @@
             // 
             this.lbl_direccion.AutoSize = true;
             this.lbl_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_direccion.Location = new System.Drawing.Point(184, 164);
+            this.lbl_direccion.Location = new System.Drawing.Point(193, 130);
             this.lbl_direccion.Name = "lbl_direccion";
             this.lbl_direccion.Size = new System.Drawing.Size(80, 18);
             this.lbl_direccion.TabIndex = 4;
@@ -1064,7 +1135,7 @@
             // 
             this.lbl_email.AutoSize = true;
             this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_email.Location = new System.Drawing.Point(184, 260);
+            this.lbl_email.Location = new System.Drawing.Point(193, 226);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(56, 18);
             this.lbl_email.TabIndex = 10;
@@ -1074,7 +1145,7 @@
             // 
             this.lbl_codigo_postal.AutoSize = true;
             this.lbl_codigo_postal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_codigo_postal.Location = new System.Drawing.Point(184, 228);
+            this.lbl_codigo_postal.Location = new System.Drawing.Point(193, 194);
             this.lbl_codigo_postal.Name = "lbl_codigo_postal";
             this.lbl_codigo_postal.Size = new System.Drawing.Size(115, 18);
             this.lbl_codigo_postal.TabIndex = 9;
@@ -1084,7 +1155,7 @@
             // 
             this.lbl_provincia.AutoSize = true;
             this.lbl_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_provincia.Location = new System.Drawing.Point(184, 196);
+            this.lbl_provincia.Location = new System.Drawing.Point(193, 162);
             this.lbl_provincia.Name = "lbl_provincia";
             this.lbl_provincia.Size = new System.Drawing.Size(78, 18);
             this.lbl_provincia.TabIndex = 6;
@@ -1098,23 +1169,24 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(1, 1);
+            this.tabControl1.Location = new System.Drawing.Point(-4, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(698, 541);
+            this.tabControl1.Size = new System.Drawing.Size(698, 488);
             this.tabControl1.TabIndex = 15;
             // 
             // AgregarProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 540);
+            this.ClientSize = new System.Drawing.Size(690, 482);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AgregarProveedores";
             this.Text = "Agregar Proveedores";
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -1123,12 +1195,14 @@
             this.panel13.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1137,6 +1211,7 @@
             this.panel6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1151,6 +1226,7 @@
             this.panel1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1235,5 +1311,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
