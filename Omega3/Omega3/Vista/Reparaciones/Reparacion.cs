@@ -308,7 +308,5 @@ namespace Omega3.Vista.Reparaciones
             }
             lbl_subtotal.Text = Convert.ToString(a);
         }
-        
-
     }
 }

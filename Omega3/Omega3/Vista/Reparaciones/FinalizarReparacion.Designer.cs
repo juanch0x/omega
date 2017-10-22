@@ -45,36 +45,40 @@
             // lbl_cliente
             // 
             this.lbl_cliente.AutoSize = true;
+            this.lbl_cliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cliente.Location = new System.Drawing.Point(35, 31);
             this.lbl_cliente.Name = "lbl_cliente";
-            this.lbl_cliente.Size = new System.Drawing.Size(39, 13);
+            this.lbl_cliente.Size = new System.Drawing.Size(57, 18);
             this.lbl_cliente.TabIndex = 0;
             this.lbl_cliente.Text = "Cliente";
             // 
             // lbl_dni
             // 
             this.lbl_dni.AutoSize = true;
+            this.lbl_dni.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_dni.Location = new System.Drawing.Point(35, 60);
             this.lbl_dni.Name = "lbl_dni";
-            this.lbl_dni.Size = new System.Drawing.Size(26, 13);
+            this.lbl_dni.Size = new System.Drawing.Size(34, 18);
             this.lbl_dni.TabIndex = 1;
             this.lbl_dni.Text = "DNI";
             // 
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
+            this.lbl_email.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_email.Location = new System.Drawing.Point(35, 84);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(31, 13);
+            this.lbl_email.Size = new System.Drawing.Size(46, 18);
             this.lbl_email.TabIndex = 2;
             this.lbl_email.Text = "email";
             // 
             // lbl_telefono
             // 
             this.lbl_telefono.AutoSize = true;
+            this.lbl_telefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_telefono.Location = new System.Drawing.Point(35, 112);
             this.lbl_telefono.Name = "lbl_telefono";
-            this.lbl_telefono.Size = new System.Drawing.Size(49, 13);
+            this.lbl_telefono.Size = new System.Drawing.Size(66, 18);
             this.lbl_telefono.TabIndex = 3;
             this.lbl_telefono.Text = "Telefono";
             // 
@@ -99,7 +103,7 @@
             // lbl_total
             // 
             this.lbl_total.AutoSize = true;
-            this.lbl_total.Location = new System.Drawing.Point(333, 25);
+            this.lbl_total.Location = new System.Drawing.Point(506, 284);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(31, 13);
             this.lbl_total.TabIndex = 6;
