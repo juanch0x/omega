@@ -16,6 +16,25 @@ namespace Omega3.Vista.Proveedores
         public AgregarProveedores()
         {
             InitializeComponent();
+
+            transporte_posicion.SelectedIndex = 0;
+            transporte_antecedentes.SelectedIndex = 0;
+            transporte_capacidad.SelectedIndex = 0;
+            transporte_financiera.SelectedIndex = 0;
+            transporte_prestigio.SelectedIndex = 0;
+            transporte_pais.SelectedIndex = 0;
+
+            calidad_costo.SelectedIndex = 0;
+            calidad_cuidado.SelectedIndex = 0;
+            calidad_plazo.SelectedIndex = 0;
+
+            otros_administrativa.SelectedIndex = 0;
+            otros_capacidad.SelectedIndex = 0;
+            otros_respuesta.SelectedIndex = 0;
+
+            pago_descuento.SelectedIndex = 0;
+            pagos_plazo.SelectedIndex = 0;
+
         }
 
         private void limpiar() {
