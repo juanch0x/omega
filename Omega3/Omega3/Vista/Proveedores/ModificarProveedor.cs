@@ -46,34 +46,38 @@ namespace Omega3.Vista.Proveedores
                     proveedor.Email2 = txt_email2.Text;
                     proveedor.Email3 = txt_email3.Text;
 
-                    proveedor.puntaje = new PuntajeProveedor();
+                    //proveedor.puntaje = new PuntajeProveedor();
 
                     //Transporte
-                    proveedor.puntaje.transporte_posicion = combo_transporte_posicion.SelectedIndex;
-                    proveedor.puntaje.transporte_Prestigio = combo_transporte_prestigio.SelectedIndex;
-                    proveedor.puntaje.transporte_antecedentes = combo_transporte_antecedentes.SelectedIndex;
-                    proveedor.puntaje.transporte_financiera = combo_transporte_financiera.SelectedIndex;
-                    proveedor.puntaje.transporte_transporte = combo_transporte_pais.SelectedIndex;
-                    proveedor.puntaje.transporte_capacidad = combo_transporte_capacidad.SelectedIndex;
+                    proveedor.puntaje.transporte_posicion = Convert.ToInt32(combo_transporte_posicion.Text);
+                    proveedor.puntaje.transporte_Prestigio = Convert.ToInt32(combo_transporte_prestigio.Text);
+                    proveedor.puntaje.transporte_antecedentes = Convert.ToInt32(combo_transporte_antecedentes.Text);
+                    proveedor.puntaje.transporte_financiera = Convert.ToInt32(combo_transporte_financiera.Text);
+                    proveedor.puntaje.transporte_transporte = Convert.ToInt32(combo_transporte_pais.Text);
+                    proveedor.puntaje.transporte_capacidad = Convert.ToInt32(combo_transporte_capacidad.Text);
 
                     //Calidad
-                    proveedor.puntaje.calidad_plazos = combo_calidad_plazo.SelectedIndex;
-                    proveedor.puntaje.calidad_costo = combo_calidad_costo.SelectedIndex;
-                    proveedor.puntaje.calidad_cuidado = combo_calidad_cuidado.SelectedIndex;
+                    proveedor.puntaje.calidad_plazos = Convert.ToInt32(combo_calidad_plazo.Text);
+                    proveedor.puntaje.calidad_costo = Convert.ToInt32(combo_calidad_costo.Text);
+                    proveedor.puntaje.calidad_cuidado = Convert.ToInt32(combo_calidad_cuidado.Text);
 
                     //Pagos
-                    proveedor.puntaje.pago_plazo = combo_pagos_plazo.SelectedIndex;
-                    proveedor.puntaje.pago_descuento = combo_pago_descuento.SelectedIndex;
+                    proveedor.puntaje.pago_plazo = Convert.ToInt32(combo_pagos_plazo.Text);
+                    proveedor.puntaje.pago_descuento = Convert.ToInt32(combo_pago_descuento.Text);
 
                     //Otros
-                    proveedor.puntaje.otros_respuesta = combo_otros_respuesta.SelectedIndex;
-                    proveedor.puntaje.otros_administrativa = combo_otros_administrativa.SelectedIndex;
-                    proveedor.puntaje.otros_pedidos = combo_otros_capacidad.SelectedIndex;
+                    proveedor.puntaje.otros_respuesta = Convert.ToInt32(combo_otros_respuesta.Text);
+                    proveedor.puntaje.otros_administrativa = Convert.ToInt32(combo_otros_administrativa.Text);
+                    proveedor.puntaje.otros_pedidos = Convert.ToInt32(combo_otros_capacidad.Text);
 
+                    
                     if (ControlProveedor.ModificarProveedor(proveedor) == 1)
                     {
+
                         MessageBox.Show("Se modificó correctamente!");
                         ControladorFuncVariadas.limpiarTextBox(txt_codigo_postal, txt_direccion, txt_email, txt_email2, txt_email3, txt_proveedor, txt_provincia, txt_telefono);
+                        
+                        
                     }
                 }
                 else { MessageBox.Show("Formato de e-mail incorrecto"); }
@@ -150,6 +154,13 @@ namespace Omega3.Vista.Proveedores
         private void txt_codigo_postal_KeyPress(object sender, KeyPressEventArgs e)
         {
             ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Proveedor a = new Proveedor();
+            a.puntaje = new PuntajeProveedor();
+            ControlProveedor.ModificarPuntajes(a);
         }
     }
 }

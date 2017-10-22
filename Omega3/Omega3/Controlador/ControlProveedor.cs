@@ -52,6 +52,9 @@ namespace Omega3.Controlador
                 conexion.Close();
             }
             catch (Exception ex) { MessageBox.Show("Error en el metodo ModificarProveedor\n"+ ex); }
+
+            ModificarPuntajes(proveedor);
+
             return retorno;
 
 
@@ -262,33 +265,38 @@ namespace Omega3.Controlador
         }
 
 
-        public static void insertarDetalleReparacion(DataGridView dgv_tabla, long id, bool nuevasFilas)
+        public static void ModificarPuntajes(Proveedor proveedor)
         {
-            string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
-            bool updatebool = false;
-            
+            int retorno = 0;
             
 
-                            if (updatebool)
-                            {
-                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
-                                {
-                                    update += ", (" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
+            string update = "INSERT INTO puntaje_proveedor (aspecto,puntaje,id_proveedor) VALUES ";
 
-                                }
-                            }
-                            else
-                            {
-                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
-                                {
-                                    update += "(" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
-                                    updatebool = true;
-                                }
-                            }
+            //Transporte
+            MessageBox.Show(Convert.ToString(proveedor.puntaje.transporte_posicion));
+            update += "(1,"+proveedor.puntaje.transporte_posicion+","+proveedor.Id_proveedor+")";
+            update += ",(2," + proveedor.puntaje.transporte_Prestigio + "," + proveedor.Id_proveedor + ")";
+            update += ",(3," + proveedor.puntaje.transporte_antecedentes + "," + proveedor.Id_proveedor + ")";
+            update += ",(4," + proveedor.puntaje.transporte_financiera + "," + proveedor.Id_proveedor + ")";
+            update += ",(5," + proveedor.puntaje.transporte_transporte + "," + proveedor.Id_proveedor + ")";
+            update += ",(6," + proveedor.puntaje.transporte_capacidad + "," + proveedor.Id_proveedor + ")";
+            
+            //Plazos
 
-                  
+            update += ",(7," + proveedor.puntaje.calidad_plazos + "," + proveedor.Id_proveedor + ")";
+            update += ",(8," + proveedor.puntaje.calidad_costo + "," + proveedor.Id_proveedor + ")";
+            update += ",(10," + proveedor.puntaje.calidad_cuidado + "," + proveedor.Id_proveedor + ")";
 
-                update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+            //Pago
+            update += ",(11," + proveedor.puntaje.pago_plazo + "," + proveedor.Id_proveedor + ")";
+            update += ",(12," + proveedor.puntaje.pago_descuento + "," + proveedor.Id_proveedor + ")";
+
+            //Otros
+            update += ",(14," + proveedor.puntaje.otros_respuesta + "," + proveedor.Id_proveedor + ")";
+            update += ",(15," + proveedor.puntaje.otros_administrativa + "," + proveedor.Id_proveedor + ")";
+            update += ",(16," + proveedor.puntaje.otros_pedidos + "," + proveedor.Id_proveedor + ")";
+
+            update += " ON DUPLICATE KEY UPDATE puntaje = VALUES(puntaje)";
 
              
               
@@ -300,5 +308,5 @@ namespace Omega3.Controlador
 
 
     }
-}
+
 
