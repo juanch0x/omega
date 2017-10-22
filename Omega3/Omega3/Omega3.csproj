@@ -133,6 +133,18 @@
     <Compile Include="Vista\Administracion\RetirarGuita.Designer.cs">
       <DependentUpon>RetirarGuita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Clientes\Listar Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\Listar Clientes.Designer.cs">
+      <DependentUpon>Listar Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\Modificar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\Modificar_Cliente.Designer.cs">
+      <DependentUpon>Modificar_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Administracion\RetirarGuita.resx">
       <DependentUpon>RetirarGuita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Clientes\Listar Clientes.resx">
+      <DependentUpon>Listar Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Clientes\Modificar_Cliente.resx">
+      <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Informes\Presupuesto.rdlc" />
     <EmbeddedResource Include="Vista\Informes\Report1.rdlc" />

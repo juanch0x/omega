@@ -174,6 +174,54 @@ namespace Omega3.Controlador
             
         }
 
+        public static int ModificarCliente(Cliente cliente)
+        {
+
+            int retorno = 0;
+            MySqlConnection conexion = Conexion.ObtenerConexion();
+
+            try
+            {
+
+                MySqlCommand comando = new MySqlCommand(string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal={5}, contacto={6}, mail_contacto={7},lista={8},impositiva={9} where documento={10}",
+                cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Lista, cliente.Impositiva_Id, cliente.Documento), conexion);
+
+                retorno = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error" + e);
+            }
+
+            return retorno;
+        }
+
+        public static void ListarClientes(DataGridView dgv_tabla)
+        {
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT documento as Documento, razon_social as 'Razon Social',direccion as Direccion, telefono as Telefono, contacto as Contacto, markup.lista as Lista  FROM cliente INNER JOIN markup on cliente.lista = markup.id";
+            try
+           {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de Clientes: " + ex); }
+
+
+
+
+        }
 
     }
 }
