@@ -380,6 +380,69 @@ namespace Omega3
 
 
         }
+
+        private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Clientes.Modificar_Cliente modificarcliente;
+
+            Modelo.Cliente cliente = new Modelo.Cliente();
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Modificar Cliente"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                modificarcliente = new Vista.Clientes.Modificar_Cliente(cliente);
+                modificarcliente.StartPosition = FormStartPosition.CenterScreen;
+                modificarcliente.MdiParent = this;
+                modificarcliente.Show();
+            }
+
+        }
+
+        private void listarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Clientes.Listar_Clientes listarclientes;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Modificar Cliente"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                listarclientes = new Vista.Clientes.Listar_Clientes();
+                listarclientes.StartPosition = FormStartPosition.CenterScreen;
+                listarclientes.MdiParent = this;
+                listarclientes.Show();
+            }
+
+
+
+
+        }
     }
 
     public class dolar
