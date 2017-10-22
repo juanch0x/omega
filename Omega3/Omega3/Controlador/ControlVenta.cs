@@ -181,7 +181,7 @@ namespace Omega3.Controlador
 
              XmlDocument xml = new XmlDocument();
              xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
-            MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
+          //  MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
               XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
               foreach (XmlNode xn in xnList)
               {
@@ -197,7 +197,8 @@ namespace Omega3.Controlador
              {
                  webClient.DownloadFile(url, Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
              }
-            System.Diagnostics.Process.Start(Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
+            //  System.Diagnostics.Process.Start(Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
+          //  Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
 
 
             /*
@@ -208,9 +209,10 @@ namespace Omega3.Controlador
            f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
            f2.Show();
             */
-
-            Omega3.Vista.Venta.Comprobante_Claro MostrarComprobante = new Vista.Venta.Comprobante_Claro(url);
             
+    //        Omega3.Vista.Venta.Comprobante_Claro MostrarComprobante = new Vista.Venta.Comprobante_Claro(url);
+          //  MostrarComprobante.Show();
+          
 
         }
 
@@ -350,7 +352,7 @@ namespace Omega3.Controlador
         }
 
 
-        public void FacturarReparacion(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, DataGridView dgv_tabla)
+        public string FacturarReparacion(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, DataGridView dgv_tabla)
         {
 
             ComprobantesClient client = new ComprobantesClient();
@@ -452,7 +454,8 @@ namespace Omega3.Controlador
 
             comprobanteClient.Close();
 
-            detalleComprobante(id_comprobante);
+            //detalleComprobante(id_comprobante);
+            return id_comprobante;
         }
 
 
