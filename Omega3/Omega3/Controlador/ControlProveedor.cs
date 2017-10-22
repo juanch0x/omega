@@ -44,8 +44,8 @@ namespace Omega3.Controlador
             try
             {
                 
-                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}' where id_proveedor={0}",
-                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email), conexion);
+                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}',email2='{7}',email3='{8}' where id_proveedor={0}",
+                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email,proveedor.Email2,proveedor.Email3), conexion);
                 Console.WriteLine(comando.CommandText);
                 Console.WriteLine(comando);
                 retorno = comando.ExecuteNonQuery();
@@ -178,6 +178,126 @@ namespace Omega3.Controlador
             return retorno;
 
         }
+
+        public static Proveedor buscarEmails(Proveedor proveedor)
+        {
+
+
+            
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                 "SELECT email2,email3,codigo_postal from proveedores WHERE proveedores.id_proveedor = {0}", proveedor.Id_proveedor), Conexion.ObtenerConexion());
+
+
+            try
+            {
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    proveedor.Email2 = _reader.GetString(0);
+
+                    proveedor.Email3 = _reader.GetString(1);
+
+                    proveedor.Codigo_postal = _reader.GetInt32(2);
+                }
+            }catch(MySqlException ex) { Console.WriteLine(ex); }
+
+            
+            return proveedor;
+        }
+
+        public static PuntajeProveedor buscarPuntajes(long id_proveedor)
+        {
+            PuntajeProveedor puntos = new PuntajeProveedor();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+     "SELECT aspecto,puntaje FROM puntaje_proveedor WHERE id_proveedor = {0} ", id_proveedor), Conexion.ObtenerConexion());
+
+
+            try
+            {
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    switch(_reader.GetInt32(0))
+                    {
+
+                        case 1: puntos.transporte_posicion = _reader.GetInt32(1);
+                            break;
+                        case 2: puntos.transporte_Prestigio = _reader.GetInt32(1);
+                            break;
+                    case 3: puntos.transporte_antecedentes = _reader.GetInt32(1);
+                        break;
+                    case 4: puntos.transporte_financiera = _reader.GetInt32(1);
+                        break;
+                    case 5: puntos.transporte_transporte = _reader.GetInt32(1);
+                        break;
+                    case 6: puntos.transporte_capacidad = _reader.GetInt32(1);
+                        break;
+                    case 7: puntos.calidad_plazos = _reader.GetInt32(1);
+                        break;
+                    case 8: puntos.calidad_costo = _reader.GetInt32(1);
+                        break;
+                    case 10: puntos.calidad_cuidado = _reader.GetInt32(1);
+                        break;
+                    case 11: puntos.pago_plazo = _reader.GetInt32(1);
+                        break;
+                    case 12: puntos.pago_descuento = _reader.GetInt32(1);
+                        break;
+                    case 14: puntos.otros_respuesta = _reader.GetInt32(1);
+                        break;
+                    case 15: puntos.otros_administrativa = _reader.GetInt32(1);
+                        break;
+                    case 16: puntos.otros_pedidos = _reader.GetInt32(1);
+                        break;
+
+
+                    }
+                }
+            }
+            catch (MySqlException ex) { Console.WriteLine(ex); }
+
+
+            
+            return puntos;
+        }
+
+
+        public static void insertarDetalleReparacion(DataGridView dgv_tabla, long id, bool nuevasFilas)
+        {
+            string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
+            bool updatebool = false;
+            
+            
+
+                            if (updatebool)
+                            {
+                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                                {
+                                    update += ", (" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
+
+                                }
+                            }
+                            else
+                            {
+                                if (Convert.ToString(row.Cells["Codigo"].Value) != "R")
+                                {
+                                    update += "(" + row.Cells["Codigo"].Value + ",(SELECT cantidad FROM productos as p WHERE cod_producto = " + row.Cells["Codigo"].Value + ")-" + row.Cells["Cantidad"].Value + ")";
+                                    updatebool = true;
+                                }
+                            }
+
+                  
+
+                update += " ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad)";
+
+             
+              
+                    MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+                    retorno = restastock.ExecuteNonQuery();
+                
+            }
+        }
+
 
     }
 }
