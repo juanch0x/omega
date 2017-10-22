@@ -148,7 +148,7 @@ namespace Omega3.Controlador
             var nuevoItem = new DataGridViewCheckBoxColumn();
             var subtotal = new DataGridViewTextBoxColumn();
 
-            cantidad.HeaderText = "Cantidad";
+            cantidad.HeaderText = "Cant.";
             cantidad.Name = "Cantidad";
             cantidad.ReadOnly = true;
 
@@ -168,7 +168,7 @@ namespace Omega3.Controlador
             iva.Name = "iva";
             iva.ReadOnly = true;
 
-            descuento.HeaderText = "Bonificación";
+            descuento.HeaderText = "Bonif.";
             descuento.Name = "Bonificacion";
             descuento.ReadOnly = true;
 

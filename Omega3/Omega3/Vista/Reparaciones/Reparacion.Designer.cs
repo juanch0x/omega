@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reparacion));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_guardar = new System.Windows.Forms.Button();
             this.btn_mano_de_obra = new System.Windows.Forms.Button();
@@ -60,6 +65,7 @@
             this.lbl_trabajo = new System.Windows.Forms.Label();
             this.lbl_comentarios = new System.Windows.Forms.Label();
             this.lbl_repuestos = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +74,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txt_guardar);
             this.panel2.Controls.Add(this.btn_mano_de_obra);
@@ -99,6 +109,21 @@
             this.panel2.Controls.Add(this.lbl_comentarios);
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
             // button1
             // 
@@ -147,6 +172,7 @@
             // 
             resources.ApplyResources(this.lbl_precio, "lbl_precio");
             this.lbl_precio.Name = "lbl_precio";
+            this.lbl_precio.Click += new System.EventHandler(this.lbl_precio_Click);
             // 
             // txt_cantidad
             // 
@@ -173,6 +199,7 @@
             // combo_iva
             // 
             this.combo_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.combo_iva, "combo_iva");
             this.combo_iva.FormattingEnabled = true;
             this.combo_iva.Items.AddRange(new object[] {
             resources.GetString("combo_iva.Items"),
@@ -181,7 +208,6 @@
             resources.GetString("combo_iva.Items3"),
             resources.GetString("combo_iva.Items4"),
             resources.GetString("combo_iva.Items5")});
-            resources.ApplyResources(this.combo_iva, "combo_iva");
             this.combo_iva.Name = "combo_iva";
             // 
             // btn_buscar_producto
@@ -225,11 +251,24 @@
             this.tabla_reparacion.AllowUserToOrderColumns = true;
             this.tabla_reparacion.AllowUserToResizeColumns = false;
             this.tabla_reparacion.AllowUserToResizeRows = false;
+            this.tabla_reparacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.tabla_reparacion.BackgroundColor = System.Drawing.Color.White;
             this.tabla_reparacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabla_reparacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tabla_reparacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.tabla_reparacion, "tabla_reparacion");
+            this.tabla_reparacion.MultiSelect = false;
             this.tabla_reparacion.Name = "tabla_reparacion";
+            this.tabla_reparacion.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabla_reparacion.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tabla_reparacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_reparacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_reparacion_CellContentClick);
             this.tabla_reparacion.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tabla_reparacion_CellFormatting);
@@ -305,6 +344,11 @@
             this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_repuestos.Name = "lbl_repuestos";
             // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // Reparacion
             // 
             resources.ApplyResources(this, "$this");
@@ -355,5 +399,9 @@
         private System.Windows.Forms.Button btn_mano_de_obra;
         private System.Windows.Forms.Button txt_guardar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
     }
 }
