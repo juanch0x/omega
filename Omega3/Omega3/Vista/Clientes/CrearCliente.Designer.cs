@@ -380,8 +380,10 @@
             this.Controls.Add(this.btn_crear);
             this.Controls.Add(this.datos_generales);
             this.Controls.Add(this.facturacion);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CrearCliente";
             this.Text = "Nuevo Usuario";
             this.Load += new System.EventHandler(this.CrearCliente_Load);

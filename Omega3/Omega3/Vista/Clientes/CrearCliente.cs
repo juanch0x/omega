@@ -41,16 +41,6 @@ namespace Omega3.Vista.Clientes
             
         }
 
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
-                m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
 
         // Returns JSON string
         string GET(string cuit)
@@ -363,12 +353,6 @@ namespace Omega3.Vista.Clientes
 
         private void CrearCliente_Paint(object sender, PaintEventArgs e)
         {
-
-       
-            Rectangle r = new Rectangle(0, 0, this.Width -1 , this.Height -1);
-            Pen p = new Pen(Color.Black, 3);
-            e.Graphics.DrawRectangle(p, r);
-
         }
 
     }

@@ -195,7 +195,9 @@ namespace Omega3.Controlador
              
               using (WebClient webClient = new WebClient())
              {
-                 webClient.DownloadFile(url, Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
+                try {
+                    webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + request.IdComprobante + ".pdf");
+                } catch(FileLoadException ex) { Console.Write(ex); }
              }
             //  System.Diagnostics.Process.Start(Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
           //  Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
