@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -178,6 +179,20 @@ namespace Omega3.Controlador
         {
             for (int i = 0; i < lista.Length; i++)
                 lista[i].Text = "";
+        }
+
+        public static bool chequearComprobante(string id_comprobante)
+        {
+           string url = Path.GetTempPath() + "Comprobante_" + id_comprobante + ".pdf";
+            if (new FileInfo(url).Length == 0)
+            {
+                Console.WriteLine(url);
+                return false;
+            }
+            System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + id_comprobante + ".pdf");
+            Console.WriteLine(url);
+            return true;
+
         }
 
 

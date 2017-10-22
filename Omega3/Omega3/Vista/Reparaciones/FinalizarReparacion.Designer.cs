@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_cliente = new System.Windows.Forms.Label();
             this.lbl_dni = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
@@ -36,6 +37,9 @@
             this.combo_medio_de_pago = new System.Windows.Forms.ComboBox();
             this.lbl_total = new System.Windows.Forms.Label();
             this.btn_facturar = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lbl_cargando = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_cliente
@@ -111,11 +115,34 @@
             this.btn_facturar.UseVisualStyleBackColor = true;
             this.btn_facturar.Click += new System.EventHandler(this.btn_facturar_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 250;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(340, 217);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 8;
+            // 
+            // lbl_cargando
+            // 
+            this.lbl_cargando.AutoSize = true;
+            this.lbl_cargando.Location = new System.Drawing.Point(337, 254);
+            this.lbl_cargando.Name = "lbl_cargando";
+            this.lbl_cargando.Size = new System.Drawing.Size(53, 13);
+            this.lbl_cargando.TabIndex = 9;
+            this.lbl_cargando.Text = "Cargando";
+            // 
             // FinalizarReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 352);
+            this.Controls.Add(this.lbl_cargando);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btn_facturar);
             this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.combo_medio_de_pago);
@@ -142,5 +169,8 @@
         private System.Windows.Forms.ComboBox combo_medio_de_pago;
         private System.Windows.Forms.Label lbl_total;
         private System.Windows.Forms.Button btn_facturar;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lbl_cargando;
     }
 }
