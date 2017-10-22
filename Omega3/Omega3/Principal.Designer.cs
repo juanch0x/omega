@@ -55,6 +55,8 @@
             this.txt_dolar_guardado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erogacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +69,8 @@
             this.ventasToolStripMenuItem,
             this.reparacionesToolStripMenuItem,
             this.presupuestosToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem});
+            this.cerrarSesiónToolStripMenuItem,
+            this.administracionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 29);
@@ -288,12 +291,28 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dolar: Sugerido";
             // 
+            // administracionToolStripMenuItem
+            // 
+            this.administracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.erogacionesToolStripMenuItem});
+            this.administracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
+            this.administracionToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
+            this.administracionToolStripMenuItem.Text = "Administracion";
+            // 
+            // erogacionesToolStripMenuItem
+            // 
+            this.erogacionesToolStripMenuItem.Name = "erogacionesToolStripMenuItem";
+            this.erogacionesToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.erogacionesToolStripMenuItem.Text = "Erogaciones";
+            this.erogacionesToolStripMenuItem.Click += new System.EventHandler(this.erogacionesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1034, 491);
             this.Controls.Add(this.panel_dolar);
             this.Controls.Add(this.menuStrip1);
@@ -343,6 +362,8 @@
         private System.Windows.Forms.ToolStripMenuItem dolarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administracionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erogacionesToolStripMenuItem;
     }
 }
 

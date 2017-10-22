@@ -168,14 +168,14 @@
             // 
             // txt_email2
             // 
-            this.txt_email2.Location = new System.Drawing.Point(335, 284);
+            this.txt_email2.Location = new System.Drawing.Point(344, 251);
             this.txt_email2.Name = "txt_email2";
             this.txt_email2.Size = new System.Drawing.Size(160, 26);
             this.txt_email2.TabIndex = 6;
             // 
             // txt_email3
             // 
-            this.txt_email3.Location = new System.Drawing.Point(335, 316);
+            this.txt_email3.Location = new System.Drawing.Point(344, 283);
             this.txt_email3.Name = "txt_email3";
             this.txt_email3.Size = new System.Drawing.Size(160, 26);
             this.txt_email3.TabIndex = 7;
@@ -184,42 +184,42 @@
             // 
             this.txt_proveedor.BackColor = System.Drawing.Color.White;
             this.txt_proveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_proveedor.Location = new System.Drawing.Point(335, 92);
+            this.txt_proveedor.Location = new System.Drawing.Point(344, 59);
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.Size = new System.Drawing.Size(160, 26);
             this.txt_proveedor.TabIndex = 0;
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Location = new System.Drawing.Point(335, 124);
+            this.txt_telefono.Location = new System.Drawing.Point(344, 91);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(160, 26);
             this.txt_telefono.TabIndex = 1;
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(335, 252);
+            this.txt_email.Location = new System.Drawing.Point(344, 219);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(160, 26);
             this.txt_email.TabIndex = 5;
             // 
             // txt_direccion
             // 
-            this.txt_direccion.Location = new System.Drawing.Point(335, 156);
+            this.txt_direccion.Location = new System.Drawing.Point(344, 123);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(160, 26);
             this.txt_direccion.TabIndex = 2;
             // 
             // txt_codigo_postal
             // 
-            this.txt_codigo_postal.Location = new System.Drawing.Point(335, 220);
+            this.txt_codigo_postal.Location = new System.Drawing.Point(344, 187);
             this.txt_codigo_postal.Name = "txt_codigo_postal";
             this.txt_codigo_postal.Size = new System.Drawing.Size(160, 26);
             this.txt_codigo_postal.TabIndex = 4;
             // 
             // txt_provincia
             // 
-            this.txt_provincia.Location = new System.Drawing.Point(335, 188);
+            this.txt_provincia.Location = new System.Drawing.Point(344, 155);
             this.txt_provincia.Name = "txt_provincia";
             this.txt_provincia.Size = new System.Drawing.Size(160, 26);
             this.txt_provincia.TabIndex = 3;
@@ -228,7 +228,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(184, 292);
+            this.label19.Location = new System.Drawing.Point(193, 259);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 18);
             this.label19.TabIndex = 19;
@@ -238,7 +238,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(183, 324);
+            this.label18.Location = new System.Drawing.Point(192, 291);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 18);
             this.label18.TabIndex = 17;
@@ -248,17 +248,17 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(249, 45);
+            this.label12.Location = new System.Drawing.Point(243, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(164, 24);
+            this.label12.Size = new System.Drawing.Size(198, 24);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Crear Proveedor";
+            this.label12.Text = "Modificar Proveedor";
             // 
             // lbl_proveedor
             // 
             this.lbl_proveedor.AutoSize = true;
             this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_proveedor.Location = new System.Drawing.Point(184, 100);
+            this.lbl_proveedor.Location = new System.Drawing.Point(193, 67);
             this.lbl_proveedor.Name = "lbl_proveedor";
             this.lbl_proveedor.Size = new System.Drawing.Size(86, 18);
             this.lbl_proveedor.TabIndex = 0;
@@ -267,7 +267,7 @@
             // btn_salir
             // 
             this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salir.Location = new System.Drawing.Point(438, 402);
+            this.btn_salir.Location = new System.Drawing.Point(463, 350);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(90, 33);
             this.btn_salir.TabIndex = 10;
@@ -277,7 +277,7 @@
             // btn_limpiar
             // 
             this.btn_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(300, 402);
+            this.btn_limpiar.Location = new System.Drawing.Point(325, 350);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(90, 33);
             this.btn_limpiar.TabIndex = 9;
@@ -288,7 +288,7 @@
             // 
             this.lbl_telefono.AutoSize = true;
             this.lbl_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_telefono.Location = new System.Drawing.Point(184, 132);
+            this.lbl_telefono.Location = new System.Drawing.Point(193, 99);
             this.lbl_telefono.Name = "lbl_telefono";
             this.lbl_telefono.Size = new System.Drawing.Size(74, 18);
             this.lbl_telefono.TabIndex = 2;
@@ -298,18 +298,19 @@
             // 
             this.btn_agregar.FlatAppearance.BorderSize = 0;
             this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(152, 402);
+            this.btn_agregar.Location = new System.Drawing.Point(177, 350);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(90, 33);
             this.btn_agregar.TabIndex = 8;
-            this.btn_agregar.Text = "Crear";
+            this.btn_agregar.Text = "Guardar";
             this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // lbl_direccion
             // 
             this.lbl_direccion.AutoSize = true;
             this.lbl_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_direccion.Location = new System.Drawing.Point(184, 164);
+            this.lbl_direccion.Location = new System.Drawing.Point(193, 131);
             this.lbl_direccion.Name = "lbl_direccion";
             this.lbl_direccion.Size = new System.Drawing.Size(80, 18);
             this.lbl_direccion.TabIndex = 4;
@@ -319,7 +320,7 @@
             // 
             this.lbl_email.AutoSize = true;
             this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_email.Location = new System.Drawing.Point(184, 260);
+            this.lbl_email.Location = new System.Drawing.Point(193, 227);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(56, 18);
             this.lbl_email.TabIndex = 10;
@@ -329,7 +330,7 @@
             // 
             this.lbl_codigo_postal.AutoSize = true;
             this.lbl_codigo_postal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_codigo_postal.Location = new System.Drawing.Point(184, 228);
+            this.lbl_codigo_postal.Location = new System.Drawing.Point(193, 195);
             this.lbl_codigo_postal.Name = "lbl_codigo_postal";
             this.lbl_codigo_postal.Size = new System.Drawing.Size(115, 18);
             this.lbl_codigo_postal.TabIndex = 9;
@@ -339,7 +340,7 @@
             // 
             this.lbl_provincia.AutoSize = true;
             this.lbl_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_provincia.Location = new System.Drawing.Point(184, 196);
+            this.lbl_provincia.Location = new System.Drawing.Point(193, 163);
             this.lbl_provincia.Name = "lbl_provincia";
             this.lbl_provincia.Size = new System.Drawing.Size(78, 18);
             this.lbl_provincia.TabIndex = 6;
