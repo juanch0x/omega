@@ -23,8 +23,27 @@ namespace Omega3.Vista.Venta
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
+            Modelo.Venta a = new Modelo.Venta();
+            a.id = venta.id;
+            
+            a.nrofactura = long.Parse(txt_factura.Text);
+            a.remito = long.Parse(txt_remito.Text);
+            if (combo_cobrada.SelectedIndex == 0)
+            {
+                a.cobrada = true;
+            }
+            else { a.cobrada = false; }
 
-        }
+
+            if (ControladorFuncVariadas.validarTextBoxVacios(txt_remito, txt_factura))
+            {
+                if (ControlVentas.ModificarVenta(a) == 1)
+                {
+                    MessageBox.Show("Se actualizaron los datos correctamente");
+                }
+                else { Console.WriteLine("Error en el update"); }
+            }
+           }
 
         private void CobrarVenta_Load(object sender, EventArgs e)
         {

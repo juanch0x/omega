@@ -19,12 +19,16 @@ namespace Omega3.Vista.Reparaciones
         Cliente cliente;
         decimal total = new decimal();
         DataGridView dgv_tabla;
-        public FinalizarReparacion(Cliente cliente, decimal total, DataGridView dgv_tabla)
+        long id_reparacion;
+        Form a;
+        public FinalizarReparacion(Cliente cliente, decimal total, DataGridView dgv_tabla, long id_reparacion, Form a)
         {
             InitializeComponent();
             this.cliente = cliente;
             this.total = total;
             this.dgv_tabla = dgv_tabla;
+            this.id_reparacion = id_reparacion;
+            this.a = a;
         }
 
         private void FinalizarReparacion_Load(object sender, EventArgs e)
@@ -48,6 +52,11 @@ namespace Omega3.Vista.Reparaciones
             venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
             ControlVenta facturar = new ControlVenta();
             //facturar.FacturarReparacion(venta, cliente, dgv_tabla);
+            if (ControlReparaciones.FinalizarReparacion(id_reparacion) == 1)
+            {
+                MessageBox.Show("Se realizó la venta correctamente!");
+                
+            }
 
             id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
             //facturar.detalleComprobante(id_comprobante);
@@ -61,7 +70,7 @@ namespace Omega3.Vista.Reparaciones
         private void timer1_Tick(object sender, EventArgs e)
         {
              
-            ControlVenta a = new ControlVenta();
+            ControlVenta ab = new ControlVenta();
             progressBar1.Visible = true;
             lbl_cargando.Visible = true;
 
@@ -87,17 +96,27 @@ namespace Omega3.Vista.Reparaciones
             }
             else if (progressBar1.Value == 100)
             {
-                a.detalleComprobante(id_comprobante);
+                ab.detalleComprobante(id_comprobante);
                 if (ControladorFuncVariadas.chequearComprobante(id_comprobante))
                 {
                     timer1.Stop();
+                    this.Close();
+                    a.Close();
                 }
                 else
                 {
                     timer1.Stop();
+                    
+                    this.Close();
+                    a.Close();
                     MessageBox.Show("Hubo un error descargando el comprobante, porque el CAE no estaba listo, para descargalo utilice la platataforma de Facturante.");
                 }
             }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }

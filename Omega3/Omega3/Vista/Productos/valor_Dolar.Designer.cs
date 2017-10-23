@@ -46,12 +46,13 @@
             this.label1.Size = new System.Drawing.Size(122, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Valor Sugerido";
+            this.label1.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 91);
+            this.label2.Location = new System.Drawing.Point(20, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 19);
             this.label2.TabIndex = 1;
@@ -66,12 +67,13 @@
             this.txt_sugerido.Size = new System.Drawing.Size(86, 16);
             this.txt_sugerido.TabIndex = 2;
             this.txt_sugerido.Text = "txt_sugerido";
+            this.txt_sugerido.Visible = false;
             // 
             // txt_actual
             // 
             this.txt_actual.AutoSize = true;
             this.txt_actual.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_actual.Location = new System.Drawing.Point(198, 92);
+            this.txt_actual.Location = new System.Drawing.Point(198, 69);
             this.txt_actual.Name = "txt_actual";
             this.txt_actual.Size = new System.Drawing.Size(70, 16);
             this.txt_actual.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 128);
+            this.label5.Location = new System.Drawing.Point(20, 105);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 19);
             this.label5.TabIndex = 4;
@@ -90,15 +92,16 @@
             // txt_nuevo
             // 
             this.txt_nuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nuevo.Location = new System.Drawing.Point(198, 127);
+            this.txt_nuevo.Location = new System.Drawing.Point(198, 104);
             this.txt_nuevo.Name = "txt_nuevo";
             this.txt_nuevo.Size = new System.Drawing.Size(100, 22);
             this.txt_nuevo.TabIndex = 5;
+            this.txt_nuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nuevo_KeyPress);
             // 
             // btn_cambiar
             // 
             this.btn_cambiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cambiar.Location = new System.Drawing.Point(93, 201);
+            this.btn_cambiar.Location = new System.Drawing.Point(93, 178);
             this.btn_cambiar.Name = "btn_cambiar";
             this.btn_cambiar.Size = new System.Drawing.Size(120, 29);
             this.btn_cambiar.TabIndex = 6;

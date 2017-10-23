@@ -323,8 +323,8 @@ namespace Omega3
 
         }
 
-        private void actualizarDolarInternet()
-        {
+        private void actualizarDolarInternet() { 
+     /*   {
             dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
             dolar = a.libre + new decimal(0.10);
@@ -334,16 +334,18 @@ namespace Omega3
             dolar_guardado = ControlProducto.obtenerValorDolar();
 
             txt_dolar_guardado.Text = dolar_guardado.ToString();
+            
+            */
         }
 
         private void actualizarDolarSinConexion()
         {
-
+        /*
             txt_dolar.Text = "0";
             dolar_guardado = new decimal();
             dolar_guardado = ControlProducto.obtenerValorDolar();
             txt_dolar_guardado.Text = dolar_guardado.ToString();
-
+            */
         }
 
         private void crearNToolStripMenuItem_Click(object sender, EventArgs e)
