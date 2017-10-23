@@ -176,6 +176,31 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
 
+            
+            Vista.Proveedores.ABMProveedores proveedores;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("ABMProveedores"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                proveedores = new Vista.Proveedores.ABMProveedores(); ;
+                proveedores.StartPosition = FormStartPosition.CenterScreen;
+                proveedores.MdiParent = this;
+                proveedores.Show();
+            }
+
+
+
         }
 
         private void reabastecimientoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -221,9 +246,31 @@ namespace Omega3
 
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Reparaciones.Reparacion a = new Vista.Reparaciones.Reparacion();
-            a.MdiParent = this;
-            a.Show();
+  
+
+            Vista.Reparaciones.Reparacion reparacion;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Reparacion"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                reparacion = new Vista.Reparaciones.Reparacion(); ;
+                reparacion.StartPosition = FormStartPosition.CenterScreen;
+                reparacion.MdiParent = this;
+                reparacion.Show();
+            }
+
+
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -439,6 +486,37 @@ namespace Omega3
                 listarclientes.Show();
             }
 
+
+
+
+        }
+
+        private void cierreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Venta.CierreDeCaja cierredecaja;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Cierre de Caja"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                cierredecaja = new Vista.Venta.CierreDeCaja();
+                cierredecaja.StartPosition = FormStartPosition.CenterScreen;
+                cierredecaja.MdiParent = this;
+                cierredecaja.Show();
+            }
 
 
 

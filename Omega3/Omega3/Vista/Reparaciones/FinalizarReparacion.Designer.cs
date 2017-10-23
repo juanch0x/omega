@@ -249,7 +249,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FinalizarReparacion";
-            this.Text = "FinalizarReparacion";
+            this.Text = "Facturar Reparacion";
             this.Load += new System.EventHandler(this.FinalizarReparacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
