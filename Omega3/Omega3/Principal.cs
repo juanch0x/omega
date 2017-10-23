@@ -348,7 +348,7 @@ namespace Omega3
 
         private void actualizarDolarInternet()
         {
-            dolar a = new dolar();
+          /*  dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
             dolar = a.libre + new decimal(0.10);
             txt_dolar.Text = dolar.ToString();
@@ -356,16 +356,17 @@ namespace Omega3
             dolar_guardado = new decimal();
             dolar_guardado = ControlProducto.obtenerValorDolar();
 
-            txt_dolar_guardado.Text = dolar_guardado.ToString();
+            txt_dolar_guardado.Text = dolar_guardado.ToString();*/
+
         }
 
         private void actualizarDolarSinConexion()
         {
-
+            /*
             txt_dolar.Text = "0";
             dolar_guardado = new decimal();
             dolar_guardado = ControlProducto.obtenerValorDolar();
-            txt_dolar_guardado.Text = dolar_guardado.ToString();
+            txt_dolar_guardado.Text = dolar_guardado.ToString();*/
 
         }
 
@@ -514,7 +515,9 @@ namespace Omega3
 
         }
 
-        private void cierreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
             Vista.Venta.CierreDeCaja cierredecaja;
@@ -540,8 +543,6 @@ namespace Omega3
                 cierredecaja.MdiParent = this;
                 cierredecaja.Show();
             }
-
-
 
         }
     }
