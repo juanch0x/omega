@@ -38,7 +38,6 @@
             this.combo_lista = new System.Windows.Forms.ComboBox();
             this.lbl_lista = new System.Windows.Forms.Label();
             this.txt_documento = new System.Windows.Forms.TextBox();
-            this.txt_cuit = new System.Windows.Forms.MaskedTextBox();
             this.lbl_cod_postal = new System.Windows.Forms.Label();
             this.lbl_mail = new System.Windows.Forms.Label();
             this.txt_mail_contacto = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.lbl_contacto = new System.Windows.Forms.Label();
             this.txt_localidad = new System.Windows.Forms.TextBox();
             this.txt_cod_postal = new System.Windows.Forms.TextBox();
-            this.combo_documento = new System.Windows.Forms.ComboBox();
             this.lbl_tipo = new System.Windows.Forms.Label();
             this.combo_provincia = new System.Windows.Forms.ComboBox();
             this.lbl_razon = new System.Windows.Forms.Label();
@@ -69,7 +67,6 @@
             this.panel1.Controls.Add(this.combo_lista);
             this.panel1.Controls.Add(this.lbl_lista);
             this.panel1.Controls.Add(this.txt_documento);
-            this.panel1.Controls.Add(this.txt_cuit);
             this.panel1.Controls.Add(this.lbl_cod_postal);
             this.panel1.Controls.Add(this.lbl_mail);
             this.panel1.Controls.Add(this.txt_mail_contacto);
@@ -77,7 +74,6 @@
             this.panel1.Controls.Add(this.lbl_contacto);
             this.panel1.Controls.Add(this.txt_localidad);
             this.panel1.Controls.Add(this.txt_cod_postal);
-            this.panel1.Controls.Add(this.combo_documento);
             this.panel1.Controls.Add(this.lbl_tipo);
             this.panel1.Controls.Add(this.combo_provincia);
             this.panel1.Controls.Add(this.lbl_razon);
@@ -150,7 +146,7 @@
             this.combo_condicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_condicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_condicion.FormattingEnabled = true;
-            this.combo_condicion.Location = new System.Drawing.Point(39, 76);
+            this.combo_condicion.Location = new System.Drawing.Point(38, 67);
             this.combo_condicion.Name = "combo_condicion";
             this.combo_condicion.Size = new System.Drawing.Size(292, 26);
             this.combo_condicion.TabIndex = 0;
@@ -178,20 +174,11 @@
             // txt_documento
             // 
             this.txt_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_documento.Location = new System.Drawing.Point(164, 80);
+            this.txt_documento.Location = new System.Drawing.Point(140, 77);
             this.txt_documento.Name = "txt_documento";
+            this.txt_documento.ReadOnly = true;
             this.txt_documento.Size = new System.Drawing.Size(169, 24);
             this.txt_documento.TabIndex = 26;
-            // 
-            // txt_cuit
-            // 
-            this.txt_cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cuit.Location = new System.Drawing.Point(164, 80);
-            this.txt_cuit.Mask = "99-99999999-9";
-            this.txt_cuit.Name = "txt_cuit";
-            this.txt_cuit.Size = new System.Drawing.Size(101, 24);
-            this.txt_cuit.TabIndex = 28;
-            this.txt_cuit.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // lbl_cod_postal
             // 
@@ -256,25 +243,15 @@
             this.txt_cod_postal.Size = new System.Drawing.Size(268, 24);
             this.txt_cod_postal.TabIndex = 36;
             // 
-            // combo_documento
-            // 
-            this.combo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combo_documento.FormattingEnabled = true;
-            this.combo_documento.Location = new System.Drawing.Point(42, 80);
-            this.combo_documento.Name = "combo_documento";
-            this.combo_documento.Size = new System.Drawing.Size(116, 26);
-            this.combo_documento.TabIndex = 25;
-            // 
             // lbl_tipo
             // 
             this.lbl_tipo.AutoSize = true;
             this.lbl_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tipo.Location = new System.Drawing.Point(38, 59);
+            this.lbl_tipo.Location = new System.Drawing.Point(39, 80);
             this.lbl_tipo.Name = "lbl_tipo";
-            this.lbl_tipo.Size = new System.Drawing.Size(156, 18);
+            this.lbl_tipo.Size = new System.Drawing.Size(95, 18);
             this.lbl_tipo.TabIndex = 27;
-            this.lbl_tipo.Text = "Tipo de Documento";
+            this.lbl_tipo.Text = "Documento";
             // 
             // combo_provincia
             // 
@@ -389,7 +366,6 @@
         private System.Windows.Forms.ComboBox combo_lista;
         private System.Windows.Forms.Label lbl_lista;
         private System.Windows.Forms.TextBox txt_documento;
-        private System.Windows.Forms.MaskedTextBox txt_cuit;
         private System.Windows.Forms.Label lbl_cod_postal;
         private System.Windows.Forms.Label lbl_mail;
         private System.Windows.Forms.TextBox txt_mail_contacto;
@@ -397,7 +373,6 @@
         private System.Windows.Forms.Label lbl_contacto;
         private System.Windows.Forms.TextBox txt_localidad;
         private System.Windows.Forms.TextBox txt_cod_postal;
-        private System.Windows.Forms.ComboBox combo_documento;
         private System.Windows.Forms.Label lbl_tipo;
         private System.Windows.Forms.ComboBox combo_provincia;
         private System.Windows.Forms.Label lbl_razon;

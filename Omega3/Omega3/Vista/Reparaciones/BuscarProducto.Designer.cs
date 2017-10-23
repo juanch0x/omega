@@ -71,7 +71,7 @@
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(717, 189);
+            this.dgv_tabla.Size = new System.Drawing.Size(523, 155);
             this.dgv_tabla.TabIndex = 10;
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             // 
@@ -92,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 189);
+            this.ClientSize = new System.Drawing.Size(523, 155);
             this.Controls.Add(this.dgv_tabla);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -60,7 +60,10 @@ namespace Omega3.Vista.Reparaciones
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+             
             ControlVenta a = new ControlVenta();
+            progressBar1.Visible = true;
+            lbl_cargando.Visible = true;
 
             if (progressBar1.Value != 100)
             {
