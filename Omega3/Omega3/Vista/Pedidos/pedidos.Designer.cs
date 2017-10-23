@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1098, 459);
+            this.ClientSize = new System.Drawing.Size(1086, 459);
             this.Controls.Add(this.lbl_filtro);
             this.Controls.Add(this.combo_filtro);
             this.Controls.Add(this.panel1);

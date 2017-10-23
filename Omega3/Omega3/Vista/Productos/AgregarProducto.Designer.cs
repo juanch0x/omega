@@ -142,7 +142,7 @@
             this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(64, 242);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 28);
+            this.btn_agregar.Size = new System.Drawing.Size(83, 28);
             this.btn_agregar.TabIndex = 7;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -162,10 +162,10 @@
             // lbl_cantidad
             // 
             this.lbl_cantidad.AutoSize = true;
-            this.lbl_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cantidad.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cantidad.Location = new System.Drawing.Point(19, 163);
             this.lbl_cantidad.Name = "lbl_cantidad";
-            this.lbl_cantidad.Size = new System.Drawing.Size(55, 20);
+            this.lbl_cantidad.Size = new System.Drawing.Size(53, 19);
             this.lbl_cantidad.TabIndex = 13;
             this.lbl_cantidad.Text = "Stock";
             // 

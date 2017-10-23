@@ -131,5 +131,17 @@ namespace Omega3.Vista.Pedidos
             
 
         }
+
+        private void txt_proveedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+      
     }
 }

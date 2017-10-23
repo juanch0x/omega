@@ -233,6 +233,28 @@ namespace Omega3
                 Vista.Venta.Venta_1 a = new Vista.Venta.Venta_1();
                 a.MdiParent = this;
                 a.Show();
+               
+                Vista.Venta.Venta_1 venta;
+                bool encontrado = false;
+                foreach (Form form in this.MdiChildren)
+                {
+
+                    if (form.Name.Equals("Venta_1"))
+                    {
+                        encontrado = true;
+                        form.Show();
+                    }
+
+                }
+
+                if (!encontrado)
+                {
+
+                    venta = new Vista.Venta.Venta_1(); ;
+                    venta.StartPosition = FormStartPosition.CenterScreen;
+                    venta.MdiParent = this;
+                    venta.Show();
+                }
 
             }
         }
@@ -441,7 +463,7 @@ namespace Omega3
             foreach (Form form in this.MdiChildren)
             {
 
-                if (form.Name.Equals("Modificar Cliente"))
+                if (form.Name.Equals("Modificar_Cliente"))
                 {
 
                     encontrado = true;
