@@ -345,14 +345,45 @@ namespace Omega3.Controlador
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
         }
 
-        public static void cierre_de_caja(DataGridView dgv_tabla)
+        public static decimal Total_Vendido_Hoy()
         {
 
 
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+                "select sum(subtotal) from venta inner join detalle_venta on venta.id=detalle_venta.id_venta where venta.fecha_cobro = CURRENT_DATE"), Conexion.ObtenerConexion());
+            decimal resultado = Convert.ToDecimal(_comando.ExecuteScalar());
 
+            return resultado;
+       
+        }
+
+        public static decimal  Total_Reparado_Hoy()
+        {
+            string aux;
+            decimal resultado = new decimal();
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+            "SELECT sum(detalle_reparaciones.subtotal) from reparaciones INNER JOIN detalle_reparaciones on reparaciones.id=detalle_reparaciones.id_reparacion WHERE reparaciones.fecha_pago=CURRENT_DATE"), Conexion.ObtenerConexion());
+
+            aux = Convert.ToString(_comando.ExecuteScalar());
+            if (aux.Trim() != "")
+                resultado = Convert.ToDecimal(aux);
+            else
+                resultado = 0;
+            
+
+            return resultado;
 
         }
 
+
+        public static decimal Total_Erogaciones_hoy()
+        {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+            "select sum(erogaciones.monto) from erogaciones where erogaciones.fecha=CURRENT_DATE"), Conexion.ObtenerConexion());
+            decimal resultado = Convert.ToDecimal(_comando.ExecuteScalar());
+
+            return resultado;
+        }
     }
 
     }

@@ -490,6 +490,37 @@ namespace Omega3
 
 
         }
+
+        private void cierreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Venta.CierreDeCaja cierredecaja;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Cierre de Caja"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                cierredecaja = new Vista.Venta.CierreDeCaja();
+                cierredecaja.StartPosition = FormStartPosition.CenterScreen;
+                cierredecaja.MdiParent = this;
+                cierredecaja.Show();
+            }
+
+
+
+        }
     }
 
     public class dolar
