@@ -212,11 +212,24 @@ namespace Omega3.Controlador
             string fecha_vencimiento = convertirFecha(venta.fecha_vencimiento_cheque);
             string fecha_venta = convertirFecha(venta.fecha_venta);
             //MessageBox.Show(fecha_venta);
-             try
+            string insertarventa;
+            if(venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
+            {
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE)",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+            }
+            else
+            {
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+            }
+
+          
+
+            try
           {
 
-              MySqlCommand comando = new MySqlCommand(string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
-                  venta.documento,venta.medio_de_pago,fecha_vencimiento,venta.nrofactura,venta.tipo_factura,fecha_venta,Usuario.User), Conexion.ObtenerConexion());
+              MySqlCommand comando = new MySqlCommand(insertarventa, Conexion.ObtenerConexion());
               retorno = comando.ExecuteNonQuery();
 
           }
