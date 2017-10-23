@@ -63,7 +63,6 @@
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(100, 20);
             this.txt_usuario.TabIndex = 2;
-            this.txt_usuario.Text = "juanch0x";
             // 
             // txt_pwd
             // 
@@ -71,7 +70,6 @@
             this.txt_pwd.Name = "txt_pwd";
             this.txt_pwd.Size = new System.Drawing.Size(100, 20);
             this.txt_pwd.TabIndex = 3;
-            this.txt_pwd.Text = "asdqwe123";
             this.txt_pwd.UseSystemPasswordChar = true;
             // 
             // btn_login
