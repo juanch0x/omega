@@ -161,8 +161,8 @@ namespace Omega3
             // reparacionesToolStripMenuItem
             // 
             this.reparacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reparacionToolStripMenuItem,
-            this.crearNToolStripMenuItem});
+            this.crearNToolStripMenuItem,
+            this.reparacionToolStripMenuItem});
             this.reparacionesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.reparacionesToolStripMenuItem.Name = "reparacionesToolStripMenuItem";
             this.reparacionesToolStripMenuItem.Size = new System.Drawing.Size(115, 25);
@@ -171,15 +171,15 @@ namespace Omega3
             // reparacionToolStripMenuItem
             // 
             this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
-            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.reparacionToolStripMenuItem.Text = "Crear";
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.reparacionToolStripMenuItem.Text = "Modificar";
             this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
             // 
             // crearNToolStripMenuItem
             // 
             this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
-            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.crearNToolStripMenuItem.Text = "Crear_N";
+            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.crearNToolStripMenuItem.Text = "Crear";
             this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
