@@ -16,8 +16,9 @@ namespace Omega3.Modelo
         public long nrofactura { get; set; }
         public string tipo_factura { get; set; }
         public DateTime fecha_venta { get; set; }
-      
-
+        public long id { get; set; }
+        public long remito { get; set; }
+        public bool cobrada { get; set; }
 }
 
     public class Detalle_Facturante

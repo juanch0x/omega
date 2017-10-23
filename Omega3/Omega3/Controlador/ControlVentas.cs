@@ -327,9 +327,9 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT id, vencimiento, (SELECT descripcion FROM medio_de_pago WHERE id=venta.medio_de_pago) as Pago, nro_factura, tipo_factura, fecha_venta, venta.cobrada, SUM(subtotal) as Total FROM venta INNER JOIN detalle_venta on venta.id=detalle_venta.id_venta GROUP BY venta.id";
-            try
-            {
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Facura', v.tipo_factura as Tipo, v.remito as 'Remito', sum(d.subtotal) as Total, v.fecha_venta as Fecha, v.cobrada as Cobrada, v.usuario as Vendedor FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
+         //   try
+            //{
 
                 MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
 
@@ -339,10 +339,11 @@ namespace Omega3.Controlador
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = table;
 
-
+                
                 dgv_tabla.DataSource = bSource;
-            }
-            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
+                dgv_tabla.Columns["id"].Visible = false;
+            //}
+            //catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
         }
 
         public static void cierre_de_caja(DataGridView dgv_tabla)
@@ -352,6 +353,11 @@ namespace Omega3.Controlador
 
 
         }
+
+
+
+        
+
 
     }
 

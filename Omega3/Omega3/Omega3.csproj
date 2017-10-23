@@ -283,6 +283,12 @@
     <Compile Include="Vista\Venta\CierreDeCaja.Designer.cs">
       <DependentUpon>CierreDeCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Venta\CobrarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\CobrarVenta.Designer.cs">
+      <DependentUpon>CobrarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Venta\Comprobante_Claro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\CierreDeCaja.resx">
       <DependentUpon>CierreDeCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\CobrarVenta.resx">
+      <DependentUpon>CobrarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\Comprobante_Claro.resx">
       <DependentUpon>Comprobante_Claro.cs</DependentUpon>
