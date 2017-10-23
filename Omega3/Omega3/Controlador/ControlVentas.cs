@@ -345,6 +345,13 @@ namespace Omega3.Controlador
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
         }
 
+        public static void cierre_de_caja(DataGridView dgv_tabla)
+        {
+
+
+
+
+        }
 
     }
 
