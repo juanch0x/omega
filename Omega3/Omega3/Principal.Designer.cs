@@ -40,28 +40,17 @@
             this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erogacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txt_dolar = new System.Windows.Forms.Label();
-            this.panel_dolar = new System.Windows.Forms.Panel();
-            this.txt_dolar_guardado = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.panel_dolar.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -70,10 +59,9 @@
             this.productoToolStripMenuItem,
             this.proveedorToolStripMenuItem,
             this.ventasToolStripMenuItem,
+            this.administracionToolStripMenuItem,
             this.reparacionesToolStripMenuItem,
-            this.presupuestosToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem,
-            this.administracionToolStripMenuItem});
+            this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 29);
@@ -148,9 +136,6 @@
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaVentaToolStripMenuItem,
-            this.presupuestoToolStripMenuItem,
-            this.facturanteToolStripMenuItem,
-            this.errorToolStripMenuItem,
             this.ventasRealizadasToolStripMenuItem});
             this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
@@ -163,27 +148,6 @@
             this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva Venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
-            // 
-            // presupuestoToolStripMenuItem
-            // 
-            this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
-            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.presupuestoToolStripMenuItem.Text = "Presupuesto";
-            this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
-            // 
-            // facturanteToolStripMenuItem
-            // 
-            this.facturanteToolStripMenuItem.Name = "facturanteToolStripMenuItem";
-            this.facturanteToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.facturanteToolStripMenuItem.Text = "Facturante";
-            this.facturanteToolStripMenuItem.Click += new System.EventHandler(this.facturanteToolStripMenuItem_Click);
-            // 
-            // errorToolStripMenuItem
-            // 
-            this.errorToolStripMenuItem.Name = "errorToolStripMenuItem";
-            this.errorToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.errorToolStripMenuItem.Text = "Error";
-            this.errorToolStripMenuItem.Click += new System.EventHandler(this.errorToolStripMenuItem_Click);
             // 
             // ventasRealizadasToolStripMenuItem
             // 
@@ -205,32 +169,16 @@
             // reparacionToolStripMenuItem
             // 
             this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
-            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.reparacionToolStripMenuItem.Text = "Crear";
             this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
             // 
             // crearNToolStripMenuItem
             // 
             this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
-            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.crearNToolStripMenuItem.Text = "Crear_N";
             this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
-            // 
-            // presupuestosToolStripMenuItem
-            // 
-            this.presupuestosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarToolStripMenuItem});
-            this.presupuestosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.presupuestosToolStripMenuItem.Name = "presupuestosToolStripMenuItem";
-            this.presupuestosToolStripMenuItem.Size = new System.Drawing.Size(115, 25);
-            this.presupuestosToolStripMenuItem.Text = "Presupuestos";
-            // 
-            // listarToolStripMenuItem
-            // 
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
-            this.listarToolStripMenuItem.Text = "Listar";
-            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
@@ -273,60 +221,6 @@
             this.listarClientesToolStripMenuItem.Text = "Listar Clientes";
             this.listarClientesToolStripMenuItem.Click += new System.EventHandler(this.listarClientesToolStripMenuItem_Click);
             // 
-            // txt_dolar
-            // 
-            this.txt_dolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_dolar.AutoSize = true;
-            this.txt_dolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_dolar.Location = new System.Drawing.Point(128, 6);
-            this.txt_dolar.Name = "txt_dolar";
-            this.txt_dolar.Size = new System.Drawing.Size(58, 16);
-            this.txt_dolar.TabIndex = 3;
-            this.txt_dolar.Text = "txt_dolar";
-            // 
-            // panel_dolar
-            // 
-            this.panel_dolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_dolar.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel_dolar.Controls.Add(this.txt_dolar_guardado);
-            this.panel_dolar.Controls.Add(this.label2);
-            this.panel_dolar.Controls.Add(this.label1);
-            this.panel_dolar.Controls.Add(this.txt_dolar);
-            this.panel_dolar.Location = new System.Drawing.Point(686, 2);
-            this.panel_dolar.Name = "panel_dolar";
-            this.panel_dolar.Size = new System.Drawing.Size(344, 24);
-            this.panel_dolar.TabIndex = 5;
-            // 
-            // txt_dolar_guardado
-            // 
-            this.txt_dolar_guardado.AutoSize = true;
-            this.txt_dolar_guardado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_dolar_guardado.Location = new System.Drawing.Point(296, 6);
-            this.txt_dolar_guardado.Name = "txt_dolar_guardado";
-            this.txt_dolar_guardado.Size = new System.Drawing.Size(45, 16);
-            this.txt_dolar_guardado.TabIndex = 6;
-            this.txt_dolar_guardado.Text = "label3";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(213, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Guardado";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Dolar: Sugerido";
-            // 
             // cierreDeCajaToolStripMenuItem
             // 
             this.cierreDeCajaToolStripMenuItem.Name = "cierreDeCajaToolStripMenuItem";
@@ -341,7 +235,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1034, 491);
-            this.Controls.Add(this.panel_dolar);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -354,8 +247,6 @@
             this.Load += new System.EventHandler(this.Principal_load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel_dolar.ResumeLayout(false);
-            this.panel_dolar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,19 +264,9 @@
         private System.Windows.Forms.ToolStripMenuItem reabastecimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaVentaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reparacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reparacionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem presupuestosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facturanteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem errorToolStripMenuItem;
-        private System.Windows.Forms.Label txt_dolar;
-        private System.Windows.Forms.Panel panel_dolar;
-        private System.Windows.Forms.Label txt_dolar_guardado;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem dolarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem;

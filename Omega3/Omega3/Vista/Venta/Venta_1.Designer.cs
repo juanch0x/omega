@@ -58,6 +58,7 @@
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.lbl_ventas_total = new System.Windows.Forms.Label();
             this.btn_factura = new System.Windows.Forms.Button();
             this.btn_no_factura = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -431,6 +431,16 @@
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(886, 413);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 19);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "TOTAL:";
+            // 
             // lbl_ventas_total
             // 
             this.lbl_ventas_total.AutoSize = true;
@@ -442,6 +452,7 @@
             // 
             // btn_factura
             // 
+            this.btn_factura.Enabled = false;
             this.btn_factura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_factura.Location = new System.Drawing.Point(420, 457);
             this.btn_factura.Name = "btn_factura";
@@ -460,7 +471,6 @@
             this.btn_no_factura.TabIndex = 2;
             this.btn_no_factura.Text = "No Facturar";
             this.btn_no_factura.UseVisualStyleBackColor = true;
-            this.btn_no_factura.Visible = false;
             this.btn_no_factura.Click += new System.EventHandler(this.btn_no_factura_Click);
             // 
             // panel_ventas_detalle
@@ -676,16 +686,6 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(78, 19);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(886, 413);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 19);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "TOTAL:";
             // 
             // Venta_1
             // 

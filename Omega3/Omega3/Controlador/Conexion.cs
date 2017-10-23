@@ -12,7 +12,7 @@ namespace Omega3.Controlador
 
         public static MySqlConnection ObtenerConexion()
         {
-            MySqlConnection conectar = new MySqlConnection("server=192.168.1.41; database=omega; Uid=Omega; pwd=asdqwe123;Convert Zero Datetime=true;");
+            MySqlConnection conectar = new MySqlConnection("server=localhost; database=omega; Uid=root; pwd=;Convert Zero Datetime=true;");
             try
             {              
 
