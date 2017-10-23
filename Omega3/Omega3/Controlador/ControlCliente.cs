@@ -135,7 +135,7 @@ namespace Omega3.Controlador
             cliente.Documento = documento;
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
-               "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
+               "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva,lista FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
@@ -150,6 +150,7 @@ namespace Omega3.Controlador
                 cliente.Mail_contacto = _reader.GetString(8);
                 cliente.Mail_factura = _reader.GetString(9);
                 cliente.Impositiva_Id = _reader.GetInt32(10);
+                cliente.Lista = _reader.GetInt32(11);
 
             }
 
@@ -179,17 +180,20 @@ namespace Omega3.Controlador
 
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
-
+            string consulta = string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal='{5}', contacto='{6}', mail_contacto='{7}',lista={8},impositiva={9} where documento={10}",
+                cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Lista, cliente.Impositiva_Id, cliente.Documento);
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal={5}, contacto={6}, mail_contacto={7},lista={8},impositiva={9} where documento={10}",
+                /*MySqlCommand comando = new MySqlCommand(string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal={5}, contacto={6}, mail_contacto={7},lista={8},impositiva={9} where documento={10}",
                 cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Lista, cliente.Impositiva_Id, cliente.Documento), conexion);
-
+                */
+                MySqlCommand comando = new MySqlCommand(consulta,conexion);
+                Console.WriteLine(consulta);
                 retorno = comando.ExecuteNonQuery();
 
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
                 Console.WriteLine("Error" + e);
             }

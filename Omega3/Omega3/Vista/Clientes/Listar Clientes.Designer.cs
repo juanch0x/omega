@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
@@ -45,10 +46,19 @@
             // dgv_tabla
             // 
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Editar});
             this.dgv_tabla.Location = new System.Drawing.Point(3, 82);
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.Size = new System.Drawing.Size(858, 207);
             this.dgv_tabla.TabIndex = 0;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::Omega3.Properties.Resources.lupa2020;
+            this.Editar.Name = "Editar";
             // 
             // Listar_Clientes
             // 
@@ -68,5 +78,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgv_tabla;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
     }
 }
