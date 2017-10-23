@@ -18,7 +18,7 @@ namespace Omega3.Controlador
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into erogaciones (id_usuario, destino, motivo, monto) values ('{0}','{1}','{2}', '{3}')",
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into erogaciones (id_usuario, destino, motivo, monto,fecha) values ('{0}','{1}','{2}', '{3}',CURRENT_DATE)",
                     erogacion.Id_usuario, erogacion.Destino, erogacion.Motivo, erogacion.Monto), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
 

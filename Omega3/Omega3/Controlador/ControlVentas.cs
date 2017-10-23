@@ -364,10 +364,16 @@ namespace Omega3.Controlador
         public static decimal Total_Vendido_Hoy()
         {
 
+            decimal resultado = new decimal();
+            resultado = 0;
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
                 "select sum(subtotal) from venta inner join detalle_venta on venta.id=detalle_venta.id_venta where venta.fecha_cobro = CURRENT_DATE"), Conexion.ObtenerConexion());
-            decimal resultado = Convert.ToDecimal(_comando.ExecuteScalar());
+
+            if (Convert.ToString(_comando.ExecuteScalar()).Trim() != "")
+            {
+                resultado = Convert.ToDecimal(_comando.ExecuteScalar());
+            }
 
             return resultado;
        
@@ -394,9 +400,15 @@ namespace Omega3.Controlador
 
         public static decimal Total_Erogaciones_hoy()
         {
+            decimal resultado = new decimal();
+            resultado = 0;
             MySqlCommand _comando = new MySqlCommand(String.Format(
             "select sum(erogaciones.monto) from erogaciones where erogaciones.fecha=CURRENT_DATE"), Conexion.ObtenerConexion());
-            decimal resultado = Convert.ToDecimal(_comando.ExecuteScalar());
+
+            if (Convert.ToString(_comando.ExecuteScalar()).Trim() != "")
+            {
+                resultado = Convert.ToDecimal(_comando.ExecuteScalar());
+            }
 
             return resultado;
         }
