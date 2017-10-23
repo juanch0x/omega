@@ -246,6 +246,8 @@
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl_dni);
             this.Controls.Add(this.lbl_cliente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FinalizarReparacion";
             this.Text = "FinalizarReparacion";
             this.Load += new System.EventHandler(this.FinalizarReparacion_Load);

@@ -37,17 +37,7 @@ namespace Omega3.Vista.Venta
 
         }
         //Reescribimos el comportamiento WindProc para que se pueda mover la ventana sin los bordes
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
-                m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
-
+       
         private void Venta_1_Load(object sender, EventArgs e)
         {
             
@@ -787,6 +777,8 @@ namespace Omega3.Vista.Venta
         {
             
         }
+
+
     }
 }
 
