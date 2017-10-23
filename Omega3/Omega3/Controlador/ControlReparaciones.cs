@@ -395,6 +395,25 @@ namespace Omega3.Controlador
         }
 
 
+        public static int FinalizarReparacion(long id_reparacion)
+        {
+            int retorno = 0;
+            MySqlConnection conexion;
+                try { 
+           conexion = Conexion.ObtenerConexion();
+
+            
+            string consulta = string.Format("Update reparaciones set entregado='{0}',fecha_pago = CURRENT_DATE where id={1}",
+                1,id_reparacion);
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            Console.WriteLine(consulta);
+
+            retorno = comando.ExecuteNonQuery();
+            conexion.Close();
+            }catch (MySqlException a) { Console.WriteLine(a); }
+            return retorno;
+            
+        }
 
 
     }

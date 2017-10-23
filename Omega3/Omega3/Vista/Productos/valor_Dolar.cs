@@ -22,8 +22,9 @@ namespace Omega3.Vista.Productos
         {
 
             InitializeComponent();
-            txt_sugerido.Text = sugerido.ToString();
-            txt_actual.Text = guardado.ToString();
+            txt_actual.Tag = "Dolar";
+            txt_sugerido.Text = "0";
+            txt_actual.Text = Convert.ToString(ControlProducto.obtenerValorDolar());
 
 
         }
@@ -38,10 +39,22 @@ namespace Omega3.Vista.Productos
 
         private void btn_cambiar_Click(object sender, EventArgs e)
         {
+            if (ControladorFuncVariadas.validarTextBoxVacios(txt_nuevo))
+            {
+                if (ControlProducto.modificarDolar(Convert.ToDecimal(txt_nuevo.Text)) == 1)
+                {
+                    MessageBox.Show("Se modificó correctamente!");
+                    this.Close();
+                }
+                else { MessageBox.Show("Hubo un problema.."); }
+            }
+            
 
-            ControlProducto.modificarDolar(Convert.ToDecimal(txt_nuevo.Text));
+        }
 
-
+        private void txt_nuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }
     }
 }

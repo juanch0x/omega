@@ -176,6 +176,31 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
 
+            
+            Vista.Proveedores.ABMProveedores proveedores;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("ABMProveedores"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                proveedores = new Vista.Proveedores.ABMProveedores(); ;
+                proveedores.StartPosition = FormStartPosition.CenterScreen;
+                proveedores.MdiParent = this;
+                proveedores.Show();
+            }
+
+
+
         }
 
         private void reabastecimientoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,6 +233,28 @@ namespace Omega3
                 Vista.Venta.Venta_1 a = new Vista.Venta.Venta_1();
                 a.MdiParent = this;
                 a.Show();
+               
+                Vista.Venta.Venta_1 venta;
+                bool encontrado = false;
+                foreach (Form form in this.MdiChildren)
+                {
+
+                    if (form.Name.Equals("Venta_1"))
+                    {
+                        encontrado = true;
+                        form.Show();
+                    }
+
+                }
+
+                if (!encontrado)
+                {
+
+                    venta = new Vista.Venta.Venta_1(); ;
+                    venta.StartPosition = FormStartPosition.CenterScreen;
+                    venta.MdiParent = this;
+                    venta.Show();
+                }
 
             }
         }
@@ -221,9 +268,31 @@ namespace Omega3
 
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Reparaciones.Reparacion a = new Vista.Reparaciones.Reparacion();
-            a.MdiParent = this;
-            a.Show();
+  
+
+            Vista.Reparaciones.Reparacion reparacion;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Reparacion"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                reparacion = new Vista.Reparaciones.Reparacion(); ;
+                reparacion.StartPosition = FormStartPosition.CenterScreen;
+                reparacion.MdiParent = this;
+                reparacion.Show();
+            }
+
+
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -276,8 +345,8 @@ namespace Omega3
 
         }
 
-        private void actualizarDolarInternet()
-        {
+        private void actualizarDolarInternet() { 
+     /*   {
             dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
             dolar = a.libre + new decimal(0.10);
@@ -287,16 +356,18 @@ namespace Omega3
             dolar_guardado = ControlProducto.obtenerValorDolar();
 
             txt_dolar_guardado.Text = dolar_guardado.ToString();
+            
+            */
         }
 
         private void actualizarDolarSinConexion()
         {
-
+        /*
             txt_dolar.Text = "0";
             dolar_guardado = new decimal();
             dolar_guardado = ControlProducto.obtenerValorDolar();
             txt_dolar_guardado.Text = dolar_guardado.ToString();
-
+            */
         }
 
         private void crearNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,7 +463,7 @@ namespace Omega3
             foreach (Form form in this.MdiChildren)
             {
 
-                if (form.Name.Equals("Modificar Cliente"))
+                if (form.Name.Equals("Modificar_Cliente"))
                 {
 
                     encontrado = true;

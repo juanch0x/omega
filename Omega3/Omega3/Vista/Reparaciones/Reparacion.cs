@@ -275,7 +275,7 @@ namespace Omega3.Vista.Reparaciones
             if (validarManoDeObra())
             {
 
-                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), Convert.ToDecimal(lbl_subtotal.Text), tabla_reparacion);
+                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), Convert.ToDecimal(lbl_subtotal.Text), tabla_reparacion,reparacion.id,this);
                 finalizar.ShowDialog();
             }else { MessageBox.Show("Debe agregar el costo de la mano de obra!"); }
        

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.txt_filtro_codigo = new System.Windows.Forms.TextBox();
             this.filtro_codigo = new System.Windows.Forms.Label();
@@ -39,9 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_solicitar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_proveedor = new System.Windows.Forms.TextBox();
-            this.lbl_proveedor = new System.Windows.Forms.Label();
             this.txt_cantidad_solicitada = new System.Windows.Forms.TextBox();
             this.lbl_cantidad_solicitada = new System.Windows.Forms.Label();
             this.txt_producto = new System.Windows.Forms.TextBox();
@@ -50,6 +47,9 @@
             this.lbl_stock = new System.Windows.Forms.Label();
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.lbl_codigo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_proveedor = new System.Windows.Forms.TextBox();
+            this.lbl_proveedor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,25 +64,25 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
-            this.dgv_tabla.Location = new System.Drawing.Point(3, 3);
+            this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
             this.dgv_tabla.MultiSelect = false;
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
@@ -139,6 +139,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(674, 240);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -155,10 +156,10 @@
             // 
             this.panel3.Controls.Add(this.btn_solicitar);
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.txt_proveedor);
-            this.panel3.Controls.Add(this.lbl_proveedor);
             this.panel3.Controls.Add(this.txt_cantidad_solicitada);
+            this.panel3.Controls.Add(this.lbl_proveedor);
             this.panel3.Controls.Add(this.lbl_cantidad_solicitada);
+            this.panel3.Controls.Add(this.txt_proveedor);
             this.panel3.Controls.Add(this.txt_producto);
             this.panel3.Controls.Add(this.txt_nombre);
             this.panel3.Controls.Add(this.txt_stock);
@@ -173,7 +174,7 @@
             // btn_solicitar
             // 
             this.btn_solicitar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_solicitar.Location = new System.Drawing.Point(548, 119);
+            this.btn_solicitar.Location = new System.Drawing.Point(500, 119);
             this.btn_solicitar.Name = "btn_solicitar";
             this.btn_solicitar.Size = new System.Drawing.Size(105, 31);
             this.btn_solicitar.TabIndex = 12;
@@ -181,40 +182,10 @@
             this.btn_solicitar.UseVisualStyleBackColor = true;
             this.btn_solicitar.Click += new System.EventHandler(this.btn_solicitar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Omega3.Properties.Resources.lupa2020;
-            this.pictureBox1.Location = new System.Drawing.Point(627, 64);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 22);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // txt_proveedor
-            // 
-            this.txt_proveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_proveedor.Location = new System.Drawing.Point(478, 64);
-            this.txt_proveedor.Name = "txt_proveedor";
-            this.txt_proveedor.ReadOnly = true;
-            this.txt_proveedor.Size = new System.Drawing.Size(145, 22);
-            this.txt_proveedor.TabIndex = 9;
-            // 
-            // lbl_proveedor
-            // 
-            this.lbl_proveedor.AutoSize = true;
-            this.lbl_proveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_proveedor.Location = new System.Drawing.Point(308, 64);
-            this.lbl_proveedor.Name = "lbl_proveedor";
-            this.lbl_proveedor.Size = new System.Drawing.Size(163, 19);
-            this.lbl_proveedor.TabIndex = 8;
-            this.lbl_proveedor.Text = "Proveedor Sugerido";
-            // 
             // txt_cantidad_solicitada
             // 
             this.txt_cantidad_solicitada.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cantidad_solicitada.Location = new System.Drawing.Point(188, 107);
+            this.txt_cantidad_solicitada.Location = new System.Drawing.Point(478, 63);
             this.txt_cantidad_solicitada.Name = "txt_cantidad_solicitada";
             this.txt_cantidad_solicitada.Size = new System.Drawing.Size(75, 22);
             this.txt_cantidad_solicitada.TabIndex = 7;
@@ -224,7 +195,7 @@
             // 
             this.lbl_cantidad_solicitada.AutoSize = true;
             this.lbl_cantidad_solicitada.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cantidad_solicitada.Location = new System.Drawing.Point(17, 107);
+            this.lbl_cantidad_solicitada.Location = new System.Drawing.Point(308, 64);
             this.lbl_cantidad_solicitada.Name = "lbl_cantidad_solicitada";
             this.lbl_cantidad_solicitada.Size = new System.Drawing.Size(157, 19);
             this.lbl_cantidad_solicitada.TabIndex = 6;
@@ -252,7 +223,7 @@
             // txt_stock
             // 
             this.txt_stock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_stock.Location = new System.Drawing.Point(136, 64);
+            this.txt_stock.Location = new System.Drawing.Point(136, 61);
             this.txt_stock.Name = "txt_stock";
             this.txt_stock.ReadOnly = true;
             this.txt_stock.Size = new System.Drawing.Size(127, 22);
@@ -286,6 +257,40 @@
             this.lbl_codigo.Size = new System.Drawing.Size(65, 19);
             this.lbl_codigo.TabIndex = 0;
             this.lbl_codigo.Text = "Codigo";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Omega3.Properties.Resources.lupa2020;
+            this.pictureBox1.Location = new System.Drawing.Point(339, 116);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 22);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // txt_proveedor
+            // 
+            this.txt_proveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proveedor.Location = new System.Drawing.Point(188, 118);
+            this.txt_proveedor.Name = "txt_proveedor";
+            this.txt_proveedor.ReadOnly = true;
+            this.txt_proveedor.Size = new System.Drawing.Size(145, 22);
+            this.txt_proveedor.TabIndex = 9;
+            this.txt_proveedor.Visible = false;
+            this.txt_proveedor.TextChanged += new System.EventHandler(this.txt_proveedor_TextChanged);
+            // 
+            // lbl_proveedor
+            // 
+            this.lbl_proveedor.AutoSize = true;
+            this.lbl_proveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_proveedor.Location = new System.Drawing.Point(19, 119);
+            this.lbl_proveedor.Name = "lbl_proveedor";
+            this.lbl_proveedor.Size = new System.Drawing.Size(163, 19);
+            this.lbl_proveedor.TabIndex = 8;
+            this.lbl_proveedor.Text = "Proveedor Sugerido";
+            this.lbl_proveedor.Visible = false;
             // 
             // Solicitar_stock
             // 

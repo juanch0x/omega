@@ -212,11 +212,24 @@ namespace Omega3.Controlador
             string fecha_vencimiento = convertirFecha(venta.fecha_vencimiento_cheque);
             string fecha_venta = convertirFecha(venta.fecha_venta);
             //MessageBox.Show(fecha_venta);
-             try
+            string insertarventa;
+            if(venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
+            {
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE)",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+            }
+            else
+            {
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+            }
+
+          
+
+            try
           {
 
-              MySqlCommand comando = new MySqlCommand(string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
-                  venta.documento,venta.medio_de_pago,fecha_vencimiento,venta.nrofactura,venta.tipo_factura,fecha_venta,Usuario.User), Conexion.ObtenerConexion());
+              MySqlCommand comando = new MySqlCommand(insertarventa, Conexion.ObtenerConexion());
               retorno = comando.ExecuteNonQuery();
 
           }
@@ -327,7 +340,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT id, vencimiento, (SELECT descripcion FROM medio_de_pago WHERE id=venta.medio_de_pago) as Pago, nro_factura, tipo_factura, fecha_venta, venta.cobrada, SUM(subtotal) as Total FROM venta INNER JOIN detalle_venta on venta.id=detalle_venta.id_venta GROUP BY venta.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Facura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha, v.cobrada as Cobrada, v.usuario as Vendedor FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
             try
             {
 
@@ -341,6 +354,9 @@ namespace Omega3.Controlador
 
 
                 dgv_tabla.DataSource = bSource;
+
+                dgv_tabla.Columns["id"].Visible = false;
+
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
         }
@@ -384,7 +400,39 @@ namespace Omega3.Controlador
 
             return resultado;
         }
+
+
+        public static int ModificarVenta(Modelo.Venta venta)
+        {
+
+            int retorno = 0;
+            int aux;
+            MySqlConnection conexion;
+
+
+try { 
+                conexion = Conexion.ObtenerConexion();
+
+            if (venta.cobrada) { aux = 1; }else { aux = 0; }
+
+       
+
+            string consulta = string.Format("Update venta set nro_factura='{0}', cobrada='{1}', remito='{2}', fecha_cobro = CURRENT_DATE where id={3}",
+                venta.nrofactura, aux, venta.remito, venta.id);
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            Console.WriteLine(consulta);
+
+            retorno = comando.ExecuteNonQuery();
+            conexion.Close();
+            }catch (MySqlException a) { Console.WriteLine(a); }
+            return retorno;
+
+        }
+
     }
+
+
+
 
     }
 
