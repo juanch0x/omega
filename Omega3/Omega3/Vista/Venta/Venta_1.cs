@@ -24,6 +24,7 @@ namespace Omega3.Vista.Venta
         public Venta_1()
 
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
 
             fecha_pago.Visible = false;

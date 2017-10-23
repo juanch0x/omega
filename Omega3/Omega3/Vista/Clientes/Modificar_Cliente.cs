@@ -18,6 +18,8 @@ namespace Omega3.Vista.Clientes
 
         public Modificar_Cliente(Cliente cliente)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
             this.cliente = cliente;
             txt_documento.Enabled = false;

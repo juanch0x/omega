@@ -49,7 +49,7 @@
             // btn_salir
             // 
             this.btn_salir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salir.Location = new System.Drawing.Point(218, 262);
+            this.btn_salir.Location = new System.Drawing.Point(218, 263);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(82, 27);
             this.btn_salir.TabIndex = 8;
@@ -60,9 +60,9 @@
             // btn_modificar
             // 
             this.btn_modificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(36, 262);
+            this.btn_modificar.Location = new System.Drawing.Point(36, 263);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(82, 27);
+            this.btn_modificar.Size = new System.Drawing.Size(97, 27);
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // txt_stock_minimo
             // 
             this.txt_stock_minimo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_stock_minimo.Location = new System.Drawing.Point(151, 148);
+            this.txt_stock_minimo.Location = new System.Drawing.Point(164, 149);
             this.txt_stock_minimo.Name = "txt_stock_minimo";
             this.txt_stock_minimo.Size = new System.Drawing.Size(163, 22);
             this.txt_stock_minimo.TabIndex = 4;
@@ -80,7 +80,7 @@
             // txt_precio_costo
             // 
             this.txt_precio_costo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_precio_costo.Location = new System.Drawing.Point(151, 86);
+            this.txt_precio_costo.Location = new System.Drawing.Point(164, 87);
             this.txt_precio_costo.Name = "txt_precio_costo";
             this.txt_precio_costo.Size = new System.Drawing.Size(163, 22);
             this.txt_precio_costo.TabIndex = 2;
@@ -89,7 +89,7 @@
             // txt_codigo
             // 
             this.txt_codigo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_codigo.Location = new System.Drawing.Point(151, 57);
+            this.txt_codigo.Location = new System.Drawing.Point(164, 58);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.ReadOnly = true;
             this.txt_codigo.Size = new System.Drawing.Size(163, 22);
@@ -98,7 +98,7 @@
             // txt_producto
             // 
             this.txt_producto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_producto.Location = new System.Drawing.Point(151, 28);
+            this.txt_producto.Location = new System.Drawing.Point(164, 29);
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(163, 22);
             this.txt_producto.TabIndex = 0;
@@ -107,7 +107,7 @@
             // 
             this.lbl_stock_minimo.AutoSize = true;
             this.lbl_stock_minimo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_stock_minimo.Location = new System.Drawing.Point(6, 146);
+            this.lbl_stock_minimo.Location = new System.Drawing.Point(21, 147);
             this.lbl_stock_minimo.Name = "lbl_stock_minimo";
             this.lbl_stock_minimo.Size = new System.Drawing.Size(112, 19);
             this.lbl_stock_minimo.TabIndex = 16;
@@ -117,7 +117,7 @@
             // 
             this.lbl_precio_costo.AutoSize = true;
             this.lbl_precio_costo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precio_costo.Location = new System.Drawing.Point(5, 84);
+            this.lbl_precio_costo.Location = new System.Drawing.Point(21, 85);
             this.lbl_precio_costo.Name = "lbl_precio_costo";
             this.lbl_precio_costo.Size = new System.Drawing.Size(108, 19);
             this.lbl_precio_costo.TabIndex = 14;
@@ -127,7 +127,7 @@
             // 
             this.lbl_codigo.AutoSize = true;
             this.lbl_codigo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_codigo.Location = new System.Drawing.Point(6, 55);
+            this.lbl_codigo.Location = new System.Drawing.Point(21, 55);
             this.lbl_codigo.Name = "lbl_codigo";
             this.lbl_codigo.Size = new System.Drawing.Size(65, 19);
             this.lbl_codigo.TabIndex = 13;
@@ -137,7 +137,7 @@
             // 
             this.lbl_producto.AutoSize = true;
             this.lbl_producto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_producto.Location = new System.Drawing.Point(6, 26);
+            this.lbl_producto.Location = new System.Drawing.Point(21, 27);
             this.lbl_producto.Name = "lbl_producto";
             this.lbl_producto.Size = new System.Drawing.Size(80, 19);
             this.lbl_producto.TabIndex = 12;
@@ -146,7 +146,7 @@
             // txt_cantidad
             // 
             this.txt_cantidad.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cantidad.Location = new System.Drawing.Point(151, 178);
+            this.txt_cantidad.Location = new System.Drawing.Point(164, 179);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(163, 22);
             this.txt_cantidad.TabIndex = 5;
@@ -156,7 +156,7 @@
             // 
             this.lbl_cantidad.AutoSize = true;
             this.lbl_cantidad.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cantidad.Location = new System.Drawing.Point(6, 176);
+            this.lbl_cantidad.Location = new System.Drawing.Point(21, 177);
             this.lbl_cantidad.Name = "lbl_cantidad";
             this.lbl_cantidad.Size = new System.Drawing.Size(53, 19);
             this.lbl_cantidad.TabIndex = 24;
@@ -166,7 +166,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 116);
+            this.label1.Location = new System.Drawing.Point(21, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 19);
             this.label1.TabIndex = 25;
@@ -180,7 +180,7 @@
             this.combo_moneda.Items.AddRange(new object[] {
             "Pesos",
             "Dólares"});
-            this.combo_moneda.Location = new System.Drawing.Point(151, 116);
+            this.combo_moneda.Location = new System.Drawing.Point(164, 117);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(163, 24);
             this.combo_moneda.TabIndex = 3;
@@ -189,7 +189,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 205);
+            this.label2.Location = new System.Drawing.Point(21, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 19);
             this.label2.TabIndex = 28;
@@ -200,7 +200,7 @@
             this.combo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_categoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_categoria.FormattingEnabled = true;
-            this.combo_categoria.Location = new System.Drawing.Point(151, 207);
+            this.combo_categoria.Location = new System.Drawing.Point(164, 208);
             this.combo_categoria.Name = "combo_categoria";
             this.combo_categoria.Size = new System.Drawing.Size(163, 24);
             this.combo_categoria.TabIndex = 6;
@@ -227,6 +227,8 @@
             this.Controls.Add(this.lbl_codigo);
             this.Controls.Add(this.lbl_producto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ModificarProducto";
             this.Text = "Modificar Productos";
             this.Load += new System.EventHandler(this.ModificarProducto_Load);

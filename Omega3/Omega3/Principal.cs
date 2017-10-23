@@ -22,14 +22,14 @@ namespace Omega3
 {
     public partial class Principal : Form
     {
-        
+
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
         public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
         public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
         public decimal dolar;
         public decimal dolar_guardado;
 
-        
+
 
         public Principal()
         {
@@ -66,7 +66,7 @@ namespace Omega3
         private void Principal_load(object sender, EventArgs e)
         {
 
-            
+
             Login login = new Login();
             if (!ControladorFuncVariadas.AccesoInternet())
             {
@@ -74,7 +74,7 @@ namespace Omega3
                 actualizarDolarSinConexion();
                 this.Visible = true;
 
-                
+
                 login.StartPosition = FormStartPosition.CenterScreen;
                 login.MdiParent = this;
                 login.Show();
@@ -113,28 +113,28 @@ namespace Omega3
         }
 
 
-    
+
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Vista.Productos.ABMProductos modificarproducto;// = new Vista.Productos.ModificarProductos();
-           
-        
+
+
             bool encontrado = false;
             foreach (Form form in this.MdiChildren)
             {
-                
+
                 if (form.Name.Equals("ABMProductos"))
                 {
-                    
+
                     encontrado = true;
                     form.Show();
                 }
-                
+
             }
 
             if (!encontrado)
             {
-                
+
                 modificarproducto = new ABMProductos();
                 modificarproducto.StartPosition = FormStartPosition.CenterScreen;
                 modificarproducto.MdiParent = this;
@@ -176,7 +176,7 @@ namespace Omega3
             a.MdiParent = this;
             a.Show();
 
-            
+
             Vista.Proveedores.ABMProveedores proveedores;
             bool encontrado = false;
             foreach (Form form in this.MdiChildren)
@@ -246,7 +246,7 @@ namespace Omega3
 
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-  
+
 
             Vista.Reparaciones.Reparacion reparacion;
             bool encontrado = false;
@@ -286,14 +286,15 @@ namespace Omega3
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            
-           DialogResult a =  MessageBox.Show("\t¿Esta seguro que quiere cerrar sesión? \n\t¡Todas las ventanas se cerrarán!",
-    "¡Alerta!",
-    MessageBoxButtons.YesNoCancel,
-    MessageBoxIcon.Exclamation,
-    MessageBoxDefaultButton.Button1);
 
-            if(a == DialogResult.Yes) {
+            DialogResult a = MessageBox.Show("\t¿Esta seguro que quiere cerrar sesión? \n\t¡Todas las ventanas se cerrarán!",
+     "¡Alerta!",
+     MessageBoxButtons.YesNoCancel,
+     MessageBoxIcon.Exclamation,
+     MessageBoxDefaultButton.Button1);
+
+            if (a == DialogResult.Yes)
+            {
                 Application.Restart();
             }
 
@@ -323,8 +324,8 @@ namespace Omega3
 
         }
 
-        private void actualizarDolarInternet() { 
-     /*   {
+        private void actualizarDolarInternet()
+        {
             dolar a = new dolar();
             a = JsonConvert.DeserializeObject<dolar>(GETDolar());
             dolar = a.libre + new decimal(0.10);
@@ -334,18 +335,16 @@ namespace Omega3
             dolar_guardado = ControlProducto.obtenerValorDolar();
 
             txt_dolar_guardado.Text = dolar_guardado.ToString();
-            
-            */
         }
 
         private void actualizarDolarSinConexion()
         {
-        /*
+
             txt_dolar.Text = "0";
             dolar_guardado = new decimal();
             dolar_guardado = ControlProducto.obtenerValorDolar();
             txt_dolar_guardado.Text = dolar_guardado.ToString();
-            */
+
         }
 
         private void crearNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -532,4 +531,4 @@ namespace Omega3
 
     }
 
-    }
+}
