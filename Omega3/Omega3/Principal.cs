@@ -172,35 +172,7 @@ namespace Omega3
 
         private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Proveedores.ABMProveedores a = new Vista.Proveedores.ABMProveedores();
-            a.MdiParent = this;
-            a.Show();
-
-
-            Vista.Proveedores.ABMProveedores proveedores;
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ABMProveedores"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                proveedores = new Vista.Proveedores.ABMProveedores(); ;
-                proveedores.StartPosition = FormStartPosition.CenterScreen;
-                proveedores.MdiParent = this;
-                proveedores.Show();
-            }
-
-
-
+           
         }
 
         private void reabastecimientoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,14 +188,7 @@ namespace Omega3
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            {
 
-                Vista.Clientes.CrearCliente a = new Vista.Clientes.CrearCliente();
-                a.StartPosition = FormStartPosition.CenterScreen;
-                a.MdiParent = this;
-                a.Show();
-
-            }
         }
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -486,33 +451,6 @@ namespace Omega3
         private void listarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Vista.Clientes.Listar_Clientes listarclientes;
-
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("Modificar Cliente"))
-                {
-
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listarclientes = new Vista.Clientes.Listar_Clientes();
-                listarclientes.StartPosition = FormStartPosition.CenterScreen;
-                listarclientes.MdiParent = this;
-                listarclientes.Show();
-            }
-
-
-
-
         }
 
 
@@ -543,6 +481,118 @@ namespace Omega3
                 cierredecaja.MdiParent = this;
                 cierredecaja.Show();
             }
+
+        }
+
+        private void modificarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            Vista.Clientes.Modificar_Cliente modificarcliente;
+
+            Modelo.Cliente cliente = new Modelo.Cliente();
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Modificar_Cliente"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                modificarcliente = new Vista.Clientes.Modificar_Cliente(cliente);
+                modificarcliente.StartPosition = FormStartPosition.CenterScreen;
+                modificarcliente.MdiParent = this;
+                modificarcliente.Show();
+            }
+        }
+
+        private void listarClientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            Vista.Clientes.Listar_Clientes listarclientes;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Modificar Cliente"))
+                {
+
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                listarclientes = new Vista.Clientes.Listar_Clientes();
+                listarclientes.StartPosition = FormStartPosition.CenterScreen;
+                listarclientes.MdiParent = this;
+                listarclientes.Show();
+            }
+
+
+
+
+        }
+
+        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+
+                Vista.Clientes.CrearCliente a = new Vista.Clientes.CrearCliente();
+                a.StartPosition = FormStartPosition.CenterScreen;
+                a.MdiParent = this;
+                a.Show();
+
+            }
+        }
+
+        private void crearProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Proveedores.ABMProveedores a = new Vista.Proveedores.ABMProveedores();
+            a.MdiParent = this;
+            a.Show();
+
+
+            Vista.Proveedores.ABMProveedores proveedores;
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("ABMProveedores"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                proveedores = new Vista.Proveedores.ABMProveedores(); ;
+                proveedores.StartPosition = FormStartPosition.CenterScreen;
+                proveedores.MdiParent = this;
+                proveedores.Show();
+            }
+
+
+
+        }
+
+        private void modificarProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }
