@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1A14434F35B44D6BBEC297115D676720"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1B05D1DAFC5E414646A83EB2D03F6714"
         "OwnerKey" = "8:_DFD8A27AFBFE430DB5DA0BB97C6E19DE"
         "MsmSig" = "8:_UNDEFINED"
@@ -280,12 +286,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BB13BBB5177B9D4EF52D050CA868560E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DFD8A27AFBFE430DB5DA0BB97C6E19DE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -397,6 +397,12 @@
         "OwnerKey" = "8:_00B81DB2B2FC0C8E108A961F333801A6"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BB13BBB5177B9D4EF52D050CA868560E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -415,6 +421,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -431,6 +445,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -613,6 +635,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A14434F35B44D6BBEC297115D676720"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\marca omega\\LOGO (1).ico"
+            "TargetName" = "8:LOGO (1).ico"
+            "Tag" = "8:"
+            "Folder" = "8:_4F5EEBBAFCB0487B898FF7CDEEA670D6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1B05D1DAFC5E414646A83EB2D03F6714"
@@ -1277,7 +1319,7 @@
             "Target" = "8:_DFD8A27AFBFE430DB5DA0BB97C6E19DE"
             "Folder" = "8:_7D173DD99804416EB03ACEF834416491"
             "WorkingFolder" = "8:_4F5EEBBAFCB0487B898FF7CDEEA670D6"
-            "Icon" = "8:"
+            "Icon" = "8:_1A14434F35B44D6BBEC297115D676720"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_434E431FD49E479C97D6164190FD2F4B"
@@ -1291,7 +1333,7 @@
             "Target" = "8:_DFD8A27AFBFE430DB5DA0BB97C6E19DE"
             "Folder" = "8:_AF0FC2B7074B4BBBAD9F4424FA466F91"
             "WorkingFolder" = "8:_4F5EEBBAFCB0487B898FF7CDEEA670D6"
-            "Icon" = "8:"
+            "Icon" = "8:_1A14434F35B44D6BBEC297115D676720"
             "Feature" = "8:"
             }
         }

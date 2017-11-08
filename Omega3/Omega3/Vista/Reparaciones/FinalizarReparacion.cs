@@ -57,13 +57,13 @@ namespace Omega3.Vista.Reparaciones
                 MessageBox.Show("Se realizó la venta correctamente!");
                 
             }
-
+            try { 
             id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
-            //facturar.detalleComprobante(id_comprobante);
-            /*  ControladorFuncVariadas.chequearComprobante(id_comprobante);
-              */
-            timer1.Start();
-
+                //facturar.detalleComprobante(id_comprobante);
+                /*  ControladorFuncVariadas.chequearComprobante(id_comprobante);
+                  */
+                // timer1.Start();
+            }catch(Exception a) { Console.WriteLine(a); }
 
         }
 
