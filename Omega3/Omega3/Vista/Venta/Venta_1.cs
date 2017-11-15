@@ -54,14 +54,16 @@ namespace Omega3.Vista.Venta
 
 
             button5.Enabled = false;
-            filtro_cuit.Text = "Buscar por CUIT o DNI";
-            filtro_cuit.ForeColor = Color.Gray;
+            buscar_cuit.Text = "Buscar por CUIT o DNI";
+            buscar_cuit.ForeColor = Color.Gray;
             dgv_tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             combo_iva.SelectedIndex = 1;
             txt_ventas_cantidad.Text = "1";
 
-
+            combo_cliente.ForeColor = Color.Gray;
+            combo_cliente.SelectedIndex = -1;
+            combo_cliente.Text = "Buscar por Razón Social";
 
         }
 
@@ -104,19 +106,24 @@ namespace Omega3.Vista.Venta
 
         private void filtro_cuit_Leave(object sender, EventArgs e)
         {
-            if (filtro_cuit.Text == "")
+            if (buscar_cuit.Text == "")
             {
-                filtro_cuit.Text = "Buscar por CUIT o DNI";
-                filtro_cuit.ForeColor = Color.Gray;
+                buscar_cuit.Text = "Buscar por CUIT o DNI";
+                buscar_cuit.ForeColor = Color.Gray;
             }
         }
 
         private void filtro_cuit_Enter(object sender, EventArgs e)
         {
-            if (filtro_cuit.Text == "Buscar por CUIT o DNI")
+            if (buscar_cuit.Text == "Buscar por CUIT o DNI")
             {
-                filtro_cuit.Text = "";
-                filtro_cuit.ForeColor = Color.Black;
+                buscar_cuit.Text = "";
+                buscar_cuit.ForeColor = Color.Black;
+                combo_cliente.ForeColor = Color.Gray;
+                combo_cliente.SelectedIndex = -1;
+                combo_cliente.Text = "Buscar por Razón Social";
+                
+
             }
         }
 
@@ -125,17 +132,32 @@ namespace Omega3.Vista.Venta
         {
             Cliente a = new Cliente();
 
-            if (combo_cliente.Text == "")
+            if (combo_cliente.SelectedIndex == -1)
             {
-                a = ControlVentas.obtenerCliente(long.Parse(filtro_cuit.Text));
+                if (buscar_cuit.Text != "Buscar por CUIT o DNI" && (buscar_cuit.Text.Trim() != "" || !string.IsNullOrEmpty(buscar_cuit.Text)))
+                {
+                    if (ControlCliente.validardocumento(long.Parse(buscar_cuit.Text)))
+                    {
 
-                razon.Text = a.Razon;
-                domicilio.Text = a.Direccion;
-                iva.Text = a.Impositiva;
-                email.Text = a.Mail_contacto;
-                cuit.Text = Convert.ToString(a.Documento);
-                lbl_lista.Text = Convert.ToString(a.Lista);
-                lista_cliente = a.Lista / 100;
+                        a = ControlVentas.obtenerCliente(long.Parse(buscar_cuit.Text));
+
+                        razon.Text = a.Razon;
+                        domicilio.Text = a.Direccion;
+                        iva.Text = a.Impositiva;
+                        email.Text = a.Mail_contacto;
+                        cuit.Text = Convert.ToString(a.Documento);
+                        lbl_lista.Text = Convert.ToString(a.Lista);
+                        lista_cliente = a.Lista / 100;
+                        ControlVentas.llenarComboComprobante(combo_comprobante, a.Impositiva_Id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El documento " + buscar_cuit.Text + " no corresponde a ningún cliente.");
+                        iniciarBusquedaCuit();
+                        buscar_cuit.Focus();
+                    }
+                }
+                else { MessageBox.Show("Debe seleccionar un cliente, escribir un DNI/C.U.I.T");}
             }
             else
             {
@@ -777,6 +799,41 @@ namespace Omega3.Vista.Venta
         private void button2_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void combo_cliente_Enter(object sender, EventArgs e)
+        {
+            combo_cliente.Text = "";
+            combo_cliente.ForeColor = Color.Black;
+
+            iniciarBusquedaCuit();
+
+        }
+
+        private void combo_cliente_Leave(object sender, EventArgs e)
+        {
+            if (combo_cliente.SelectedIndex == -1)
+            {
+                combo_cliente.ForeColor = Color.Gray;
+                combo_cliente.SelectedIndex = -1;
+                combo_cliente.Text = "Buscar por Razón Social";
+            }
+        }
+        private void inicializarBusquedasRazon()
+        {
+         
+
+            combo_cliente.ForeColor = Color.Gray;
+            combo_cliente.SelectedIndex = -1;
+            combo_cliente.Text = "Buscar por Razón Social";
+
+
+        }
+
+        private void iniciarBusquedaCuit()
+        {
+            buscar_cuit.Text = "Buscar por CUIT o DNI";
+            buscar_cuit.ForeColor = Color.Gray;
         }
 
 

@@ -97,8 +97,9 @@ namespace Omega3.Controlador
             cliente.Documento = documento;
             try
             {
+
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT razon_social, direccion,impositiva,mail_contacto, lista FROM cliente  WHERE documento ={0}", documento), Conexion.ObtenerConexion());
+                    "SELECT razon_social, direccion,condicion,mail_contacto,markup.valor,cliente.impositiva FROM (cliente INNER JOIN condicion_frente_al_iva ON cliente.impositiva = condicion_frente_al_iva.id) INNER JOIN markup ON cliente.lista = markup.id WHERE documento = '{0}'", cliente.Documento), Conexion.ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -106,11 +107,12 @@ namespace Omega3.Controlador
                     cliente.Direccion = _reader.GetString(1);
                     cliente.Impositiva = _reader.GetString(2);
                     cliente.Mail_contacto = _reader.GetString(3);
-                    //cliente.Lista = Convert.ToDecimal(_reader.GetString(4));
+                    cliente.Lista = _reader.GetDecimal(4);
+                    cliente.Impositiva_Id = _reader.GetInt32(5);
                 }
             }
             catch (Exception e) { Console.WriteLine(e); }
-            
+
 
 
             return cliente;

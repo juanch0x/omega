@@ -52,7 +52,11 @@ namespace Omega3.Vista.Reparaciones
         private void BuscarCliente_Load(object sender, EventArgs e)
         {
             ControlReparaciones.llenarTablaClientes(dgv_tabla);
+            //Muestro el boton al final
             dgv_tabla.Columns[0].DisplayIndex = 2;
+            //Defino las cabeceras de la tabla
+            dgv_tabla.Columns[1].HeaderText = "Documento";
+            dgv_tabla.Columns[2].HeaderText = "Razón Social";
             ControlReparaciones.AutoFill(dgv_tabla);
 
         }
@@ -75,6 +79,34 @@ namespace Omega3.Vista.Reparaciones
             {
                 this.Close();
             }
+        }
+
+        private void txt_documento_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("convert(Documento, 'System.String') like '%{0}%'", txt_documento.Text.Trim().Replace("'", "''"));
+            dgv_tabla.Refresh();
+        }
+
+        private void txt_razon_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Razon Social] like '%{0}%'", txt_razon.Text.Trim().Replace("'", "''"));
+            dgv_tabla.Refresh();
+        }
+
+        private void txt_documento_Enter(object sender, EventArgs e)
+        {
+            if (txt_razon.Text.Trim() != "" || !string.IsNullOrEmpty(txt_razon.Text))
+                txt_razon.Text = "";
+        }
+
+        private void txt_razon_Enter(object sender, EventArgs e)
+        {
+            if (txt_documento.Text.Trim() != "" || !string.IsNullOrEmpty(txt_documento.Text))
+                txt_documento.Text = "";
         }
     }
 }

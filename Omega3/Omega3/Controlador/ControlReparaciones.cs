@@ -18,7 +18,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT documento as Documento, razon_social as 'Nombre del Cliente' FROM cliente";
+            string sqlSelectAll = "SELECT documento as Documento, razon_social as 'Razon Social' FROM cliente";
             try
             {
 

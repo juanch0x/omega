@@ -38,7 +38,7 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.combo_cliente = new System.Windows.Forms.ComboBox();
-            this.filtro_cuit = new System.Windows.Forms.TextBox();
+            this.buscar_cuit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -162,7 +162,7 @@
             this.panel_cliente.Controls.Add(this.btn_buscar);
             this.panel_cliente.Controls.Add(this.btn_nuevo);
             this.panel_cliente.Controls.Add(this.combo_cliente);
-            this.panel_cliente.Controls.Add(this.filtro_cuit);
+            this.panel_cliente.Controls.Add(this.buscar_cuit);
             this.panel_cliente.Controls.Add(this.label4);
             this.panel_cliente.Location = new System.Drawing.Point(192, 53);
             this.panel_cliente.Name = "panel_cliente";
@@ -209,16 +209,19 @@
             this.combo_cliente.Name = "combo_cliente";
             this.combo_cliente.Size = new System.Drawing.Size(217, 23);
             this.combo_cliente.TabIndex = 15;
+
+            this.combo_cliente.Enter += new System.EventHandler(this.combo_cliente_Enter);
+            this.combo_cliente.Leave += new System.EventHandler(this.combo_cliente_Leave);
             // 
-            // filtro_cuit
+            // buscar_cuit
             // 
-            this.filtro_cuit.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filtro_cuit.Location = new System.Drawing.Point(269, 17);
-            this.filtro_cuit.Name = "filtro_cuit";
-            this.filtro_cuit.Size = new System.Drawing.Size(149, 21);
-            this.filtro_cuit.TabIndex = 13;
-            this.filtro_cuit.Enter += new System.EventHandler(this.filtro_cuit_Enter);
-            this.filtro_cuit.Leave += new System.EventHandler(this.filtro_cuit_Leave);
+            this.buscar_cuit.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscar_cuit.Location = new System.Drawing.Point(269, 17);
+            this.buscar_cuit.Name = "buscar_cuit";
+            this.buscar_cuit.Size = new System.Drawing.Size(149, 21);
+            this.buscar_cuit.TabIndex = 13;
+            this.buscar_cuit.Enter += new System.EventHandler(this.filtro_cuit_Enter);
+            this.buscar_cuit.Leave += new System.EventHandler(this.filtro_cuit_Leave);
             // 
             // label4
             // 
@@ -726,7 +729,7 @@
         private System.Windows.Forms.ComboBox combo_pago;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Panel panel_cliente;
-        private System.Windows.Forms.TextBox filtro_cuit;
+        private System.Windows.Forms.TextBox buscar_cuit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.ComboBox combo_cliente;
