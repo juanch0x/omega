@@ -270,7 +270,8 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erogacionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cierreDeCajaToolStripMenuItem;
+        
+//private System.Windows.Forms.ToolStripMenuItem cierreDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem listarClientesToolStripMenuItem1;

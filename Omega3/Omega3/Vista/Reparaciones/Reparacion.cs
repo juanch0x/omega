@@ -18,7 +18,7 @@ namespace Omega3.Vista.Reparaciones
         Omega3.Modelo.Reparacion reparacion = new Modelo.Reparacion();
         Producto producto = new Producto();
         DataGridView tabla_reestablecer_stock = new DataGridView();
-        string documento;
+        
 
         public Reparacion()
         {
