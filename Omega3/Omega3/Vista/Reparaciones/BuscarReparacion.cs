@@ -74,5 +74,13 @@ namespace Omega3.Vista.Reparaciones
 
             }
         }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Cliente] like '%{0}%'", txt_filtro.Text.Trim().Replace("'", "''"));
+            dgv_tabla.Refresh();
+        }
     }
 }
