@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -193,6 +194,19 @@ namespace Omega3.Controlador
             Console.WriteLine(url);
             return true;
 
+        }
+
+        public static bool nuevoChequearComprobante(string id_comprobante)
+        {
+            using (WebClient obj = new WebClient())
+            using (Stream s = obj.OpenRead(id_comprobante))
+                if (long.Parse(obj.ResponseHeaders["Content-Length"].ToString()) > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+                
+            
         }
 
 

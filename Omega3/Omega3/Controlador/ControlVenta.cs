@@ -394,7 +394,8 @@ namespace Omega3.Controlador
             request.Encabezado.CondicionVenta = venta.medio_de_pago;
             request.Encabezado.EnviarComprobante = true;
             //request.Encabezado.FechaHora = DateTime.Now;
-            request.Encabezado.FechaHora = new DateTime(2017,10,25);
+            // request.Encabezado.FechaHora = new DateTime(2017,10,25);
+            request.Encabezado.FechaHora = DateTime.Now;
             /*Son obligatorios si ponemos bienes en 2 (servicios) o en 3 (productos y servicios)
             request.Encabezado.FechaServDesde = DateTime.Now;
             request.Encabezado.FechaServHasta = DateTime.Now;*/
@@ -460,6 +461,64 @@ namespace Omega3.Controlador
             return id_comprobante;
         }
 
+        public string obtenerDatosComprobante(string id_comprobante)
+        {
+            ListadoComprobantesRequest request = new ListadoComprobantesRequest();
+            ComprobantesClient comprobanteClient = new ComprobantesClient();
+
+
+
+            request.Autenticacion = new Autenticacion();
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.IdComprobante = Convert.ToInt32(id_comprobante);
+
+            ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
+
+            String url = "PEDRO";
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+                                                                             //  MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
+            XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
+            foreach (XmlNode xn in xnList)
+            {
+
+                url = xn["URLPDF"].InnerText;
+                //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
+            }
+
+
+            
+
+          /*  using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + request.IdComprobante + ".pdf");
+                }
+                catch (FileLoadException ex) { Console.Write(ex); }
+            }
+            */
+
+            return url;
+           
+
+        }
+
+        public void descargarYMostrarComprobante(string url)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
+                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
+                }
+                catch (FileLoadException ex) { Console.Write(ex);}
+            }
+        }
 
     }
 }

@@ -51,7 +51,7 @@ namespace Omega3.Vista.Reparaciones
             venta.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
             venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
             ControlVenta facturar = new ControlVenta();
-            //facturar.FacturarReparacion(venta, cliente, dgv_tabla);
+        
             if (ControlReparaciones.FinalizarReparacion(id_reparacion) == 1)
             {
                 MessageBox.Show("Se realizó la venta correctamente!");
@@ -59,10 +59,10 @@ namespace Omega3.Vista.Reparaciones
             }
             try { 
             id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
-                //facturar.detalleComprobante(id_comprobante);
-                /*  ControladorFuncVariadas.chequearComprobante(id_comprobante);
-                  */
-                // timer1.Start();
+                id_comprobante = facturar.obtenerDatosComprobante(id_comprobante);
+                  
+                  
+                 timer1.Start();
             }catch(Exception a) { Console.WriteLine(a); }
 
         }
@@ -96,10 +96,12 @@ namespace Omega3.Vista.Reparaciones
             }
             else if (progressBar1.Value == 100)
             {
-                ab.detalleComprobante(id_comprobante);
-                if (ControladorFuncVariadas.chequearComprobante(id_comprobante))
+              //  ab.detalleComprobante(id_comprobante);
+                if (ControladorFuncVariadas.nuevoChequearComprobante(id_comprobante))
                 {
+
                     timer1.Stop();
+                    ab.descargarYMostrarComprobante(id_comprobante);
                     this.Close();
                     a.Close();
                 }
