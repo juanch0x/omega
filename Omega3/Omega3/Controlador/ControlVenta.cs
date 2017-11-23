@@ -514,7 +514,7 @@ namespace Omega3.Controlador
                 try
                 {
                     webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
-                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
+                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + 3 + ".pdf"); 
                 }
                 catch (FileLoadException ex) { Console.Write(ex);}
             }

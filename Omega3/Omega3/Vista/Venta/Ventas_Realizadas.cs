@@ -13,10 +13,13 @@ namespace Omega3.Vista.Venta
 {
     public partial class Ventas_Realizadas : Form
     {
+      
         public Ventas_Realizadas()
         {
             InitializeComponent();
             Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,5 +48,27 @@ namespace Omega3.Vista.Venta
 
 
             }
+
+        private void filtro_estado_venta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            DataView dv = dt.DefaultView;
+
+            if (filtro_estado_venta.SelectedIndex == 2)
+            {
+                dv.RowFilter = string.Format("[Cobrada] = 0");
+            }else if(filtro_estado_venta.SelectedIndex == 0)
+            {
+                dv.RowFilter = string.Empty;
+            }else if(filtro_estado_venta.SelectedIndex == 1)
+            {
+                dv.RowFilter = string.Format("[Cobrada] = 1");
+            }
+
+                //dgv_tabla.DataSource = dv;
+            dgv_tabla.Refresh();
         }
+    }
 }
