@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txt_remito = new System.Windows.Forms.TextBox();
             this.txt_factura = new System.Windows.Forms.TextBox();
             this.combo_cobrada = new System.Windows.Forms.ComboBox();
@@ -75,28 +74,22 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Nº de Factura";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
-            // 
             // txt_remito
             // 
             this.txt_remito.Location = new System.Drawing.Point(103, 65);
             this.txt_remito.Name = "txt_remito";
             this.txt_remito.Size = new System.Drawing.Size(120, 20);
             this.txt_remito.TabIndex = 6;
+            this.txt_remito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_remito_KeyPress);
             // 
             // txt_factura
             // 
             this.txt_factura.Location = new System.Drawing.Point(103, 91);
             this.txt_factura.Name = "txt_factura";
+            this.txt_factura.ReadOnly = true;
             this.txt_factura.Size = new System.Drawing.Size(120, 20);
             this.txt_factura.TabIndex = 7;
+            this.txt_factura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_factura_KeyPress);
             // 
             // combo_cobrada
             // 
@@ -118,7 +111,6 @@
             this.Controls.Add(this.combo_cobrada);
             this.Controls.Add(this.txt_factura);
             this.Controls.Add(this.txt_remito);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -137,7 +129,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_remito;
         private System.Windows.Forms.TextBox txt_factura;
         private System.Windows.Forms.ComboBox combo_cobrada;

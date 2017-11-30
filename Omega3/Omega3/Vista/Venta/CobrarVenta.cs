@@ -40,6 +40,7 @@ namespace Omega3.Vista.Venta
                 if (ControlVentas.ModificarVenta(a) == 1)
                 {
                     MessageBox.Show("Se actualizaron los datos correctamente");
+                    this.Close();
                 }
                 else { Console.WriteLine("Error en el update"); }
             }
@@ -56,6 +57,16 @@ namespace Omega3.Vista.Venta
             txt_factura.Text = Convert.ToString(venta.nrofactura);
             txt_remito.Text = Convert.ToString(venta.remito);
 
+        }
+
+        private void txt_remito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender,e);
+        }
+
+        private void txt_factura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

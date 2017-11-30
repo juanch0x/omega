@@ -496,7 +496,7 @@ namespace Omega3.Vista.Venta
         private void combo_pago_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (combo_pago.Text == "Cheque")
+            if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente")
             {
                 fecha_pago.Visible = true;
 
