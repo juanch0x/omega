@@ -85,9 +85,8 @@
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(842, 327);
+            this.dgv_tabla.Size = new System.Drawing.Size(999, 327);
             this.dgv_tabla.TabIndex = 3;
-            
             // 
             // filtro_estado_venta
             // 
@@ -129,7 +128,7 @@
             this.linkLabel_limpiar_filtro.AutoSize = true;
             this.linkLabel_limpiar_filtro.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_limpiar_filtro.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(753, 16);
+            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(910, 18);
             this.linkLabel_limpiar_filtro.Name = "linkLabel_limpiar_filtro";
             this.linkLabel_limpiar_filtro.Size = new System.Drawing.Size(101, 20);
             this.linkLabel_limpiar_filtro.TabIndex = 12;
@@ -171,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 432);
+            this.ClientSize = new System.Drawing.Size(1023, 432);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

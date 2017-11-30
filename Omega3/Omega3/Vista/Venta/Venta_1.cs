@@ -223,7 +223,7 @@ namespace Omega3.Vista.Venta
                     venta.documento = long.Parse(cuit.Text);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
-                    if (combo_pago.Text == "Cheque")
+                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
                     {
                         venta.fecha_vencimiento_cheque = fecha_pago.Value;
 
