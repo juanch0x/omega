@@ -65,5 +65,10 @@ namespace Omega3.Vista
                 btn_login_Click(sender,e);
             }
         }
+
+        private void txt_pwd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

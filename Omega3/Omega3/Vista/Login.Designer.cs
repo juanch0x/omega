@@ -71,6 +71,7 @@
             this.txt_pwd.Size = new System.Drawing.Size(100, 20);
             this.txt_pwd.TabIndex = 3;
             this.txt_pwd.UseSystemPasswordChar = true;
+            this.txt_pwd.TextChanged += new System.EventHandler(this.txt_pwd_TextChanged);
             // 
             // btn_login
             // 

@@ -97,6 +97,7 @@
     <Compile Include="Controlador\ControlUsuario.cs" />
     <Compile Include="Controlador\ControlVenta.cs" />
     <Compile Include="Controlador\ControlVentas.cs" />
+    <Compile Include="Modelo\ComprasaProveedores.cs" />
     <Compile Include="Modelo\erogaciones.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Presupuesto.cs" />
@@ -121,6 +122,12 @@
     </Compile>
     <Compile Include="SimpleJson.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Vista\Administracion\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Administracion\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Clientes\CrearCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +327,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Administracion\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Clientes\CrearCliente.resx">
       <DependentUpon>CrearCliente.cs</DependentUpon>
