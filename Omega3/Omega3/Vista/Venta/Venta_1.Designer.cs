@@ -209,7 +209,6 @@
             this.combo_cliente.Name = "combo_cliente";
             this.combo_cliente.Size = new System.Drawing.Size(217, 23);
             this.combo_cliente.TabIndex = 15;
-
             this.combo_cliente.Enter += new System.EventHandler(this.combo_cliente_Enter);
             this.combo_cliente.Leave += new System.EventHandler(this.combo_cliente_Leave);
             // 
@@ -455,7 +454,6 @@
             // 
             // btn_factura
             // 
-            this.btn_factura.Enabled = false;
             this.btn_factura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_factura.Location = new System.Drawing.Point(420, 457);
             this.btn_factura.Name = "btn_factura";

@@ -733,7 +733,10 @@ namespace Omega3.Vista.Venta
 
         private void btn_factura_Click(object sender, EventArgs e)
         {
+            long ultimoid;
+            ultimoid = guardarVentaEnBlanco();
 
+            ControlVentas controlventas = new ControlVentas();
             Cliente cliente = new Cliente();
             Omega3.Modelo.Venta venta = new Omega3.Modelo.Venta();
             ControlVenta control = new ControlVenta();
@@ -743,12 +746,22 @@ namespace Omega3.Vista.Venta
  
             venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
 
+            string id_comprobante = string.Empty;
 
-            control.Facturar(venta, cliente, listado_articulos);
-            elemento_clase = 0;
+            id_comprobante = control.Facturar(venta, cliente, listado_articulos);
+
+            //Creo un nuevo thread para evitar el problema de la factura..
+
+            //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
+            var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante,ultimoid));
+
+
+        elemento_clase = 0;
 
 
         }
+
+
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -834,6 +847,57 @@ namespace Omega3.Vista.Venta
         {
             buscar_cuit.Text = "Buscar por CUIT o DNI";
             buscar_cuit.ForeColor = Color.Gray;
+        }
+
+        private long guardarVentaEnBlanco()
+        {
+            long lastinserted=0;
+            if (cuit.Text != "")
+            {
+                if (dgv_tabla.Rows.Count != 0)
+                {
+                    Omega3.Modelo.Venta venta = new Modelo.Venta();
+
+                    venta.documento = long.Parse(cuit.Text);
+                    venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
+
+                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
+                    {
+                        venta.fecha_vencimiento_cheque = fecha_pago.Value;
+
+                    }
+
+                    venta.nrofactura = 0;
+                    venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+                    venta.fecha_venta = DateTime.Now;
+
+                    Factura_Negro factura = new Factura_Negro();
+                    factura.Nombre = razon.Text;
+                    factura.Documento = cuit.Text;
+                    factura.Direccion = domicilio.Text;
+                    factura.Fecha = DateTime.Now;
+
+
+                    panel_principal.SelectedIndex = 0;
+
+                    MessageBox.Show("Venta realizada correctamente!");
+
+                    lastinserted = ControlVentas.AgregarVenta(dgv_tabla, venta);
+                    //ControlVentas.generarFacturaNegro(dgv_tabla, factura);
+
+                    dgv_tabla.Rows.Clear();
+                    dgv_tabla.Refresh();
+                    //limpiarParteCliente();
+                    //lista.Clear();
+                }
+                else { MessageBox.Show("No hay ningun producto agregado"); }
+            }
+            else
+            {
+                panel_principal.SelectedIndex = 0;
+                MessageBox.Show("Aún no se seleccionó un cliente");
+            }
+            return lastinserted;
         }
 
 

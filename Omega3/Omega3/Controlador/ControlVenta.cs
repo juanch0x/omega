@@ -26,15 +26,10 @@ namespace Omega3.Controlador
     {
         
 
-
-        
-
         public ControlVenta (){
-
-      
+    
 
                         }
-
 
     public string ObjectToXml<T>(T objectToSerialise)
         {
@@ -199,22 +194,7 @@ namespace Omega3.Controlador
                     webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + request.IdComprobante + ".pdf");
                 } catch(FileLoadException ex) { Console.Write(ex); }
              }
-            //  System.Diagnostics.Process.Start(Path.GetTempPath()+"Comprobante_"+request.IdComprobante+".pdf");
-          //  Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
 
-
-            /*
-            *
-            * Para hacer que use la ventana mdi principal como padre desde un formulario hijo   
-            * 
-            Form2 f2 = new Form2;
-           f2.MdiParent = this.ParentForm; //this refers to f1's parent, the MainForm
-           f2.Show();
-            */
-            
-    //        Omega3.Vista.Venta.Comprobante_Claro MostrarComprobante = new Vista.Venta.Comprobante_Claro(url);
-          //  MostrarComprobante.Show();
-          
 
         }
 
@@ -249,7 +229,7 @@ namespace Omega3.Controlador
 
 
 
-        public void Facturar(Omega3.Modelo.Venta venta,Omega3.Modelo.Cliente cliente, List<Detalle_Facturante> detalle)
+        public string Facturar(Omega3.Modelo.Venta venta,Omega3.Modelo.Cliente cliente, List<Detalle_Facturante> detalle)
         {
 
              ComprobantesClient client = new ComprobantesClient();
@@ -349,8 +329,9 @@ namespace Omega3.Controlador
 
 
             comprobanteClient.Close();
+                      
 
-            detalleComprobante(id_comprobante);
+            return id_comprobante;
         }
 
 
@@ -439,7 +420,7 @@ namespace Omega3.Controlador
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 
-            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+          //  MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
 
             String id_comprobante = "PEDRO";
 
@@ -463,6 +444,10 @@ namespace Omega3.Controlador
 
         public string obtenerDatosComprobante(string id_comprobante)
         {
+
+           // System.Threading.Thread.Sleep(15000);
+
+
             ListadoComprobantesRequest request = new ListadoComprobantesRequest();
             ComprobantesClient comprobanteClient = new ComprobantesClient();
 
@@ -476,31 +461,24 @@ namespace Omega3.Controlador
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
 
-            String url = "PEDRO";
+            String url = String.Empty;
+            String numero_factura = String.Empty;
+            String prefijo_factura = String.Empty;
 
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
-                                                                             //  MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
+                                                                               Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
             XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
             foreach (XmlNode xn in xnList)
             {
-
                 url = xn["URLPDF"].InnerText;
-                //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
+                numero_factura = xn["Numero"].InnerText;
+                prefijo_factura = xn["Prefijo"].InnerText;
+
             }
 
 
-            
-
-          /*  using (WebClient webClient = new WebClient())
-            {
-                try
-                {
-                    webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + request.IdComprobante + ".pdf");
-                }
-                catch (FileLoadException ex) { Console.Write(ex); }
-            }
-            */
+            MessageBox.Show("Numero de factura = "+numero_factura+ " Prefijo: "+prefijo_factura);
 
             return url;
            
@@ -519,6 +497,46 @@ namespace Omega3.Controlador
                 catch (FileLoadException ex) { Console.Write(ex);}
             }
         }
+
+        public string[] obtenerDatosComprobanteVenta(string id_comprobante)
+        {
+
+            
+            ListadoComprobantesRequest request = new ListadoComprobantesRequest();
+            ComprobantesClient comprobanteClient = new ComprobantesClient();
+
+
+
+            request.Autenticacion = new Autenticacion();
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.IdComprobante = Convert.ToInt32(id_comprobante);
+
+            ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
+
+            string[] retorno = new string[3];
+            retorno[0] = string.Empty;
+            retorno[1] = string.Empty;
+            retorno[2] = string.Empty;
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+            Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
+            XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
+            foreach (XmlNode xn in xnList)
+            {
+                retorno[0] = xn["URLPDF"].InnerText;
+                retorno[2] = xn["Numero"].InnerText;
+                retorno[1] = xn["Prefijo"].InnerText;
+
+            }
+
+            return retorno;
+
+
+        }
+
 
     }
 }

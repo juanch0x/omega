@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Modelo;
 using Omega3.Controlador;
+using System.Threading;
 
 namespace Omega3.Vista.Reparaciones
 {
@@ -16,6 +17,7 @@ namespace Omega3.Vista.Reparaciones
     {
         bool stoptimer;
         string id_comprobante;
+        string url;
         Cliente cliente;
         decimal total = new decimal();
         DataGridView dgv_tabla;
@@ -51,20 +53,58 @@ namespace Omega3.Vista.Reparaciones
             venta.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
             venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
             ControlVenta facturar = new ControlVenta();
-        
-            if (ControlReparaciones.FinalizarReparacion(id_reparacion) == 1)
+
+
+            try
             {
-                MessageBox.Show("Se realizó la venta correctamente!");
+                Cursor.Current = Cursors.WaitCursor;
+                if (ControlReparaciones.FinalizarReparacion(id_reparacion) == 1)
+            {
+
+                //MessageBox.Show("Se realizó la venta correctamente!");
                 
             }
-            try { 
+     
             id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
-                id_comprobante = facturar.obtenerDatosComprobante(id_comprobante);
-                  
-                  
-                 timer1.Start();
-            }catch(Exception a) { Console.WriteLine(a); }
 
+
+                //////PRUEBA SIN TIMER
+
+
+                var task = Task.Factory.StartNew(new Action(Method));
+
+
+
+
+                System.Threading.Thread.Sleep(10000);
+                url = facturar.obtenerDatosComprobante(id_comprobante);
+                if (ControladorFuncVariadas.nuevoChequearComprobante(url))
+                {
+
+                    facturar.descargarYMostrarComprobante(url);
+                    this.Close();
+                    a.Close();
+                }
+                
+                
+            }catch(Exception a) { Console.WriteLine(a); }
+            finally {
+                Cursor.Current = Cursors.Default;
+            }
+
+        }
+
+        private static void Method()
+        {
+            Console.WriteLine("Method() started");
+
+            for (var i = 0; i < 200; i++)
+            {
+                Console.WriteLine("Method() Counter = " + i);
+                Thread.Sleep(500);
+            }
+
+            Console.WriteLine("Method() finished");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -97,11 +137,11 @@ namespace Omega3.Vista.Reparaciones
             else if (progressBar1.Value == 100)
             {
               //  ab.detalleComprobante(id_comprobante);
-                if (ControladorFuncVariadas.nuevoChequearComprobante(id_comprobante))
+                if (ControladorFuncVariadas.nuevoChequearComprobante(url))
                 {
 
                     timer1.Stop();
-                    ab.descargarYMostrarComprobante(id_comprobante);
+                    ab.descargarYMostrarComprobante(url);
                     this.Close();
                     a.Close();
                 }
@@ -114,7 +154,7 @@ namespace Omega3.Vista.Reparaciones
                     MessageBox.Show("Hubo un error descargando el comprobante, porque el CAE no estaba listo, para descargalo utilice la platataforma de Facturante.");
                 }
             }
-
+            Cursor.Current = Cursors.Default;
         }
 
         private void button1_Click(object sender, EventArgs e)

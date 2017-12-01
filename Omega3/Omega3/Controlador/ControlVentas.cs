@@ -207,10 +207,10 @@ namespace Omega3.Controlador
 
         }
 
-        public static void AgregarVenta(DataGridView dgv_tabla,Venta venta) {
+        public static long AgregarVenta(DataGridView dgv_tabla,Venta venta) {
 
             int retorno;
-
+            long lastinserted=0;
             string fecha_vencimiento = convertirFecha(venta.fecha_vencimiento_cheque);
             string fecha_venta = convertirFecha(venta.fecha_venta);
             //MessageBox.Show(fecha_venta);
@@ -233,7 +233,7 @@ namespace Omega3.Controlador
 
               MySqlCommand comando = new MySqlCommand(insertarventa, Conexion.ObtenerConexion());
               retorno = comando.ExecuteNonQuery();
-
+                lastinserted = comando.LastInsertedId;
           }
           catch (Exception e)
           {
@@ -292,7 +292,7 @@ namespace Omega3.Controlador
             MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
             retorno = restastock.ExecuteNonQuery();
 
-            
+            return lastinserted;
 
     }
         public static String convertirFecha(DateTime dt)
@@ -443,6 +443,53 @@ try {
             return retorno;
 
         }
+
+
+        ////**************************************************////
+        ////ESTA ES LA FUNCióN QUE SE USA EN UN HILO SECUNDARIO///
+        ////*****PARA ACTUALIZAR EL NRO FACTURA Y LA URL******////
+        ////**************************************************////
+
+        public int ActualizarFacturaYUrl(string id_comprobante,long id)
+        {
+
+            ControlVenta control = new ControlVenta();
+            MySqlConnection conexion = Conexion.ObtenerConexion();
+
+            System.Threading.Thread.Sleep(30000);
+
+            string[] info;
+
+            info = control.obtenerDatosComprobanteVenta(id_comprobante);
+
+            string numfactura = info[1] + "-";
+
+            for (int i = 0; i < 8 - info[2].Length; i++)
+            {
+                numfactura += "0";
+            }
+
+            numfactura += info[2];
+
+                MessageBox.Show("Se insertará en " + id + " URL > "+ info[0]+" Factura >"+numfactura);
+
+
+
+            int retorno=0;
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(string.Format("Update venta set nro_factura='{0}', URL='{1}' where id={2}",
+                    numfactura, info[0], id), conexion);
+
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException ex) { MessageBox.Show("Error "+ex.ToString());}
+            return retorno;
+
+
+        }
+
 
     }
 
