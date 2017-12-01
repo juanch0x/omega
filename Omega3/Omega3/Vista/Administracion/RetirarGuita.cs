@@ -35,6 +35,7 @@ namespace Omega3.Vista.Gastos
             erogacion.Motivo = txt_motivo.Text;
             erogacion.Destino = txt_destino.Text;
             erogacion.Monto = Convert.ToDecimal(txt_monto.Text);
+            erogacion.Tipogasto = txt_tpo_gasto.Text;
 
             Omega3.Controlador.ControlAdministracion.insertarerogacion(erogacion);
                 MessageBox.Show("Se inserto correctamente");

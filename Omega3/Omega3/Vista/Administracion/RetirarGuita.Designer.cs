@@ -40,6 +40,8 @@
             this.txt_monto = new System.Windows.Forms.TextBox();
             this.btn_crear = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_tpo_gasto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +131,7 @@
             // btn_crear
             // 
             this.btn_crear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_crear.Location = new System.Drawing.Point(143, 229);
+            this.btn_crear.Location = new System.Drawing.Point(153, 290);
             this.btn_crear.Name = "btn_crear";
             this.btn_crear.Size = new System.Drawing.Size(84, 34);
             this.btn_crear.TabIndex = 3;
@@ -147,11 +149,35 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 19);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Tipo de Gasto";
+            // 
+            // txt_tpo_gasto
+            // 
+            this.txt_tpo_gasto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_tpo_gasto.FormattingEnabled = true;
+            this.txt_tpo_gasto.Items.AddRange(new object[] {
+            "Fijo",
+            "Variable"});
+            this.txt_tpo_gasto.Location = new System.Drawing.Point(153, 199);
+            this.txt_tpo_gasto.Name = "txt_tpo_gasto";
+            this.txt_tpo_gasto.Size = new System.Drawing.Size(198, 28);
+            this.txt_tpo_gasto.TabIndex = 9;
+            // 
             // RetirarGuita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 288);
+            this.ClientSize = new System.Drawing.Size(382, 369);
+            this.Controls.Add(this.txt_tpo_gasto);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_crear);
             this.Controls.Add(this.txt_monto);
@@ -185,5 +211,7 @@
         private System.Windows.Forms.TextBox txt_monto;
         private System.Windows.Forms.Button btn_crear;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox txt_tpo_gasto;
     }
 }
