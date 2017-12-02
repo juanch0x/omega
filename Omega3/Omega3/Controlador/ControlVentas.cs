@@ -407,7 +407,7 @@ namespace Omega3.Controlador
              tipo.Name = "Tipo";
              tipo.DataPropertyName = "Tipo";
              tipo.ReadOnly = true;
-             tipo.Width = 45;
+//             tipo.Width = 45;
 
             remito.HeaderText = "Remito";
              remito.Name = "Remito";
@@ -581,7 +581,7 @@ try {
 
             numfactura += info[2];
 
-                MessageBox.Show("Se insertará en " + id + " URL > "+ info[0]+" Factura >"+numfactura);
+              
 
 
 
@@ -590,11 +590,13 @@ try {
             {
                 MySqlCommand comando = new MySqlCommand(string.Format("Update venta set nro_factura='{0}', URL='{1}' where id={2}",
                     numfactura, info[0], id), conexion);
-
+                MessageBox.Show("La factura creada ya fue aceptada, y está disponible para su descarga en la sección de ventas realizadas");
                 retorno = comando.ExecuteNonQuery();
                 conexion.Close();
             }
-            catch (SqlException ex) { MessageBox.Show("Error "+ex.ToString());}
+            catch (SqlException ex) { MessageBox.Show("Error "+ex.ToString());
+                MessageBox.Show("Hubo un error creando el comprobante, porfavor cheuqueelo en Facturante");
+            }
             return retorno;
 
 
