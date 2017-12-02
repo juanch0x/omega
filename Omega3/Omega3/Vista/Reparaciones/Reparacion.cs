@@ -57,7 +57,6 @@ namespace Omega3.Vista.Reparaciones
             reparacion.fecha_salida = DateTime.Now;
             BuscarReparacion a = new BuscarReparacion(ref txt_cliente, ref reparacion, btn_buscar_producto);
             a.ShowDialog();
-            //MessageBox.Show(Convert.ToString(reparacion.documento));
             txt_maquina.Text = reparacion.maquina;
             txt_nmotor.Text = reparacion.id_motor;
             txt_problema.Text = reparacion.problema;

@@ -493,6 +493,8 @@
     <None Include="Resources\cancelar_1616.png" />
     <None Include="Resources\linea.bmp" />
     <None Include="Resources\lineafondo.png" />
+    <None Include="Resources\dgv_tabla_descargar.bmp" />
+    <None Include="Resources\descargar_1616.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -45,7 +45,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(409, 397);
+            this.button1.Location = new System.Drawing.Point(527, 456);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 33);
             this.button1.TabIndex = 4;
@@ -85,8 +85,10 @@
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(999, 327);
+            this.dgv_tabla.Size = new System.Drawing.Size(1121, 368);
             this.dgv_tabla.TabIndex = 3;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
+            this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
             // filtro_estado_venta
             // 
@@ -97,7 +99,7 @@
             "Todos",
             "Cobrado",
             "Pendiente"});
-            this.filtro_estado_venta.Location = new System.Drawing.Point(578, 14);
+            this.filtro_estado_venta.Location = new System.Drawing.Point(647, 16);
             this.filtro_estado_venta.Name = "filtro_estado_venta";
             this.filtro_estado_venta.Size = new System.Drawing.Size(121, 24);
             this.filtro_estado_venta.TabIndex = 2;
@@ -107,7 +109,7 @@
             // txt_filtro_factura
             // 
             this.txt_filtro_factura.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_filtro_factura.Location = new System.Drawing.Point(366, 15);
+            this.txt_filtro_factura.Location = new System.Drawing.Point(420, 16);
             this.txt_filtro_factura.Name = "txt_filtro_factura";
             this.txt_filtro_factura.Size = new System.Drawing.Size(100, 22);
             this.txt_filtro_factura.TabIndex = 1;
@@ -116,9 +118,9 @@
             // txt_filtro_razon
             // 
             this.txt_filtro_razon.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_filtro_razon.Location = new System.Drawing.Point(113, 15);
+            this.txt_filtro_razon.Location = new System.Drawing.Point(107, 16);
             this.txt_filtro_razon.Name = "txt_filtro_razon";
-            this.txt_filtro_razon.Size = new System.Drawing.Size(100, 22);
+            this.txt_filtro_razon.Size = new System.Drawing.Size(145, 22);
             this.txt_filtro_razon.TabIndex = 0;
             this.txt_filtro_razon.TextChanged += new System.EventHandler(this.txt_filtro_razon_TextChanged);
             // 
@@ -128,7 +130,7 @@
             this.linkLabel_limpiar_filtro.AutoSize = true;
             this.linkLabel_limpiar_filtro.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_limpiar_filtro.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(910, 18);
+            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(1032, 16);
             this.linkLabel_limpiar_filtro.Name = "linkLabel_limpiar_filtro";
             this.linkLabel_limpiar_filtro.Size = new System.Drawing.Size(101, 20);
             this.linkLabel_limpiar_filtro.TabIndex = 12;
@@ -150,7 +152,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(267, 16);
+            this.label2.Location = new System.Drawing.Point(326, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 14;
@@ -160,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(520, 16);
+            this.label3.Location = new System.Drawing.Point(593, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 20);
             this.label3.TabIndex = 15;
@@ -170,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 432);
+            this.ClientSize = new System.Drawing.Size(1145, 501);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Controlador;
 using Omega3.Modelo;
+using System.Net;
+using System.IO;
+
 namespace Omega3.Vista.Venta
 {
     public partial class Ventas_Realizadas : Form
@@ -16,8 +19,23 @@ namespace Omega3.Vista.Venta
         public Ventas_Realizadas()
         {
             InitializeComponent();
-            Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);
-            
+
+            // I created these columns at function scope but if you want to access 
+
+            /*    var borrar = new DataGridViewImageColumn();
+
+                borrar.HeaderText = "Quitar";
+                borrar.Name = "Borrar";
+                borrar.ReadOnly = true;
+
+                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { borrar});
+
+                Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);
+                */
+            ControlVentas.construirTablaVentasRealizadas(dgv_tabla);
+            //razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, url
+           // dgv_tabla.Rows.Add("Prueba", "222", "222", "222", "2222", "222", "222", "2222", "222", "1");
+           
         }
 
         private void Ventas_Realizadas_Load(object sender, EventArgs e)
@@ -75,7 +93,7 @@ namespace Omega3.Vista.Venta
 
         private void crearFiltro()
         {
-
+            
             string filtro_estado = string.Empty;
             string filtro_razon = string.Empty;
             string filtro_nfactura = string.Empty;
@@ -125,15 +143,15 @@ namespace Omega3.Vista.Venta
 
             }
 
+            
             var bd = (BindingSource)dgv_tabla.DataSource;
             var dt = (DataTable)bd.DataSource;
 
             string query = filtro_estado + filtro_razon + filtro_nfactura;
-            //MessageBox.Show(query);
-
+            
             dt.DefaultView.RowFilter = query;
             dgv_tabla.Refresh();
-
+            
         }
 
 
@@ -149,5 +167,56 @@ namespace Omega3.Vista.Venta
             txt_filtro_razon.Text = "";
         }
 
+        private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            this.dgv_tabla.DefaultCellStyle.Font = new Font("Arial", 9);
+            if (dgv_tabla.Columns[e.ColumnIndex].Name == "URL")
+            {
+
+                e.Value = Properties.Resources.dgv_tabla_descargar;
+            }
+        }
+
+        private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            string url = string.Empty;
+            string nrofactura = string.Empty;
+
+            foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
+            {
+                if (e.ColumnIndex == dgv_tabla.Columns["URL"].Index) //2nd column - DGV_ImageColumn
+                {
+
+                    if(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Link"].Value.ToString().Trim() != "" || !string.IsNullOrEmpty(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Link"].Value.ToString()))
+                    {
+                        try
+                        {
+                            // System.Diagnostics.Process.Start(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Link"].Value.ToString());
+                            url = dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Link"].Value.ToString();
+                            nrofactura = dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Nro Factura"].Value.ToString();
+                            using (WebClient webClient = new WebClient())
+                            {
+                                try
+                                {
+                                    Cursor.Current = Cursors.WaitCursor;
+                                    webClient.DownloadFile(url, Path.GetTempPath() + "Factura_" + nrofactura + ".pdf");
+                                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Factura_" + nrofactura + ".pdf");
+                                }
+                                catch (FileLoadException ex) { Console.Write(ex); }
+                            }
+
+
+
+                        }
+                        catch (Exception ex) { MessageBox.Show("Excepción detectada -> "+ex.ToString()+" comuniquese con su proveedor de software");}
+                        finally { Cursor.Current = Cursors.Default; }
+                    }
+
+
+
+                }
+            }
+        }
     }
 }

@@ -24,15 +24,14 @@ namespace Omega3.Vista.Administracion
             bool aux;
 
             if(txt_pagada.Text == "pagada"){
-                aux = 1;
+                aux = true;
             }
             else
             {
-                aux = 0;
+                aux = false;
             }
 
             ComprasaProveedores compras = new ComprasaProveedores();
-
             compras.Proveedor = txt_proveedor.Text;
             compras.Motivo = txt_motivo.Text;
             compras.Vencimiento = txt_fecha.Value;
