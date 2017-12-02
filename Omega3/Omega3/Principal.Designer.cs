@@ -43,15 +43,18 @@ namespace Omega3
             this.reparacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erogacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarClientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.crearClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarClientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erogacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,24 +149,16 @@ namespace Omega3
             // crearNToolStripMenuItem
             // 
             this.crearNToolStripMenuItem.Name = "crearNToolStripMenuItem";
-            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.crearNToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.crearNToolStripMenuItem.Text = "Crear";
             this.crearNToolStripMenuItem.Click += new System.EventHandler(this.crearNToolStripMenuItem_Click);
             // 
             // reparacionToolStripMenuItem
             // 
             this.reparacionToolStripMenuItem.Name = "reparacionToolStripMenuItem";
-            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.reparacionToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.reparacionToolStripMenuItem.Text = "Modificar";
             this.reparacionToolStripMenuItem.Click += new System.EventHandler(this.reparacionToolStripMenuItem_Click);
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(116, 25);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // administracionToolStripMenuItem
             // 
@@ -171,7 +166,8 @@ namespace Omega3
             this.erogacionesToolStripMenuItem,
             this.toolStripMenuItem2,
             this.clienteToolStripMenuItem1,
-            this.proveedoresToolStripMenuItem});
+            this.proveedoresToolStripMenuItem,
+            this.gastosToolStripMenuItem});
             this.administracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
             this.administracionToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
@@ -200,19 +196,19 @@ namespace Omega3
             this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
             this.clienteToolStripMenuItem1.Text = "Cliente";
             // 
-            // listarClientesToolStripMenuItem1
-            // 
-            this.listarClientesToolStripMenuItem1.Name = "listarClientesToolStripMenuItem1";
-            this.listarClientesToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
-            this.listarClientesToolStripMenuItem1.Text = "Listar Clientes";
-            this.listarClientesToolStripMenuItem1.Click += new System.EventHandler(this.listarClientesToolStripMenuItem1_Click);
-            // 
             // crearClienteToolStripMenuItem
             // 
             this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
             this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
             this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
+            // 
+            // listarClientesToolStripMenuItem1
+            // 
+            this.listarClientesToolStripMenuItem1.Name = "listarClientesToolStripMenuItem1";
+            this.listarClientesToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
+            this.listarClientesToolStripMenuItem1.Text = "Listar Clientes";
+            this.listarClientesToolStripMenuItem1.Click += new System.EventHandler(this.listarClientesToolStripMenuItem1_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
@@ -228,6 +224,36 @@ namespace Omega3
             this.crearProveedorToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.crearProveedorToolStripMenuItem.Text = "Administrar Proveedor";
             this.crearProveedorToolStripMenuItem.Click += new System.EventHandler(this.crearProveedorToolStripMenuItem_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(116, 25);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
+            // gastosToolStripMenuItem
+            // 
+            this.gastosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.erogacionesToolStripMenuItem1,
+            this.comprasToolStripMenuItem});
+            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.gastosToolStripMenuItem.Text = "Gastos";
+            // 
+            // erogacionesToolStripMenuItem1
+            // 
+            this.erogacionesToolStripMenuItem1.Name = "erogacionesToolStripMenuItem1";
+            this.erogacionesToolStripMenuItem1.Size = new System.Drawing.Size(164, 26);
+            this.erogacionesToolStripMenuItem1.Text = "Erogaciones";
+            // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.comprasToolStripMenuItem.Text = "Compras";
+            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -278,6 +304,9 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem crearClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearProveedorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erogacionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
     }
 }
 

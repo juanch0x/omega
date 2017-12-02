@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Modelo;
+using Omega3.Controlador;
 
 namespace Omega3.Vista.Administracion
 {
@@ -23,7 +24,7 @@ namespace Omega3.Vista.Administracion
 
             bool aux;
 
-            if(txt_pagada.Text == "pagada"){
+            if(txt_pagada.Text == "Si"){
                 aux = true;
             }
             else
@@ -38,6 +39,8 @@ namespace Omega3.Vista.Administracion
             compras.Monto = Convert.ToDecimal(txt_monto.Text);
             compras.Pagada = aux;
             compras.Detalle = txt_detalle.Text;
+
+            Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
 
         }
     }
