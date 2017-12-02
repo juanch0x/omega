@@ -203,6 +203,7 @@
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.Size = new System.Drawing.Size(195, 26);
             this.txt_monto.TabIndex = 8;
+            this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
             // txt_motivo
             // 

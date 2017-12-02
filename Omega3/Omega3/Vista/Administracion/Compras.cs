@@ -22,7 +22,7 @@ namespace Omega3.Vista.Administracion
         private void btn_crear_Click(object sender, EventArgs e)
         {
 
-            bool aux;
+            Boolean aux=true;
 
             if(txt_pagada.Text == "Si"){
                 aux = true;
@@ -42,6 +42,13 @@ namespace Omega3.Vista.Administracion
 
             Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
 
+            
+
+        }
+
+        private void txt_monto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarNumerosConComas(sender,e);
         }
     }
 }
