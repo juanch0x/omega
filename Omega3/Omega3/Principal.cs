@@ -595,6 +595,43 @@ namespace Omega3
         {
 
         }
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            Vista.Administracion.Compras a = new Vista.Administracion.Compras();
+            a.MdiParent = this;
+            a.Show();
+
+
+            
+            Vista.Administracion.Compras compras;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("Compras"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                compras = new Vista.Administracion.Compras(); 
+                compras.StartPosition = FormStartPosition.CenterScreen;
+                compras.MdiParent = this;
+                compras.Show();
+            }
+
+
+
+        }
     }
 
     public class dolar

@@ -36,14 +36,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_motivo = new System.Windows.Forms.TextBox();
-            this.txt_monto = new System.Windows.Forms.TextBox();
-            this.txt_proveedor = new System.Windows.Forms.TextBox();
-            this.txt_fecha = new System.Windows.Forms.DateTimePicker();
-            this.txt_detalle = new System.Windows.Forms.TextBox();
-            this.txt_pagada = new System.Windows.Forms.ComboBox();
-            this.btn_buscarproveedor = new System.Windows.Forms.Button();
             this.btn_crear = new System.Windows.Forms.Button();
+            this.btn_buscarproveedor = new System.Windows.Forms.Button();
+            this.txt_pagada = new System.Windows.Forms.ComboBox();
+            this.txt_detalle = new System.Windows.Forms.TextBox();
+            this.txt_fecha = new System.Windows.Forms.DateTimePicker();
+            this.txt_proveedor = new System.Windows.Forms.TextBox();
+            this.txt_monto = new System.Windows.Forms.TextBox();
+            this.txt_motivo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,65 +139,6 @@
             this.panel1.Size = new System.Drawing.Size(535, 465);
             this.panel1.TabIndex = 7;
             // 
-            // txt_motivo
-            // 
-            this.txt_motivo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_motivo.Location = new System.Drawing.Point(212, 103);
-            this.txt_motivo.Name = "txt_motivo";
-            this.txt_motivo.Size = new System.Drawing.Size(195, 26);
-            this.txt_motivo.TabIndex = 7;
-            // 
-            // txt_monto
-            // 
-            this.txt_monto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_monto.Location = new System.Drawing.Point(212, 161);
-            this.txt_monto.Name = "txt_monto";
-            this.txt_monto.Size = new System.Drawing.Size(195, 26);
-            this.txt_monto.TabIndex = 8;
-            // 
-            // txt_proveedor
-            // 
-            this.txt_proveedor.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_proveedor.Location = new System.Drawing.Point(212, 74);
-            this.txt_proveedor.Name = "txt_proveedor";
-            this.txt_proveedor.Size = new System.Drawing.Size(195, 26);
-            this.txt_proveedor.TabIndex = 9;
-            // 
-            // txt_fecha
-            // 
-            this.txt_fecha.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_fecha.Location = new System.Drawing.Point(212, 132);
-            this.txt_fecha.Name = "txt_fecha";
-            this.txt_fecha.Size = new System.Drawing.Size(195, 26);
-            this.txt_fecha.TabIndex = 10;
-            // 
-            // txt_detalle
-            // 
-            this.txt_detalle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_detalle.Location = new System.Drawing.Point(212, 221);
-            this.txt_detalle.Multiline = true;
-            this.txt_detalle.Name = "txt_detalle";
-            this.txt_detalle.Size = new System.Drawing.Size(195, 114);
-            this.txt_detalle.TabIndex = 11;
-            // 
-            // txt_pagada
-            // 
-            this.txt_pagada.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pagada.FormattingEnabled = true;
-            this.txt_pagada.Location = new System.Drawing.Point(212, 190);
-            this.txt_pagada.Name = "txt_pagada";
-            this.txt_pagada.Size = new System.Drawing.Size(195, 28);
-            this.txt_pagada.TabIndex = 12;
-            // 
-            // btn_buscarproveedor
-            // 
-            this.btn_buscarproveedor.Image = global::Omega3.Properties.Resources.lupa2020;
-            this.btn_buscarproveedor.Location = new System.Drawing.Point(413, 74);
-            this.btn_buscarproveedor.Name = "btn_buscarproveedor";
-            this.btn_buscarproveedor.Size = new System.Drawing.Size(37, 26);
-            this.btn_buscarproveedor.TabIndex = 13;
-            this.btn_buscarproveedor.UseVisualStyleBackColor = true;
-            // 
             // btn_crear
             // 
             this.btn_crear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,6 +149,68 @@
             this.btn_crear.Text = "Crear";
             this.btn_crear.UseVisualStyleBackColor = true;
             this.btn_crear.Click += new System.EventHandler(this.btn_crear_Click);
+            // 
+            // btn_buscarproveedor
+            // 
+            this.btn_buscarproveedor.Image = global::Omega3.Properties.Resources.lupa2020;
+            this.btn_buscarproveedor.Location = new System.Drawing.Point(413, 74);
+            this.btn_buscarproveedor.Name = "btn_buscarproveedor";
+            this.btn_buscarproveedor.Size = new System.Drawing.Size(37, 26);
+            this.btn_buscarproveedor.TabIndex = 13;
+            this.btn_buscarproveedor.UseVisualStyleBackColor = true;
+            // 
+            // txt_pagada
+            // 
+            this.txt_pagada.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pagada.FormattingEnabled = true;
+            this.txt_pagada.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.txt_pagada.Location = new System.Drawing.Point(212, 190);
+            this.txt_pagada.Name = "txt_pagada";
+            this.txt_pagada.Size = new System.Drawing.Size(195, 28);
+            this.txt_pagada.TabIndex = 12;
+            // 
+            // txt_detalle
+            // 
+            this.txt_detalle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_detalle.Location = new System.Drawing.Point(212, 221);
+            this.txt_detalle.Multiline = true;
+            this.txt_detalle.Name = "txt_detalle";
+            this.txt_detalle.Size = new System.Drawing.Size(195, 114);
+            this.txt_detalle.TabIndex = 11;
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_fecha.Location = new System.Drawing.Point(212, 132);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(195, 26);
+            this.txt_fecha.TabIndex = 10;
+            // 
+            // txt_proveedor
+            // 
+            this.txt_proveedor.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proveedor.Location = new System.Drawing.Point(212, 74);
+            this.txt_proveedor.Name = "txt_proveedor";
+            this.txt_proveedor.Size = new System.Drawing.Size(195, 26);
+            this.txt_proveedor.TabIndex = 9;
+            // 
+            // txt_monto
+            // 
+            this.txt_monto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_monto.Location = new System.Drawing.Point(212, 161);
+            this.txt_monto.Name = "txt_monto";
+            this.txt_monto.Size = new System.Drawing.Size(195, 26);
+            this.txt_monto.TabIndex = 8;
+            // 
+            // txt_motivo
+            // 
+            this.txt_motivo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_motivo.Location = new System.Drawing.Point(212, 103);
+            this.txt_motivo.Name = "txt_motivo";
+            this.txt_motivo.Size = new System.Drawing.Size(195, 26);
+            this.txt_motivo.TabIndex = 7;
             // 
             // Compras
             // 
