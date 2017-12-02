@@ -170,6 +170,7 @@ namespace Omega3.Controlador
                 {
                     MessageBox.Show("La fecha de entrega debe ser no puede ser anterior a la fecha actual");
                     lista[i].Focus();
+                    return false;
                 }
             }
 

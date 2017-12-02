@@ -557,7 +557,7 @@ namespace Omega3.Vista.Venta
             email.Text = "";
             domicilio.Text = "";
             iva.Text = "";
-
+            lbl_lista.Text = "";
 
         }
 
@@ -740,24 +740,31 @@ namespace Omega3.Vista.Venta
             Cliente cliente = new Cliente();
             Omega3.Modelo.Venta venta = new Omega3.Modelo.Venta();
             ControlVenta control = new ControlVenta();
-            venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
-            cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
-            cliente.Documento = long.Parse(cuit.Text);
- 
-            venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
 
-            string id_comprobante = string.Empty;
+            if (ultimoid != 0)
+            {
 
-            id_comprobante = control.Facturar(venta, cliente, listado_articulos);
+                venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+                cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
+                cliente.Documento = long.Parse(cuit.Text);
 
-            //Creo un nuevo thread para evitar el problema de la factura..
+                venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
 
-            //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
-            var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante,ultimoid));
+                string id_comprobante = string.Empty;
 
+                id_comprobante = control.Facturar(venta, cliente, listado_articulos);
 
-        elemento_clase = 0;
+                //Creo un nuevo thread para evitar el problema de la factura..
 
+                //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
+                var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante, ultimoid));
+
+                limpiarParteCliente();
+                lista.Clear();
+
+                elemento_clase = 0;
+            }
+            else { MessageBox.Show("Hubo un error al insertar en la base de datos.");}
 
         }
 
@@ -871,19 +878,14 @@ namespace Omega3.Vista.Venta
                     venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                     venta.fecha_venta = DateTime.Now;
 
-                    Factura_Negro factura = new Factura_Negro();
-                    factura.Nombre = razon.Text;
-                    factura.Documento = cuit.Text;
-                    factura.Direccion = domicilio.Text;
-                    factura.Fecha = DateTime.Now;
-
+                  
 
                     panel_principal.SelectedIndex = 0;
 
                     MessageBox.Show("Venta realizada correctamente!");
 
                     lastinserted = ControlVentas.AgregarVenta(dgv_tabla, venta);
-                    //ControlVentas.generarFacturaNegro(dgv_tabla, factura);
+                    
 
                     dgv_tabla.Rows.Clear();
                     dgv_tabla.Refresh();

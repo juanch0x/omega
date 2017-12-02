@@ -54,16 +54,24 @@ namespace Omega3.Vista.Reparaciones
 
         private void btn_buscar_reparacion_Click(object sender, EventArgs e)
         {
+            reparacion.maquina = string.Empty;
+
+            
+
             reparacion.fecha_salida = DateTime.Now;
             BuscarReparacion a = new BuscarReparacion(ref txt_cliente, ref reparacion, btn_buscar_producto);
             a.ShowDialog();
-            txt_maquina.Text = reparacion.maquina;
-            txt_nmotor.Text = reparacion.id_motor;
-            txt_problema.Text = reparacion.problema;
-            txt_fecha.Value = reparacion.fecha_salida;
-            ControlReparaciones.llenarComentarios(txt_comentarios, reparacion.id);
-            ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion,reparacion.id);
-            btn_buscar_reparacion.Enabled = false;
+            if (reparacion.maquina.Trim() != "" || !string.IsNullOrEmpty(reparacion.maquina))
+            {
+                txt_maquina.Text = reparacion.maquina;
+                txt_nmotor.Text = reparacion.id_motor;
+                txt_problema.Text = reparacion.problema;
+                txt_fecha.Value = reparacion.fecha_salida;
+                ControlReparaciones.llenarComentarios(txt_comentarios, reparacion.id);
+                ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion, reparacion.id);
+             
+                    btn_buscar_reparacion.Enabled = false;
+            }
             calcularTotal();
            
         }
@@ -230,7 +238,7 @@ namespace Omega3.Vista.Reparaciones
 
             
 
-                         if (ControladorFuncVariadas.validarTextBoxVacios(txt_problema, txt_comentarios) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
+                         if (ControladorFuncVariadas.validarTextBoxVacios(txt_problema) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
                          {
                              reparacion_update.id = reparacion.id;
                              reparacion_update.problema = txt_problema.Text;
@@ -251,6 +259,7 @@ namespace Omega3.Vista.Reparaciones
                                  tabla_reestablecer_stock.Rows.Clear();
                                  btn_buscar_producto.Enabled = false;
                                  btn_buscar_reparacion.Enabled = true;
+                                txt_maquina.Text = string.Empty;
                 }
                              else
                              {
