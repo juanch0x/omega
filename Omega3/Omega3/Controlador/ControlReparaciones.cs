@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Omega3.Modelo;
+using System.Data.SqlClient;
 
 namespace Omega3.Controlador
 {
@@ -413,6 +414,57 @@ namespace Omega3.Controlador
             }catch (MySqlException a) { Console.WriteLine(a); }
             return retorno;
             
+        }
+
+
+
+        public int ActualizarFacturaYUrl(string id_comprobante, long id)
+        {
+
+            ControlVenta control = new ControlVenta();
+            MySqlConnection conexion = Conexion.ObtenerConexion();
+
+            System.Threading.Thread.Sleep(30000);
+
+            string[] info;
+
+            info = control.obtenerDatosComprobanteVenta(id_comprobante);
+
+            string numfactura = info[1] + "-";
+
+            for (int i = 0; i < 8 - info[2].Length; i++)
+            {
+                numfactura += "0";
+            }
+
+            numfactura += info[2];
+
+
+
+            
+
+                        int retorno = 0;
+            /*
+                        try
+                        {
+                            MySqlCommand comando = new MySqlCommand(string.Format("Update venta set nro_factura='{0}', URL='{1}' where id={2}",
+                                numfactura, info[0], id), conexion);
+                            MessageBox.Show("La factura creada ya fue aceptada, y está disponible para su descarga en la sección de ventas realizadas");
+                            retorno = comando.ExecuteNonQuery();
+                            conexion.Close();
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Error " + ex.ToString());
+                            MessageBox.Show("Hubo un error creando el comprobante, porfavor cheuqueelo en Facturante");
+                        }*/
+
+
+            MessageBox.Show("Fatura " + numfactura + "URL" + info[0]);
+
+            return retorno;
+
+
         }
 
 

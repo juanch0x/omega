@@ -71,41 +71,20 @@ namespace Omega3.Vista.Reparaciones
                 //////PRUEBA SIN TIMER
 
 
-                var task = Task.Factory.StartNew(new Action(Method));
+
+                ControlReparaciones a = new ControlReparaciones();
+                var task = Task.Factory.StartNew(() => a.ActualizarFacturaYUrl(id_comprobante, 15));
 
 
-
-
-                System.Threading.Thread.Sleep(10000);
-                url = facturar.obtenerDatosComprobante(id_comprobante);
-                if (ControladorFuncVariadas.nuevoChequearComprobante(url))
-                {
-
-                    facturar.descargarYMostrarComprobante(url);
-                    this.Close();
-                    a.Close();
-                }
-                
-                
-            }catch(Exception a) { Console.WriteLine(a); }
+            }
+            catch(Exception a) { Console.WriteLine(a); }
             finally {
                 Cursor.Current = Cursors.Default;
             }
 
         }
 
-        private static void Method()
-        {
-            Console.WriteLine("Method() started");
 
-            for (var i = 0; i < 200; i++)
-            {
-                Console.WriteLine("Method() Counter = " + i);
-                Thread.Sleep(500);
-            }
-
-            Console.WriteLine("Method() finished");
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

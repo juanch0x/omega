@@ -422,7 +422,7 @@ namespace Omega3.Controlador
 
           //  MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
 
-            String id_comprobante = "PEDRO";
+            String id_comprobante = string.Empty;
 
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(ObjectToXml<CrearComprobanteResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
@@ -438,14 +438,12 @@ namespace Omega3.Controlador
 
             comprobanteClient.Close();
 
-            //detalleComprobante(id_comprobante);
+           
             return id_comprobante;
         }
 
         public string obtenerDatosComprobante(string id_comprobante)
         {
-
-           // System.Threading.Thread.Sleep(15000);
 
 
             ListadoComprobantesRequest request = new ListadoComprobantesRequest();
