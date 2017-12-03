@@ -48,7 +48,7 @@ namespace Omega3.Vista.Productos
             Controlador.ControlProducto.modificarStock(stock, long.Parse(txt_codigo.Text));
 
             MessageBox.Show("El stock se agrego correctamente");
-
+            this.Close();
         }
     }
 }
