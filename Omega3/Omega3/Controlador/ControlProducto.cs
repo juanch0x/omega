@@ -209,6 +209,21 @@ namespace Omega3.Controlador
         }
 
 
+        public static int modificarStock(int stock, long id)
+        {
+
+            int retorno = 0;
+
+
+           
+                MySqlCommand comando = new MySqlCommand(string.Format("UPDATE productos SET cantidad={0} WHERE cod_producto={1}",
+             stock, id), Conexion.ObtenerConexion());
+                retorno = comando.ExecuteNonQuery();
+                return retorno;
+       
+
+        }
+
     }
 
  }
