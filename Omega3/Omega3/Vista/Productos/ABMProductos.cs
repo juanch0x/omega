@@ -177,5 +177,22 @@ namespace Omega3.Vista.Productos
                 this.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Omega3.Modelo.Producto producto = new Modelo.Producto();
+            producto.Cod_producto = long.Parse(Convert.ToString(dgv_tabla.CurrentRow.Cells[0].Value));
+            producto.Nombre_producto = Convert.ToString(dgv_tabla.CurrentRow.Cells[1].Value);
+            producto.Cantidad = Convert.ToInt32(Convert.ToString(dgv_tabla.CurrentRow.Cells[2].Value));
+            producto.Precio_costo = Convert.ToDecimal(Convert.ToString(dgv_tabla.CurrentRow.Cells[3].Value));
+            producto.Stock_minimo = Convert.ToInt32(Convert.ToString(dgv_tabla.CurrentRow.Cells[4].Value));
+            producto.Dolar = 1;
+
+            Omega3.Vista.Productos.ModificarStock modificarproducto = new ModificarStock(producto);
+            modificarproducto.StartPosition = FormStartPosition.CenterScreen;
+            modificarproducto.ShowDialog();
+            Omega3.Controlador.ControlProducto.llenarTabla(dgv_tabla);
+            txt_filtro_nombre.Text = "";
+        }
     }
 }

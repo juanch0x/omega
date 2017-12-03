@@ -39,6 +39,7 @@
             this.filtro_codigo = new System.Windows.Forms.Label();
             this.txt_filtro_codigo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +103,7 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(166, 358);
+            this.btn_agregar.Location = new System.Drawing.Point(223, 358);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(90, 29);
             this.btn_agregar.TabIndex = 3;
@@ -113,7 +114,7 @@
             // btn_modificar
             // 
             this.btn_modificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(363, 358);
+            this.btn_modificar.Location = new System.Drawing.Point(484, 357);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(90, 29);
             this.btn_modificar.TabIndex = 4;
@@ -124,7 +125,7 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(560, 358);
+            this.btn_eliminar.Location = new System.Drawing.Point(683, 358);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(90, 29);
             this.btn_eliminar.TabIndex = 5;
@@ -157,6 +158,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txt_filtro_codigo);
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_modificar);
@@ -170,6 +172,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(796, 426);
             this.panel1.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(20, 359);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Agregar Stock";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ABMProductos
             // 
@@ -204,5 +217,6 @@
         private System.Windows.Forms.Label filtro_codigo;
         private System.Windows.Forms.TextBox txt_filtro_codigo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
