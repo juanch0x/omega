@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reparacion));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,7 +65,6 @@
             this.lbl_trabajo = new System.Windows.Forms.Label();
             this.lbl_comentarios = new System.Windows.Forms.Label();
             this.lbl_repuestos = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_reparacion)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +108,11 @@
             this.panel2.Controls.Add(this.lbl_comentarios);
             this.panel2.Controls.Add(this.lbl_repuestos);
             this.panel2.Name = "panel2";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
             // 
             // label7
             // 
@@ -254,21 +258,13 @@
             this.tabla_reparacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.tabla_reparacion.BackgroundColor = System.Drawing.Color.White;
             this.tabla_reparacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla_reparacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tabla_reparacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.tabla_reparacion, "tabla_reparacion");
             this.tabla_reparacion.MultiSelect = false;
             this.tabla_reparacion.Name = "tabla_reparacion";
             this.tabla_reparacion.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabla_reparacion.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabla_reparacion.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tabla_reparacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_reparacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_reparacion_CellContentClick);
             this.tabla_reparacion.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tabla_reparacion_CellFormatting);
@@ -343,11 +339,6 @@
             resources.ApplyResources(this.lbl_repuestos, "lbl_repuestos");
             this.lbl_repuestos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_repuestos.Name = "lbl_repuestos";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
             // 
             // Reparacion
             // 

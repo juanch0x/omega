@@ -396,16 +396,29 @@ namespace Omega3.Controlador
         }
 
 
-        public static int FinalizarReparacion(long id_reparacion)
+        public static int FinalizarReparacion(long id_reparacion, Reparacion informacion)
         {
             int retorno = 0;
+
+            int cobrada;
+
+            string consulta = string.Empty;
+            string fecha_vencimiento = ControladorFuncVariadas.convertirFecha(informacion.vencimiento);
+            if (informacion.cobrada) { cobrada = 1; } else { cobrada = 0; }
+
             MySqlConnection conexion;
                 try { 
            conexion = Conexion.ObtenerConexion();
 
-            
-            string consulta = string.Format("Update reparaciones set entregado='{0}',fecha_pago = CURRENT_DATE where id={1}",
-                1,id_reparacion);
+                if (informacion.cobrada)
+                {
+                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}',fecha_cobro = CURRENT_DATE where id={6}", 1, informacion.medio_de_pago, informacion.vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion);
+                }
+                else
+                {
+                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}' where id={6}", 1, informacion.medio_de_pago, fecha_vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion);
+                }
+
             MySqlCommand comando = new MySqlCommand(consulta, conexion);
             Console.WriteLine(consulta);
 

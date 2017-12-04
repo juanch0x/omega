@@ -19,29 +19,39 @@ namespace Omega3.Vista.Administracion
             InitializeComponent();
         }
 
+
+        private void Compras_Load(object sender, EventArgs e)
+        {
+
+            txt_monto.MaxLength = 9;
+
+        }
+
+
+
         private void btn_crear_Click(object sender, EventArgs e)
         {
 
-            Boolean aux=true;
-
-            if(txt_pagada.Text == "Si"){
-                aux = true;
-            }
-            else
-            {
-                aux = false;
-            }
-
+            
             ComprasaProveedores compras = new ComprasaProveedores();
+            compras.Pagada = false;
+            if (radio_pagado.Checked)
+            {
+                compras.Pagada = true;
+            }
+     
+
+            
+
+            
             compras.Proveedor = txt_proveedor.Text;
             compras.Motivo = txt_motivo.Text;
             compras.Vencimiento = txt_fecha.Value;
             compras.Monto = Convert.ToDecimal(txt_monto.Text);
-            compras.Pagada = aux;
             compras.Detalle = txt_detalle.Text;
 
             Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
-
+            
             
 
         }
@@ -50,5 +60,7 @@ namespace Omega3.Vista.Administracion
         {
             ControladorFuncVariadas.validarNumerosConComas(sender,e);
         }
+
+    
     }
 }

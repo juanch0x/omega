@@ -844,7 +844,7 @@
     <value>Arial, 11.25pt</value>
   </data>
   <data name="txt_maquina.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 8</value>
+    <value>100, 44</value>
   </data>
   <data name="txt_maquina.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -1042,7 +1042,7 @@
     <value>Arial, 11.25pt</value>
   </data>
   <data name="txt_cliente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 41</value>
+    <value>100, 13</value>
   </data>
   <data name="txt_cliente.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -1211,9 +1211,6 @@
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>

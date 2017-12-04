@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Omega3.Modelo;
+using Omega3.Controlador;
 
 namespace Omega3.Controlador
 {
@@ -15,14 +16,19 @@ namespace Omega3.Controlador
         {
 
             int retorno = 0;
+            int pagada = 0;
+
+            if (compras.Pagada) { pagada = 1; }
 
             string fecha = ControladorFuncVariadas.convertirFecha(compras.Vencimiento);
+
+            
 
             try
             {
 
                 MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle) values ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                   compras.Proveedor, compras.Motivo, fecha, compras.Monto, compras.Pagada, compras.Detalle), Conexion.ObtenerConexion());
+                   compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle), Conexion.ObtenerConexion());
 
                 retorno = comando.ExecuteNonQuery();
 

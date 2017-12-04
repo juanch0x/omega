@@ -53,7 +53,7 @@ namespace Omega3.Vista.Venta
 
                 DataGridViewRow selectedRow = dgv_tabla.Rows[selectedrowindex];
 
-                a.id = long.Parse(Convert.ToString(selectedRow.Cells["id"].Value));
+                a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
                 a.nrofactura = long.Parse(Convert.ToString(selectedRow.Cells[2].Value));
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
 

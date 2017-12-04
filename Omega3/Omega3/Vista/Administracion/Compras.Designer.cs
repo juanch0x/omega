@@ -38,12 +38,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_crear = new System.Windows.Forms.Button();
             this.btn_buscarproveedor = new System.Windows.Forms.Button();
-            this.txt_pagada = new System.Windows.Forms.ComboBox();
             this.txt_detalle = new System.Windows.Forms.TextBox();
             this.txt_fecha = new System.Windows.Forms.DateTimePicker();
             this.txt_proveedor = new System.Windows.Forms.TextBox();
             this.txt_monto = new System.Windows.Forms.TextBox();
             this.txt_motivo = new System.Windows.Forms.TextBox();
+            this.radio_pagado = new System.Windows.Forms.RadioButton();
+            this.radio_no_pagado = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,9 +119,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radio_no_pagado);
+            this.panel1.Controls.Add(this.radio_pagado);
             this.panel1.Controls.Add(this.btn_crear);
             this.panel1.Controls.Add(this.btn_buscarproveedor);
-            this.panel1.Controls.Add(this.txt_pagada);
             this.panel1.Controls.Add(this.txt_detalle);
             this.panel1.Controls.Add(this.txt_fecha);
             this.panel1.Controls.Add(this.txt_proveedor);
@@ -142,7 +144,7 @@
             // btn_crear
             // 
             this.btn_crear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_crear.Location = new System.Drawing.Point(219, 381);
+            this.btn_crear.Location = new System.Drawing.Point(267, 358);
             this.btn_crear.Name = "btn_crear";
             this.btn_crear.Size = new System.Drawing.Size(97, 28);
             this.btn_crear.TabIndex = 14;
@@ -159,22 +161,10 @@
             this.btn_buscarproveedor.TabIndex = 13;
             this.btn_buscarproveedor.UseVisualStyleBackColor = true;
             // 
-            // txt_pagada
-            // 
-            this.txt_pagada.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pagada.FormattingEnabled = true;
-            this.txt_pagada.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.txt_pagada.Location = new System.Drawing.Point(212, 190);
-            this.txt_pagada.Name = "txt_pagada";
-            this.txt_pagada.Size = new System.Drawing.Size(195, 28);
-            this.txt_pagada.TabIndex = 12;
-            // 
             // txt_detalle
             // 
             this.txt_detalle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_detalle.Location = new System.Drawing.Point(212, 221);
+            this.txt_detalle.Location = new System.Drawing.Point(212, 216);
             this.txt_detalle.Multiline = true;
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(195, 114);
@@ -213,6 +203,28 @@
             this.txt_motivo.Size = new System.Drawing.Size(195, 26);
             this.txt_motivo.TabIndex = 7;
             // 
+            // radio_pagado
+            // 
+            this.radio_pagado.AutoSize = true;
+            this.radio_pagado.Checked = true;
+            this.radio_pagado.Location = new System.Drawing.Point(210, 193);
+            this.radio_pagado.Name = "radio_pagado";
+            this.radio_pagado.Size = new System.Drawing.Size(62, 17);
+            this.radio_pagado.TabIndex = 15;
+            this.radio_pagado.TabStop = true;
+            this.radio_pagado.Text = "Pagado";
+            this.radio_pagado.UseVisualStyleBackColor = true;
+            // 
+            // radio_no_pagado
+            // 
+            this.radio_no_pagado.AutoSize = true;
+            this.radio_no_pagado.Location = new System.Drawing.Point(328, 193);
+            this.radio_no_pagado.Name = "radio_no_pagado";
+            this.radio_no_pagado.Size = new System.Drawing.Size(79, 17);
+            this.radio_no_pagado.TabIndex = 16;
+            this.radio_no_pagado.Text = "No Pagado";
+            this.radio_no_pagado.UseVisualStyleBackColor = true;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +233,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Compras";
             this.Text = "Compras";
+            this.Load += new System.EventHandler(this.Compras_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -239,11 +252,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_crear;
         private System.Windows.Forms.Button btn_buscarproveedor;
-        private System.Windows.Forms.ComboBox txt_pagada;
         private System.Windows.Forms.TextBox txt_detalle;
         private System.Windows.Forms.DateTimePicker txt_fecha;
         private System.Windows.Forms.TextBox txt_proveedor;
         private System.Windows.Forms.TextBox txt_monto;
         private System.Windows.Forms.TextBox txt_motivo;
+        private System.Windows.Forms.RadioButton radio_no_pagado;
+        private System.Windows.Forms.RadioButton radio_pagado;
     }
 }
