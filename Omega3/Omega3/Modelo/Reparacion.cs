@@ -28,7 +28,7 @@ namespace Omega3.Modelo
         public long remito { get; set; }
         public string url { get; set; }
         public bool presupuesto { get; set; }
-
+        public string razon_social { get; set; }
 
 
 

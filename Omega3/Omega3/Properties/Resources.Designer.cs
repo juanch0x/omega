@@ -63,6 +63,16 @@ namespace Omega3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_info_1616 {
+            get {
+                object obj = ResourceManager.GetObject("btn_info_1616", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn16over {
             get {
                 object obj = ResourceManager.GetObject("btn16over", resourceCulture);

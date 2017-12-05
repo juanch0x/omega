@@ -454,30 +454,203 @@ namespace Omega3.Controlador
 
 
 
-            
-
-                        int retorno = 0;
-            /*
-                        try
-                        {
-                            MySqlCommand comando = new MySqlCommand(string.Format("Update venta set nro_factura='{0}', URL='{1}' where id={2}",
-                                numfactura, info[0], id), conexion);
-                            MessageBox.Show("La factura creada ya fue aceptada, y está disponible para su descarga en la sección de ventas realizadas");
-                            retorno = comando.ExecuteNonQuery();
-                            conexion.Close();
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show("Error " + ex.ToString());
-                            MessageBox.Show("Hubo un error creando el comprobante, porfavor cheuqueelo en Facturante");
-                        }*/
 
 
-            MessageBox.Show("Fatura " + numfactura + "URL" + info[0]);
-
+            int retorno = 0;
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(string.Format("Update reparaciones set nro_factura='{0}', URL='{1}' where id={2}",
+                    numfactura, info[0], id), conexion);
+                MessageBox.Show("La factura creada ya fue aceptada, y está disponible para su descarga en la sección de ventas realizadas");
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error " + ex.ToString());
+                MessageBox.Show("Hubo un error creando el comprobante, porfavor cheuqueelo en Facturante");
+            }
             return retorno;
 
 
+        }
+        
+
+        public static void construirTablaReparacionesRealizadas(DataGridView dgv_tabla)
+        {
+
+            var id = new DataGridViewTextBoxColumn();
+            var razon = new DataGridViewTextBoxColumn();
+            var nrofactura = new DataGridViewTextBoxColumn();
+            var tipo = new DataGridViewTextBoxColumn();
+            var remito = new DataGridViewTextBoxColumn();
+            var total = new DataGridViewTextBoxColumn();
+            var fecha = new DataGridViewTextBoxColumn();
+            var link = new DataGridViewTextBoxColumn();
+            var url = new DataGridViewImageColumn();
+            var cobrada = new DataGridViewCheckBoxColumn();
+            var fecha_cobro = new DataGridViewTextBoxColumn();
+            var fecha_vto = new DataGridViewTextBoxColumn();
+            var vendedor = new DataGridViewTextBoxColumn();
+            var informacion = new DataGridViewImageColumn();
+            var maquina = new DataGridViewTextBoxColumn();
+            var problema = new DataGridViewTextBoxColumn();
+            
+
+            razon.HeaderText = "Razon Social";
+            razon.DataPropertyName = "Razon Social";
+            razon.Name = "Razon Social";
+            razon.ReadOnly = true;
+            razon.Width = 200;
+
+            maquina.HeaderText = "Máquina";
+            maquina.DataPropertyName = "Maquina";
+            maquina.ReadOnly = true;
+
+           // problema.HeaderText = "Problema";
+            //problema.DataPropertyName = "Problema";
+            //problema.ReadOnly = true;
+
+            nrofactura.HeaderText = "Nro Factura";
+            nrofactura.Name = "Nro Factura";
+            nrofactura.ReadOnly = true;
+            nrofactura.DataPropertyName = "Nro Factura";
+
+
+            tipo.HeaderText = "Tipo";
+            tipo.Name = "Tipo";
+            tipo.DataPropertyName = "Tipo";
+            tipo.ReadOnly = true;
+            
+
+            remito.HeaderText = "Remito";
+            remito.Name = "Remito";
+            remito.DataPropertyName = "Remito";
+            remito.ReadOnly = true;
+
+            total.HeaderText = "Total";
+            total.Name = "Total";
+            total.DataPropertyName = "Total";
+            total.ReadOnly = true;
+
+            fecha.HeaderText = "Fecha";
+            fecha.Name = "Fecha";
+            fecha.DataPropertyName = "Fecha";
+            fecha.ReadOnly = true;
+
+            link.HeaderText = "Link";
+            link.Name = "Link";
+            link.DataPropertyName = "Link";
+            link.ReadOnly = true;
+            link.Visible = false;
+
+            fecha_cobro.HeaderText = "Fecha de Cobro";
+            fecha_cobro.Name = "Fecha de Cobro";
+            fecha_cobro.DataPropertyName = "Fecha de Cobro";
+            fecha_cobro.ReadOnly = true;
+
+            cobrada.HeaderText = "Cobrada";
+            cobrada.Name = "Cobrada";
+            cobrada.DataPropertyName = "Cobrada";
+            //cobrada.Visible = false;
+            cobrada.ReadOnly = true;
+
+            fecha_vto.HeaderText = "Vencimiento";
+            fecha_vto.Name = "Vencimiento";
+            fecha_vto.DataPropertyName = "Vencimiento";
+            fecha_vto.ReadOnly = true;
+
+            vendedor.HeaderText = "Vendedor";
+            vendedor.Name = "Vendedor";
+            vendedor.DataPropertyName = "Vendedor";
+            vendedor.ReadOnly = true;
+
+            id.HeaderText = "Id";
+            id.Name = "Id";
+            id.DataPropertyName = "Id";
+            id.ReadOnly = true;
+            id.Visible = false;
+
+            url.Name = "URL";
+            url.HeaderText = "URL";
+            url.DataPropertyName = "URL";
+            url.ReadOnly = true;
+
+            informacion.Name = "Informacion";
+            informacion.HeaderText = "Info";
+            informacion.DataPropertyName = "Informacion";
+            informacion.ReadOnly = true;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id,razon,maquina, tipo,nrofactura, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, informacion,url });
+
+
+            dgv_tabla.AutoGenerateColumns = false;
+
+            llenar_reparaciones_realizadas(dgv_tabla);
+
+
+        }
+
+        public static void llenar_reparaciones_realizadas(DataGridView dgv_tabla)
+
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+
+            //string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.maquina as 'Maquina', v.problema as 'Problema', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_pago) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro', date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM reparaciones v INNER JOIN cliente c on c.documento = v.documento LEFT JOIN detalle_reparaciones d on v.id = d.id_reparacion GROUP BY v.id";
+
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+
+                // dgv_tabla.Columns["id"].Visible = false;
+
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de reparaciones: " + ex); }
+        }
+
+
+        public static Modelo.Reparacion obtenerReparacion(long id)
+        {
+
+            Modelo.Reparacion a = new Reparacion();
+
+            string query = string.Empty;
+            query = "SELECT r.problema, r.fecha_salida, r.id_motor, r.maquina, r.comentarios, c.razon_social FROM reparaciones r INNER JOIN cliente c on r.documento = c.documento WHERE r.id = " + id;
+            Console.WriteLine(query);
+            try
+            {
+                               
+
+                MySqlCommand _comando = new MySqlCommand(query, Conexion.ObtenerConexion());
+
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                _reader.Read();
+                a.id = id;
+                a.problema = _reader.GetString(0);
+                a.fecha_salida = _reader.GetDateTime(1);
+                a.id_motor = _reader.GetString(2);
+                a.maquina = _reader.GetString(3);
+                a.comentarios = _reader.GetString(4);
+                a.razon_social = _reader.GetString(5);
+                
+            }
+            catch (MySqlException ex) { MessageBox.Show("Hubo un error cargando la reparación, contacte al administrador. "+ex);}
+
+                return a;
+            
         }
 
 

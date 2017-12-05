@@ -463,7 +463,7 @@ namespace Omega3.Controlador
             url.DataPropertyName = "URL";
             url.ReadOnly = true;
 
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link,url });
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] {id, razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link,url });
 
 
             dgv_tabla.AutoGenerateColumns = false;

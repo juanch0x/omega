@@ -210,6 +210,44 @@ namespace Omega3.Controlador
             
         }
 
+        public static void cambiarVisibilidadBoton(bool estado,params Button[] botones)
+
+        {
+
+            foreach(Button btn in botones)
+            {
+
+                btn.Visible = estado;
+
+            }
+
+
+        }
+
+        public static void cambiarVisibilidadLabel(bool estado,params Label[] etiquetas)
+        {
+            foreach (Label label in etiquetas)
+            {
+                label.Visible = estado;
+            }
+        }
+
+        public static void cambiarVisibilidadTextBox(bool estado,params TextBox[] textbox) {
+
+            foreach(TextBox txt in textbox)
+            {
+                txt.Visible = estado;
+            }
+
+        }
+
+        public static void cambiarVisibilidadCombos(bool estado, params Control[] controls)
+        {
+            foreach(Control control in controls)
+            {
+                control.Visible = estado;
+            }
+        }
 
     }
 

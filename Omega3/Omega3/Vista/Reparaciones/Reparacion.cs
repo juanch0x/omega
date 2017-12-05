@@ -23,11 +23,26 @@ namespace Omega3.Vista.Reparaciones
         public Reparacion()
         {
             InitializeComponent();
+            ControlReparaciones.armarTablaRepuestos(tabla_reparacion);
         }
+
+
+        public Reparacion(long id)
+        {
+            InitializeComponent();
+            foreach (Control c in this.Controls)
+            {
+               
+                c.Enabled = false;
+            }
+            ControlReparaciones.armarTablaRepuestos(tabla_reparacion);
+            cargarReparacionEntregada(id);
+        }
+
 
         private void Reparacion_Load(object sender, EventArgs e)
         {
-            ControlReparaciones.armarTablaRepuestos(tabla_reparacion);
+           // ControlReparaciones.armarTablaRepuestos(tabla_reparacion);
             ControlReparaciones.armarTablaReestablecerStock(tabla_reestablecer_stock);
 
             limpiarCampos();
@@ -317,8 +332,29 @@ namespace Omega3.Vista.Reparaciones
             lbl_subtotal.Text = Convert.ToString(a);
         }
 
-        private void lbl_precio_Click(object sender, EventArgs e)
+        private void cargarReparacionEntregada(long id)
         {
+
+            //Hacer los botones invisibles.
+            ControladorFuncVariadas.cambiarVisibilidadBoton(false,btn_buscar_reparacion,btn_buscar_producto,btn_agregar_producto,txt_guardar,button1,btn_mano_de_obra);
+            ControladorFuncVariadas.cambiarVisibilidadLabel(false, lbl_nombre_producto, lbl_stock_actual, lbl_precio, label5, label6, label7, label3, label4, label2);
+            ControladorFuncVariadas.cambiarVisibilidadTextBox(false, txt_cantidad, txt_descuento);
+            ControladorFuncVariadas.cambiarVisibilidadCombos(false, combo_iva);
+            Modelo.Reparacion modelo = new Modelo.Reparacion();
+
+            modelo = ControlReparaciones.obtenerReparacion(id);
+
+            txt_cliente.Text = modelo.razon_social;
+            txt_fecha.Value = modelo.fecha_salida;
+            txt_maquina.Text = modelo.maquina;
+            txt_comentarios.Text = modelo.comentarios;
+            txt_problema.Text = modelo.problema;
+            txt_nmotor.Text = modelo.id_motor;
+
+            tabla_reparacion.Enabled = true;
+            ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion, id);
+            tabla_reparacion.Columns.Remove("Borrar");
+            calcularTotal();
 
         }
         

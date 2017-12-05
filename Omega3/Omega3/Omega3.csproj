@@ -291,6 +291,12 @@
     <Compile Include="Vista\Reparaciones\Reparacion.Designer.cs">
       <DependentUpon>Reparacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reparaciones\Reparaciones_Realizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reparaciones\Reparaciones_Realizadas.Designer.cs">
+      <DependentUpon>Reparaciones_Realizadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Venta\CierreDeCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     <EmbeddedResource Include="Vista\Reparaciones\Reparacion.resx">
       <DependentUpon>Reparacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Reparaciones\Reparaciones_Realizadas.resx">
+      <DependentUpon>Reparaciones_Realizadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\CierreDeCaja.resx">
       <DependentUpon>CierreDeCaja.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,6 +514,7 @@
     <None Include="Resources\lineafondo.png" />
     <None Include="Resources\dgv_tabla_descargar.bmp" />
     <None Include="Resources\descargar_1616.png" />
+    <None Include="Resources\if_icon-29-information_315150 %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

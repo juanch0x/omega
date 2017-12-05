@@ -176,7 +176,7 @@
             // 
             resources.ApplyResources(this.lbl_precio, "lbl_precio");
             this.lbl_precio.Name = "lbl_precio";
-            this.lbl_precio.Click += new System.EventHandler(this.lbl_precio_Click);
+
             // 
             // txt_cantidad
             // 
