@@ -698,6 +698,7 @@ namespace Omega3.Vista.Venta
             var lista = new DataGridViewTextBoxColumn();
             var borrar = new DataGridViewImageColumn();
             var elemento = new DataGridViewTextBoxColumn();
+            var descuento = new DataGridViewTextBoxColumn();
 
             cantidad.HeaderText = "Cantidad";
             cantidad.Name = "Cantidad";
@@ -727,6 +728,7 @@ namespace Omega3.Vista.Venta
             elemento.HeaderText = "Numero";
             elemento.Name = "Numero";
             elemento.Visible = false;
+
 
             dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cantidad, codigo, descripcion, precio, iva, subtotal, lista, borrar, elemento });
         }

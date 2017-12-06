@@ -249,7 +249,7 @@ namespace Omega3.Controlador
 
             Factura_Negro Cabecera = new Factura_Negro();
             Detalle_Negro Detalle = new Detalle_Negro();
-            string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, lista, iva, subtotal) VALUES";
+            string consulta = "INSERT INTO `detalle_venta`(id_venta, cantidad, codigo, descuento, iva, subtotal) VALUES";
             string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
             bool updatebool = false;
             bool contador = false;

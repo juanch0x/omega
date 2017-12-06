@@ -659,6 +659,12 @@ namespace Omega3
                 a.Show();
             }
         }
+
+        private void sdsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Informes.Form1 a = new Vista.Informes.Form1();
+            a.Show();
+        }
     }
 
     public class dolar
