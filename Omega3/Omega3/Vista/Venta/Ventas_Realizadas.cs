@@ -20,22 +20,9 @@ namespace Omega3.Vista.Venta
         {
             InitializeComponent();
 
-            // I created these columns at function scope but if you want to access 
 
-            /*    var borrar = new DataGridViewImageColumn();
-
-                borrar.HeaderText = "Quitar";
-                borrar.Name = "Borrar";
-                borrar.ReadOnly = true;
-
-                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { borrar});
-
-                Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);
-                */
             ControlVentas.construirTablaVentasRealizadas(dgv_tabla);
-            //razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, url
-           // dgv_tabla.Rows.Add("Prueba", "222", "222", "222", "2222", "222", "222", "2222", "222", "1");
-           
+   
         }
 
         private void Ventas_Realizadas_Load(object sender, EventArgs e)

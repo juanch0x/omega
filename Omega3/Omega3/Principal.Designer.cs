@@ -56,7 +56,7 @@ namespace Omega3
             this.erogacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sdsaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +68,7 @@ namespace Omega3
             this.reparacionesToolStripMenuItem,
             this.administracionToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
-            this.sdsaToolStripMenuItem});
+            this.ddToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 29);
@@ -266,12 +266,12 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // sdsaToolStripMenuItem
+            // ddToolStripMenuItem
             // 
-            this.sdsaToolStripMenuItem.Name = "sdsaToolStripMenuItem";
-            this.sdsaToolStripMenuItem.Size = new System.Drawing.Size(42, 25);
-            this.sdsaToolStripMenuItem.Text = "sdsa";
-            this.sdsaToolStripMenuItem.Click += new System.EventHandler(this.sdsaToolStripMenuItem_Click);
+            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(33, 25);
+            this.ddToolStripMenuItem.Text = "dd";
+            this.ddToolStripMenuItem.Click += new System.EventHandler(this.ddToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -326,7 +326,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem erogacionesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Reparaciones_Realizadas;
-        private System.Windows.Forms.ToolStripMenuItem sdsaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
     }
 }
 

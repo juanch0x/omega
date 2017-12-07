@@ -176,7 +176,6 @@
             // 
             resources.ApplyResources(this.lbl_precio, "lbl_precio");
             this.lbl_precio.Name = "lbl_precio";
-
             // 
             // txt_cantidad
             // 

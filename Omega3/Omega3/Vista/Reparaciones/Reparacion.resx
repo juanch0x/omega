@@ -306,6 +306,9 @@
   <data name="&gt;&gt;txt_guardar.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="btn_mano_de_obra.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="btn_mano_de_obra.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>

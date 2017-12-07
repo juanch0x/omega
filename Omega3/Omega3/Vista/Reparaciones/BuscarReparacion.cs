@@ -16,7 +16,7 @@ namespace Omega3.Vista.Reparaciones
         TextBox txt;
         Omega3.Modelo.Reparacion reparacion;
         Button boton;
-        
+        Button mano;
 
         public BuscarReparacion()
         {
@@ -31,7 +31,7 @@ namespace Omega3.Vista.Reparaciones
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-        public BuscarReparacion(ref TextBox txt, ref Omega3.Modelo.Reparacion reparacion, Button boton)
+        public BuscarReparacion(ref TextBox txt, ref Omega3.Modelo.Reparacion reparacion, Button boton, Button mano)
         {
             InitializeComponent();
             //reparacion = new Modelo.Reparacion();
@@ -39,7 +39,7 @@ namespace Omega3.Vista.Reparaciones
             this.txt = txt;
             this.reparacion = reparacion;
             this.boton = boton;
-
+            this.mano = mano;
          }
 
         private const int WM_NCHITTEST = 0x84;
@@ -68,7 +68,7 @@ namespace Omega3.Vista.Reparaciones
                 reparacion.id = Convert.ToInt32(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[7].Value);
                 reparacion.lista = Convert.ToDecimal(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells[9].Value);
                 boton.Enabled = true;
-
+                mano.Enabled = true;
                 this.Close();
 
             }

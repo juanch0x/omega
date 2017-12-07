@@ -396,7 +396,7 @@ namespace Omega3.Controlador
         }
 
 
-        public static int FinalizarReparacion(long id_reparacion, Reparacion informacion)
+        public static int FinalizarReparacion(long id_reparacion, Reparacion informacion, int tipo = 0)
         {
             int retorno = 0;
 
@@ -412,11 +412,11 @@ namespace Omega3.Controlador
 
                 if (informacion.cobrada)
                 {
-                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}',fecha_cobro = CURRENT_DATE where id={6}", 1, informacion.medio_de_pago, informacion.vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion);
+                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}',fecha_cobro = CURRENT_DATE, tipo = {7} where id={6}", 1, informacion.medio_de_pago, informacion.vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion,tipo);
                 }
                 else
                 {
-                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}' where id={6}", 1, informacion.medio_de_pago, fecha_vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion);
+                    consulta = string.Format("Update reparaciones set entregado='{0}', fecha_pago = CURRENT_DATE,	medio_de_pago = '{1}',	vencimiento = '{2}', tipo_factura = '{3}', usuario = '{4}',	cobrada = '{5}', tipo = {7} where id={6}", 1, informacion.medio_de_pago, fecha_vencimiento, informacion.tipo_factura, Usuario.User, cobrada, id_reparacion,tipo);
                 }
 
             MySqlCommand comando = new MySqlCommand(consulta, conexion);

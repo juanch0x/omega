@@ -74,7 +74,7 @@ namespace Omega3.Vista.Reparaciones
             
 
             reparacion.fecha_salida = DateTime.Now;
-            BuscarReparacion a = new BuscarReparacion(ref txt_cliente, ref reparacion, btn_buscar_producto);
+            BuscarReparacion a = new BuscarReparacion(ref txt_cliente, ref reparacion, btn_buscar_producto,btn_mano_de_obra);
             a.ShowDialog();
             if (reparacion.maquina.Trim() != "" || !string.IsNullOrEmpty(reparacion.maquina))
             {
@@ -86,6 +86,7 @@ namespace Omega3.Vista.Reparaciones
                 ControlReparaciones.llenarTablaArticulosReparacion(tabla_reparacion, reparacion.id);
              
                     btn_buscar_reparacion.Enabled = false;
+                    
             }
             calcularTotal();
            
@@ -274,6 +275,7 @@ namespace Omega3.Vista.Reparaciones
                                  tabla_reestablecer_stock.Rows.Clear();
                                  btn_buscar_producto.Enabled = false;
                                  btn_buscar_reparacion.Enabled = true;
+                    btn_mano_de_obra.Enabled = false;
                                 txt_maquina.Text = string.Empty;
                 }
                              else
@@ -281,11 +283,10 @@ namespace Omega3.Vista.Reparaciones
                                  MessageBox.Show("Hubo un error en la base de datos");
                              }
                          }
+
             Cliente a = new Cliente();
            a =  ControlCliente.obtenerCliente(reparacion.documento);
-         
-
-                       
+                      
 
             }
             
@@ -293,14 +294,37 @@ namespace Omega3.Vista.Reparaciones
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Modelo.Reparacion reparacion_update = new Modelo.Reparacion();
             FinalizarReparacion finalizar;
 
-            if (validarManoDeObra())
+            if (ControladorFuncVariadas.validarTextBoxVacios(txt_problema) && ControladorFuncVariadas.validarFechaPasada(txt_fecha))
             {
+                reparacion_update.id = reparacion.id;
+                reparacion_update.problema = txt_problema.Text;
+                reparacion_update.comentarios = txt_comentarios.Text;
+                reparacion_update.fecha_salida = txt_fecha.Value;
+                reparacion_update.entregado = false;
 
-                finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), Convert.ToDecimal(lbl_subtotal.Text), tabla_reparacion,reparacion.id,this);
-                finalizar.ShowDialog();
-            }else { MessageBox.Show("Debe agregar el costo de la mano de obra!"); }
+                ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock);
+                if (ControlReparaciones.actualizarReparacion(reparacion_update, tabla_reparacion, nuevasFilas()) == 1)
+                {
+                    
+                  //  ControladorFuncVariadas.limpiarTextBox(txt_cliente, txt_maquina, txt_nmotor, txt_problema, txt_comentarios);
+                    if (validarManoDeObra())
+                    {
+
+                        finalizar = new FinalizarReparacion(ControlCliente.obtenerCliente(reparacion.documento), Convert.ToDecimal(lbl_subtotal.Text), tabla_reparacion, reparacion.id, this);
+                        finalizar.ShowDialog();
+                    }
+                    else { MessageBox.Show("Debe agregar el costo de la mano de obra!"); }
+
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error en la base de datos");
+                }
+            }
+
        
         }
 

@@ -20,6 +20,7 @@ namespace Omega3.Vista.Reparaciones
             InitializeComponent();
             limpiarCampos();
             this.tabla_reparaciones = tabla_reparaciones;
+            txt_descuento.Text = "0";
         }
 
         private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)

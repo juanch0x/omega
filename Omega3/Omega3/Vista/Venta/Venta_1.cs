@@ -904,6 +904,66 @@ namespace Omega3.Vista.Venta
             return lastinserted;
         }
 
+        private void btn_presupuesto_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (cuit.Text != "")
+                {
+                    if (dgv_tabla.Rows.Count != 0)
+                    {
+                        Omega3.Modelo.Venta venta = new Modelo.Venta();
+
+                        venta.documento = long.Parse(cuit.Text);
+                        venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
+
+                        if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
+                        {
+                            venta.fecha_vencimiento_cheque = fecha_pago.Value;
+
+                        }
+
+                        venta.nrofactura = 0;
+                        venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+                        venta.fecha_venta = DateTime.Now;
+
+                        Factura_Negro factura = new Factura_Negro();
+                        factura.Nombre = razon.Text;
+                        factura.Documento = cuit.Text;
+                        factura.Direccion = domicilio.Text;
+                        factura.Fecha = DateTime.Now;
+
+
+                        panel_principal.SelectedIndex = 0;
+
+                        //MessageBox.Show("Venta realizada correctamente!");
+                        long lastidventa;
+                        lastidventa = ControlVentas.AgregarVenta(dgv_tabla, venta, 1);
+                        Informes.Presupuesto presupuesto = new Informes.Presupuesto(lastidventa);
+                        presupuesto.ShowDialog();
+
+                        dgv_tabla.Rows.Clear();
+                        dgv_tabla.Refresh();
+                        limpiarParteCliente();
+                        lista.Clear();
+                    }
+                    else { MessageBox.Show("No hay ningun producto agregado"); }
+                }
+                else
+                {
+                    panel_principal.SelectedIndex = 0;
+                    MessageBox.Show("Aún no se seleccionó un cliente");
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show("Hubo un error, contactar con el administrador: "+ex.ToString());}
+            finally { Cursor.Current = Cursors.Default; }
+            
+        }
+
+ 
 
     }
 }

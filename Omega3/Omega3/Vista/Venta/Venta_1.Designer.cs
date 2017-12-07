@@ -58,6 +58,7 @@
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
+            this.btn_presupuesto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_ventas_total = new System.Windows.Forms.Label();
             this.btn_factura = new System.Windows.Forms.Button();
@@ -420,6 +421,7 @@
             // tab_venta
             // 
             this.tab_venta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab_venta.Controls.Add(this.btn_presupuesto);
             this.tab_venta.Controls.Add(this.label5);
             this.tab_venta.Controls.Add(this.lbl_ventas_total);
             this.tab_venta.Controls.Add(this.btn_factura);
@@ -432,6 +434,16 @@
             this.tab_venta.Size = new System.Drawing.Size(1096, 502);
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
+            // 
+            // btn_presupuesto
+            // 
+            this.btn_presupuesto.Location = new System.Drawing.Point(698, 457);
+            this.btn_presupuesto.Name = "btn_presupuesto";
+            this.btn_presupuesto.Size = new System.Drawing.Size(83, 23);
+            this.btn_presupuesto.TabIndex = 7;
+            this.btn_presupuesto.Text = "Presupuestar";
+            this.btn_presupuesto.UseVisualStyleBackColor = true;
+            this.btn_presupuesto.Click += new System.EventHandler(this.btn_presupuesto_Click_1);
             // 
             // label5
             // 
@@ -472,7 +484,9 @@
             this.btn_no_factura.TabIndex = 2;
             this.btn_no_factura.Text = "No Facturar";
             this.btn_no_factura.UseVisualStyleBackColor = true;
+            this.btn_no_factura.Visible = false;
             this.btn_no_factura.Click += new System.EventHandler(this.btn_no_factura_Click);
+
             // 
             // panel_ventas_detalle
             // 
@@ -776,5 +790,6 @@
         private System.Windows.Forms.Label lbl_ventas_total;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_presupuesto;
     }
 }

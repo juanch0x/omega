@@ -209,7 +209,7 @@ namespace Omega3.Controlador
 
         }
 
-        public static long AgregarVenta(DataGridView dgv_tabla, Venta venta)
+        public static long AgregarVenta(DataGridView dgv_tabla, Venta venta, int tipo = 0)
         {
 
             int retorno;
@@ -220,13 +220,13 @@ namespace Omega3.Controlador
             string insertarventa;
             if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
             {
-                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE)",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro,tipo) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE,{7})",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo);
             }
             else
             {
-                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}')",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User);
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7})",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo);
             }
 
 
@@ -293,9 +293,11 @@ namespace Omega3.Controlador
             MySqlCommand detalle = new MySqlCommand(consulta, Conexion.ObtenerConexion());
             retorno = detalle.ExecuteNonQuery();
 
-            MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
-            retorno = restastock.ExecuteNonQuery();
-
+            if (tipo != 1)
+            {
+                MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
+                retorno = restastock.ExecuteNonQuery();
+            }
             return lastinserted;
 
         }
@@ -350,7 +352,7 @@ namespace Omega3.Controlador
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
 
             //string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
-            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
             try
             {
 

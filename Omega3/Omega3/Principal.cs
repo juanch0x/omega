@@ -660,10 +660,11 @@ namespace Omega3
             }
         }
 
-        private void sdsaToolStripMenuItem_Click(object sender, EventArgs e)
+ 
+        private void ddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Informes.Form1 a = new Vista.Informes.Form1();
-            a.Show();
+            Vista.Informes.Comprobante_Reparacion reparacion = new Vista.Informes.Comprobante_Reparacion(19);
+            reparacion.Show();
         }
     }
 

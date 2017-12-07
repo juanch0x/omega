@@ -160,17 +160,31 @@
     <Compile Include="Vista\Clientes\Modificar_Cliente.Designer.cs">
       <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Informes\Form1.cs">
+    <Compile Include="Vista\Informes\Comprobante_Reparacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\Informes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Vista\Informes\Comprobante_Reparacion.Designer.cs">
+      <DependentUpon>Comprobante_Reparacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Informes\Presupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Informes\Presupuesto.Designer.cs">
+      <DependentUpon>Presupuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Informes\Reparacion_Negro.cs">
+      <DependentUpon>Reparacion_Negro.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Vista\Informes\Presupuesto_Venta.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Presupuesto_Venta.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Vista\Login.cs">
       <SubType>Form</SubType>
@@ -375,14 +389,23 @@
     <EmbeddedResource Include="Vista\Clientes\Modificar_Cliente.resx">
       <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\Informes\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\Informes\Comprobante_Reparacion.resx">
+      <DependentUpon>Comprobante_Reparacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Informes\Presupuesto.resx">
+      <DependentUpon>Presupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Informes\Presupuesto.rdlc" />
-    <EmbeddedResource Include="Vista\Informes\Presupuesto_Venta.rpt">
+    <Content Include="Vista\Informes\Presupuesto_Venta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Presupuesto_Venta.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vista\Informes\Reparacion_Negro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reparacion_Negro.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Vista\Informes\Report1.rdlc" />
     <EmbeddedResource Include="Vista\Informes\Venta_Negra.rdlc" />
     <EmbeddedResource Include="Vista\Login.resx">

@@ -44,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_vencimiento = new System.Windows.Forms.DateTimePicker();
+            this.btn_negro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_cliente
@@ -205,11 +206,23 @@
             this.txt_vencimiento.Size = new System.Drawing.Size(200, 20);
             this.txt_vencimiento.TabIndex = 18;
             // 
+            // btn_negro
+            // 
+            this.btn_negro.Location = new System.Drawing.Point(246, 291);
+            this.btn_negro.Name = "btn_negro";
+            this.btn_negro.Size = new System.Drawing.Size(159, 23);
+            this.btn_negro.TabIndex = 19;
+            this.btn_negro.Text = "Realizar Comprobante";
+            this.btn_negro.UseVisualStyleBackColor = true;
+            this.btn_negro.Visible = false;
+            this.btn_negro.Click += new System.EventHandler(this.btn_negro_Click);
+            // 
             // FinalizarReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 352);
+            this.Controls.Add(this.btn_negro);
             this.Controls.Add(this.txt_vencimiento);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -226,11 +239,13 @@
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl_dni);
             this.Controls.Add(this.lbl_cliente);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FinalizarReparacion";
             this.Text = "Facturar Reparacion";
             this.Load += new System.EventHandler(this.FinalizarReparacion_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FinalizarReparacion_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +269,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker txt_vencimiento;
+        private System.Windows.Forms.Button btn_negro;
     }
 }

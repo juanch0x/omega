@@ -23,6 +23,7 @@ namespace Omega3.Vista.Reparaciones
         DataGridView dgv_tabla;
         long id_reparacion;
         Form a;
+        
         public FinalizarReparacion(Cliente cliente, decimal total, DataGridView dgv_tabla, long id_reparacion, Form a)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace Omega3.Vista.Reparaciones
             this.id_reparacion = id_reparacion;
             this.a = a;
             txt_vencimiento.Visible = false;
+            
         }
 
         private void FinalizarReparacion_Load(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace Omega3.Vista.Reparaciones
 
         private void btn_facturar_Click(object sender, EventArgs e)
         {
-            ControlReparaciones a = new ControlReparaciones();
+            ControlReparaciones b = new ControlReparaciones();
             Modelo.Venta venta = new Modelo.Venta();
             venta.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
             venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
@@ -70,22 +72,21 @@ namespace Omega3.Vista.Reparaciones
                 if (ControlReparaciones.FinalizarReparacion(id_reparacion,reparacion) == 1)
             {
 
-                    //MessageBox.Show("Se realizó la venta correctamente!");
+                    
                     id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
-                    var task = Task.Factory.StartNew(() => a.ActualizarFacturaYUrl(id_comprobante, id_reparacion));
+                    var task = Task.Factory.StartNew(() => b.ActualizarFacturaYUrl(id_comprobante, id_reparacion));
+                    MessageBox.Show("Se realizó la venta correctamente, en unos instantes podrá acceder a la factura desde Listar Reparaciones.");
+                    a.Close();
+                    this.Close();
+
                 }
-     
-            
-                
-
-                
-                
-
-
+    
             }
             catch(Exception ex) { Console.WriteLine(ex); }
             finally {
                 Cursor.Current = Cursors.Default;
+                a.Close();
+                this.Close();
             }
 
         }
@@ -121,6 +122,67 @@ namespace Omega3.Vista.Reparaciones
             else { return true; }
         }
 
+        private void btn_negro_Click(object sender, EventArgs e)
+        {
+            
+                //ControlReparaciones a = new ControlReparaciones();
+                Modelo.Venta venta = new Modelo.Venta();
+                venta.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
+                venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+
+                ControlVenta facturar = new ControlVenta();
+
+                Modelo.Reparacion reparacion = new Modelo.Reparacion();
+
+                reparacion.tipo_factura = combo_comprobante.SelectedValue.ToString();
+                reparacion.vencimiento = llenarVencimiento();
+                reparacion.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
+                //usuario
+                reparacion.cobrada = llenarCobrada();
+
+
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    if (ControlReparaciones.FinalizarReparacion(id_reparacion, reparacion,1) == 1)
+                    {
+
+                    Vista.Informes.Comprobante_Reparacion x = new Informes.Comprobante_Reparacion(id_reparacion);
+                    x.ShowDialog();
+                    a.Close();
+                    this.Close();
+
+                }
+                else { MessageBox.Show("Hubo un error en la base de datos reportar al administrador"); this.Close(); }
+                    
+
+                }
+                catch (Exception ex) { Console.WriteLine(ex); }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                a.Close();
+                this.Close();
+            }
+
+            
+        }
+
+        private void FinalizarReparacion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F6)
+            {
+                if (btn_negro.Visible)
+                    btn_negro.Visible = false;
+                else
+                    btn_negro.Visible = true;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

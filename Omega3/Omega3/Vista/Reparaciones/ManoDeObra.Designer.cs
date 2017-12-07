@@ -83,6 +83,7 @@
             this.txt_descuento.Name = "txt_descuento";
             this.txt_descuento.Size = new System.Drawing.Size(121, 25);
             this.txt_descuento.TabIndex = 4;
+            this.txt_descuento.Text = "0";
             this.txt_descuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_descuento_KeyPress);
             // 
             // combo_iva
