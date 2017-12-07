@@ -660,11 +660,35 @@ namespace Omega3
             }
         }
 
- 
-        private void ddToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void listarPresupuestosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Informes.Comprobante_Reparacion reparacion = new Vista.Informes.Comprobante_Reparacion(19);
-            reparacion.Show();
+         
+
+                Vista.Venta.ListarPresupuestos a;
+
+                bool encontrado = false;
+                foreach (Form form in this.MdiChildren)
+                {
+
+                    if (form.Name.Equals("ListarPresupuesto"))
+                    {
+                        encontrado = true;
+                        form.Show();
+                    }
+
+                }
+
+                if (!encontrado)
+                {
+
+                    a = new Vista.Venta.ListarPresupuestos();
+                    a.StartPosition = FormStartPosition.CenterScreen;
+                    a.MdiParent = this;
+                    a.Show();
+                
+            }
         }
     }
 

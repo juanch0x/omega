@@ -20,10 +20,19 @@ namespace Omega3.Vista.Venta
         {
             InitializeComponent();
 
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             ControlVentas.construirTablaVentasRealizadas(dgv_tabla);
-   
+            //calcularTamanio();
+
+            txt_desde.Value = DateTime.Now.Date;
+            txt_hasta.Value = DateTime.Now.Date;
+
+
+
         }
+
+
 
         private void Ventas_Realizadas_Load(object sender, EventArgs e)
         {
@@ -84,6 +93,7 @@ namespace Omega3.Vista.Venta
             string filtro_estado = string.Empty;
             string filtro_razon = string.Empty;
             string filtro_nfactura = string.Empty;
+            string filtro_fecha = string.Empty;
             bool and = false;
 
             if (filtro_estado_venta.SelectedIndex != -1)
@@ -129,12 +139,25 @@ namespace Omega3.Vista.Venta
                 and = true;
 
             }
+            if (txt_desde.Value != DateTime.Now.Date || txt_hasta.Value != DateTime.Now.Date)
+            {
+                if (and)
+                {
+                    filtro_fecha = string.Format(" AND " + ControladorFuncVariadas.filtro_desde_hasta(txt_desde, txt_hasta));
+                }
+                else
+                {
+                    filtro_fecha = string.Format(" " + ControladorFuncVariadas.filtro_desde_hasta(txt_desde, txt_hasta));
+                }
+                and = true;
 
-            
+            }
+
+
             var bd = (BindingSource)dgv_tabla.DataSource;
             var dt = (DataTable)bd.DataSource;
 
-            string query = filtro_estado + filtro_razon + filtro_nfactura;
+            string query = filtro_estado + filtro_razon + filtro_nfactura + filtro_fecha;
             
             dt.DefaultView.RowFilter = query;
             dgv_tabla.Refresh();
@@ -152,6 +175,8 @@ namespace Omega3.Vista.Venta
             filtro_estado_venta.SelectedIndex = 0;
             txt_filtro_factura.Text = "";
             txt_filtro_razon.Text = "";
+            txt_desde.Value = DateTime.Now.Date;
+            txt_hasta.Value = DateTime.Now.Date;
         }
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -204,6 +229,33 @@ namespace Omega3.Vista.Venta
 
                 }
             }
+        }
+
+        private void Ventas_Realizadas_Resize(object sender, EventArgs e)
+        {
+            //calcularTamanio();
+            
+
+        }
+
+        private void calcularTamanio()
+        {
+            panel_tabla.Size = new Size(this.Width, this.Size.Height - panel_filtros.Size.Height);
+
+
+            dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+            dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_tabla.Dock = DockStyle.Fill;
+        }
+
+        private void txt_hasta_ValueChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void txt_desde_ValueChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
         }
     }
 }

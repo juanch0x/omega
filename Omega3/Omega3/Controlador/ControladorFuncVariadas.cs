@@ -249,6 +249,17 @@ namespace Omega3.Controlador
             }
         }
 
+        public static string filtro_desde_hasta(DateTimePicker txt_desde, DateTimePicker txt_hasta)
+        {
+
+            string desde = String.Format("#" + "{0:MM/dd/yyyy}" + "#", txt_desde.Value.Date);
+            string hasta = String.Format("#" + "{0:MM/dd/yyyy}" + "#", txt_hasta.Value.Date);
+
+            string filter = "Fecha >= " + desde + " and Fecha <= " + hasta;
+
+            return filter;
+        }
+
     }
 
 

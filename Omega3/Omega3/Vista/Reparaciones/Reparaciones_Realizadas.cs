@@ -19,25 +19,42 @@ namespace Omega3.Vista.Reparaciones
         {
             InitializeComponent();
 
-            calcularTamanioPanel();
+            //            calcularTamanioPanel();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
         }
 
         private void Reparaciones_Realizadas_Load(object sender, EventArgs e)
         {
             ControlReparaciones.construirTablaReparacionesRealizadas(dgv_tabla);
+
+
+            this.dgv_tabla.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dgv_tabla.Columns[12].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            limpiarFiltros();
         }
 
         private void Reparaciones_Realizadas_Resize(object sender, EventArgs e)
         {
-            calcularTamanioPanel();
+          //  calcularTamanioPanel();
         }
 
         private void calcularTamanioPanel()
         {
             panel1.Size = new Size(this.Width, this.Size.Height - panel_filtros.Size.Height);
-
-            //MessageBox.Show(panel1.Size.Width.ToString() + "-" + this.Size.Width);
+                      
 
             dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
             dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -110,5 +127,145 @@ namespace Omega3.Vista.Reparaciones
             Reparacion a = new Reparacion(20);
             a.Show();
         }
+
+        private void crearFiltro()
+        {
+
+            string filtro_estado = string.Empty;
+            string filtro_razon = string.Empty;
+            string filtro_nfactura = string.Empty;
+            string filtro_fecha = string.Empty;
+            string filtro_maquina = string.Empty;
+            bool and = false;
+
+            if (filtro_estado_venta.SelectedIndex != -1)
+            {
+                and = true;
+                if (filtro_estado_venta.SelectedIndex == 2)
+                {
+                    filtro_estado = string.Format("[Cobrada] = 0");
+                }
+                else if (filtro_estado_venta.SelectedIndex == 0)
+                {
+                    and = false;
+                    filtro_estado = string.Empty;
+                }
+                else if (filtro_estado_venta.SelectedIndex == 1)
+                {
+                    filtro_estado = string.Format("[Cobrada] = 1");
+                }
+            }
+
+            if (txt_filtro_razon.Text.Trim() != "" || !string.IsNullOrEmpty(txt_filtro_razon.Text))
+            {
+
+                if (and)
+                {
+                    filtro_razon = string.Format(" AND convert([Razon Social], 'System.String') like '%{0}%'", txt_filtro_razon.Text.Trim().Replace("'", "''"));
+                }
+                else
+                {
+                    filtro_razon = string.Format(" convert([Razon Social], 'System.String') like '%{0}%'", txt_filtro_razon.Text.Trim().Replace("'", "''"));
+                }
+                and = true;
+            }
+            if (txt_filtro_factura.Text.Trim() != "" || !string.IsNullOrEmpty(txt_filtro_factura.Text))
+            {
+                if (and)
+                {
+                    filtro_nfactura = string.Format(" AND convert([Nro Factura], 'System.String') like '%{0}%'", txt_filtro_factura.Text.Trim().Replace("'", "''"));
+                }
+                else
+                {
+                    filtro_nfactura = string.Format(" convert([Nro Factura], 'System.String') like '%{0}%'", txt_filtro_factura.Text.Trim().Replace("'", "''"));
+                }
+                and = true;
+
+            }
+            if (txt_desde.Value != DateTime.Now.Date || txt_hasta.Value != DateTime.Now.Date)
+            {
+                if (and)
+                {
+                    filtro_fecha = string.Format(" AND " + ControladorFuncVariadas.filtro_desde_hasta(txt_desde, txt_hasta));
+                }
+                else
+                {
+                    filtro_fecha = string.Format(" " + ControladorFuncVariadas.filtro_desde_hasta(txt_desde, txt_hasta));
+                }
+                and = true;
+
+            }
+            if (txt_maquina.Text.Trim() != "" || !string.IsNullOrEmpty(txt_maquina.Text))
+            {
+                if (and)
+                {
+                    filtro_maquina = string.Format(" AND convert([Maquina], 'System.String') like '%{0}%'", txt_maquina.Text.Trim().Replace("'", "''"));
+                }
+                else
+                {
+                    filtro_maquina = string.Format(" convert([Maquina], 'System.String') like '%{0}%'", txt_maquina.Text.Trim().Replace("'", "''"));
+                }
+                and = true;
+
+            }
+
+
+            var bd = (BindingSource)dgv_tabla.DataSource;
+            var dt = (DataTable)bd.DataSource;
+
+            string query = filtro_estado + filtro_razon + filtro_nfactura + filtro_fecha + filtro_maquina;
+
+            dt.DefaultView.RowFilter = query;
+            dgv_tabla.Refresh();
+
+        }
+
+        private void txt_filtro_razon_TextChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void txt_filtro_factura_TextChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void txt_maquina_TextChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void txt_desde_ValueChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void txt_hasta_ValueChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void filtro_estado_venta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            crearFiltro();
+        }
+
+        private void linkLabel_limpiar_filtro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            limpiarFiltros();
+  
+        }
+
+
+        private void limpiarFiltros()
+        {
+            filtro_estado_venta.SelectedIndex = 0;
+            txt_filtro_factura.Text = "";
+            txt_filtro_razon.Text = "";
+            txt_desde.Value = DateTime.Now.Date;
+            txt_hasta.Value = DateTime.Now.Date;
+            txt_maquina.Text = "";
+        }
+
     }
 }

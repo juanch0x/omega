@@ -56,7 +56,7 @@ namespace Omega3
             this.erogacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarPresupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +67,7 @@ namespace Omega3
             this.ventasToolStripMenuItem,
             this.reparacionesToolStripMenuItem,
             this.administracionToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem,
-            this.ddToolStripMenuItem});
+            this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 29);
@@ -119,7 +118,8 @@ namespace Omega3
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaVentaToolStripMenuItem,
-            this.ventasRealizadasToolStripMenuItem});
+            this.ventasRealizadasToolStripMenuItem,
+            this.listarPresupuestosToolStripMenuItem});
             this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
@@ -128,14 +128,14 @@ namespace Omega3
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva Venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // ventasRealizadasToolStripMenuItem
             // 
             this.ventasRealizadasToolStripMenuItem.Name = "ventasRealizadasToolStripMenuItem";
-            this.ventasRealizadasToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.ventasRealizadasToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.ventasRealizadasToolStripMenuItem.Text = "Ventas Realizadas";
             this.ventasRealizadasToolStripMenuItem.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem_Click);
             // 
@@ -266,12 +266,12 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // ddToolStripMenuItem
+            // listarPresupuestosToolStripMenuItem
             // 
-            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(33, 25);
-            this.ddToolStripMenuItem.Text = "dd";
-            this.ddToolStripMenuItem.Click += new System.EventHandler(this.ddToolStripMenuItem_Click);
+            this.listarPresupuestosToolStripMenuItem.Name = "listarPresupuestosToolStripMenuItem";
+            this.listarPresupuestosToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.listarPresupuestosToolStripMenuItem.Text = "Listar Presupuestos";
+            this.listarPresupuestosToolStripMenuItem.Click += new System.EventHandler(this.listarPresupuestosToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -326,7 +326,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem erogacionesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Reparaciones_Realizadas;
-        private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarPresupuestosToolStripMenuItem;
     }
 }
 

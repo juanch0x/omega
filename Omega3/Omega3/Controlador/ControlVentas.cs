@@ -606,6 +606,93 @@ try {
         }
 
 
+        public static void construirTablaPresupuestos(DataGridView dgv_tabla)
+        {
+
+            var id = new DataGridViewTextBoxColumn();
+            var razon = new DataGridViewTextBoxColumn();
+            var total = new DataGridViewTextBoxColumn();
+            var fecha = new DataGridViewTextBoxColumn();
+            var url = new DataGridViewImageColumn();
+            var vendedor = new DataGridViewTextBoxColumn();
+
+
+            razon.HeaderText = "Razon Social";
+            razon.DataPropertyName = "Razon Social";
+            razon.Name = "Razon Social";
+            razon.ReadOnly = true;
+            razon.Width = 200;
+                      
+
+            total.HeaderText = "Total";
+            total.Name = "Total";
+            total.DataPropertyName = "Total";
+            total.ReadOnly = true;
+
+            fecha.HeaderText = "Fecha";
+            fecha.Name = "Fecha";
+            fecha.DataPropertyName = "Fecha";
+            fecha.ReadOnly = true;
+                       
+
+            vendedor.HeaderText = "Vendedor";
+            vendedor.Name = "Vendedor";
+            vendedor.DataPropertyName = "Vendedor";
+            vendedor.ReadOnly = true;
+
+            id.HeaderText = "Nº Presupuesto";
+            id.Name = "Id";
+            id.DataPropertyName = "Id";
+            id.ReadOnly = true;
+            
+
+            url.Name = "URL";
+            url.HeaderText = "Ver";
+            url.DataPropertyName = "URL";
+            url.ReadOnly = true;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id, razon, total, fecha, vendedor, url });
+
+
+            dgv_tabla.AutoGenerateColumns = false;
+
+            llenar_presupuestos(dgv_tabla);
+
+
+        }
+
+
+        public static void llenar_presupuestos(DataGridView dgv_tabla)
+
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+
+            //string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, v.usuario as Vendedor FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo = 1 GROUP BY v.id";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+
+                // dgv_tabla.Columns["id"].Visible = false;
+
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
+
+        }
+
+
     }
 
 
