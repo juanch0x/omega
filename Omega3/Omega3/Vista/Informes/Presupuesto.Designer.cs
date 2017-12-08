@@ -57,7 +57,7 @@
             this.ClientSize = new System.Drawing.Size(678, 373);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Presupuesto";
-            this.Text = "Form1";
+            this.Text = "Presupuesto";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

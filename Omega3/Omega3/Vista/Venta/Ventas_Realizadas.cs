@@ -23,11 +23,11 @@ namespace Omega3.Vista.Venta
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             ControlVentas.construirTablaVentasRealizadas(dgv_tabla);
-            //calcularTamanio();
+            calcularTamanio();
 
             txt_desde.Value = DateTime.Now.Date;
             txt_hasta.Value = DateTime.Now.Date;
-
+            
 
 
         }
@@ -233,7 +233,7 @@ namespace Omega3.Vista.Venta
 
         private void Ventas_Realizadas_Resize(object sender, EventArgs e)
         {
-            //calcularTamanio();
+            calcularTamanio();
             
 
         }
@@ -256,6 +256,15 @@ namespace Omega3.Vista.Venta
         private void txt_desde_ValueChanged(object sender, EventArgs e)
         {
             crearFiltro();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string alto_ventana = "Ventana"+this.Size.Height.ToString();
+            string alto_panel = " Filtros"+panel_filtros.Size.Height.ToString();
+            string alto_tabla = " Tabla "+panel_tabla.Size.Height.ToString();
+
+            MessageBox.Show(alto_ventana+alto_panel+alto_tabla);
         }
     }
 }

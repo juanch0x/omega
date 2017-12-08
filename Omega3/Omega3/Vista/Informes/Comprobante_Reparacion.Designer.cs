@@ -59,7 +59,7 @@
             this.ClientSize = new System.Drawing.Size(796, 446);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Comprobante_Reparacion";
-            this.Text = "Comprobante_Reparacion";
+            this.Text = "Comprobante Reparacion";
             this.Load += new System.EventHandler(this.Comprobante_Reparacion_Load);
             this.ResumeLayout(false);
 

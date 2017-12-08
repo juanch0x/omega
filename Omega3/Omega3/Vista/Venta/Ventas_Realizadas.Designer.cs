@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.filtro_estado_venta = new System.Windows.Forms.ComboBox();
             this.txt_filtro_factura = new System.Windows.Forms.TextBox();
@@ -39,12 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel_filtros = new System.Windows.Forms.Panel();
-            this.panel_tabla = new System.Windows.Forms.Panel();
-            this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txt_hasta = new System.Windows.Forms.DateTimePicker();
             this.txt_desde = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel_tabla = new System.Windows.Forms.Panel();
+            this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel_filtros.SuspendLayout();
             this.panel_tabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
@@ -141,6 +142,7 @@
             // 
             // panel_filtros
             // 
+            this.panel_filtros.Controls.Add(this.button2);
             this.panel_filtros.Controls.Add(this.label5);
             this.panel_filtros.Controls.Add(this.label4);
             this.panel_filtros.Controls.Add(this.txt_hasta);
@@ -155,55 +157,28 @@
             this.panel_filtros.Controls.Add(this.txt_filtro_razon);
             this.panel_filtros.Location = new System.Drawing.Point(-3, 0);
             this.panel_filtros.Name = "panel_filtros";
-            this.panel_filtros.Size = new System.Drawing.Size(1205, 108);
+            this.panel_filtros.Size = new System.Drawing.Size(1326, 108);
             this.panel_filtros.TabIndex = 16;
             // 
-            // panel_tabla
+            // label5
             // 
-            this.panel_tabla.Controls.Add(this.dgv_tabla);
-            this.panel_tabla.Location = new System.Drawing.Point(-3, 114);
-            this.panel_tabla.Name = "panel_tabla";
-            this.panel_tabla.Size = new System.Drawing.Size(1205, 466);
-            this.panel_tabla.TabIndex = 17;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 20);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Desde";
             // 
-            // dgv_tabla
+            // label4
             // 
-            this.dgv_tabla.AllowUserToAddRows = false;
-            this.dgv_tabla.AllowUserToDeleteRows = false;
-            this.dgv_tabla.AllowUserToResizeColumns = false;
-            this.dgv_tabla.AllowUserToResizeRows = false;
-            this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
-            this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
-            this.dgv_tabla.MultiSelect = false;
-            this.dgv_tabla.Name = "dgv_tabla";
-            this.dgv_tabla.ReadOnly = true;
-            this.dgv_tabla.RowHeadersVisible = false;
-            this.dgv_tabla.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(1205, 466);
-            this.dgv_tabla.TabIndex = 3;
-            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
-            this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(186, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Hasta";
             // 
             // txt_hasta
             // 
@@ -223,35 +198,71 @@
             this.txt_desde.TabIndex = 22;
             this.txt_desde.ValueChanged += new System.EventHandler(this.txt_desde_ValueChanged);
             // 
-            // label4
+            // panel_tabla
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(186, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Hasta";
+            this.panel_tabla.Controls.Add(this.dgv_tabla);
+            this.panel_tabla.Location = new System.Drawing.Point(-3, 114);
+            this.panel_tabla.Name = "panel_tabla";
+            this.panel_tabla.Size = new System.Drawing.Size(1326, 466);
+            this.panel_tabla.TabIndex = 17;
             // 
-            // label5
+            // dgv_tabla
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 20);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Desde";
+            this.dgv_tabla.AllowUserToAddRows = false;
+            this.dgv_tabla.AllowUserToDeleteRows = false;
+            this.dgv_tabla.AllowUserToResizeColumns = false;
+            this.dgv_tabla.AllowUserToResizeRows = false;
+            this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
+            this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
+            this.dgv_tabla.MultiSelect = false;
+            this.dgv_tabla.Name = "dgv_tabla";
+            this.dgv_tabla.ReadOnly = true;
+            this.dgv_tabla.RowHeadersVisible = false;
+            this.dgv_tabla.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla.ShowEditingIcon = false;
+            this.dgv_tabla.Size = new System.Drawing.Size(1326, 466);
+            this.dgv_tabla.TabIndex = 3;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
+            this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(555, 71);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Ventas_Realizadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1210, 583);
+            this.ClientSize = new System.Drawing.Size(1325, 583);
             this.Controls.Add(this.panel_tabla);
             this.Controls.Add(this.panel_filtros);
-            this.MaximizeBox = false;
             this.Name = "Ventas_Realizadas";
             this.Text = "Ventas_Realizadas";
             this.Load += new System.EventHandler(this.Ventas_Realizadas_Load);
@@ -280,5 +291,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker txt_hasta;
         private System.Windows.Forms.DateTimePicker txt_desde;
+        private System.Windows.Forms.Button button2;
     }
 }
