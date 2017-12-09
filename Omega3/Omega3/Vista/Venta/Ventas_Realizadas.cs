@@ -20,10 +20,12 @@ namespace Omega3.Vista.Venta
         {
             InitializeComponent();
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             ControlVentas.construirTablaVentasRealizadas(dgv_tabla);
             calcularTamanio();
+
+            this.MinimumSize = new Size(1250, this.Height);
 
             txt_desde.Value = DateTime.Now.Date;
             txt_hasta.Value = DateTime.Now.Date;
@@ -240,12 +242,14 @@ namespace Omega3.Vista.Venta
 
         private void calcularTamanio()
         {
-            panel_tabla.Size = new Size(this.Width, this.Size.Height - panel_filtros.Size.Height);
-
+            
+            linkLabel_limpiar_filtro.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            panel_tabla.Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right);
 
             dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
             dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_tabla.Dock = DockStyle.Fill;
+                        
         }
 
         private void txt_hasta_ValueChanged(object sender, EventArgs e)
@@ -265,6 +269,11 @@ namespace Omega3.Vista.Venta
             string alto_tabla = " Tabla "+panel_tabla.Size.Height.ToString();
 
             MessageBox.Show(alto_ventana+alto_panel+alto_tabla);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Size.Width.ToString());
         }
     }
 }

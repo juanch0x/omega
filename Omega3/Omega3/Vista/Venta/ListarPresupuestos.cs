@@ -18,21 +18,21 @@ namespace Omega3.Vista.Venta
             InitializeComponent();
             ControlVentas.construirTablaPresupuestos(dgv_tabla);
 
-           // calcularTamanio();
+            calcularTamanio();
             txt_desde.Value = DateTime.Now.Date;
             txt_hasta.Value = DateTime.Now.Date;
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+
+            //Tamaño minimo para que no se bugueen los componentes.
+            this.MinimumSize = new Size(930, this.Size.Height);
 
         }
 
         private void calcularTamanio()
         {
-            panel_tabla.Size = new Size(this.Width, this.Size.Height - panel_filtros.Size.Height);
-
+            linkLabel_limpiar_filtro.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            panel_tabla.Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right);
 
             dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
             dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -184,7 +184,10 @@ namespace Omega3.Vista.Venta
             
         }
 
-        
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Size.Width.ToString());
+            //930
+        }
     }
 }

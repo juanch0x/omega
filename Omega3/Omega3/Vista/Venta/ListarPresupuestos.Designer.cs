@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_filtros = new System.Windows.Forms.Panel();
             this.txt_hasta = new System.Windows.Forms.DateTimePicker();
             this.txt_desde = new System.Windows.Forms.DateTimePicker();
@@ -40,6 +40,8 @@
             this.txt_filtro_npresupuesto = new System.Windows.Forms.TextBox();
             this.panel_tabla = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel_filtros.SuspendLayout();
             this.panel_tabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
@@ -47,16 +49,19 @@
             // 
             // panel_filtros
             // 
+            this.panel_filtros.Controls.Add(this.label5);
             this.panel_filtros.Controls.Add(this.txt_hasta);
+            this.panel_filtros.Controls.Add(this.label4);
             this.panel_filtros.Controls.Add(this.txt_desde);
             this.panel_filtros.Controls.Add(this.label2);
             this.panel_filtros.Controls.Add(this.label1);
             this.panel_filtros.Controls.Add(this.linkLabel_limpiar_filtro);
             this.panel_filtros.Controls.Add(this.txt_filtro_razon);
             this.panel_filtros.Controls.Add(this.txt_filtro_npresupuesto);
-            this.panel_filtros.Location = new System.Drawing.Point(2, 3);
+            this.panel_filtros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_filtros.Location = new System.Drawing.Point(0, 0);
             this.panel_filtros.Name = "panel_filtros";
-            this.panel_filtros.Size = new System.Drawing.Size(1043, 60);
+            this.panel_filtros.Size = new System.Drawing.Size(1048, 75);
             this.panel_filtros.TabIndex = 5;
             // 
             // txt_hasta
@@ -103,7 +108,7 @@
             this.linkLabel_limpiar_filtro.AutoSize = true;
             this.linkLabel_limpiar_filtro.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_limpiar_filtro.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(919, 21);
+            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(935, 21);
             this.linkLabel_limpiar_filtro.Name = "linkLabel_limpiar_filtro";
             this.linkLabel_limpiar_filtro.Size = new System.Drawing.Size(101, 20);
             this.linkLabel_limpiar_filtro.TabIndex = 17;
@@ -132,9 +137,10 @@
             // panel_tabla
             // 
             this.panel_tabla.Controls.Add(this.dgv_tabla);
-            this.panel_tabla.Location = new System.Drawing.Point(2, 69);
+            this.panel_tabla.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_tabla.Location = new System.Drawing.Point(0, 81);
             this.panel_tabla.Name = "panel_tabla";
-            this.panel_tabla.Size = new System.Drawing.Size(1043, 418);
+            this.panel_tabla.Size = new System.Drawing.Size(1048, 418);
             this.panel_tabla.TabIndex = 6;
             // 
             // dgv_tabla
@@ -144,23 +150,23 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
             this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
@@ -170,10 +176,30 @@
             this.dgv_tabla.RowHeadersVisible = false;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(1043, 418);
+            this.dgv_tabla.Size = new System.Drawing.Size(1048, 418);
             this.dgv_tabla.TabIndex = 5;
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(448, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 20);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Desde";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(619, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Hasta";
             // 
             // ListarPresupuestos
             // 
@@ -182,7 +208,6 @@
             this.ClientSize = new System.Drawing.Size(1048, 499);
             this.Controls.Add(this.panel_tabla);
             this.Controls.Add(this.panel_filtros);
-            this.MaximizeBox = false;
             this.Name = "ListarPresupuestos";
             this.Text = "ListarPresupuestos";
             this.Resize += new System.EventHandler(this.ListarPresupuestos_Resize);
@@ -205,5 +230,7 @@
         private System.Windows.Forms.TextBox txt_filtro_npresupuesto;
         private System.Windows.Forms.DateTimePicker txt_desde;
         private System.Windows.Forms.DateTimePicker txt_hasta;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }
