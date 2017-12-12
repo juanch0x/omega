@@ -942,12 +942,14 @@ namespace Omega3.Vista.Venta
                         long lastidventa;
                         lastidventa = ControlVentas.AgregarVenta(dgv_tabla, venta, 1);
                         Informes.Presupuesto presupuesto = new Informes.Presupuesto(lastidventa);
+                        presupuesto.WindowState = FormWindowState.Maximized;
                         presupuesto.ShowDialog();
 
                         dgv_tabla.Rows.Clear();
                         dgv_tabla.Refresh();
                         limpiarParteCliente();
                         lista.Clear();
+                        this.Close();
                     }
                     else { MessageBox.Show("No hay ningun producto agregado"); }
                 }
@@ -963,8 +965,10 @@ namespace Omega3.Vista.Venta
             
         }
 
- 
-
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            MessageBox.Show(lista.Count.ToString());
+        }
     }
 }
 

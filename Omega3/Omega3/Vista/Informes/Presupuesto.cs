@@ -28,6 +28,7 @@ namespace Omega3.Vista.Informes
             ReportDocument cryRpt = new ReportDocument();
             
             string path = Application.StartupPath+"\\Vista\\Informes\\Presupuesto_Venta.rpt";
+            
             cryRpt.Load(path);
             cryRpt.SetParameterValue("parametro_venta", presupuesto);
 

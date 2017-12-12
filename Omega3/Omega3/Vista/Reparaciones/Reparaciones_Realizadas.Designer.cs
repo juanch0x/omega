@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.panel_filtros = new System.Windows.Forms.Panel();
+            this.linkLabel_limpiar_filtro = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_maquina = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_hasta = new System.Windows.Forms.DateTimePicker();
@@ -43,9 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_filtro_factura = new System.Windows.Forms.TextBox();
             this.txt_filtro_razon = new System.Windows.Forms.TextBox();
-            this.linkLabel_limpiar_filtro = new System.Windows.Forms.LinkLabel();
-            this.txt_maquina = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel_filtros.SuspendLayout();
@@ -66,23 +66,23 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
             this.dgv_tabla.Location = new System.Drawing.Point(0, 3);
             this.dgv_tabla.MultiSelect = false;
@@ -98,9 +98,10 @@
             // 
             // panel_filtros
             // 
+            this.panel_filtros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_filtros.Controls.Add(this.linkLabel_limpiar_filtro);
             this.panel_filtros.Controls.Add(this.label6);
             this.panel_filtros.Controls.Add(this.txt_maquina);
-            this.panel_filtros.Controls.Add(this.linkLabel_limpiar_filtro);
             this.panel_filtros.Controls.Add(this.label5);
             this.panel_filtros.Controls.Add(this.label4);
             this.panel_filtros.Controls.Add(this.txt_hasta);
@@ -115,6 +116,38 @@
             this.panel_filtros.Name = "panel_filtros";
             this.panel_filtros.Size = new System.Drawing.Size(1230, 103);
             this.panel_filtros.TabIndex = 1;
+            // 
+            // linkLabel_limpiar_filtro
+            // 
+            this.linkLabel_limpiar_filtro.ActiveLinkColor = System.Drawing.Color.Black;
+            this.linkLabel_limpiar_filtro.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel_limpiar_filtro.LinkColor = System.Drawing.Color.Blue;
+            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(1120, 19);
+            this.linkLabel_limpiar_filtro.Name = "linkLabel_limpiar_filtro";
+            this.linkLabel_limpiar_filtro.Size = new System.Drawing.Size(101, 20);
+            this.linkLabel_limpiar_filtro.TabIndex = 39;
+            this.linkLabel_limpiar_filtro.TabStop = true;
+            this.linkLabel_limpiar_filtro.Text = "Limpiar Filtros";
+            this.linkLabel_limpiar_filtro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_limpiar_filtro_LinkClicked);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(843, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Máquina";
+            // 
+            // txt_maquina
+            // 
+            this.txt_maquina.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
+            this.txt_maquina.Location = new System.Drawing.Point(911, 17);
+            this.txt_maquina.Name = "txt_maquina";
+            this.txt_maquina.Size = new System.Drawing.Size(129, 22);
+            this.txt_maquina.TabIndex = 37;
+            this.txt_maquina.TextChanged += new System.EventHandler(this.txt_maquina_TextChanged);
             // 
             // label5
             // 
@@ -218,39 +251,6 @@
             this.txt_filtro_razon.TabIndex = 26;
             this.txt_filtro_razon.TextChanged += new System.EventHandler(this.txt_filtro_razon_TextChanged);
             // 
-            // linkLabel_limpiar_filtro
-            // 
-            this.linkLabel_limpiar_filtro.ActiveLinkColor = System.Drawing.Color.Black;
-            this.linkLabel_limpiar_filtro.AutoSize = true;
-            this.linkLabel_limpiar_filtro.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel_limpiar_filtro.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel_limpiar_filtro.Location = new System.Drawing.Point(1120, 11);
-            this.linkLabel_limpiar_filtro.Name = "linkLabel_limpiar_filtro";
-            this.linkLabel_limpiar_filtro.Size = new System.Drawing.Size(101, 20);
-            this.linkLabel_limpiar_filtro.TabIndex = 36;
-            this.linkLabel_limpiar_filtro.TabStop = true;
-            this.linkLabel_limpiar_filtro.Text = "Limpiar Filtros";
-            this.linkLabel_limpiar_filtro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_limpiar_filtro_LinkClicked);
-            // 
-            // txt_maquina
-            // 
-            this.txt_maquina.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
-            this.txt_maquina.Location = new System.Drawing.Point(911, 17);
-            this.txt_maquina.Name = "txt_maquina";
-            this.txt_maquina.Size = new System.Drawing.Size(129, 22);
-            this.txt_maquina.TabIndex = 37;
-            this.txt_maquina.TextChanged += new System.EventHandler(this.txt_maquina_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(843, 15);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Máquina";
-            // 
             // Reparaciones_Realizadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,7 +258,6 @@
             this.ClientSize = new System.Drawing.Size(1233, 482);
             this.Controls.Add(this.panel_filtros);
             this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
             this.Name = "Reparaciones_Realizadas";
             this.Text = "Reparaciones Realizadas";
             this.Load += new System.EventHandler(this.Reparaciones_Realizadas_Load);

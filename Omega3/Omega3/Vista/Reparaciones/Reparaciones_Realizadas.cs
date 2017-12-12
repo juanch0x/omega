@@ -19,46 +19,37 @@ namespace Omega3.Vista.Reparaciones
         {
             InitializeComponent();
 
-            //            calcularTamanioPanel();
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            ControlReparaciones.construirTablaReparacionesRealizadas(dgv_tabla);
+            calcularTamanioPanel();
 
+            this.MinimumSize = new Size(1244, this.Size.Height);
+           
+            
         }
 
         private void Reparaciones_Realizadas_Load(object sender, EventArgs e)
         {
-            ControlReparaciones.construirTablaReparacionesRealizadas(dgv_tabla);
-
-
-            this.dgv_tabla.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.dgv_tabla.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dgv_tabla.Columns[12].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            
+            
             limpiarFiltros();
         }
 
         private void Reparaciones_Realizadas_Resize(object sender, EventArgs e)
         {
-          //  calcularTamanioPanel();
+           calcularTamanioPanel();
         }
 
         private void calcularTamanioPanel()
         {
-            panel1.Size = new Size(this.Width, this.Size.Height - panel_filtros.Size.Height);
-                      
 
-            dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
-            dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_tabla.Dock = DockStyle.Fill;
+            this.linkLabel_limpiar_filtro.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            this.panel1.Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right);
+
+            this.dgv_tabla.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+            this.dgv_tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_tabla.Dock = DockStyle.Fill;
+
         }
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -267,5 +258,9 @@ namespace Omega3.Vista.Reparaciones
             txt_maquina.Text = "";
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+         
+        }
     }
 }

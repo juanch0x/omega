@@ -486,7 +486,6 @@
             this.btn_no_factura.UseVisualStyleBackColor = true;
             this.btn_no_factura.Visible = false;
             this.btn_no_factura.Click += new System.EventHandler(this.btn_no_factura_Click);
-
             // 
             // panel_ventas_detalle
             // 

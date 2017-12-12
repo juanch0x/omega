@@ -24,8 +24,11 @@ namespace Omega3.Controlador
                         
 
                 Console.WriteLine(proveedor.Codigo_postal);
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email, email2, email3) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-                    proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email, proveedor.Email2, proveedor.Email3), Conexion.ObtenerConexion());
+                //MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email, email2, email3) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                //  proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email, proveedor.Email2, proveedor.Email3), Conexion.ObtenerConexion());
+
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into Proveedores (proveedor, telefono, direccion, provincia, codigo_postal, email, email2, email3,nombre1,nombre2,nombre3,telefono1,telefono2,telefono3) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}')",
+                  proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email, proveedor.Email2, proveedor.Email3, proveedor.Nombre1,proveedor.Nombre2, proveedor.Nombre3,proveedor.Telefono1,proveedor.Telefono2,proveedor.Telefono3), Conexion.ObtenerConexion());
 
                 retorno = comando.ExecuteNonQuery();
             }
@@ -44,8 +47,8 @@ namespace Omega3.Controlador
             try
             {
                 
-                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}',email2='{7}',email3='{8}' where id_proveedor={0}",
-                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email,proveedor.Email2,proveedor.Email3), conexion);
+                MySqlCommand comando = new MySqlCommand(string.Format("Update Proveedores set proveedor='{1}', telefono='{2}', direccion='{3}', provincia='{4}', codigo_postal='{5}', email='{6}',email2='{7}',email3='{8}',nombre1 = '{9}', nombre2 = '{10}', nombre3 = '{11}', telefono1 = '{12}', telefono2 = '{13}', telefono3 = '{14}' where id_proveedor={0}",
+                    proveedor.Id_proveedor, proveedor.Nombre_proveedor, proveedor.Telefono, proveedor.Direccion, proveedor.Provincia, proveedor.Codigo_postal, proveedor.Email,proveedor.Email2,proveedor.Email3,proveedor.Nombre1,proveedor.Nombre2,proveedor.Nombre3,proveedor.Telefono1,proveedor.Telefono2,proveedor.Telefono3), conexion);
                 Console.WriteLine(comando.CommandText);
                 Console.WriteLine(comando);
                 retorno = comando.ExecuteNonQuery();
@@ -188,7 +191,7 @@ namespace Omega3.Controlador
 
             
             MySqlCommand _comando = new MySqlCommand(String.Format(
-                 "SELECT email2,email3,codigo_postal from proveedores WHERE proveedores.id_proveedor = {0}", proveedor.Id_proveedor), Conexion.ObtenerConexion());
+                 "SELECT email2,email3,codigo_postal,nombre1,nombre2,nombre3,telefono1,telefono2,telefono3 from proveedores WHERE proveedores.id_proveedor = {0}", proveedor.Id_proveedor), Conexion.ObtenerConexion());
 
 
             try
@@ -201,6 +204,15 @@ namespace Omega3.Controlador
                     proveedor.Email3 = _reader.GetString(1);
 
                     proveedor.Codigo_postal = _reader.GetInt32(2);
+
+                    proveedor.Nombre1 = _reader.GetString(3);
+                    proveedor.Nombre2 = _reader.GetString(4);
+                    proveedor.Nombre3 = _reader.GetString(5);
+
+                    proveedor.Telefono1 = _reader.GetString(6);
+                    proveedor.Telefono2 = _reader.GetString(7);
+                    proveedor.Telefono3 = _reader.GetString(8);
+
                 }
             }catch(MySqlException ex) { Console.WriteLine(ex); }
 
@@ -304,6 +316,9 @@ namespace Omega3.Controlador
                     retorno = restastock.ExecuteNonQuery();
                 
             }
+
+
+
         }
 
 

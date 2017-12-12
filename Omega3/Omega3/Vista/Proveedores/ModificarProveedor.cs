@@ -38,6 +38,12 @@ namespace Omega3.Vista.Proveedores
                 proveedor.Direccion = txt_direccion.Text;
                 proveedor.Provincia = txt_provincia.Text;
                 proveedor.Codigo_postal = int.Parse(txt_codigo_postal.Text);
+                proveedor.Nombre1 = txt_nombre1.Text;
+                proveedor.Nombre2 = txt_nombre2.Text;
+                proveedor.Nombre3 = txt_nombre3.Text;
+                proveedor.Telefono1 = txt_telefono1.Text;
+                proveedor.Telefono2 = txt_telefono2.Text;
+                proveedor.Telefono3 = txt_telefono3.Text;
 
                 if (ControladorFuncVariadas.validarEmail(txt_email.Text))
                 {
@@ -109,6 +115,12 @@ namespace Omega3.Vista.Proveedores
             txt_email.Text = proveedor.Email;
             txt_email2.Text = proveedor.Email2;
             txt_email3.Text = proveedor.Email3;
+            txt_nombre1.Text = proveedor.Nombre1;
+            txt_nombre2.Text = proveedor.Nombre2;
+            txt_nombre3.Text = proveedor.Nombre3;
+            txt_telefono1.Text = proveedor.Telefono1;
+            txt_telefono2.Text = proveedor.Telefono2;
+            txt_telefono3.Text = proveedor.Telefono3;
 
 
             //Cargo los puntajes
@@ -161,6 +173,26 @@ namespace Omega3.Vista.Proveedores
             Proveedor a = new Proveedor();
             a.puntaje = new PuntajeProveedor();
             ControlProveedor.ModificarPuntajes(a);
+        }
+
+        private void txt_proveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txt_direccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txt_provincia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

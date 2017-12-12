@@ -47,6 +47,12 @@ namespace Omega3.Vista.Proveedores
             txt_direccion.Text = "";
             txt_email2.Text = "";
             txt_email3.Text = "";
+            txt_nombre1.Text = "";
+            txt_nombre2.Text = "";
+            txt_nombre3.Text = "";
+            txt_telefono1.Text = "";
+            txt_telefono2.Text = "";
+            txt_telefono3.Text = "";
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -80,6 +86,12 @@ namespace Omega3.Vista.Proveedores
                 proveedor.Provincia = txt_provincia.Text;
                 proveedor.Email2 = txt_email2.Text;
                 proveedor.Email3 = txt_email3.Text;
+                proveedor.Nombre1 = txt_nombre1.Text;
+                proveedor.Nombre2 = txt_nombre2.Text;
+                proveedor.Nombre3 = txt_nombre3.Text;
+                proveedor.Telefono1 = txt_telefono1.Text;
+                proveedor.Telefono2 = txt_telefono2.Text;
+                proveedor.Telefono3 = txt_telefono3.Text;
 
 
 

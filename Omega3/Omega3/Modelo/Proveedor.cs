@@ -18,6 +18,13 @@ namespace Omega3.Modelo
         private string _email;
         private string _email2;
         private string _email3;
+        private string _nombre1;
+        private string _nombre2;
+        private string _nombre3;
+        private string _telefono1;
+        private string _telefono2;
+        private string _telefono3;
+
         private PuntajeProveedor _puntaje;
 
         public long Id_proveedor { get => _id_proveedor; set => _id_proveedor = value; }
@@ -29,7 +36,14 @@ namespace Omega3.Modelo
         public string Email { get => _email; set => _email = value; }
         public string Email2 { get => _email2; set => _email2 = value; }
         public string Email3 { get => _email3; set => _email3 = value; }
+        
         public PuntajeProveedor puntaje { get => _puntaje; set => _puntaje = value; }
+        public string Nombre1 { get => _nombre1; set => _nombre1 = value; }
+        public string Nombre2 { get => _nombre2; set => _nombre2 = value; }
+        public string Nombre3 { get => _nombre3; set => _nombre3 = value; }
+        public string Telefono1 { get => _telefono1; set => _telefono1 = value; }
+        public string Telefono2 { get => _telefono2; set => _telefono2 = value; }
+        public string Telefono3 { get => _telefono3; set => _telefono3 = value; }
 
         public Proveedor()
         {
