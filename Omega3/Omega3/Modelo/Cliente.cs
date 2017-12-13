@@ -23,6 +23,19 @@ namespace Omega3.Modelo
         private decimal _lista;
         private string _provincia;
         private int _impositiva_id;
+        private string _nombre1;
+        private string _nombre2;
+        private string _nombre3;
+        private string _telefono1;
+        private string _telefono2;
+        private string _telefono3;
+        private string _email1;
+        private string _email2;
+        private string _email3;
+        private decimal _maximo_credito;
+        private string _flete;
+        private string _plazo;
+
 
         public int Impositiva_Id { get => _impositiva_id; set => _impositiva_id = value; }
         public int Tipo_documento { get => _tipo_documento; set => _tipo_documento = value; }
@@ -39,6 +52,18 @@ namespace Omega3.Modelo
         public string Impositiva { get => _impositiva; set => _impositiva = value; }
         public decimal Lista { get => _lista; set => _lista = value; }
         public string Provincia { get => _provincia; set => _provincia = value; }
+        public string Nombre1 { get => _nombre1; set => _nombre1 = value; }
+        public string Nombre2 { get => _nombre2; set => _nombre2 = value; }
+        public string Nombre3 { get => _nombre3; set => _nombre3 = value; }
+        public string Telefono1 { get => _telefono1; set => _telefono1 = value; }
+        public string Telefono2 { get => _telefono2; set => _telefono2 = value; }
+        public string Telefono3 { get => _telefono3; set => _telefono3 = value; }
+        public string Email1 { get => _email1; set => _email1 = value; }
+        public string Email2 { get => _email2; set => _email2 = value; }
+        public string Email3 { get => _email3; set => _email3 = value; }
+        public decimal Maximo_credito { get => _maximo_credito; set => _maximo_credito = value; }
+        public string Flete { get => _flete; set => _flete = value; }
+        public string Plazo { get => _plazo; set => _plazo = value; }
     }
 
 }

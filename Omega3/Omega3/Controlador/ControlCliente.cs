@@ -73,8 +73,8 @@ namespace Omega3.Controlador
             
             try {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva, lista) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
-                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva,cliente.Lista), Conexion.ObtenerConexion());
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into cliente (tipo_documento, documento, razon_social, direccion, telefono, cod_provincia, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva, lista,nombre1,nombre2,nombre3,email1,email2,email3,telefono1,telefono2,telefono3,flete,demora,maximo_credito) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}',{24})",
+                    cliente.Tipo_documento, cliente.Documento, cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Mail_factura, cliente.Impositiva,cliente.Lista,cliente.Nombre1,cliente.Nombre2,cliente.Nombre3,cliente.Email1,cliente.Email2,cliente.Email3,cliente.Telefono1,cliente.Telefono2,cliente.Telefono3,cliente.Flete,cliente.Plazo,cliente.Maximo_credito), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
 
             }

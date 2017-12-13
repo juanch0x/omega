@@ -175,7 +175,18 @@ namespace Omega3.Vista.Clientes
                     cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
                     cliente.Cod_provincia = Convert.ToInt32(combo_provincia.SelectedValue);
                     cliente.Lista = Convert.ToDecimal( combo_lista.SelectedValue);
-
+                    cliente.Nombre1 = txt_nombre1.Text;
+                    cliente.Nombre2 = txt_nombre2.Text;
+                    cliente.Nombre3 = txt_nombre3.Text;
+                    cliente.Email1 = txt_email1.Text;
+                    cliente.Email2 = txt_email2.Text;
+                    cliente.Email3 = txt_email3.Text;
+                    cliente.Telefono1 = txt_telefono1.Text;
+                    cliente.Telefono2 = txt_telefono2.Text;
+                    cliente.Telefono3 = txt_telefono3.Text;
+                    cliente.Plazo = txt_plazo.Text;
+                    cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
+                    cliente.Flete = txt_flete.Text;
 
                     if (!ControlCliente.validardocumento(cliente.Documento))
                     {
@@ -208,13 +219,13 @@ namespace Omega3.Vista.Clientes
         {
             if(combo_documento.Text == "DNI")
             {
-                cargar.Visible = false;
+              //  cargar.Visible = false;
                 txt_documento.Text = "";
                 txt_documento.Visible = true;
                 txt_cuit.Visible = false;
                 txt_documento.Focus();
             }
-            else { cargar.Visible = true;
+            else { //cargar.Visible = true;
                 txt_cuit.Text = "";
                 txt_documento.Visible = false;
                 txt_cuit.Visible = true;
@@ -355,6 +366,17 @@ namespace Omega3.Vista.Clientes
         {
         }
 
+        private void txt_limite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void datos_generales_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 
 

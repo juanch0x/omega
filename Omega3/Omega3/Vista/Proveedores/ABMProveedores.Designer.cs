@@ -36,7 +36,6 @@
             this.txt_filtro_nombre = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
@@ -120,7 +119,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btn_eliminar);
             this.panel3.Controls.Add(this.btn_salir);
             this.panel3.Controls.Add(this.btn_modificar);
             this.panel3.Controls.Add(this.btn_agregar);
@@ -129,21 +127,10 @@
             this.panel3.Size = new System.Drawing.Size(1036, 45);
             this.panel3.TabIndex = 13;
             // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(443, 9);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(213, 27);
-            this.btn_eliminar.TabIndex = 3;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
-            // 
             // btn_salir
             // 
             this.btn_salir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salir.Location = new System.Drawing.Point(818, 9);
+            this.btn_salir.Location = new System.Drawing.Point(631, 9);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(213, 27);
             this.btn_salir.TabIndex = 2;
@@ -154,7 +141,7 @@
             // btn_modificar
             // 
             this.btn_modificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(224, 9);
+            this.btn_modificar.Location = new System.Drawing.Point(412, 9);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(213, 27);
             this.btn_modificar.TabIndex = 1;
@@ -165,7 +152,7 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(5, 9);
+            this.btn_agregar.Location = new System.Drawing.Point(193, 9);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(213, 27);
             this.btn_agregar.TabIndex = 0;
@@ -205,6 +192,5 @@
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.Button btn_eliminar;
     }
 }

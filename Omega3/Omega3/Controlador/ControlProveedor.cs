@@ -169,12 +169,12 @@ namespace Omega3.Controlador
             consulta += ",(6," + proveedor.puntaje.transporte_capacidad + ",(select max(id_proveedor) from proveedores))";
             consulta += ",(7," + proveedor.puntaje.calidad_plazos + ",(select max(id_proveedor) from proveedores))";
             consulta += ",(8," + proveedor.puntaje.calidad_costo+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(9," + proveedor.puntaje.calidad_cuidado+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(10," + proveedor.puntaje.pago_plazo+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(11," + proveedor.puntaje.pago_descuento+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(12," + proveedor.puntaje.otros_respuesta+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(13," + proveedor.puntaje.otros_administrativa+ ",(select max(id_proveedor) from proveedores))";
-            consulta += ",(14," + proveedor.puntaje.otros_pedidos+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(10," + proveedor.puntaje.calidad_cuidado+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(11," + proveedor.puntaje.pago_plazo+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(12," + proveedor.puntaje.pago_descuento+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(14," + proveedor.puntaje.otros_respuesta+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(15," + proveedor.puntaje.otros_administrativa+ ",(select max(id_proveedor) from proveedores))";
+            consulta += ",(16," + proveedor.puntaje.otros_pedidos+ ",(select max(id_proveedor) from proveedores))";
             try
             {
                 MySqlCommand comando = new MySqlCommand(consulta, Conexion.ObtenerConexion());

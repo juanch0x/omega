@@ -194,5 +194,20 @@ namespace Omega3.Vista.Proveedores
         {
 
         }
+
+        private void txt_telefono1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
+
+        private void txt_telefono2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
+
+        private void txt_telefono3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
+        }
     }
 }
