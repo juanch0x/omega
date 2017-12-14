@@ -453,31 +453,36 @@ namespace Omega3
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
-            Vista.Venta.CierreDeCaja cierredecaja;
+            /*    Vista.Venta.CierreDeCaja cierredecaja;
 
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("Cierre de Caja"))
+                bool encontrado = false;
+                foreach (Form form in this.MdiChildren)
                 {
 
-                    encontrado = true;
-                    form.Show();
+                    if (form.Name.Equals("Cierre de Caja"))
+                    {
+
+                        encontrado = true;
+                        form.Show();
+                    }
+
                 }
 
-            }
+                if (!encontrado)
+                {
 
-            if (!encontrado)
-            {
+                    cierredecaja = new Vista.Venta.CierreDeCaja();
+                    cierredecaja.StartPosition = FormStartPosition.CenterScreen;
+                    cierredecaja.MdiParent = this;
+                    cierredecaja.Show();
+                }
 
-                cierredecaja = new Vista.Venta.CierreDeCaja();
-                cierredecaja.StartPosition = FormStartPosition.CenterScreen;
-                cierredecaja.MdiParent = this;
-                cierredecaja.Show();
-            }
+            }*/
 
-        }
+            Vista.Administracion.CierreDeCaja a = new Vista.Administracion.CierreDeCaja();
+
+            a.crearExcel();
+                }
 
         private void modificarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {

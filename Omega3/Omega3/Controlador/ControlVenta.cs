@@ -165,9 +165,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
@@ -240,9 +240,9 @@ namespace Omega3.Controlador
             CrearComprobanteRequest request = new CrearComprobanteRequest();
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
@@ -284,11 +284,11 @@ namespace Omega3.Controlador
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
             //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
-            request.Encabezado.Prefijo = "0002";
+            request.Encabezado.Prefijo = "0004";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
-            //request.Encabezado.TipoComprobante = venta.tipo_factura;
-            request.Encabezado.TipoComprobante = "PF";
+            request.Encabezado.TipoComprobante = venta.tipo_factura;
+            //request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
 
             
@@ -396,8 +396,8 @@ namespace Omega3.Controlador
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             //request.Encabezado.TipoComprobante = venta.tipo_factura;
-            //request.Encabezado.TipoComprobante = venta.tipo_factura;
-            request.Encabezado.TipoComprobante = "PF";
+            request.Encabezado.TipoComprobante = venta.tipo_factura;
+            //request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
 
 
@@ -453,9 +453,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
@@ -507,9 +507,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
