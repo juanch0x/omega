@@ -428,7 +428,7 @@ namespace Omega3.Controlador
 
                 if (informacion.medio_de_pago == 1 || informacion.medio_de_pago == 3 || informacion.medio_de_pago == 4)
                 {
-                    MessageBox.Show("Me cumplo!");
+                    
                     ControladorPagoParcial.agregarPagoReparacionEfectivo(id_reparacion, informacion.medio_de_pago);
                 }
 

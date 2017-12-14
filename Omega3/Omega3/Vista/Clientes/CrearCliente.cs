@@ -167,6 +167,7 @@ namespace Omega3.Vista.Clientes
                     cliente.Tipo_documento = Convert.ToInt32(combo_documento.SelectedValue);
                     cliente.Razon = txt_razon_social.Text;
                     cliente.Direccion = txt_direccion.Text;
+                    if(txt_telefono.Text.Trim() != "" || !string.IsNullOrEmpty(txt_telefono.Text))
                     cliente.Telefono = long.Parse(txt_telefono.Text);
                     cliente.Contacto = txt_contacto.Text;
                     cliente.Mail_contacto = txt_mail_contacto.Text;
@@ -185,7 +186,9 @@ namespace Omega3.Vista.Clientes
                     cliente.Telefono2 = txt_telefono2.Text;
                     cliente.Telefono3 = txt_telefono3.Text;
                     cliente.Plazo = txt_plazo.Text;
-                    cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
+                    if (txt_limite.Text.Trim() != "" || !string.IsNullOrEmpty(txt_limite.Text)){
+                        cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
+                    }
                     cliente.Flete = txt_flete.Text;
 
                     if (!ControlCliente.validardocumento(cliente.Documento))
