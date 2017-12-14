@@ -43,8 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_comprobante = new System.Windows.Forms.TextBox();
             this.btn_agregar = new System.Windows.Forms.Button();
+            this.panel_boton = new System.Windows.Forms.Panel();
             this.panel_carga.SuspendLayout();
             this.panel_cheque.SuspendLayout();
+            this.panel_boton.SuspendLayout();
             this.SuspendLayout();
             // 
             // combo_medio_de_pago
@@ -71,9 +73,9 @@
             this.panel_carga.Controls.Add(this.label1);
             this.panel_carga.Controls.Add(this.combo_medio_de_pago);
             this.panel_carga.Controls.Add(this.txt_monto);
-            this.panel_carga.Location = new System.Drawing.Point(12, 12);
+            this.panel_carga.Location = new System.Drawing.Point(12, 3);
             this.panel_carga.Name = "panel_carga";
-            this.panel_carga.Size = new System.Drawing.Size(306, 99);
+            this.panel_carga.Size = new System.Drawing.Size(306, 108);
             this.panel_carga.TabIndex = 3;
             // 
             // label2
@@ -106,7 +108,7 @@
             this.panel_cheque.Controls.Add(this.txt_comprobante);
             this.panel_cheque.Location = new System.Drawing.Point(12, 117);
             this.panel_cheque.Name = "panel_cheque";
-            this.panel_cheque.Size = new System.Drawing.Size(306, 184);
+            this.panel_cheque.Size = new System.Drawing.Size(306, 175);
             this.panel_cheque.TabIndex = 4;
             // 
             // label6
@@ -177,7 +179,7 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(109, 307);
+            this.btn_agregar.Location = new System.Drawing.Point(108, 6);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(75, 23);
             this.btn_agregar.TabIndex = 12;
@@ -185,12 +187,20 @@
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
+            // panel_boton
+            // 
+            this.panel_boton.Controls.Add(this.btn_agregar);
+            this.panel_boton.Location = new System.Drawing.Point(12, 298);
+            this.panel_boton.Name = "panel_boton";
+            this.panel_boton.Size = new System.Drawing.Size(306, 32);
+            this.panel_boton.TabIndex = 13;
+            // 
             // agregarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 342);
-            this.Controls.Add(this.btn_agregar);
+            this.ClientSize = new System.Drawing.Size(327, 335);
+            this.Controls.Add(this.panel_boton);
             this.Controls.Add(this.panel_cheque);
             this.Controls.Add(this.panel_carga);
             this.Name = "agregarPago";
@@ -200,6 +210,7 @@
             this.panel_carga.PerformLayout();
             this.panel_cheque.ResumeLayout(false);
             this.panel_cheque.PerformLayout();
+            this.panel_boton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -221,5 +232,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_comprobante;
         private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.Panel panel_boton;
     }
 }

@@ -44,23 +44,25 @@ namespace Omega3.Vista.Venta
         private void button1_Click(object sender, EventArgs e)
         {
             Modelo.Venta a = new Modelo.Venta();
-
+            
             if (dgv_tabla.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dgv_tabla.SelectedCells[0].RowIndex;
 
                 DataGridViewRow selectedRow = dgv_tabla.Rows[selectedrowindex];
 
+                decimal total_venta = Convert.ToDecimal(selectedRow.Cells["Total"].Value);
                 a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
                 a.nrofactura = long.Parse(Convert.ToString(selectedRow.Cells[2].Value));
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
+                
 
                 if (Convert.ToInt32(selectedRow.Cells["Cobrada"].Value) == 1)
                     a.cobrada = true;
                 else
                     a.cobrada = false;
 
-                CobrarVenta c = new CobrarVenta(a);
+                CobrarVenta c = new CobrarVenta(a,total_venta);
                 c.ShowDialog();
 
                 Omega3.Controlador.ControlVentas.llenar_ventas_realizadas(dgv_tabla);

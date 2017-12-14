@@ -225,7 +225,7 @@ namespace Omega3.Controlador
             }
             else
             {
-                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7})",
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,tipo) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7})",
                   venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo);
             }
 
@@ -298,8 +298,16 @@ namespace Omega3.Controlador
                 MySqlCommand restastock = new MySqlCommand(update, Conexion.ObtenerConexion());
                 retorno = restastock.ExecuteNonQuery();
             }
+
+
+            //ACKHASHDASDASHDAKDJA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA 
+            if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
+            ControladorPagoParcial.agregarPagoVentaEfectivo(dgv_tabla,lastinserted,venta.medio_de_pago);
+
+
             return lastinserted;
 
+            
         }
         public static String convertirFecha(DateTime dt)
         {

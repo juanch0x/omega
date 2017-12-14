@@ -291,7 +291,7 @@ namespace Omega3.Controlador
             request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
 
-            MessageBox.Show(Convert.ToString(detalle.Count));
+            
             request.Items = new ComprobanteItem[detalle.Count];
             int i = 0;
             foreach (Detalle_Facturante elemento in detalle)
@@ -312,7 +312,7 @@ namespace Omega3.Controlador
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 
-            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+            //MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
 
             String id_comprobante = "PEDRO";
 

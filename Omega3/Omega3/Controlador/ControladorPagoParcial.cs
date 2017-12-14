@@ -151,6 +151,48 @@ namespace Omega3.Controlador
 
         }
 
+
+
+        public static int agregarPagoVentaEfectivo(DataGridView dgv_tabla,long id_venta,int medio_de_pago)
+        {
+
+
+            int retorno = 0;
+            string query = string.Empty;
+            string fecha = ControladorFuncVariadas.convertirFecha(DateTime.Now);
+            decimal monto = new decimal(0);
+
+            for (int i = 0; i < dgv_tabla.Rows.Count; ++i)
+            {
+                monto += Convert.ToDecimal(dgv_tabla.Rows[i].Cells[5].Value);
+            }
+
+
+
+            try
+            {
+                
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha) values ({0},{1},{2},'{3}')",
+                            id_venta, monto, medio_de_pago, fecha);
+                
+                
+
+                MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
+                retorno = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en agregar pago parcial. ->" + e);
+
+            }
+
+
+
+            return retorno;
+        }
+
+
     }
 
 
