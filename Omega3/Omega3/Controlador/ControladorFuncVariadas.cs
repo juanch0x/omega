@@ -168,7 +168,7 @@ namespace Omega3.Controlador
             {
                if(lista[i].Value <= DateTime.Now)
                 {
-                    MessageBox.Show("La fecha de entrega debe ser no puede ser anterior a la fecha actual");
+                    MessageBox.Show("La fecha de entrega no puede ser anterior a la fecha actual");
                     lista[i].Focus();
                     return false;
                 }

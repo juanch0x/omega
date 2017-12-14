@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Omega3.Modelo;
 using Omega3.Controlador;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Omega3.Controlador
 {
@@ -32,7 +34,7 @@ namespace Omega3.Controlador
 
                 retorno = comando.ExecuteNonQuery();
 
-                System.Windows.Forms.MessageBox.Show("Test");
+              
 
             }
             catch (Exception e)
@@ -45,6 +47,139 @@ namespace Omega3.Controlador
 
 
         }
+
+        public static void construirTablacomprasrealizadas(DataGridView dgv_tabla)
+        {
+
+            var id = new DataGridViewTextBoxColumn();
+            var proveedor = new DataGridViewTextBoxColumn();
+            var motivo = new DataGridViewTextBoxColumn();
+            var vencimiento = new DataGridViewTextBoxColumn();
+            var monto = new DataGridViewTextBoxColumn();
+            var pagada = new DataGridViewTextBoxColumn();
+            var detalle = new DataGridViewTextBoxColumn();
+            var modificar = new DataGridViewImageColumn();
+            var ingreso = new DataGridViewTextBoxColumn(); 
+            var comprobante = new DataGridViewCheckBoxColumn();
+            var iva = new DataGridViewTextBoxColumn();
+            var razon = new DataGridViewTextBoxColumn();
+            var pago = new DataGridViewTextBoxColumn();
+
+
+            proveedor.HeaderText = "Proveedor";
+            proveedor.DataPropertyName = "Proveedor";
+            proveedor.Name = "Proveedor";
+            proveedor.ReadOnly = true;
+            proveedor.Width = 200;
+
+
+            motivo.HeaderText = "Motivo";
+            motivo.Name = "Motivo";
+            motivo.ReadOnly = true;
+            motivo.DataPropertyName = "Motivo";
+
+
+            vencimiento.HeaderText = "Vencimiento";
+            vencimiento.Name = "Vencimiento";
+            vencimiento.DataPropertyName = "Vencimiento";
+            vencimiento.ReadOnly = true;
+            //             tipo.Width = 45;
+
+            monto.HeaderText = "Monto";
+            monto.Name = "Monto";
+            monto.DataPropertyName = "Monto";
+            monto.ReadOnly = true;
+
+            pagada.HeaderText = "Pagada";
+            pagada.Name = "Pagada";
+            pagada.DataPropertyName = "Pagada";
+            pagada.ReadOnly = true;
+
+            detalle.HeaderText = "Detalle";
+            detalle.Name = "Detalle";
+            detalle.DataPropertyName = "Detalle";
+            detalle.ReadOnly = true;
+
+            modificar.HeaderText = "Modificar";
+            modificar.Name = "Modificar";
+            modificar.DataPropertyName = "Modificar";
+            modificar.ReadOnly = true;
+            modificar.Visible = true;
+
+            iva.HeaderText = "Iva";
+            iva.Name = "Iva";
+            iva.DataPropertyName = "Iva";
+            iva.ReadOnly = true;
+
+            comprobante.HeaderText = "Comprobante";
+            comprobante.Name = "Comprobante";
+            comprobante.DataPropertyName = "Comprobante";
+            //cobrada.Visible = false;
+            comprobante.ReadOnly = true;
+
+            razon.HeaderText = "Razon Social";
+            razon.Name = "Razon Social";
+            razon.DataPropertyName = "Razon Social";
+            razon.ReadOnly = true;
+
+            pago.HeaderText = "Fecha Pago";
+            pago.Name = "Fecha Pago";
+            pago.DataPropertyName = "Fecha Pago";
+            pago.ReadOnly = true;
+
+            id.HeaderText = "Id";
+            id.Name = "Id";
+            id.DataPropertyName = "Id";
+            id.ReadOnly = true;
+            id.Visible = true;
+            
+
+            ingreso.Name = "Fecha Ingreso";
+            ingreso.HeaderText = "Fecha Ingreso";
+            ingreso.DataPropertyName = "Fecha Ingreso";
+            ingreso.ReadOnly = true;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id, proveedor, motivo, vencimiento, monto, pagada, detalle, razon, iva, pago, comprobante, ingreso, modificar });
+
+
+            dgv_tabla.AutoGenerateColumns = false;
+
+            llenar_compras_realizadas(dgv_tabla);
+
+
+        }
+
+        public static void llenar_compras_realizadas(DataGridView dgv_tabla)
+
+        {
+
+
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+
+            string sqlSelectAll = "SELECT id as Id, proveedor as Proveedor, motivo as Motivo, vencimiento as Vencimiento, monto as Monto, pagada as Pagada, detalle as Detalle, dia_ingreso as 'Fecha Ingreso', comprobante as Comprobante, iva as Iva, razon as 'Razon Social', fecha_pago as 'Fecha Pago' FROM compras";
+            try
+            {
+
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+
+                 dgv_tabla.Columns["Id"].Visible = false;
+
+            }
+            catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
+
+        }
+
+
+
 
     }
 }

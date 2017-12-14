@@ -19,7 +19,7 @@ namespace Omega3.Controlador
             int retorno = 0;
             
             string fecha = convertirFecha(pedido.Fecha_pedido);
-            MessageBox.Show("FechaData" + fecha);
+            
             
             
             pedido.Realizado = false;
