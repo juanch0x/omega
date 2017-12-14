@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_filtro_factura = new System.Windows.Forms.TextBox();
             this.txt_filtro_razon = new System.Windows.Forms.TextBox();
+            this.btn_modificar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel_filtros.SuspendLayout();
@@ -99,6 +100,7 @@
             // panel_filtros
             // 
             this.panel_filtros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_filtros.Controls.Add(this.btn_modificar);
             this.panel_filtros.Controls.Add(this.linkLabel_limpiar_filtro);
             this.panel_filtros.Controls.Add(this.label6);
             this.panel_filtros.Controls.Add(this.txt_maquina);
@@ -251,6 +253,17 @@
             this.txt_filtro_razon.TabIndex = 26;
             this.txt_filtro_razon.TextChanged += new System.EventHandler(this.txt_filtro_razon_TextChanged);
             // 
+            // btn_modificar
+            // 
+            this.btn_modificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_modificar.Location = new System.Drawing.Point(1146, 62);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.TabIndex = 40;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
+            // 
             // Reparaciones_Realizadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +301,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_maquina;
         private System.Windows.Forms.LinkLabel linkLabel_limpiar_filtro;
+        private System.Windows.Forms.Button btn_modificar;
     }
 }

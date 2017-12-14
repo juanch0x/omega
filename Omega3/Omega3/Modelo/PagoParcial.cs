@@ -17,6 +17,7 @@ namespace Omega3.Modelo
         public DateTime vencimiento { get; set; }
         public string razon_social { get; set; }
         public string banco { get; set; }
+        public long id_reparacion { get; set; }
         
 
         public PagoParcial()
@@ -27,7 +28,7 @@ namespace Omega3.Modelo
             vencimiento = DateTime.Now;
             razon_social = "";
             banco = "";
-            
+            id_reparacion = 0;
 
         }
 

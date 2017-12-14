@@ -258,9 +258,38 @@ namespace Omega3.Vista.Reparaciones
             txt_maquina.Text = "";
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+        private void btn_modificar_Click(object sender, EventArgs e)
         {
-         
+            Modelo.Reparacion a = new Modelo.Reparacion();
+
+           
+            if (dgv_tabla.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgv_tabla.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgv_tabla.Rows[selectedrowindex];
+
+                decimal total_venta = Convert.ToDecimal(selectedRow.Cells["Total"].Value);
+                a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
+                a.nro_factura = Convert.ToString(selectedRow.Cells[2].Value);
+                a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
+
+
+                if (Convert.ToInt32(selectedRow.Cells["Cobrada"].Value) == 1)
+                    a.cobrada = true;
+                else
+                    a.cobrada = false;
+
+                CobrarReparacion c = new CobrarReparacion(a,total_venta);
+                c.ShowDialog();
+
+                Omega3.Controlador.ControlReparaciones.llenar_reparaciones_realizadas(dgv_tabla);
+                limpiarFiltros();
+
+            }
+
+            
         }
     }
 }
