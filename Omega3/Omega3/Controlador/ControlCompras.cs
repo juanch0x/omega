@@ -19,22 +19,33 @@ namespace Omega3.Controlador
 
             int retorno = 0;
             int pagada = 0;
-
+            DateTime fechapago1 = DateTime.Now;
             if (compras.Pagada) { pagada = 1; }
-
             string fecha = ControladorFuncVariadas.convertirFecha(compras.Vencimiento);
+            string fechapago = ControladorFuncVariadas.convertirFecha(fechapago1);
 
+            MessageBox.Show(Convert.ToString(fechapago));
             
 
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}')",
-                   compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle,compras.Comprobante, compras.Iva, compras.Razon), Conexion.ObtenerConexion());
+                if (pagada == 1)
+                {
+                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon,fecha_pago) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}','{9}')",
+                 compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon, fechapago), Conexion.ObtenerConexion());
 
-                retorno = comando.ExecuteNonQuery();
+                    retorno = comando.ExecuteNonQuery();
+                }
+                else
+                {
+                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}')",
+                    compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon), Conexion.ObtenerConexion());
 
-              
+                    retorno = comando.ExecuteNonQuery();
+
+                }
+
 
             }
             catch (Exception e)

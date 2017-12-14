@@ -172,7 +172,8 @@
             this.txt_razon.Location = new System.Drawing.Point(252, 299);
             this.txt_razon.Name = "txt_razon";
             this.txt_razon.Size = new System.Drawing.Size(305, 26);
-            this.txt_razon.TabIndex = 22;
+            this.txt_razon.TabIndex = 6;
+            this.txt_razon.Tag = "Razon Social";
             // 
             // txt_iva
             // 
@@ -180,7 +181,8 @@
             this.txt_iva.Location = new System.Drawing.Point(252, 262);
             this.txt_iva.Name = "txt_iva";
             this.txt_iva.Size = new System.Drawing.Size(305, 26);
-            this.txt_iva.TabIndex = 21;
+            this.txt_iva.TabIndex = 5;
+            this.txt_iva.Tag = "Iva";
             this.txt_iva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_iva_KeyPress);
             // 
             // txt_comprobante
@@ -189,7 +191,8 @@
             this.txt_comprobante.Location = new System.Drawing.Point(252, 225);
             this.txt_comprobante.Name = "txt_comprobante";
             this.txt_comprobante.Size = new System.Drawing.Size(305, 26);
-            this.txt_comprobante.TabIndex = 20;
+            this.txt_comprobante.TabIndex = 4;
+            this.txt_comprobante.Tag = "Comprobante";
             // 
             // label9
             // 
@@ -227,7 +230,7 @@
             this.radio_no_pagado.Location = new System.Drawing.Point(444, 339);
             this.radio_no_pagado.Name = "radio_no_pagado";
             this.radio_no_pagado.Size = new System.Drawing.Size(113, 23);
-            this.radio_no_pagado.TabIndex = 16;
+            this.radio_no_pagado.TabIndex = 8;
             this.radio_no_pagado.Text = "No Pagado";
             this.radio_no_pagado.UseVisualStyleBackColor = true;
             // 
@@ -238,7 +241,7 @@
             this.radio_pagado.Location = new System.Drawing.Point(252, 339);
             this.radio_pagado.Name = "radio_pagado";
             this.radio_pagado.Size = new System.Drawing.Size(86, 23);
-            this.radio_pagado.TabIndex = 15;
+            this.radio_pagado.TabIndex = 7;
             this.radio_pagado.TabStop = true;
             this.radio_pagado.Text = "Pagado";
             this.radio_pagado.UseVisualStyleBackColor = true;
@@ -249,7 +252,7 @@
             this.btn_crear.Location = new System.Drawing.Point(261, 522);
             this.btn_crear.Name = "btn_crear";
             this.btn_crear.Size = new System.Drawing.Size(97, 28);
-            this.btn_crear.TabIndex = 14;
+            this.btn_crear.TabIndex = 10;
             this.btn_crear.Text = "Crear";
             this.btn_crear.UseVisualStyleBackColor = true;
             this.btn_crear.Click += new System.EventHandler(this.btn_crear_Click);
@@ -261,7 +264,8 @@
             this.txt_detalle.Multiline = true;
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(305, 114);
-            this.txt_detalle.TabIndex = 11;
+            this.txt_detalle.TabIndex = 9;
+            this.txt_detalle.Tag = "Detalle";
             // 
             // txt_fecha
             // 
@@ -269,7 +273,7 @@
             this.txt_fecha.Location = new System.Drawing.Point(252, 151);
             this.txt_fecha.Name = "txt_fecha";
             this.txt_fecha.Size = new System.Drawing.Size(305, 26);
-            this.txt_fecha.TabIndex = 10;
+            this.txt_fecha.TabIndex = 2;
             // 
             // txt_proveedor
             // 
@@ -277,7 +281,8 @@
             this.txt_proveedor.Location = new System.Drawing.Point(252, 77);
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.Size = new System.Drawing.Size(305, 26);
-            this.txt_proveedor.TabIndex = 9;
+            this.txt_proveedor.TabIndex = 0;
+            this.txt_proveedor.Tag = "Proveedor";
             // 
             // txt_monto
             // 
@@ -285,7 +290,8 @@
             this.txt_monto.Location = new System.Drawing.Point(252, 188);
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.Size = new System.Drawing.Size(305, 26);
-            this.txt_monto.TabIndex = 8;
+            this.txt_monto.TabIndex = 3;
+            this.txt_monto.Tag = "Monto";
             this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
             // txt_motivo
@@ -294,7 +300,8 @@
             this.txt_motivo.Location = new System.Drawing.Point(252, 114);
             this.txt_motivo.Name = "txt_motivo";
             this.txt_motivo.Size = new System.Drawing.Size(305, 26);
-            this.txt_motivo.TabIndex = 7;
+            this.txt_motivo.TabIndex = 1;
+            this.txt_motivo.Tag = "Motivo";
             // 
             // Compras
             // 
