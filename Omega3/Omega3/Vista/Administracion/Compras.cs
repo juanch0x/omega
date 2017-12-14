@@ -55,7 +55,25 @@ namespace Omega3.Vista.Administracion
             compras.Razon = txt_razon.Text;
 
             Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
-            
+
+            if(Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras) == 1)
+            {
+
+                MessageBox.Show("La compra se creo correctamente");
+                compras.Proveedor = "";
+                compras.Motivo = "";
+                compras.Vencimiento = DateTime.Now;
+                compras.Monto = 0;
+                compras.Detalle = "";
+
+                compras.Comprobante = "";
+                compras.Iva = 0;
+                compras.Razon = "";
+            }
+            else
+            {
+                MessageBox.Show("Hubo un problema al crear la venta comuniquese con el administrador");
+            }
             
 
         }
@@ -65,6 +83,9 @@ namespace Omega3.Vista.Administracion
             ControladorFuncVariadas.validarNumerosConComas(sender,e);
         }
 
-    
+        private void txt_iva_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender,e);
+        }
     }
 }

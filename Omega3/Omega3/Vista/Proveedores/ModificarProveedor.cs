@@ -82,6 +82,7 @@ namespace Omega3.Vista.Proveedores
 
                         MessageBox.Show("Se modificó correctamente!");
                         ControladorFuncVariadas.limpiarTextBox(txt_codigo_postal, txt_direccion, txt_email, txt_email2, txt_email3, txt_proveedor, txt_provincia, txt_telefono);
+                        this.Close();
                         
                         
                     }

@@ -36,6 +36,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_razon = new System.Windows.Forms.TextBox();
+            this.txt_iva = new System.Windows.Forms.TextBox();
+            this.txt_comprobante = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Iva = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.radio_no_pagado = new System.Windows.Forms.RadioButton();
             this.radio_pagado = new System.Windows.Forms.RadioButton();
             this.btn_crear = new System.Windows.Forms.Button();
@@ -44,13 +51,6 @@
             this.txt_proveedor = new System.Windows.Forms.TextBox();
             this.txt_monto = new System.Windows.Forms.TextBox();
             this.txt_motivo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Iva = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_comprobante = new System.Windows.Forms.TextBox();
-            this.txt_iva = new System.Windows.Forms.TextBox();
-            this.txt_razon = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +156,71 @@
             this.panel1.Size = new System.Drawing.Size(619, 577);
             this.panel1.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Omega3.Properties.Resources.lineafondo;
+            this.pictureBox1.Location = new System.Drawing.Point(236, 46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 10);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txt_razon
+            // 
+            this.txt_razon.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_razon.Location = new System.Drawing.Point(252, 299);
+            this.txt_razon.Name = "txt_razon";
+            this.txt_razon.Size = new System.Drawing.Size(305, 26);
+            this.txt_razon.TabIndex = 22;
+            // 
+            // txt_iva
+            // 
+            this.txt_iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_iva.Location = new System.Drawing.Point(252, 262);
+            this.txt_iva.Name = "txt_iva";
+            this.txt_iva.Size = new System.Drawing.Size(305, 26);
+            this.txt_iva.TabIndex = 21;
+            this.txt_iva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_iva_KeyPress);
+            // 
+            // txt_comprobante
+            // 
+            this.txt_comprobante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_comprobante.Location = new System.Drawing.Point(252, 225);
+            this.txt_comprobante.Name = "txt_comprobante";
+            this.txt_comprobante.Size = new System.Drawing.Size(305, 26);
+            this.txt_comprobante.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(24, 306);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 19);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Razon Social";
+            // 
+            // Iva
+            // 
+            this.Iva.AutoSize = true;
+            this.Iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Iva.Location = new System.Drawing.Point(24, 269);
+            this.Iva.Name = "Iva";
+            this.Iva.Size = new System.Drawing.Size(31, 19);
+            this.Iva.TabIndex = 18;
+            this.Iva.Text = "Iva";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 232);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 19);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Comprobante";
+            // 
             // radio_no_pagado
             // 
             this.radio_no_pagado.AutoSize = true;
@@ -230,70 +295,6 @@
             this.txt_motivo.Name = "txt_motivo";
             this.txt_motivo.Size = new System.Drawing.Size(305, 26);
             this.txt_motivo.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 232);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 19);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Comprobante";
-            // 
-            // Iva
-            // 
-            this.Iva.AutoSize = true;
-            this.Iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iva.Location = new System.Drawing.Point(24, 269);
-            this.Iva.Name = "Iva";
-            this.Iva.Size = new System.Drawing.Size(31, 19);
-            this.Iva.TabIndex = 18;
-            this.Iva.Text = "Iva";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 306);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 19);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Razon Social";
-            // 
-            // txt_comprobante
-            // 
-            this.txt_comprobante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_comprobante.Location = new System.Drawing.Point(252, 225);
-            this.txt_comprobante.Name = "txt_comprobante";
-            this.txt_comprobante.Size = new System.Drawing.Size(305, 26);
-            this.txt_comprobante.TabIndex = 20;
-            // 
-            // txt_iva
-            // 
-            this.txt_iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_iva.Location = new System.Drawing.Point(252, 262);
-            this.txt_iva.Name = "txt_iva";
-            this.txt_iva.Size = new System.Drawing.Size(305, 26);
-            this.txt_iva.TabIndex = 21;
-            // 
-            // txt_razon
-            // 
-            this.txt_razon.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_razon.Location = new System.Drawing.Point(252, 299);
-            this.txt_razon.Name = "txt_razon";
-            this.txt_razon.Size = new System.Drawing.Size(305, 26);
-            this.txt_razon.TabIndex = 22;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Omega3.Properties.Resources.lineafondo;
-            this.pictureBox1.Location = new System.Drawing.Point(236, 46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 10);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
             // 
             // Compras
             // 

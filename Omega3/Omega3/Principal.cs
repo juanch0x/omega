@@ -690,6 +690,40 @@ namespace Omega3
                 
             }
         }
+
+        private void listarComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Administracion.listarcompras a = new Vista.Administracion.listarcompras();
+            a.MdiParent = this;
+            a.Show();
+
+
+
+            Vista.Administracion.listarcompras compras;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("compras"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                compras = new Vista.Administracion.listarcompras();
+                compras.StartPosition = FormStartPosition.CenterScreen;
+                compras.MdiParent = this;
+                compras.Show();
+            }
+
+        }
     }
 
     public class dolar
