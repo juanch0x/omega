@@ -251,6 +251,7 @@ namespace Omega3.Vista.Venta
                     dgv_tabla.Refresh();
                     limpiarParteCliente();
                     lista.Clear();
+                    this.Close();
                 }
                 else { MessageBox.Show("No hay ningun producto agregado"); }
             }
@@ -765,6 +766,9 @@ namespace Omega3.Vista.Venta
                 lista.Clear();
 
                 elemento_clase = 0;
+
+                this.Close();
+
             }
             else { MessageBox.Show("Hubo un error al insertar en la base de datos.");}
 
@@ -967,7 +971,7 @@ namespace Omega3.Vista.Venta
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            MessageBox.Show(lista.Count.ToString());
+            //MessageBox.Show(lista.Count.ToString());
         }
     }
 }
