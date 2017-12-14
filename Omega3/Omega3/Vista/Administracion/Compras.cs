@@ -50,6 +50,10 @@ namespace Omega3.Vista.Administracion
             compras.Monto = Convert.ToDecimal(txt_monto.Text);
             compras.Detalle = txt_detalle.Text;
 
+            compras.Comprobante = txt_comprobante.Text;
+            compras.Iva = Convert.ToDecimal(txt_iva.Text);
+            compras.Razon = txt_razon.Text;
+
             Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
             
             

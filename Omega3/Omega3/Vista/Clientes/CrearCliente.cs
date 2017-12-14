@@ -242,6 +242,20 @@ namespace Omega3.Vista.Clientes
             txt_cuit.ResetText();
             txt_cod_postal.ResetText();
             txt_contacto.ResetText();
+
+            txt_nombre1.ResetText();
+            txt_nombre2.ResetText();
+            txt_nombre3.ResetText();
+            txt_email1.ResetText();
+            txt_email2.ResetText();
+            txt_email3.ResetText();
+            txt_telefono1.ResetText();
+            txt_telefono2.ResetText();
+            txt_telefono3.ResetText();
+            txt_limite.ResetText();
+            txt_plazo.ResetText();
+            txt_flete.ResetText();
+
             txt_direccion.ResetText();
             txt_localidad.ResetText();
             txt_mail_contacto.ResetText();
@@ -249,6 +263,8 @@ namespace Omega3.Vista.Clientes
             txt_telefono.ResetText();
             combo_documento.SelectedIndex = 0;
             combo_provincia.SelectedIndex = -1;
+
+
 
          }
 

@@ -180,8 +180,8 @@ namespace Omega3.Controlador
 
             int retorno = 0;
             MySqlConnection conexion = Conexion.ObtenerConexion();
-            string consulta = string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal='{5}', contacto='{6}', mail_contacto='{7}',lista={8},impositiva={9} where documento={10}",
-                cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Lista, cliente.Impositiva_Id, cliente.Documento);
+            string consulta = string.Format("Update cliente set razon_social='{0}', direccion='{1}', telefono='{2}', cod_provincia={3}, localidad='{4}', cod_postal='{5}', contacto='{6}', mail_contacto='{7}',lista={8},impositiva={9},flete='{10}',demora='{11}',maximo_credito={12},nombre1='{13}',nombre2='{14}',nombre3='{15}',telefono1='{16}',telefono2='{17}',telefono3='{18}',email1='{19}',email2='{20}',email3='{21}' where documento={22}",
+                cliente.Razon, cliente.Direccion, cliente.Telefono, cliente.Cod_provincia, cliente.Localidad, cliente.Codigo_postal, cliente.Contacto, cliente.Mail_contacto, cliente.Lista, cliente.Impositiva_Id, cliente.Flete, cliente.Plazo, cliente.Maximo_credito, cliente.Nombre1, cliente.Nombre2, cliente.Nombre3, cliente.Telefono1, cliente.Telefono2, cliente.Telefono3, cliente.Email1, cliente.Email2, cliente.Email3, cliente.Documento);
             try
             {
 
