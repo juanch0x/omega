@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="Controlador\Comprobantes.cs" />
     <Compile Include="Controlador\ControladorFuncVariadas.cs" />
+    <Compile Include="Controlador\ControladorPagoParcial.cs" />
     <Compile Include="Controlador\ControlCliente.cs" />
     <Compile Include="Controlador\ControlAdministracion.cs" />
     <Compile Include="Controlador\ControlCompras.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Controlador\ControlVentas.cs" />
     <Compile Include="Modelo\ComprasaProveedores.cs" />
     <Compile Include="Modelo\erogaciones.cs" />
+    <Compile Include="Modelo\PagoParcial.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Presupuesto.cs" />
     <Compile Include="Modelo\Reparacion.cs" />
@@ -191,6 +193,12 @@
     </Compile>
     <Compile Include="Vista\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\PagosParciales\agregarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\PagosParciales\agregarPago.Designer.cs">
+      <DependentUpon>agregarPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Pedidos\Confirmar_Pedido.cs">
       <SubType>Form</SubType>
@@ -416,6 +424,9 @@
     <EmbeddedResource Include="Vista\Informes\Venta_Negra.rdlc" />
     <EmbeddedResource Include="Vista\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\PagosParciales\agregarPago.resx">
+      <DependentUpon>agregarPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Pedidos\Confirmar_Pedido.resx">
       <DependentUpon>Confirmar_Pedido.cs</DependentUpon>
