@@ -32,7 +32,7 @@ namespace Omega3.Vista.Venta
 
             Modificar();
 
-           }
+        }
 
         private void Modificar()
         {

@@ -262,7 +262,7 @@ namespace Omega3.Vista.Reparaciones
                              reparacion_update.fecha_salida = txt_fecha.Value;
                              reparacion_update.entregado = false;
 
-                            ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock);
+                            ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock,reparacion.id);
                         if (ControlReparaciones.actualizarReparacion(reparacion_update, tabla_reparacion,nuevasFilas()) == 1)
                              {
                                  MessageBox.Show("Se guardó correctamente");
@@ -305,7 +305,7 @@ namespace Omega3.Vista.Reparaciones
                 reparacion_update.fecha_salida = txt_fecha.Value;
                 reparacion_update.entregado = false;
 
-                ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock);
+                ControlReparaciones.sumarStockEliminadoDeDetalle(tabla_reestablecer_stock,reparacion.id);
                 if (ControlReparaciones.actualizarReparacion(reparacion_update, tabla_reparacion, nuevasFilas()) == 1)
                 {
                     

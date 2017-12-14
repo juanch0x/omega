@@ -233,6 +233,7 @@ namespace Omega3.Controlador
             return retorno;
 
         }
+
         public static void llenarComentarios(TextBox comentarios,long id)
         {
             MySqlCommand _comando = new MySqlCommand(String.Format(
@@ -302,7 +303,7 @@ namespace Omega3.Controlador
             }
         }
 
-        public static void sumarStockEliminadoDeDetalle(DataGridView dgv_tabla)
+        public static void sumarStockEliminadoDeDetalle(DataGridView dgv_tabla, long id_reparacion)
         {
             string delete = "DELETE FROM detalle_reparaciones WHERE ";
             string update = "INSERT INTO productos (cod_producto,cantidad) VALUES";
@@ -320,11 +321,11 @@ namespace Omega3.Controlador
 
                         if (contador)
                         {
-                            delete += " OR cod_producto = '" + row.Cells["Codigo"].Value + "'";
+                            delete += " OR cod_producto = '" + row.Cells["Codigo"].Value + "' AND id_reparacion = "+id_reparacion;
                         }
                         else
                         {
-                            delete += "cod_producto = '" + row.Cells["Codigo"].Value + "'";
+                            delete += "cod_producto = '" + row.Cells["Codigo"].Value + "' AND id_reparacion = "+id_reparacion;
                             contador = true;
                         }
 
@@ -420,10 +421,17 @@ namespace Omega3.Controlador
                 }
 
             MySqlCommand comando = new MySqlCommand(consulta, conexion);
-            Console.WriteLine(consulta);
+            
 
             retorno = comando.ExecuteNonQuery();
             conexion.Close();
+
+                if (informacion.medio_de_pago == 1 || informacion.medio_de_pago == 3 || informacion.medio_de_pago == 4)
+                {
+                    MessageBox.Show("Me cumplo!");
+                    ControladorPagoParcial.agregarPagoReparacionEfectivo(id_reparacion, informacion.medio_de_pago);
+                }
+
             }catch (MySqlException a) { Console.WriteLine(a); }
             return retorno;
             
@@ -653,6 +661,37 @@ namespace Omega3.Controlador
 
                 return a;
             
+        }
+
+
+
+        public static int ModificarReparacionCobro(Modelo.Reparacion reparacion)
+        {
+
+            int retorno = 0;
+            int aux;
+            MySqlConnection conexion;
+
+
+            try
+            {
+                conexion = Conexion.ObtenerConexion();
+
+                if (reparacion.cobrada) { aux = 1; } else { aux = 0; }
+
+
+
+                string consulta = string.Format("Update reparaciones set nro_factura='{0}', cobrada='{1}', remito='{2}', fecha_cobro = CURRENT_DATE where id={3}",
+                    reparacion.nro_factura, aux, reparacion.remito, reparacion.id);
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                Console.WriteLine(consulta);
+
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (MySqlException a) { Console.WriteLine(a); }
+            return retorno;
+
         }
 
 

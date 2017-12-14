@@ -63,6 +63,45 @@ namespace Omega3.Controlador
             return retorno;
         }
 
+        public static int agregarPagoParcialReparacion(PagoParcial a)
+        {
+
+
+            int retorno = 0;
+            string query = string.Empty;
+            string fecha = ControladorFuncVariadas.convertirFecha(a.fecha);
+            string vencimiento = ControladorFuncVariadas.convertirFecha(a.vencimiento);
+
+            try
+            {
+                if (a.medio_de_pago == 1)
+                {
+                    query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion) values ({0},{1},'{2}',{3})",
+                            a.monto, a.medio_de_pago, fecha,a.id_reparacion);
+                }
+                else
+                {
+                    query = string.Format("Insert into pagosparciales (id_reparacion,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}')",
+                            a.id_reparacion, a.monto, a.medio_de_pago, fecha, a.comprobante, vencimiento, a.razon_social, a.banco);
+                }
+
+                MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
+                retorno = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en agregar pago parcial. ->" + e);
+
+            }
+
+
+
+            return retorno;
+        }
+
+
+
         public static void llenarTablaPagosParciales(DataGridView dgv_tabla,long id_venta)
         {
 
@@ -121,15 +160,22 @@ namespace Omega3.Controlador
             llenar_pagosparciales(dgv_tabla,id_venta);
         }
 
-        public static void llenar_pagosparciales(DataGridView dgv_tabla, long id_venta)
+        public static void llenar_pagosparciales(DataGridView dgv_tabla, long id_venta,long id_reparacion = 0)
 
         {
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
 
-            
-            string sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_venta = "+id_venta;
+            string sqlSelectAll = string.Empty;
+            if (id_reparacion != 0)
+            {
+                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_reparacion = " + id_reparacion;
+            }
+            else
+            {
+                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_venta = " + id_venta;
+            }
             try
             {
 
@@ -188,6 +234,50 @@ namespace Omega3.Controlador
             }
 
 
+
+            return retorno;
+        }
+
+        public static int agregarPagoReparacionEfectivo(long id_reparacion,int medio_de_pago)
+        {
+            decimal monto = new decimal(0);
+            string consulta = string.Empty;
+            int retorno = 0;
+            string query = string.Empty;
+            string fecha = ControladorFuncVariadas.convertirFecha(DateTime.Now);
+
+
+
+            try
+            {
+
+                consulta = "SELECT subtotal FROM detalle_reparaciones WHERE id_reparacion = "+id_reparacion;
+
+            MySqlCommand cmd = new MySqlCommand(consulta, Conexion.ObtenerConexion());
+
+            MySqlDataReader _reader = cmd.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                monto += _reader.GetDecimal(0);
+            }
+            
+
+
+                query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion) values ({0},{1},'{2}',{3})",
+                        monto, medio_de_pago, fecha,id_reparacion);
+
+
+
+                MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
+                retorno = comando.ExecuteNonQuery();
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en agregar pago parcial (reparacion). ->" + e);
+
+            }
 
             return retorno;
         }
