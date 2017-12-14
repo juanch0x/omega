@@ -46,6 +46,19 @@ namespace Omega3.Vista.Clientes
                     cliente.Lista = Convert.ToDecimal(combo_lista.SelectedValue);
                     cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
 
+                    cliente.Nombre1 = txt_nombre1.Text;
+                    cliente.Nombre1 = txt_nombre2.Text;
+                    cliente.Nombre3 = txt_nombre3.Text;
+                    cliente.Email1 = txt_email1.Text;
+                    cliente.Email2 = txt_email2.Text;
+                    cliente.Email3 = txt_email3.Text;
+                    cliente.Telefono1 = txt_telefono1.Text;
+                    cliente.Telefono2 = txt_telefono2.Text;
+                    cliente.Telefono3 = txt_telefono3.Text;
+                    cliente.Plazo = txt_plazo.Text;
+                    cliente.Flete = txt_flete.Text;
+                    cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
+
                     if (Controlador.ControlCliente.ModificarCliente(cliente) == 1)
                     {
                         MessageBox.Show("El cliente fue modificado correctamente");

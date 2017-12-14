@@ -27,8 +27,8 @@ namespace Omega3.Controlador
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle) values ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                   compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle), Conexion.ObtenerConexion());
+                MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}')",
+                   compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle,compras.Comprobante, compras.Iva, compras.Razon), Conexion.ObtenerConexion());
 
                 retorno = comando.ExecuteNonQuery();
 

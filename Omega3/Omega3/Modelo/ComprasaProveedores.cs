@@ -8,12 +8,15 @@ namespace Omega3.Modelo
 {
     class ComprasaProveedores
     {
-        private String _proveedor;
-        private String _motivo;
+        private string _proveedor;
+        private string _motivo;
         private DateTime _vencimiento;
-        private Decimal _monto;
-        private Boolean _pagada;
-        private String _detalle;
+        private decimal _monto;
+        private bool _pagada;
+        private string _detalle;
+        private string _comprobante;
+        private decimal _iva;
+        private string _razon;
 
         public string Proveedor { get => _proveedor; set => _proveedor = value; }
         public string Motivo { get => _motivo; set => _motivo = value; }
@@ -21,5 +24,8 @@ namespace Omega3.Modelo
         public decimal Monto { get => _monto; set => _monto = value; }
         public bool Pagada { get => _pagada; set => _pagada = value; }
         public string Detalle { get => _detalle; set => _detalle = value; }
+        public string Comprobante { get => _comprobante; set => _comprobante = value; }
+        public string Razon { get => _razon; set => _razon = value; }
+        public decimal Iva { get => _iva; set => _iva = value; }
     }
 }
