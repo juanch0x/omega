@@ -724,6 +724,12 @@ namespace Omega3
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Vista.Administracion.CierreDeCaja a = new Vista.Administracion.CierreDeCaja();
+            a.Show();
+        }
     }
 
     public class dolar

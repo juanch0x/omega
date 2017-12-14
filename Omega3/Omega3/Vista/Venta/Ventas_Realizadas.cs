@@ -11,6 +11,7 @@ using Omega3.Controlador;
 using Omega3.Modelo;
 using System.Net;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace Omega3.Vista.Venta
 {
@@ -159,7 +160,8 @@ namespace Omega3.Vista.Venta
 
 
             var bd = (BindingSource)dgv_tabla.DataSource;
-            var dt = (DataTable)bd.DataSource;
+            var dt = (System.Data.DataTable)bd.DataSource;
+            
 
             string query = filtro_estado + filtro_razon + filtro_nfactura + filtro_fecha;
             
@@ -185,7 +187,7 @@ namespace Omega3.Vista.Venta
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            this.dgv_tabla.DefaultCellStyle.Font = new Font("Arial", 9);
+            //this.dgv_tabla.DefaultCellStyle.Font = new Font("Arial", 9);
             if (dgv_tabla.Columns[e.ColumnIndex].Name == "URL")
             {
 
@@ -276,6 +278,46 @@ namespace Omega3.Vista.Venta
         private void button2_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show(this.Size.Width.ToString());
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet ws = (Worksheet)Excel.ActiveSheet;
+            Excel.Visible = true;
+
+            ws.Cells[1, 1] = "PRUEBA CABECERA";
+            ws.Cells[1, 2] = "Columna 2";
+
+            int fila = 0;
+
+            for(int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    ws.Cells[i+2, j+1] = dgv_tabla.Rows[i].Cells[j].Value;
+                    fila = i + 2;
+                }
+            }
+
+            ws.Cells[fila, 1] = "SEGUNDA COLUMNA1";
+            ws.Cells[fila, 2] = "SEGUNDA COLUMNA1";
+            ws.Cells[fila,1].Font.Color = Color.Red;
+            
+            
+                
+
+            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    ws.Cells[i + fila + 1, j + 1] = dgv_tabla.Rows[i].Cells[j].Value;
+                    //fila = i + 2;
+                }
+            }
+
+
         }
     }
 }

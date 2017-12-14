@@ -56,8 +56,9 @@ namespace Omega3
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erogacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -267,6 +268,13 @@ namespace Omega3
             this.comprasToolStripMenuItem.Text = "Compras";
             this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
             // 
+            // listarComprasToolStripMenuItem
+            // 
+            this.listarComprasToolStripMenuItem.Name = "listarComprasToolStripMenuItem";
+            this.listarComprasToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.listarComprasToolStripMenuItem.Text = "Listar Compras";
+            this.listarComprasToolStripMenuItem.Click += new System.EventHandler(this.listarComprasToolStripMenuItem_Click);
+            // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -275,12 +283,15 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // listarComprasToolStripMenuItem
+            // button1
             // 
-            this.listarComprasToolStripMenuItem.Name = "listarComprasToolStripMenuItem";
-            this.listarComprasToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
-            this.listarComprasToolStripMenuItem.Text = "Listar Compras";
-            this.listarComprasToolStripMenuItem.Click += new System.EventHandler(this.listarComprasToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(578, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Principal
             // 
@@ -289,6 +300,7 @@ namespace Omega3
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1034, 491);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -337,6 +349,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem Reparaciones_Realizadas;
         private System.Windows.Forms.ToolStripMenuItem listarPresupuestosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarComprasToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

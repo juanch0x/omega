@@ -45,6 +45,7 @@
             this.txt_desde = new System.Windows.Forms.DateTimePicker();
             this.panel_tabla = new System.Windows.Forms.Panel();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel_filtros.SuspendLayout();
             this.panel_tabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
@@ -141,6 +142,7 @@
             // 
             // panel_filtros
             // 
+            this.panel_filtros.Controls.Add(this.button2);
             this.panel_filtros.Controls.Add(this.label5);
             this.panel_filtros.Controls.Add(this.label4);
             this.panel_filtros.Controls.Add(this.txt_hasta);
@@ -246,6 +248,16 @@
             this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(555, 65);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
+            // 
             // Ventas_Realizadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,5 +294,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker txt_hasta;
         private System.Windows.Forms.DateTimePicker txt_desde;
+        private System.Windows.Forms.Button button2;
     }
 }
