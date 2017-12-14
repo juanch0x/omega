@@ -168,7 +168,7 @@ namespace Omega3.Vista.Presupuesto
 
             }
 
-            venta.nrofactura = 0;
+            venta.nrofactura = "0";
             //venta.tipo_factura = 0;
             venta.fecha_venta = DateTime.Now;
 

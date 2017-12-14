@@ -39,7 +39,7 @@ namespace Omega3.Vista.Venta
             Modelo.Venta a = new Modelo.Venta();
             a.id = venta.id;
 
-            a.nrofactura = long.Parse(txt_factura.Text);
+            a.nrofactura = txt_factura.Text;
             a.remito = long.Parse(txt_remito.Text);
             if (combo_cobrada.SelectedIndex == 0)
             {

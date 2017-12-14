@@ -429,6 +429,8 @@ namespace Omega3.Controlador
             
         }
 
+        
+
 
 
         public int ActualizarFacturaYUrl(string id_comprobante, long id)

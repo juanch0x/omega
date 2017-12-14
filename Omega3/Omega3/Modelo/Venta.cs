@@ -13,7 +13,7 @@ namespace Omega3.Modelo
         public long documento { get; set; }
         public int medio_de_pago { get; set; }
         public DateTime fecha_vencimiento_cheque { get; set; }
-        public long nrofactura { get; set; }
+        public string nrofactura { get; set; }
         public string tipo_factura { get; set; }
         public DateTime fecha_venta { get; set; }
         public long id { get; set; }

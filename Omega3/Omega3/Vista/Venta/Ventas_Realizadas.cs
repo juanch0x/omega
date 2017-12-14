@@ -53,7 +53,7 @@ namespace Omega3.Vista.Venta
 
                 decimal total_venta = Convert.ToDecimal(selectedRow.Cells["Total"].Value);
                 a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
-                a.nrofactura = long.Parse(Convert.ToString(selectedRow.Cells[2].Value));
+                a.nrofactura = Convert.ToString(selectedRow.Cells[2].Value);
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
                 
 

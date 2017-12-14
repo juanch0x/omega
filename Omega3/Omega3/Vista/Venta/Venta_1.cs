@@ -229,7 +229,7 @@ namespace Omega3.Vista.Venta
 
                     }
 
-                    venta.nrofactura = 0;
+                    venta.nrofactura = "0";
                     venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                     venta.fecha_venta = DateTime.Now;
 
@@ -582,7 +582,7 @@ namespace Omega3.Vista.Venta
 
                     }
 
-                    venta.nrofactura = 0;
+                    venta.nrofactura = "0";
                     venta.tipo_factura = "";
                     venta.fecha_venta = DateTime.Now;
 
@@ -880,7 +880,7 @@ namespace Omega3.Vista.Venta
 
                     }
 
-                    venta.nrofactura = 0;
+                    venta.nrofactura = "0";
                     venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                     venta.fecha_venta = DateTime.Now;
 
@@ -929,7 +929,7 @@ namespace Omega3.Vista.Venta
 
                         }
 
-                        venta.nrofactura = 0;
+                        venta.nrofactura = "0";
                         venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                         venta.fecha_venta = DateTime.Now;
 
