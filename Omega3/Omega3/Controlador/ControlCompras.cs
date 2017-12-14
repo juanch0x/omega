@@ -189,6 +189,40 @@ namespace Omega3.Controlador
 
         }
 
+        public static ComprasaProveedores modificarCompra (long id)
+        {
+           
+
+            
+            ComprasaProveedores compra = new ComprasaProveedores();
+
+            
+            compra.Id = id;
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+               "SELECT id, proveedor, motivo, vencimiento, monto, pagada, detalle, dia_ingreso, comprobante, iva, razon, fecha_pago FROM compras WHERE id={0}", id), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+
+                compra.Id = long.Parse(_reader.GetString(0));
+                compra.Vencimiento = _reader.GetDateTime(1);
+                compra.Monto = _reader.GetDecimal(2);
+                compra.Pagada = _reader.GetBoolean(3);
+                compra.Detalle = _reader.GetString(4);
+                compra.Diaingreso = _reader.GetDateTime(5);
+                compra.Comprobante = _reader.GetString(6);
+                compra.Iva = _reader.GetDecimal(7);
+                compra.Razon = _reader.GetString(8);
+                compra.Fechapago = _reader.GetDateTime(9);
+
+
+            }
+
+
+            return compra;
+        }
+
 
 
 
