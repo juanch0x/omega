@@ -34,47 +34,48 @@ namespace Omega3.Vista.Administracion
 
             
             ComprasaProveedores compras = new ComprasaProveedores();
-            compras.Pagada = false;
-            if (radio_pagado.Checked)
+
+
+            if (Omega3.Controlador.ControladorFuncVariadas.validarTextBoxVacios(txt_proveedor,txt_motivo, txt_monto,txt_detalle,txt_comprobante,txt_iva,txt_razon))
             {
-                compras.Pagada = true;
+                compras.Pagada = false;
+                if (radio_pagado.Checked)
+                {
+                    compras.Pagada = true;
+                }
+
+                compras.Proveedor = txt_proveedor.Text;
+                compras.Motivo = txt_motivo.Text;
+                compras.Vencimiento = txt_fecha.Value;
+                compras.Monto = Convert.ToDecimal(txt_monto.Text);
+                compras.Detalle = txt_detalle.Text;
+
+                compras.Comprobante = txt_comprobante.Text;
+                compras.Iva = Convert.ToDecimal(txt_iva.Text);
+                compras.Razon = txt_razon.Text;
+
+                if (Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras) == 1)
+                {
+
+                    MessageBox.Show("La compra se creo correctamente");
+                    txt_proveedor.Text = "";
+                    txt_motivo.Text = "";
+                    txt_fecha.Value = DateTime.Now;
+                    txt_monto.Text = "";
+                    txt_detalle.Text = "";
+
+                    txt_comprobante.Text = "";
+                    txt_iva.Text = "";
+                    txt_razon.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un problema al crear la venta comuniquese con el administrador");
+                }
             }
-     
 
-            
 
-            
-            compras.Proveedor = txt_proveedor.Text;
-            compras.Motivo = txt_motivo.Text;
-            compras.Vencimiento = txt_fecha.Value;
-            compras.Monto = Convert.ToDecimal(txt_monto.Text);
-            compras.Detalle = txt_detalle.Text;
 
-            compras.Comprobante = txt_comprobante.Text;
-            compras.Iva = Convert.ToDecimal(txt_iva.Text);
-            compras.Razon = txt_razon.Text;
-
-            Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras);
-
-            if(Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras) == 1)
-            {
-
-                MessageBox.Show("La compra se creo correctamente");
-                compras.Proveedor = "";
-                compras.Motivo = "";
-                compras.Vencimiento = DateTime.Now;
-                compras.Monto = 0;
-                compras.Detalle = "";
-
-                compras.Comprobante = "";
-                compras.Iva = 0;
-                compras.Razon = "";
-            }
-            else
-            {
-                MessageBox.Show("Hubo un problema al crear la venta comuniquese con el administrador");
-            }
-            
 
         }
 
