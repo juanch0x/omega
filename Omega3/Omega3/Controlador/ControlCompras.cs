@@ -225,6 +225,46 @@ namespace Omega3.Controlador
             return compra;
         }
 
+        public static int modificarCompra(ComprasaProveedores compra) {
+
+
+            int retorno = 0;
+           
+
+            try
+            {
+
+                if (compra.Pagada)
+                {
+                    MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{7}',iva={8},razon='{9}',fecha_pago='{10}' WHERE id ='{11}'",
+                 compra.Proveedor,compra.Motivo,Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento),compra.Monto,1,compra.Detalle,compra.Comprobante,compra.Iva,compra.Razon,Omega3.Controlador.ControladorFuncVariadas.convertirFecha(DateTime.Now),compra.Id), Conexion.ObtenerConexion());
+
+                    retorno = comando.ExecuteNonQuery();
+                }
+                else
+                {
+                    MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{6}',iva={7},razon='{8}' WHERE id ='{9}'",
+                    compra.Proveedor, compra.Motivo, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento), compra.Monto, 0, compra.Detalle, compra.Comprobante, compra.Iva, compra.Razon, compra.Id), Conexion.ObtenerConexion());
+
+                    retorno = comando.ExecuteNonQuery();
+
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error" + e);
+                System.Windows.Forms.MessageBox.Show(Convert.ToString(e));
+            }
+
+            return retorno;
+
+
+
+
+        }
+
 
 
     }

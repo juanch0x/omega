@@ -54,6 +54,7 @@ namespace Omega3.Vista.Administracion
                 {
                     modificarcompra a = new modificarcompra(long.Parse(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Id"].Value.ToString()));
                     a.ShowDialog();
+                    Controlador.ControlCompras.llenar_compras_realizadas(dgv_tabla);
 
                 }
             }
