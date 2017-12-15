@@ -13,12 +13,15 @@ namespace Omega3.Vista.Administracion
     public partial class modificarcompra : Form
     {
         long id;
+        Modelo.ComprasaProveedores compra = new Modelo.ComprasaProveedores();
+
         public modificarcompra(long id)
         {
             InitializeComponent();
             this.id = id;
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
+            
 
         }
 
@@ -35,16 +38,18 @@ namespace Omega3.Vista.Administracion
             compras.Iva = Convert.ToDecimal(txt_iva.Text);
             compras.Razon = txt_razon.Text;
             compras.Detalle = txt_detalle.Text;
+            compras.Fechapago = compra.Fechapago;
             if (radio_pagado.Checked==true)
             {
                 compras.Pagada = true;
-                compras.Fechapago = DateTime.Now;
+                //compras.Fechapago = DateTime.Now;
             }
             else if(radio_no_pagado.Checked == true){
 
                 compras.Pagada = false;
 
             }
+            
 
             if(Controlador.ControlCompras.modificarCompra(compras) == 1)
             {
@@ -62,7 +67,6 @@ namespace Omega3.Vista.Administracion
 
         private void modificarcompra_Load(object sender, EventArgs e)
         {
-            Modelo.ComprasaProveedores compra = new Modelo.ComprasaProveedores();
             compra = Omega3.Controlador.ControlCompras.modificarCompra(id);
             txt_proveedor.Text = compra.Proveedor;
             txt_motivo.Text = compra.Motivo;
