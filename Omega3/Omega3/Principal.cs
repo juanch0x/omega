@@ -13,6 +13,7 @@ using System.Globalization;
 using Omega3.Vista;
 using Omega3.Vista.Productos;
 using Omega3.Vista.Pedidos;
+using Omega3.Vista.Gastos;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
@@ -28,8 +29,6 @@ namespace Omega3
         public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
         public decimal dolar;
         public decimal dolar_guardado;
-
-
 
         public Principal()
         {
@@ -111,8 +110,6 @@ namespace Omega3
         {
             return productoToolStripMenuItem;
         }
-
-
 
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -453,8 +450,6 @@ namespace Omega3
 
         }
 
-
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
@@ -660,8 +655,6 @@ namespace Omega3
             }
         }
 
-
-
         private void listarPresupuestosToolStripMenuItem_Click(object sender, EventArgs e)
         {
          
@@ -694,11 +687,7 @@ namespace Omega3
         private void listarComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Vista.Administracion.listarcompras a = new Vista.Administracion.listarcompras();
-            a.MdiParent = this;
-            a.Show();
-
-
+ 
 
             Vista.Administracion.listarcompras compras;
 
@@ -706,7 +695,7 @@ namespace Omega3
             foreach (Form form in this.MdiChildren)
             {
 
-                if (form.Name.Equals("compras"))
+                if (form.Name.Equals("listarcompras"))
                 {
                     encontrado = true;
                     form.Show();
@@ -723,6 +712,32 @@ namespace Omega3
                 compras.Show();
             }
 
+        }
+
+        private void erogacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Vista.Gastos.RetirarGuita erogacion;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("RetirarGuita"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                erogacion = new Vista.Gastos.RetirarGuita();
+                erogacion.StartPosition = FormStartPosition.CenterScreen;
+                erogacion.MdiParent = this;
+                erogacion.Show();
+            }
         }
     }
 
