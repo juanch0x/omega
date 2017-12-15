@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Iva = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_razon = new System.Windows.Forms.TextBox();
             this.txt_iva = new System.Windows.Forms.TextBox();
@@ -50,17 +51,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Iva = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txt_fechapago = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txt_fechapago);
-            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.Iva);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txt_razon);
@@ -86,8 +82,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 607);
+            this.panel1.Size = new System.Drawing.Size(574, 559);
             this.panel1.TabIndex = 0;
+            // 
+            // Iva
+            // 
+            this.Iva.AutoSize = true;
+            this.Iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Iva.Location = new System.Drawing.Point(12, 253);
+            this.Iva.Name = "Iva";
+            this.Iva.Size = new System.Drawing.Size(31, 19);
+            this.Iva.TabIndex = 45;
+            this.Iva.Text = "Iva";
             // 
             // pictureBox1
             // 
@@ -149,7 +155,7 @@
             // radio_no_pagado
             // 
             this.radio_no_pagado.AutoSize = true;
-            this.radio_no_pagado.Location = new System.Drawing.Point(434, 373);
+            this.radio_no_pagado.Location = new System.Drawing.Point(434, 331);
             this.radio_no_pagado.Name = "radio_no_pagado";
             this.radio_no_pagado.Size = new System.Drawing.Size(79, 17);
             this.radio_no_pagado.TabIndex = 39;
@@ -160,7 +166,7 @@
             // 
             this.radio_pagado.AutoSize = true;
             this.radio_pagado.Checked = true;
-            this.radio_pagado.Location = new System.Drawing.Point(237, 373);
+            this.radio_pagado.Location = new System.Drawing.Point(237, 331);
             this.radio_pagado.Name = "radio_pagado";
             this.radio_pagado.Size = new System.Drawing.Size(62, 17);
             this.radio_pagado.TabIndex = 38;
@@ -171,7 +177,7 @@
             // btn_crear
             // 
             this.btn_crear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_crear.Location = new System.Drawing.Point(246, 550);
+            this.btn_crear.Location = new System.Drawing.Point(237, 506);
             this.btn_crear.Name = "btn_crear";
             this.btn_crear.Size = new System.Drawing.Size(97, 28);
             this.btn_crear.TabIndex = 41;
@@ -182,7 +188,7 @@
             // txt_detalle
             // 
             this.txt_detalle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_detalle.Location = new System.Drawing.Point(237, 408);
+            this.txt_detalle.Location = new System.Drawing.Point(237, 366);
             this.txt_detalle.Multiline = true;
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(305, 114);
@@ -258,7 +264,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 371);
+            this.label6.Location = new System.Drawing.Point(9, 329);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 19);
             this.label6.TabIndex = 35;
@@ -278,7 +284,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 408);
+            this.label5.Location = new System.Drawing.Point(9, 366);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 19);
             this.label5.TabIndex = 32;
@@ -294,39 +300,11 @@
             this.label4.TabIndex = 31;
             this.label4.Text = "Motivo";
             // 
-            // Iva
-            // 
-            this.Iva.AutoSize = true;
-            this.Iva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iva.Location = new System.Drawing.Point(12, 253);
-            this.Iva.Name = "Iva";
-            this.Iva.Size = new System.Drawing.Size(31, 19);
-            this.Iva.TabIndex = 45;
-            this.Iva.Text = "Iva";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 332);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 19);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Fech de Pago";
-            // 
-            // txt_fechapago
-            // 
-            this.txt_fechapago.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_fechapago.Location = new System.Drawing.Point(237, 332);
-            this.txt_fechapago.Name = "txt_fechapago";
-            this.txt_fechapago.Size = new System.Drawing.Size(305, 26);
-            this.txt_fechapago.TabIndex = 47;
-            // 
             // modificarcompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 607);
+            this.ClientSize = new System.Drawing.Size(574, 559);
             this.Controls.Add(this.panel1);
             this.Name = "modificarcompra";
             this.Text = "modificarcompra";
@@ -363,7 +341,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Iva;
-        private System.Windows.Forms.DateTimePicker txt_fechapago;
-        private System.Windows.Forms.Label label10;
     }
 }

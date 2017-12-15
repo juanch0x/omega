@@ -67,11 +67,11 @@ namespace Omega3.Controlador
             var motivo = new DataGridViewTextBoxColumn();
             var vencimiento = new DataGridViewTextBoxColumn();
             var monto = new DataGridViewTextBoxColumn();
-            var pagada = new DataGridViewTextBoxColumn();
+            var pagada = new DataGridViewCheckBoxColumn();
             var detalle = new DataGridViewTextBoxColumn();
             var modificar = new DataGridViewImageColumn();
             var ingreso = new DataGridViewTextBoxColumn(); 
-            var comprobante = new DataGridViewCheckBoxColumn();
+            var comprobante = new DataGridViewTextBoxColumn();
             var iva = new DataGridViewTextBoxColumn();
             var razon = new DataGridViewTextBoxColumn();
             var pago = new DataGridViewTextBoxColumn();
@@ -142,7 +142,7 @@ namespace Omega3.Controlador
             id.Name = "Id";
             id.DataPropertyName = "Id";
             id.ReadOnly = true;
-            id.Visible = true;
+            id.Visible = false;
             
 
             ingreso.Name = "Fecha Ingreso";
@@ -182,7 +182,7 @@ namespace Omega3.Controlador
 
                 dgv_tabla.DataSource = bSource;
 
-                 dgv_tabla.Columns["Id"].Visible = false;
+                
 
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
@@ -206,15 +206,17 @@ namespace Omega3.Controlador
             {
 
                 compra.Id = long.Parse(_reader.GetString(0));
-                compra.Vencimiento = _reader.GetDateTime(1);
-                compra.Monto = _reader.GetDecimal(2);
-                compra.Pagada = _reader.GetBoolean(3);
-                compra.Detalle = _reader.GetString(4);
-                compra.Diaingreso = _reader.GetDateTime(5);
-                compra.Comprobante = _reader.GetString(6);
-                compra.Iva = _reader.GetDecimal(7);
-                compra.Razon = _reader.GetString(8);
-                compra.Fechapago = _reader.GetDateTime(9);
+                compra.Proveedor = _reader.GetString(1);
+                compra.Motivo = _reader.GetString(2);
+                compra.Vencimiento = _reader.GetDateTime(3);
+                compra.Monto = _reader.GetDecimal(4);
+                compra.Pagada = _reader.GetBoolean(5);
+                compra.Detalle = _reader.GetString(6);
+                compra.Diaingreso = _reader.GetDateTime(7);
+                compra.Comprobante = _reader.GetString(8);
+                compra.Iva = _reader.GetDecimal(9);
+                compra.Razon = _reader.GetString(10);
+                compra.Fechapago = _reader.GetDateTime(11);
 
 
             }
@@ -222,7 +224,6 @@ namespace Omega3.Controlador
 
             return compra;
         }
-
 
 
 

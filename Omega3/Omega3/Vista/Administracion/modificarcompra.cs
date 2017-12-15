@@ -17,7 +17,8 @@ namespace Omega3.Vista.Administracion
         {
             InitializeComponent();
             this.id = id;
-
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
 
         }
 
@@ -38,9 +39,9 @@ namespace Omega3.Vista.Administracion
             txt_iva.Text = Convert.ToString(compra.Iva);
             txt_razon.Text = compra.Razon;
             txt_detalle.Text = compra.Detalle;
-            txt_fechapago.Value = compra.Fechapago;
-
             
+
+
         }
     }
 }

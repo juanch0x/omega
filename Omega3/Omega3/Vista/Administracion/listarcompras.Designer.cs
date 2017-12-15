@@ -71,6 +71,7 @@
             this.dgv_tabla.ShowEditingIcon = false;
             this.dgv_tabla.Size = new System.Drawing.Size(1036, 241);
             this.dgv_tabla.TabIndex = 4;
+            this.dgv_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellContentClick);
             this.dgv_tabla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_tabla_CellFormatting);
             // 
             // panel_tabla

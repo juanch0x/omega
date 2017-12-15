@@ -32,5 +32,10 @@ namespace Omega3.Vista.Venta
             txt_total.Text = Convert.ToString(total);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

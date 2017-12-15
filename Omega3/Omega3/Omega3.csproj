@@ -186,6 +186,13 @@
     <Compile Include="Vista\Informes\Presupuesto.Designer.cs">
       <DependentUpon>Presupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Informes\CierreDeCaja.cs">
+      <DependentUpon>CierreDeCaja.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Vista\Informes\Reparacion_Negro.cs">
       <DependentUpon>Reparacion_Negro.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -448,6 +455,11 @@
     <Content Include="Vista\Informes\Reparacion_Negro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Reparacion_Negro.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vista\Informes\CierreDeCaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CierreDeCaja.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Vista\Informes\Report1.rdlc" />

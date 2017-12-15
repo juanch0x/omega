@@ -33,7 +33,7 @@ namespace Omega3.Vista.Administracion
 
         private void listarcompras_Load(object sender, EventArgs e)
         {
-            Omega3.Controlador.ControlCompras.llenar_compras_realizadas(dgv_tabla);
+            Omega3.Controlador.ControlCompras.construirTablacomprasrealizadas(dgv_tabla);
             calcularTamanio();
         }
 
@@ -43,6 +43,19 @@ namespace Omega3.Vista.Administracion
             {
 
                 e.Value = Properties.Resources.btn_info_1616;
+            }
+        }
+
+        private void dgv_tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
+            {
+                if (e.ColumnIndex == dgv_tabla.Columns["Modificar"].Index) //2nd column - DGV_ImageColumn
+                {
+                    modificarcompra a = new modificarcompra(long.Parse(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Id"].Value.ToString()));
+                    a.ShowDialog();
+
+                }
             }
         }
     }
