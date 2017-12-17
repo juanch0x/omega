@@ -289,8 +289,8 @@ namespace Omega3.Controlador
             //request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
             //Campos nuevos
-            request.Encabezado.Remito = 0;
-            request.Encabezado.OrdenCompra = 0;
+            request.Encabezado.Remito = venta.remito.ToString();
+            request.Encabezado.OrdenCompra = venta.ordendeCompra.ToString();
 
             request.Items = new ComprobanteItem[detalle.Count];
             int i = 0;
@@ -322,8 +322,9 @@ namespace Omega3.Controlador
             XmlNodeList xnList = xml.SelectNodes("/CrearComprobanteResponse");
             foreach (XmlNode xn in xnList)
             {
-
+                
                 id_comprobante = xn["IdComprobante"].InnerText;
+                MessageBox.Show("Respuesta de facturante: " + xn["Estado"].InnerText);
 
             }
 

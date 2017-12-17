@@ -220,13 +220,13 @@ namespace Omega3.Controlador
             string insertarventa;
             if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
             {
-                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro,tipo) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE,{7})",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo);
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro,tipo,remito,ordencompra) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE,{7},{8},'{9}')",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo,venta.remito,venta.ordendeCompra);
             }
             else
             {
-                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,tipo) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7})",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo);
+                insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,tipo,remito,ordencompra) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7},{8},'{9}')",
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo,venta.remito,venta.ordendeCompra);
             }
 
 

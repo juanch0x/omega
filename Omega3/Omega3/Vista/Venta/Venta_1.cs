@@ -219,6 +219,16 @@ namespace Omega3.Vista.Venta
                 if (dgv_tabla.Rows.Count != 0)
                 {
                     Omega3.Modelo.Venta venta = new Modelo.Venta();
+                    venta.remito = 0;
+                    venta.ordendeCompra = "0";
+                    
+                    if(txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    {
+                        venta.remito = long.Parse(txt_remito.Text);
+                    }
+                    if(txt_ordenDeCompra.Text.Trim()=="" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text)){
+                        venta.ordendeCompra = txt_ordenDeCompra.Text;
+                    }
 
                     venta.documento = long.Parse(cuit.Text);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
@@ -744,34 +754,48 @@ namespace Omega3.Vista.Venta
             Omega3.Modelo.Venta venta = new Omega3.Modelo.Venta();
             ControlVenta control = new ControlVenta();
 
-            if (ultimoid != 0)
-            {
+            try {
+                Cursor.Current = Cursors.WaitCursor;
+                if (ultimoid != 0)
+                {
+                    venta.remito = 0;
+                    venta.ordendeCompra = "0";
+                    venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
+                    venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
+                    if (txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    {
+                        venta.remito = long.Parse(txt_remito.Text);
+                    }
+                    if (txt_ordenDeCompra.Text.Trim() == "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+                    {
+                        venta.ordendeCompra = txt_ordenDeCompra.Text;
+                    }
+                    cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
+                    cliente.Documento = long.Parse(cuit.Text);
 
-                venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
-                cliente = ControlCliente.obtenerCliente(long.Parse(cuit.Text));
-                cliente.Documento = long.Parse(cuit.Text);
 
-                venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
 
-                string id_comprobante = string.Empty;
+                    string id_comprobante = string.Empty;
 
-                id_comprobante = control.Facturar(venta, cliente, listado_articulos);
+                    id_comprobante = control.Facturar(venta, cliente, listado_articulos);
 
-                //Creo un nuevo thread para evitar el problema de la factura..
+                    //Creo un nuevo thread para evitar el problema de la factura..
 
-                //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
-                var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante, ultimoid));
+                    //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
+                    var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante, ultimoid));
 
-                limpiarParteCliente();
-                lista.Clear();
+                    limpiarParteCliente();
+                    lista.Clear();
 
-                elemento_clase = 0;
+                    elemento_clase = 0;
 
-                this.Close();
+                    this.Close();
+                
 
             }
             else { MessageBox.Show("Hubo un error al insertar en la base de datos.");}
-
+            }catch (Exception ex) { MessageBox.Show("Hubo un error");}
+            finally { Cursor.Current = Cursors.Default; }
         }
 
 
@@ -870,7 +894,16 @@ namespace Omega3.Vista.Venta
                 if (dgv_tabla.Rows.Count != 0)
                 {
                     Omega3.Modelo.Venta venta = new Modelo.Venta();
-
+                    venta.ordendeCompra = "0";
+                    venta.remito = 0;
+                    if(txt_ordenDeCompra.Text.Trim() == "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+                    {
+                        venta.ordendeCompra = txt_ordenDeCompra.Text;
+                    }
+                    if(txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    {
+                        venta.remito = long.Parse(txt_remito.Text);
+                    }
                     venta.documento = long.Parse(cuit.Text);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
@@ -972,6 +1005,11 @@ namespace Omega3.Vista.Venta
         private void button2_Click_2(object sender, EventArgs e)
         {
             //MessageBox.Show(lista.Count.ToString());
+        }
+
+        private void txt_remito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
         }
     }
 }

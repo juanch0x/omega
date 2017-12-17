@@ -81,6 +81,10 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_remito = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_ordenDeCompra = new System.Windows.Forms.TextBox();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -107,6 +111,10 @@
             // 
             this.Panel.BackColor = System.Drawing.Color.White;
             this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel.Controls.Add(this.txt_ordenDeCompra);
+            this.Panel.Controls.Add(this.label7);
+            this.Panel.Controls.Add(this.txt_remito);
+            this.Panel.Controls.Add(this.label6);
             this.Panel.Controls.Add(this.combo_comprobante);
             this.Panel.Controls.Add(this.label2);
             this.Panel.Controls.Add(this.fecha_pago);
@@ -114,7 +122,7 @@
             this.Panel.Controls.Add(this.combo_pago);
             this.Panel.Location = new System.Drawing.Point(192, 360);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(693, 116);
+            this.Panel.Size = new System.Drawing.Size(693, 204);
             this.Panel.TabIndex = 6;
             // 
             // combo_comprobante
@@ -263,7 +271,7 @@
             this.panel_principal.Location = new System.Drawing.Point(2, 2);
             this.panel_principal.Name = "panel_principal";
             this.panel_principal.SelectedIndex = 0;
-            this.panel_principal.Size = new System.Drawing.Size(1104, 528);
+            this.panel_principal.Size = new System.Drawing.Size(1104, 600);
             this.panel_principal.TabIndex = 14;
             this.panel_principal.SelectedIndexChanged += new System.EventHandler(this.panel_principal_SelectedIndexChanged);
             // 
@@ -279,7 +287,7 @@
             this.tab_cliente.Location = new System.Drawing.Point(4, 22);
             this.tab_cliente.Name = "tab_cliente";
             this.tab_cliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_cliente.Size = new System.Drawing.Size(1096, 502);
+            this.tab_cliente.Size = new System.Drawing.Size(1096, 574);
             this.tab_cliente.TabIndex = 0;
             this.tab_cliente.Text = "Cliente";
             // 
@@ -431,15 +439,16 @@
             this.tab_venta.Location = new System.Drawing.Point(4, 22);
             this.tab_venta.Name = "tab_venta";
             this.tab_venta.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_venta.Size = new System.Drawing.Size(1096, 502);
+            this.tab_venta.Size = new System.Drawing.Size(1096, 574);
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
             // btn_presupuesto
             // 
-            this.btn_presupuesto.Location = new System.Drawing.Point(698, 457);
+            this.btn_presupuesto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_presupuesto.Location = new System.Drawing.Point(616, 534);
             this.btn_presupuesto.Name = "btn_presupuesto";
-            this.btn_presupuesto.Size = new System.Drawing.Size(83, 23);
+            this.btn_presupuesto.Size = new System.Drawing.Size(130, 30);
             this.btn_presupuesto.TabIndex = 7;
             this.btn_presupuesto.Text = "Presupuestar";
             this.btn_presupuesto.UseVisualStyleBackColor = true;
@@ -467,7 +476,7 @@
             // btn_factura
             // 
             this.btn_factura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_factura.Location = new System.Drawing.Point(420, 457);
+            this.btn_factura.Location = new System.Drawing.Point(338, 534);
             this.btn_factura.Name = "btn_factura";
             this.btn_factura.Size = new System.Drawing.Size(87, 30);
             this.btn_factura.TabIndex = 4;
@@ -478,7 +487,7 @@
             // btn_no_factura
             // 
             this.btn_no_factura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_no_factura.Location = new System.Drawing.Point(562, 457);
+            this.btn_no_factura.Location = new System.Drawing.Point(480, 534);
             this.btn_no_factura.Name = "btn_no_factura";
             this.btn_no_factura.Size = new System.Drawing.Size(114, 30);
             this.btn_no_factura.TabIndex = 2;
@@ -701,12 +710,49 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 26);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Remito";
+            // 
+            // txt_remito
+            // 
+            this.txt_remito.Location = new System.Drawing.Point(286, 118);
+            this.txt_remito.Name = "txt_remito";
+            this.txt_remito.Size = new System.Drawing.Size(169, 20);
+            this.txt_remito.TabIndex = 11;
+            this.txt_remito.Text = "0";
+            this.txt_remito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_remito_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(201, 26);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Orden de Compra";
+            // 
+            // txt_ordenDeCompra
+            // 
+            this.txt_ordenDeCompra.Location = new System.Drawing.Point(286, 162);
+            this.txt_ordenDeCompra.Name = "txt_ordenDeCompra";
+            this.txt_ordenDeCompra.Size = new System.Drawing.Size(169, 20);
+            this.txt_ordenDeCompra.TabIndex = 13;
+            this.txt_ordenDeCompra.Text = "0";
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1100, 542);
+            this.ClientSize = new System.Drawing.Size(1100, 600);
             this.Controls.Add(this.panel_principal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
@@ -790,5 +836,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_presupuesto;
+        private System.Windows.Forms.TextBox txt_ordenDeCompra;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_remito;
+        private System.Windows.Forms.Label label6;
     }
 }
