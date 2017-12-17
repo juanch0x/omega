@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,16 +17,17 @@ using Omega3.Modelo;
 
 namespace Omega3.Controlador
 {
-     class ControlVenta
+    class ControlVenta
     {
-        
 
-        public ControlVenta (){
-    
 
-                        }
+        public ControlVenta()
+        {
 
-    public string ObjectToXml<T>(T objectToSerialise)
+
+        }
+
+        public string ObjectToXml<T>(T objectToSerialise)
         {
             System.IO.StringWriter Output = new System.IO.StringWriter(new StringBuilder());
             System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(objectToSerialise.GetType());
@@ -44,7 +40,7 @@ namespace Omega3.Controlador
         {
             ComprobantesClient client = new ComprobantesClient();
 
-            
+
             ComprobantesClient comprobanteClient = new ComprobantesClient();
 
             CrearComprobanteRequest request = new CrearComprobanteRequest();
@@ -99,7 +95,7 @@ namespace Omega3.Controlador
             request.Encabezado.TotalConDescuento = 0;
             request.Encabezado.TotalNeto = (decimal)664.46;
 
-            
+
             request.Items = new ComprobanteItem[3];
 
             request.Items[0] = new ComprobanteItem();
@@ -132,9 +128,9 @@ namespace Omega3.Controlador
             request.Items[2].PrecioUnitario = 200;
             request.Items[2].Total = 484;
 
-            
+
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
-            
+
             Console.Write(ObjectToXml<CrearComprobanteResponse>(response));
 
             String id_comprobante = "PEDRO";
@@ -147,7 +143,7 @@ namespace Omega3.Controlador
             {
 
                 id_comprobante = xn["IdComprobante"].InnerText;
-             
+
             }
 
 
@@ -165,35 +161,37 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
-            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
-            
+
             String url = "PEDRO";
 
-             XmlDocument xml = new XmlDocument();
-             xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
-          //  MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
-              XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
-              foreach (XmlNode xn in xnList)
-              {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
+                                                                             //  MessageBox.Show(ObjectToXml<ListadoComprobantesResponse>(response));
+            XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
+            foreach (XmlNode xn in xnList)
+            {
 
                 url = xn["URLPDF"].InnerText;
-                  //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
-               }
+                //System.Diagnostics.Process.Start(xn["URLPDF"].InnerText);
+            }
 
-             
-             //Función que hace que los pdf se vallan guardando por si los quiere..
-             
-              using (WebClient webClient = new WebClient())
-             {
-                try {
+
+            //Función que hace que los pdf se vallan guardando por si los quiere..
+
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
                     webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + request.IdComprobante + ".pdf");
-                } catch(FileLoadException ex) { Console.Write(ex); }
-             }
+                }
+                catch (FileLoadException ex) { Console.Write(ex); }
+            }
 
 
         }
@@ -212,7 +210,7 @@ namespace Omega3.Controlador
             combo.ValueMember = "documento";
             combo.DisplayMember = "razon_social";
             combo.DataSource = dt;
-       
+
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado 
@@ -229,10 +227,10 @@ namespace Omega3.Controlador
 
 
 
-        public string Facturar(Omega3.Modelo.Venta venta,Omega3.Modelo.Cliente cliente, List<Detalle_Facturante> detalle)
+        public string Facturar(Omega3.Modelo.Venta venta, Omega3.Modelo.Cliente cliente, List<Detalle_Facturante> detalle)
         {
 
-             ComprobantesClient client = new ComprobantesClient();
+            ComprobantesClient client = new ComprobantesClient();
 
 
             ComprobantesClient comprobanteClient = new ComprobantesClient();
@@ -240,10 +238,10 @@ namespace Omega3.Controlador
             CrearComprobanteRequest request = new CrearComprobanteRequest();
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
-            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
-            
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
             request.Cliente.CondicionPago = venta.medio_de_pago;
@@ -261,7 +259,7 @@ namespace Omega3.Controlador
             request.Cliente.Telefono = Convert.ToString(cliente.Telefono);
             request.Cliente.TipoDocumento = cliente.Tipo_documento;
             request.Cliente.TratamientoImpositivo = Convert.ToInt32(cliente.Impositiva_Id);
-            
+
 
             request.Encabezado = new ComprobanteEncabezado();
             //Definir si vamos a tratar todo como bienes o lo vamos a modificar.
@@ -278,20 +276,22 @@ namespace Omega3.Controlador
             request.Encabezado.Moneda = 2;
             /* No son obligatorios 
             request.Encabezado.Observaciones = "GG LA WEA";
-            //request.Encabezado.OrdenCompra = "1487"; */
+            request.Encabezado.OrdenCompra = "1487"; */
             //PREGUNTAR
             request.Encabezado.PercepcionIIBB = 0;
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
             //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
-            request.Encabezado.Prefijo = "0004";
+            request.Encabezado.Prefijo = "0002";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             request.Encabezado.TipoComprobante = venta.tipo_factura;
             //request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
+            //Campos nuevos
+            request.Encabezado.Remito = 0;
+            request.Encabezado.OrdenCompra = 0;
 
-            
             request.Items = new ComprobanteItem[detalle.Count];
             int i = 0;
             foreach (Detalle_Facturante elemento in detalle)
@@ -305,7 +305,7 @@ namespace Omega3.Controlador
                 request.Items[i].PrecioUnitario = elemento.precio_unitario;
                 request.Items[i].Total = elemento.total;
                 request.Items[i].Cantidad = elemento.cantidad;
-                i++;                
+                i++;
             }
 
 
@@ -329,7 +329,7 @@ namespace Omega3.Controlador
 
 
             comprobanteClient.Close();
-                      
+
 
             return id_comprobante;
         }
@@ -346,9 +346,9 @@ namespace Omega3.Controlador
             CrearComprobanteRequest request = new CrearComprobanteRequest();
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
-            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
@@ -392,7 +392,7 @@ namespace Omega3.Controlador
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
             //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
-            request.Encabezado.Prefijo = "0004";
+            request.Encabezado.Prefijo = "0002";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             //request.Encabezado.TipoComprobante = venta.tipo_factura;
@@ -403,7 +403,7 @@ namespace Omega3.Controlador
 
             request.Items = new ComprobanteItem[dgv_tabla.Rows.Count];
             int i = 0;
-            foreach(DataGridViewRow item in dgv_tabla.Rows)
+            foreach (DataGridViewRow item in dgv_tabla.Rows)
             {
                 request.Items[i] = new ComprobanteItem();
                 request.Items[i].Bonificacion = Convert.ToDecimal(item.Cells["Bonificacion"].Value);
@@ -421,7 +421,7 @@ namespace Omega3.Controlador
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 
-           MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
 
             String id_comprobante = string.Empty;
 
@@ -439,7 +439,7 @@ namespace Omega3.Controlador
 
             comprobanteClient.Close();
 
-           
+
             return id_comprobante;
         }
 
@@ -453,9 +453,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
-            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
@@ -466,7 +466,7 @@ namespace Omega3.Controlador
 
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(ObjectToXml<ListadoComprobantesResponse>(response)); // suppose that myXmlString contains "<Names>...</Names>"
-                                                                               Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
+            Console.WriteLine(ObjectToXml<ListadoComprobantesResponse>(response));
             XmlNodeList xnList = xml.SelectNodes("/ListadoComprobantesResponse/ListadoComprobantes/Comprobante");
             foreach (XmlNode xn in xnList)
             {
@@ -477,10 +477,10 @@ namespace Omega3.Controlador
             }
 
 
-            MessageBox.Show("Numero de factura = "+numero_factura+ " Prefijo: "+prefijo_factura);
+            MessageBox.Show("Numero de factura = " + numero_factura + " Prefijo: " + prefijo_factura);
 
             return url;
-           
+
 
         }
 
@@ -491,25 +491,25 @@ namespace Omega3.Controlador
                 try
                 {
                     webClient.DownloadFile(url, Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
-                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + 3 + ".pdf"); 
+                    System.Diagnostics.Process.Start(Path.GetTempPath() + "Comprobante_" + 3 + ".pdf");
                 }
-                catch (FileLoadException ex) { Console.Write(ex);}
+                catch (FileLoadException ex) { Console.Write(ex); }
             }
         }
 
         public string[] obtenerDatosComprobanteVenta(string id_comprobante)
         {
 
-            
+
             ListadoComprobantesRequest request = new ListadoComprobantesRequest();
             ComprobantesClient comprobanteClient = new ComprobantesClient();
 
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
-            request.Autenticacion.Hash = "comercial";
-            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "TEST_API_GENERICO";
+            request.Autenticacion.Hash = "test2016facturante";
+            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);

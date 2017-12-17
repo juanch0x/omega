@@ -301,9 +301,13 @@ namespace Omega3.Controlador
 
 
             //ACKHASHDASDASHDAKDJA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA 
-            if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
-            ControladorPagoParcial.agregarPagoVentaEfectivo(dgv_tabla,lastinserted,venta.medio_de_pago);
-
+            if (tipo != 1)
+            {
+                if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
+                {
+                    ControladorPagoParcial.agregarPagoVentaEfectivo(dgv_tabla, lastinserted, venta.medio_de_pago);
+                }
+            }
 
             return lastinserted;
 
