@@ -18,6 +18,7 @@ namespace Omega3.Modelo
         public DateTime fecha_venta { get; set; }
         public long id { get; set; }
         public long remito { get; set; }
+        public string ordendeCompra { get; set; }
         public bool cobrada { get; set; }
 }
 
