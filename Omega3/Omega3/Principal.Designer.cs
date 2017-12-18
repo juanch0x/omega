@@ -66,7 +66,7 @@ namespace Omega3
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exportarListaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -283,7 +283,8 @@ namespace Omega3
             // 
             this.clienteToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearClienteToolStripMenuItem,
-            this.listarClientesToolStripMenuItem1});
+            this.listarClientesToolStripMenuItem1,
+            this.exportarListaClientesToolStripMenuItem});
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
             this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
             this.clienteToolStripMenuItem1.Text = "Cliente";
@@ -291,14 +292,14 @@ namespace Omega3
             // crearClienteToolStripMenuItem
             // 
             this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
-            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
             this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
             // 
             // listarClientesToolStripMenuItem1
             // 
             this.listarClientesToolStripMenuItem1.Name = "listarClientesToolStripMenuItem1";
-            this.listarClientesToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
+            this.listarClientesToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
             this.listarClientesToolStripMenuItem1.Text = "Listar Clientes";
             this.listarClientesToolStripMenuItem1.Click += new System.EventHandler(this.listarClientesToolStripMenuItem1_Click);
             // 
@@ -356,15 +357,12 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // button1
+            // exportarListaClientesToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(553, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.exportarListaClientesToolStripMenuItem.Name = "exportarListaClientesToolStripMenuItem";
+            this.exportarListaClientesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.exportarListaClientesToolStripMenuItem.Text = "Exportar Lista Clientes";
+            this.exportarListaClientesToolStripMenuItem.Click += new System.EventHandler(this.exportarListaClientesToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -373,7 +371,6 @@ namespace Omega3
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1034, 491);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -421,7 +418,6 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem Reparaciones_Realizadas;
         private System.Windows.Forms.ToolStripMenuItem listarPresupuestosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarComprasToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem listaDePreciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem distribuidoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem particularToolStripMenuItem1;
@@ -431,6 +427,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem minoristaSfactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subDistribuidorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preciosNetosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarListaClientesToolStripMenuItem;
     }
 }
 

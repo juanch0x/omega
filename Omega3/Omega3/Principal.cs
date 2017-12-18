@@ -27,6 +27,7 @@ namespace Omega3
         public MenuStrip menu { get => menuStrip1; set => menuStrip1 = value; }
         public ToolStripMenuItem MenuVentas { get => ventasToolStripMenuItem; set => ventasToolStripMenuItem = value; }
         public ToolStripMenuItem MenuProducto { get => productoToolStripMenuItem; set => productoToolStripMenuItem = value; }
+
         public decimal dolar;
         public decimal dolar_guardado;
 
@@ -911,6 +912,11 @@ namespace Omega3
                 listaprecios.MdiParent = this;
                 listaprecios.Show();
             }
+        }
+
+        private void exportarListaClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Clientes.ExportarClientesExcel a = new Vista.Clientes.ExportarClientesExcel();
         }
     }
 
