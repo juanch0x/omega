@@ -55,7 +55,7 @@ namespace Omega3.Vista.Productos
 
 
 
-            string query = "SELECT cod_producto AS 'Cod Producto', producto as Producto, precio_compra * (SELECT	valor from markup where id= " + listaprecio + ") as Precio, categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id ";
+            string query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.id_categoria<>1,if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1) * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1),precio_compra * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1)), precio_compra),2)as Precio,categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
             ControlCliente.llenarListaClienteExcel(dgv_tabla, query);
         }
 
