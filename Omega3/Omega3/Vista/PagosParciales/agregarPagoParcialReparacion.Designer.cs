@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.combo_medio_de_pago = new System.Windows.Forms.ComboBox();
             this.txt_monto = new System.Windows.Forms.TextBox();
+            this.txt_recibo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel_boton.SuspendLayout();
             this.panel_cheque.SuspendLayout();
             this.panel_carga.SuspendLayout();
@@ -52,7 +54,7 @@
             // panel_boton
             // 
             this.panel_boton.Controls.Add(this.btn_agregar);
-            this.panel_boton.Location = new System.Drawing.Point(10, 299);
+            this.panel_boton.Location = new System.Drawing.Point(10, 340);
             this.panel_boton.Name = "panel_boton";
             this.panel_boton.Size = new System.Drawing.Size(306, 32);
             this.panel_boton.TabIndex = 16;
@@ -77,7 +79,7 @@
             this.panel_cheque.Controls.Add(this.txt_vencimiento);
             this.panel_cheque.Controls.Add(this.label3);
             this.panel_cheque.Controls.Add(this.txt_comprobante);
-            this.panel_cheque.Location = new System.Drawing.Point(10, 118);
+            this.panel_cheque.Location = new System.Drawing.Point(10, 159);
             this.panel_cheque.Name = "panel_cheque";
             this.panel_cheque.Size = new System.Drawing.Size(306, 175);
             this.panel_cheque.TabIndex = 15;
@@ -150,13 +152,15 @@
             // 
             // panel_carga
             // 
+            this.panel_carga.Controls.Add(this.txt_recibo);
+            this.panel_carga.Controls.Add(this.label7);
             this.panel_carga.Controls.Add(this.label2);
             this.panel_carga.Controls.Add(this.label1);
             this.panel_carga.Controls.Add(this.combo_medio_de_pago);
             this.panel_carga.Controls.Add(this.txt_monto);
             this.panel_carga.Location = new System.Drawing.Point(10, 4);
             this.panel_carga.Name = "panel_carga";
-            this.panel_carga.Size = new System.Drawing.Size(306, 108);
+            this.panel_carga.Size = new System.Drawing.Size(306, 149);
             this.panel_carga.TabIndex = 14;
             // 
             // label2
@@ -195,11 +199,27 @@
             this.txt_monto.TabIndex = 2;
             this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
+            // txt_recibo
+            // 
+            this.txt_recibo.Location = new System.Drawing.Point(97, 95);
+            this.txt_recibo.Name = "txt_recibo";
+            this.txt_recibo.Size = new System.Drawing.Size(121, 20);
+            this.txt_recibo.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Recibo";
+            // 
             // agregarPagoParcialReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 335);
+            this.ClientSize = new System.Drawing.Size(327, 386);
             this.Controls.Add(this.panel_boton);
             this.Controls.Add(this.panel_cheque);
             this.Controls.Add(this.panel_carga);
@@ -233,5 +253,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox combo_medio_de_pago;
         private System.Windows.Forms.TextBox txt_monto;
+        private System.Windows.Forms.TextBox txt_recibo;
+        private System.Windows.Forms.Label label7;
     }
 }

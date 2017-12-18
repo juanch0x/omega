@@ -62,8 +62,19 @@ namespace Omega3.Vista.Reparaciones
             reparacion.tipo_factura = combo_comprobante.SelectedValue.ToString();
             reparacion.vencimiento = llenarVencimiento();
             reparacion.medio_de_pago = Convert.ToInt32(combo_medio_de_pago.SelectedValue);
-            //usuario
+            
+            if(txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text)){
+                reparacion.remito = long.Parse(txt_remito.Text);
+            }
+            if(txt_ordenDeCompra.Text.Trim() != "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+            {
+                reparacion.ordenDeCompra = txt_ordenDeCompra.Text;
+            }
+
+
             reparacion.cobrada = llenarCobrada();
+
+
             
 
             try
@@ -71,9 +82,19 @@ namespace Omega3.Vista.Reparaciones
                 Cursor.Current = Cursors.WaitCursor;
                 if (ControlReparaciones.FinalizarReparacion(id_reparacion,reparacion) == 1)
             {
+                    venta.remito = 0;
+                    venta.ordendeCompra = "0";
 
-                    
+                    if (txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text)){
+                        venta.remito = long.Parse(txt_remito.Text);
+                    }
+                    if (txt_ordenDeCompra.Text.Trim() != "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+                    {
+                        venta.ordendeCompra = txt_ordenDeCompra.Text;
+                    }
+
                     id_comprobante = facturar.FacturarReparacion(venta, cliente, dgv_tabla);
+
                     var task = Task.Factory.StartNew(() => b.ActualizarFacturaYUrl(id_comprobante, id_reparacion));
                     MessageBox.Show("Se realizó la venta correctamente, en unos instantes podrá acceder a la factura desde Listar Reparaciones.");
                     a.Close();
@@ -140,8 +161,15 @@ namespace Omega3.Vista.Reparaciones
                 //usuario
                 reparacion.cobrada = llenarCobrada();
 
+            if (txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text)){
+                reparacion.remito = long.Parse(txt_remito.Text);
+            }
+            if (txt_ordenDeCompra.Text.Trim() != "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+            {
+                reparacion.ordenDeCompra = txt_ordenDeCompra.Text;
+            }
 
-                try
+            try
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     if (ControlReparaciones.FinalizarReparacion(id_reparacion, reparacion,1) == 1)
@@ -182,6 +210,11 @@ namespace Omega3.Vista.Reparaciones
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_remito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
         }
     }
     }

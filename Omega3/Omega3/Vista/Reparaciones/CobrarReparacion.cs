@@ -38,7 +38,8 @@ namespace Omega3.Vista.Reparaciones
                 txt_factura.Text = Convert.ToString(reparacion.nro_factura);
                 txt_remito.Text = Convert.ToString(reparacion.remito);
 
-                ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, reparacion.id,reparacion.id);
+                //ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, reparacion.id,reparacion.id);
+                ControladorPagoParcial.llenarTablaPagosParciales(dgv_tabla, reparacion.id, reparacion.id);
                 calcularTotalPagado();
                 calcularTamanio();
                 calcularEstado();

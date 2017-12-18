@@ -77,6 +77,7 @@ namespace Omega3.Vista.PagosParciales
                 a.banco = txt_banco.Text;
                 a.comprobante = txt_comprobante.Text;
                 a.vencimiento = txt_vencimiento.Value;
+                a.recibo = txt_recibo.Text;
 
 
 

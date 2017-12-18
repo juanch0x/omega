@@ -222,11 +222,11 @@ namespace Omega3.Vista.Venta
                     venta.remito = 0;
                     venta.ordendeCompra = "0";
                     
-                    if(txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    if(txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text))
                     {
                         venta.remito = long.Parse(txt_remito.Text);
                     }
-                    if(txt_ordenDeCompra.Text.Trim()=="" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text)){
+                    if(txt_ordenDeCompra.Text.Trim()!="" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text)){
                         venta.ordendeCompra = txt_ordenDeCompra.Text;
                     }
 
@@ -783,11 +783,11 @@ namespace Omega3.Vista.Venta
                     venta.ordendeCompra = "0";
                     venta.tipo_factura = Convert.ToString(combo_comprobante.SelectedValue);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue);
-                    if (txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    if (txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text))
                     {
                         venta.remito = long.Parse(txt_remito.Text);
                     }
-                    if (txt_ordenDeCompra.Text.Trim() == "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+                    if (txt_ordenDeCompra.Text.Trim() != "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
                     {
                         venta.ordendeCompra = txt_ordenDeCompra.Text;
                     }
@@ -917,11 +917,11 @@ namespace Omega3.Vista.Venta
                     Omega3.Modelo.Venta venta = new Modelo.Venta();
                     venta.ordendeCompra = "0";
                     venta.remito = 0;
-                    if(txt_ordenDeCompra.Text.Trim() == "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
+                    if(txt_ordenDeCompra.Text.Trim() != "" || !string.IsNullOrEmpty(txt_ordenDeCompra.Text))
                     {
                         venta.ordendeCompra = txt_ordenDeCompra.Text;
                     }
-                    if(txt_remito.Text.Trim() == "" || !string.IsNullOrEmpty(txt_remito.Text))
+                    if(txt_remito.Text.Trim() != "" || !string.IsNullOrEmpty(txt_remito.Text))
                     {
                         venta.remito = long.Parse(txt_remito.Text);
                     }
