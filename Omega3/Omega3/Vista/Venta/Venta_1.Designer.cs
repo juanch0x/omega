@@ -30,6 +30,10 @@
         {
             this.combo_pago = new System.Windows.Forms.ComboBox();
             this.Panel = new System.Windows.Forms.Panel();
+            this.txt_ordenDeCompra = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_remito = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.combo_comprobante = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.fecha_pago = new System.Windows.Forms.DateTimePicker();
@@ -81,10 +85,6 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_remito = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_ordenDeCompra = new System.Windows.Forms.TextBox();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -124,6 +124,43 @@
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(693, 204);
             this.Panel.TabIndex = 6;
+            // 
+            // txt_ordenDeCompra
+            // 
+            this.txt_ordenDeCompra.Location = new System.Drawing.Point(286, 162);
+            this.txt_ordenDeCompra.Name = "txt_ordenDeCompra";
+            this.txt_ordenDeCompra.Size = new System.Drawing.Size(169, 20);
+            this.txt_ordenDeCompra.TabIndex = 13;
+            this.txt_ordenDeCompra.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(201, 26);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Orden de Compra";
+            // 
+            // txt_remito
+            // 
+            this.txt_remito.Location = new System.Drawing.Point(286, 118);
+            this.txt_remito.Name = "txt_remito";
+            this.txt_remito.Size = new System.Drawing.Size(169, 20);
+            this.txt_remito.TabIndex = 11;
+            this.txt_remito.Text = "0";
+            this.txt_remito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_remito_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 26);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Remito";
             // 
             // combo_comprobante
             // 
@@ -626,6 +663,7 @@
             this.txt_ventas_codigo.Name = "txt_ventas_codigo";
             this.txt_ventas_codigo.Size = new System.Drawing.Size(155, 26);
             this.txt_ventas_codigo.TabIndex = 8;
+            this.txt_ventas_codigo.Text = "0";
             this.txt_ventas_codigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_ventas_codigo_KeyDown);
             // 
             // txt_ventas_cantidad
@@ -709,43 +747,6 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(78, 19);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 26);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Remito";
-            // 
-            // txt_remito
-            // 
-            this.txt_remito.Location = new System.Drawing.Point(286, 118);
-            this.txt_remito.Name = "txt_remito";
-            this.txt_remito.Size = new System.Drawing.Size(169, 20);
-            this.txt_remito.TabIndex = 11;
-            this.txt_remito.Text = "0";
-            this.txt_remito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_remito_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 162);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(201, 26);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Orden de Compra";
-            // 
-            // txt_ordenDeCompra
-            // 
-            this.txt_ordenDeCompra.Location = new System.Drawing.Point(286, 162);
-            this.txt_ordenDeCompra.Name = "txt_ordenDeCompra";
-            this.txt_ordenDeCompra.Size = new System.Drawing.Size(169, 20);
-            this.txt_ordenDeCompra.TabIndex = 13;
-            this.txt_ordenDeCompra.Text = "0";
             // 
             // Venta_1
             // 
