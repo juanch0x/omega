@@ -89,6 +89,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ListaPrecios";
             this.Text = "ListaPrecios";
+            this.Load += new System.EventHandler(this.ListaPrecios_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);

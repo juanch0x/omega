@@ -62,9 +62,9 @@ namespace Omega3.Vista.Clientes
             Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
             try
             {
-                
-                
-                
+
+
+                Excel.Interactive = false;
 
                 Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
                 Worksheet ws = (Worksheet)Excel.ActiveSheet;
@@ -132,6 +132,7 @@ namespace Omega3.Vista.Clientes
                         if (j == 0)
                         {
                             ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Merge();
+                            AllBorders(ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Borders);
                             ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells[j].Value;
 
                         }
@@ -139,12 +140,14 @@ namespace Omega3.Vista.Clientes
                         {
                             ws.Range[ws.Cells[fila, 3], ws.Cells[fila, 4]].Merge();
                             ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells[j].Value;
+                            AllBorders(ws.Range[ws.Cells[fila, 3], ws.Cells[fila, 4]].Borders);
 
                         }
                         else if (j == 2)
                         {
 
                             ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 7]].Merge();
+                            AllBorders(ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 7]].Borders);
                             ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells[j].Value;
 
 
@@ -156,11 +159,21 @@ namespace Omega3.Vista.Clientes
 
                     fila++;
                 }
+                Excel.Interactive = true;
                 Excel.Visible = true;
             }
             
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
             finally { Cursor.Current = Cursors.Default; }
+        }
+
+        private void AllBorders(Borders _borders)
+        {
+            _borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+            _borders.Color = Color.Black;
         }
 
     }
