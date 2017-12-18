@@ -43,8 +43,10 @@ namespace Omega3.Vista
                 if (logueocorrecto){
 
                 this.Hide();
+                f1.MenuVentas.Visible = true;
+                f1.MenuProducto.Visible = true;
 
-                                    }
+            }
 
                 else {
                 
@@ -54,8 +56,7 @@ namespace Omega3.Vista
                     txt_usuario.Focus();
                     }
 
-            f1.MenuVentas.Visible = true;
-            f1.MenuProducto.Visible = true;
+
 
         }
 

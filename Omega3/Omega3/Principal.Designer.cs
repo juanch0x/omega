@@ -37,6 +37,15 @@ namespace Omega3
             this.solicitarStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reabastecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dolarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distribuidoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.particularToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pCOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pCOMayoristaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ferreteriaYViverosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minoristaSfactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subDistribuidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preciosNetosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +90,8 @@ namespace Omega3
             this.administrarProductoToolStripMenuItem,
             this.solicitarStockToolStripMenuItem,
             this.reabastecimientoToolStripMenuItem,
-            this.dolarToolStripMenuItem});
+            this.dolarToolStripMenuItem,
+            this.listaDePreciosToolStripMenuItem});
             this.productoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
             this.productoToolStripMenuItem.Size = new System.Drawing.Size(85, 25);
@@ -114,6 +124,77 @@ namespace Omega3
             this.dolarToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.dolarToolStripMenuItem.Text = "Dolar";
             this.dolarToolStripMenuItem.Click += new System.EventHandler(this.dolarToolStripMenuItem_Click);
+            // 
+            // listaDePreciosToolStripMenuItem
+            // 
+            this.listaDePreciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.distribuidoraToolStripMenuItem,
+            this.ferreteriaYViverosToolStripMenuItem,
+            this.preciosNetosToolStripMenuItem});
+            this.listaDePreciosToolStripMenuItem.Name = "listaDePreciosToolStripMenuItem";
+            this.listaDePreciosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.listaDePreciosToolStripMenuItem.Text = "Lista de Precios";
+            // 
+            // distribuidoraToolStripMenuItem
+            // 
+            this.distribuidoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.particularToolStripMenuItem1,
+            this.pCOToolStripMenuItem,
+            this.pCOMayoristaToolStripMenuItem1});
+            this.distribuidoraToolStripMenuItem.Name = "distribuidoraToolStripMenuItem";
+            this.distribuidoraToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.distribuidoraToolStripMenuItem.Text = "Distribuidora";
+            // 
+            // particularToolStripMenuItem1
+            // 
+            this.particularToolStripMenuItem1.Name = "particularToolStripMenuItem1";
+            this.particularToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
+            this.particularToolStripMenuItem1.Text = "Particular";
+            this.particularToolStripMenuItem1.Click += new System.EventHandler(this.particularToolStripMenuItem1_Click);
+            // 
+            // pCOToolStripMenuItem
+            // 
+            this.pCOToolStripMenuItem.Name = "pCOToolStripMenuItem";
+            this.pCOToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.pCOToolStripMenuItem.Text = "PCO";
+            this.pCOToolStripMenuItem.Click += new System.EventHandler(this.pCOToolStripMenuItem_Click);
+            // 
+            // pCOMayoristaToolStripMenuItem1
+            // 
+            this.pCOMayoristaToolStripMenuItem1.Name = "pCOMayoristaToolStripMenuItem1";
+            this.pCOMayoristaToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
+            this.pCOMayoristaToolStripMenuItem1.Text = "PCO Mayorista";
+            this.pCOMayoristaToolStripMenuItem1.Click += new System.EventHandler(this.pCOMayoristaToolStripMenuItem1_Click);
+            // 
+            // ferreteriaYViverosToolStripMenuItem
+            // 
+            this.ferreteriaYViverosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.minoristaSfactToolStripMenuItem,
+            this.subDistribuidorToolStripMenuItem});
+            this.ferreteriaYViverosToolStripMenuItem.Name = "ferreteriaYViverosToolStripMenuItem";
+            this.ferreteriaYViverosToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.ferreteriaYViverosToolStripMenuItem.Text = "Ferreteria y Viveros";
+            // 
+            // minoristaSfactToolStripMenuItem
+            // 
+            this.minoristaSfactToolStripMenuItem.Name = "minoristaSfactToolStripMenuItem";
+            this.minoristaSfactToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.minoristaSfactToolStripMenuItem.Text = "Minorista s/fact";
+            this.minoristaSfactToolStripMenuItem.Click += new System.EventHandler(this.minoristaSfactToolStripMenuItem_Click);
+            // 
+            // subDistribuidorToolStripMenuItem
+            // 
+            this.subDistribuidorToolStripMenuItem.Name = "subDistribuidorToolStripMenuItem";
+            this.subDistribuidorToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.subDistribuidorToolStripMenuItem.Text = "Sub-Distribuidor";
+            this.subDistribuidorToolStripMenuItem.Click += new System.EventHandler(this.subDistribuidorToolStripMenuItem_Click);
+            // 
+            // preciosNetosToolStripMenuItem
+            // 
+            this.preciosNetosToolStripMenuItem.Name = "preciosNetosToolStripMenuItem";
+            this.preciosNetosToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.preciosNetosToolStripMenuItem.Text = "Precios Netos";
+            this.preciosNetosToolStripMenuItem.Click += new System.EventHandler(this.preciosNetosToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
@@ -341,6 +422,15 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem listarPresupuestosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarComprasToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem listaDePreciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem distribuidoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem particularToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pCOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pCOMayoristaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ferreteriaYViverosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minoristaSfactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem subDistribuidorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preciosNetosToolStripMenuItem;
     }
 }
 
