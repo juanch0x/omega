@@ -57,6 +57,7 @@ namespace Omega3
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -274,6 +275,16 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(553, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +292,7 @@ namespace Omega3
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1034, 491);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -328,6 +340,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem Reparaciones_Realizadas;
         private System.Windows.Forms.ToolStripMenuItem listarPresupuestosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarComprasToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

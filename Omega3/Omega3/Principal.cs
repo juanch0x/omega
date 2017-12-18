@@ -744,6 +744,12 @@ namespace Omega3
                 erogacion.Show();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Vista.Clientes.ExportarClientesExcel a = new Vista.Clientes.ExportarClientesExcel();
+            
+        }
     }
 
     public class dolar
