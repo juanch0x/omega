@@ -227,5 +227,32 @@ namespace Omega3.Controlador
 
         }
 
+        public static void  llenarListaClienteExcel(DataGridView dgv_tabla, string query)
+        {
+            string sqlSelectAll = query;
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+
+                dgv_tabla.DataSource = bSource;
+                
+                
+                
+                
+            }
+            catch (MySqlException ex) { MessageBox.Show("Hubo un problema " + ex.ToString()); }
+            {
+                
+            }
+        }
+
     }
 }
