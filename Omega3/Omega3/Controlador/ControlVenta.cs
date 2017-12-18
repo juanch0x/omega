@@ -400,6 +400,8 @@ namespace Omega3.Controlador
             request.Encabezado.TipoComprobante = venta.tipo_factura;
             //request.Encabezado.TipoComprobante = "PF";
             request.Encabezado.TipoDeCambio = 1;
+            request.Encabezado.Remito = venta.remito.ToString();
+            request.Encabezado.OrdenCompra = venta.ordendeCompra;
 
 
             request.Items = new ComprobanteItem[dgv_tabla.Rows.Count];
@@ -422,7 +424,7 @@ namespace Omega3.Controlador
 
             CrearComprobanteResponse response = comprobanteClient.CrearComprobante(request);
 
-            MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
+            //MessageBox.Show(ObjectToXml<CrearComprobanteResponse>(response));
 
             String id_comprobante = string.Empty;
 
@@ -434,6 +436,7 @@ namespace Omega3.Controlador
             {
 
                 id_comprobante = xn["IdComprobante"].InnerText;
+                MessageBox.Show("Respuesta de facturante: " + xn["Estado"].InnerText);
 
             }
 

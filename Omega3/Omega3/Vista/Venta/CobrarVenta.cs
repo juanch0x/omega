@@ -71,7 +71,8 @@ namespace Omega3.Vista.Venta
             txt_factura.Text = Convert.ToString(venta.nrofactura);
             txt_remito.Text = Convert.ToString(venta.remito);
 
-            ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, venta.id);
+            //ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, venta.id);
+            ControladorPagoParcial.llenarTablaPagosParciales(dgv_tabla, venta.id);
             calcularTotalPagado();
             calcularTamanio();
             calcularEstado();

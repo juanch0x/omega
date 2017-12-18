@@ -29,8 +29,14 @@ namespace Omega3.Modelo
         public string url { get; set; }
         public bool presupuesto { get; set; }
         public string razon_social { get; set; }
+        public string ordenDeCompra { get; set; }
 
+        public Reparacion()
+        {
+            ordenDeCompra = "0";
+            remito = 0;
 
+        }
 
     }
 }

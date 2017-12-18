@@ -18,7 +18,7 @@ namespace Omega3.Modelo
         public string razon_social { get; set; }
         public string banco { get; set; }
         public long id_reparacion { get; set; }
-        
+        public string recibo { get; set; }
 
         public PagoParcial()
         {
@@ -29,6 +29,7 @@ namespace Omega3.Modelo
             razon_social = "";
             banco = "";
             id_reparacion = 0;
+            recibo = "";
 
         }
 

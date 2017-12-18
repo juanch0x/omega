@@ -52,6 +52,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_remito = new System.Windows.Forms.TextBox();
+            this.txt_ordenDeCompra = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -123,7 +127,7 @@
             // 
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total.Location = new System.Drawing.Point(119, 363);
+            this.lbl_total.Location = new System.Drawing.Point(119, 411);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(39, 16);
             this.lbl_total.TabIndex = 6;
@@ -132,7 +136,7 @@
             // btn_facturar
             // 
             this.btn_facturar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_facturar.Location = new System.Drawing.Point(457, 363);
+            this.btn_facturar.Location = new System.Drawing.Point(477, 407);
             this.btn_facturar.Name = "btn_facturar";
             this.btn_facturar.Size = new System.Drawing.Size(149, 32);
             this.btn_facturar.TabIndex = 7;
@@ -204,7 +208,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 359);
+            this.label7.Location = new System.Drawing.Point(11, 407);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 20);
             this.label7.TabIndex = 16;
@@ -221,7 +225,7 @@
             // btn_negro
             // 
             this.btn_negro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_negro.Location = new System.Drawing.Point(267, 363);
+            this.btn_negro.Location = new System.Drawing.Point(267, 407);
             this.btn_negro.Name = "btn_negro";
             this.btn_negro.Size = new System.Drawing.Size(159, 32);
             this.btn_negro.TabIndex = 19;
@@ -268,6 +272,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txt_ordenDeCompra);
+            this.panel2.Controls.Add(this.txt_remito);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.combo_comprobante);
             this.panel2.Controls.Add(this.combo_medio_de_pago);
@@ -276,7 +284,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(15, 164);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 155);
+            this.panel2.Size = new System.Drawing.Size(600, 206);
             this.panel2.TabIndex = 22;
             // 
             // label10
@@ -302,7 +310,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(655, 431);
+            this.panel3.Size = new System.Drawing.Size(635, 454);
             this.panel3.TabIndex = 24;
             // 
             // pictureBox1
@@ -315,11 +323,48 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(11, 133);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Remito";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 171);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 20);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Orden de Compra";
+            // 
+            // txt_remito
+            // 
+            this.txt_remito.Location = new System.Drawing.Point(169, 135);
+            this.txt_remito.Name = "txt_remito";
+            this.txt_remito.Size = new System.Drawing.Size(140, 20);
+            this.txt_remito.TabIndex = 24;
+            this.txt_remito.Text = "0";
+            this.txt_remito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_remito_KeyPress);
+            // 
+            // txt_ordenDeCompra
+            // 
+            this.txt_ordenDeCompra.Location = new System.Drawing.Point(169, 173);
+            this.txt_ordenDeCompra.Name = "txt_ordenDeCompra";
+            this.txt_ordenDeCompra.Size = new System.Drawing.Size(140, 20);
+            this.txt_ordenDeCompra.TabIndex = 25;
+            this.txt_ordenDeCompra.Text = "0";
+            // 
             // FinalizarReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 431);
+            this.ClientSize = new System.Drawing.Size(635, 454);
             this.Controls.Add(this.panel3);
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -365,5 +410,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txt_ordenDeCompra;
+        private System.Windows.Forms.TextBox txt_remito;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

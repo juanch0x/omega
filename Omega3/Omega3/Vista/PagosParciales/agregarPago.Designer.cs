@@ -44,6 +44,8 @@
             this.txt_comprobante = new System.Windows.Forms.TextBox();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.panel_boton = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_recibo = new System.Windows.Forms.TextBox();
             this.panel_carga.SuspendLayout();
             this.panel_cheque.SuspendLayout();
             this.panel_boton.SuspendLayout();
@@ -69,13 +71,15 @@
             // 
             // panel_carga
             // 
+            this.panel_carga.Controls.Add(this.txt_recibo);
+            this.panel_carga.Controls.Add(this.label7);
             this.panel_carga.Controls.Add(this.label2);
             this.panel_carga.Controls.Add(this.label1);
             this.panel_carga.Controls.Add(this.combo_medio_de_pago);
             this.panel_carga.Controls.Add(this.txt_monto);
             this.panel_carga.Location = new System.Drawing.Point(12, 3);
             this.panel_carga.Name = "panel_carga";
-            this.panel_carga.Size = new System.Drawing.Size(306, 108);
+            this.panel_carga.Size = new System.Drawing.Size(306, 139);
             this.panel_carga.TabIndex = 3;
             // 
             // label2
@@ -106,7 +110,7 @@
             this.panel_cheque.Controls.Add(this.txt_vencimiento);
             this.panel_cheque.Controls.Add(this.label3);
             this.panel_cheque.Controls.Add(this.txt_comprobante);
-            this.panel_cheque.Location = new System.Drawing.Point(12, 117);
+            this.panel_cheque.Location = new System.Drawing.Point(12, 148);
             this.panel_cheque.Name = "panel_cheque";
             this.panel_cheque.Size = new System.Drawing.Size(306, 175);
             this.panel_cheque.TabIndex = 4;
@@ -190,16 +194,32 @@
             // panel_boton
             // 
             this.panel_boton.Controls.Add(this.btn_agregar);
-            this.panel_boton.Location = new System.Drawing.Point(12, 298);
+            this.panel_boton.Location = new System.Drawing.Point(12, 329);
             this.panel_boton.Name = "panel_boton";
             this.panel_boton.Size = new System.Drawing.Size(306, 32);
             this.panel_boton.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 96);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Recibo";
+            // 
+            // txt_recibo
+            // 
+            this.txt_recibo.Location = new System.Drawing.Point(97, 96);
+            this.txt_recibo.Name = "txt_recibo";
+            this.txt_recibo.Size = new System.Drawing.Size(121, 20);
+            this.txt_recibo.TabIndex = 6;
             // 
             // agregarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 335);
+            this.ClientSize = new System.Drawing.Size(327, 373);
             this.Controls.Add(this.panel_boton);
             this.Controls.Add(this.panel_cheque);
             this.Controls.Add(this.panel_carga);
@@ -233,5 +253,7 @@
         private System.Windows.Forms.TextBox txt_comprobante;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Panel panel_boton;
+        private System.Windows.Forms.TextBox txt_recibo;
+        private System.Windows.Forms.Label label7;
     }
 }
