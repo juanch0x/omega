@@ -706,6 +706,26 @@ try {
         }
 
 
+        public static int obtenerCategoria (long cod_producto)
+        {
+            int id_categoria=0;
+
+
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+               "SELECT id_categoria FROM productos where cod_producto = {0}", cod_producto), Conexion.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+
+                id_categoria = _reader.GetInt32(0);
+
+            }
+
+
+            return id_categoria;
+        }
+
+
     }
 
 

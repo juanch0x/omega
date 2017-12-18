@@ -480,18 +480,39 @@ namespace Omega3.Vista.Venta
             int cantidad;
             decimal precio_venta, total;
             decimal subtotal;
+            int id_categoria = 0;
+
+            if (txt_ventas_codigo.Text.Trim() != "")
+            {
+                id_categoria = Omega3.Controlador.ControlVentas.obtenerCategoria(long.Parse(txt_ventas_codigo.Text));
+
+            }
 
             //if (txt_ventas_cantidad.Text.Trim() != "" || txt_ventas_precio.Text.Trim() != "")
             if (combo_producto.SelectedIndex != -1)
             {
 
+
+
                 iva = (Convert.ToDecimal(combo_iva.Text)) / 100 + 1;
                 lista = (Convert.ToDecimal(txt_ventas_lista.Text)) / 100;
                 cantidad = Convert.ToInt32(txt_ventas_cantidad.Text);
                 precio_venta = Convert.ToDecimal(txt_ventas_precio.Text);
-                subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista) * lista_cliente), 3);
-                total = (((precio_venta + (precio_venta * lista_cliente)) * iva) * cantidad);
-                subtotal = total - (total * lista);
+
+                if (id_categoria != 1)
+                {
+                    subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista) * lista_cliente), 3);
+                    total = (((precio_venta + (precio_venta * lista_cliente)) * iva) * cantidad);
+                    subtotal = total - (total * lista);
+                }
+                else
+                {
+                     subtotal = Math.Round((precio_venta * iva * cantidad - (precio_venta * lista)), 3);
+                      total = (((precio_venta + (precio_venta)) * iva) * cantidad);
+
+                }
+
+                // = total - (total * lista);
                 txt_ventas_subtotal.Text = subtotal.ToString();
             }
 
