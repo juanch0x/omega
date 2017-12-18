@@ -27,7 +27,7 @@ namespace Omega3.Vista
         private void btn_login_Click(object sender, EventArgs e)
         {
             Principal f1 = (Principal)this.MdiParent;
-            f1.menu.Visible = true;
+            f1.menu.Visible = false;
 
             //this.Hide();
 
@@ -45,6 +45,7 @@ namespace Omega3.Vista
                 this.Hide();
                 f1.MenuVentas.Visible = true;
                 f1.MenuProducto.Visible = true;
+                f1.menu.Visible = true;
 
             }
 

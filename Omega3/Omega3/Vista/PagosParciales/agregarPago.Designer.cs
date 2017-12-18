@@ -31,6 +31,8 @@
             this.combo_medio_de_pago = new System.Windows.Forms.ComboBox();
             this.txt_monto = new System.Windows.Forms.TextBox();
             this.panel_carga = new System.Windows.Forms.Panel();
+            this.txt_recibo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_cheque = new System.Windows.Forms.Panel();
@@ -44,8 +46,6 @@
             this.txt_comprobante = new System.Windows.Forms.TextBox();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.panel_boton = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_recibo = new System.Windows.Forms.TextBox();
             this.panel_carga.SuspendLayout();
             this.panel_cheque.SuspendLayout();
             this.panel_boton.SuspendLayout();
@@ -55,7 +55,7 @@
             // 
             this.combo_medio_de_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_medio_de_pago.FormattingEnabled = true;
-            this.combo_medio_de_pago.Location = new System.Drawing.Point(97, 28);
+            this.combo_medio_de_pago.Location = new System.Drawing.Point(165, 26);
             this.combo_medio_de_pago.Name = "combo_medio_de_pago";
             this.combo_medio_de_pago.Size = new System.Drawing.Size(121, 21);
             this.combo_medio_de_pago.TabIndex = 0;
@@ -63,7 +63,7 @@
             // 
             // txt_monto
             // 
-            this.txt_monto.Location = new System.Drawing.Point(97, 58);
+            this.txt_monto.Location = new System.Drawing.Point(165, 59);
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.Size = new System.Drawing.Size(121, 20);
             this.txt_monto.TabIndex = 2;
@@ -82,21 +82,40 @@
             this.panel_carga.Size = new System.Drawing.Size(306, 139);
             this.panel_carga.TabIndex = 3;
             // 
+            // txt_recibo
+            // 
+            this.txt_recibo.Location = new System.Drawing.Point(165, 91);
+            this.txt_recibo.Name = "txt_recibo";
+            this.txt_recibo.Size = new System.Drawing.Size(121, 20);
+            this.txt_recibo.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Recibo";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 61);
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Monto";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Medio de Pago";
             // 
@@ -118,74 +137,79 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 139);
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 138);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(92, 16);
             this.label6.TabIndex = 11;
             this.label6.Text = "Razon Social";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 104);
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 99);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(48, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Banco";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 67);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(87, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Vencimiento";
             // 
             // txt_razon
             // 
-            this.txt_razon.Location = new System.Drawing.Point(118, 136);
+            this.txt_razon.Location = new System.Drawing.Point(165, 134);
             this.txt_razon.Name = "txt_razon";
-            this.txt_razon.Size = new System.Drawing.Size(100, 20);
+            this.txt_razon.Size = new System.Drawing.Size(121, 20);
             this.txt_razon.TabIndex = 8;
             // 
             // txt_banco
             // 
-            this.txt_banco.Location = new System.Drawing.Point(118, 97);
+            this.txt_banco.Location = new System.Drawing.Point(165, 95);
             this.txt_banco.Name = "txt_banco";
-            this.txt_banco.Size = new System.Drawing.Size(100, 20);
+            this.txt_banco.Size = new System.Drawing.Size(121, 20);
             this.txt_banco.TabIndex = 7;
             // 
             // txt_vencimiento
             // 
             this.txt_vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txt_vencimiento.Location = new System.Drawing.Point(118, 60);
+            this.txt_vencimiento.Location = new System.Drawing.Point(165, 56);
             this.txt_vencimiento.MinDate = new System.DateTime(2017, 12, 13, 0, 0, 0, 0);
             this.txt_vencimiento.Name = "txt_vencimiento";
-            this.txt_vencimiento.Size = new System.Drawing.Size(100, 20);
+            this.txt_vencimiento.Size = new System.Drawing.Size(121, 20);
             this.txt_vencimiento.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nº Comprobante";
             // 
             // txt_comprobante
             // 
-            this.txt_comprobante.Location = new System.Drawing.Point(118, 18);
+            this.txt_comprobante.Location = new System.Drawing.Point(165, 21);
             this.txt_comprobante.Name = "txt_comprobante";
-            this.txt_comprobante.Size = new System.Drawing.Size(100, 20);
+            this.txt_comprobante.Size = new System.Drawing.Size(121, 20);
             this.txt_comprobante.TabIndex = 0;
             // 
             // btn_agregar
             // 
+            this.btn_agregar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(108, 6);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
+            this.btn_agregar.Size = new System.Drawing.Size(83, 32);
             this.btn_agregar.TabIndex = 12;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -196,24 +220,8 @@
             this.panel_boton.Controls.Add(this.btn_agregar);
             this.panel_boton.Location = new System.Drawing.Point(12, 329);
             this.panel_boton.Name = "panel_boton";
-            this.panel_boton.Size = new System.Drawing.Size(306, 32);
+            this.panel_boton.Size = new System.Drawing.Size(306, 41);
             this.panel_boton.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 96);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Recibo";
-            // 
-            // txt_recibo
-            // 
-            this.txt_recibo.Location = new System.Drawing.Point(97, 96);
-            this.txt_recibo.Name = "txt_recibo";
-            this.txt_recibo.Size = new System.Drawing.Size(121, 20);
-            this.txt_recibo.TabIndex = 6;
             // 
             // agregarPago
             // 
