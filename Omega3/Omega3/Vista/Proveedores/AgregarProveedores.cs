@@ -71,7 +71,6 @@ namespace Omega3.Vista.Proveedores
 
             if (txt_codigo_postal.Text == "") { ControlProveedor.validarTextboxVacio("Codigo postal"); }
             else if (txt_direccion.Text == "") { ControlProveedor.validarTextboxVacio("Dirección"); }
-            else if (txt_email.Text == "") { ControlProveedor.validarTextboxVacio("Email"); }
             else if (txt_proveedor.Text == "") { ControlProveedor.validarTextboxVacio("Proveedor"); }
             else if (txt_provincia.Text == "") { ControlProveedor.validarTextboxVacio("Provincia"); }
             else if (txt_telefono.Text == "") { ControlProveedor.validarTextboxVacio("Telefono"); }
@@ -79,7 +78,7 @@ namespace Omega3.Vista.Proveedores
             {
 
                 proveedor.Nombre_proveedor = txt_proveedor.Text;
-                proveedor.Telefono = Convert.ToInt32(txt_telefono.Text);
+                proveedor.Telefono = long.Parse(txt_telefono.Text);
                 proveedor.Direccion = txt_direccion.Text;
                 proveedor.Codigo_postal = Convert.ToInt32(txt_codigo_postal.Text);
                 proveedor.Email = txt_email.Text;

@@ -149,9 +149,7 @@ namespace Omega3.Vista.Clientes
                             ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 7]].Merge();
                             AllBorders(ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 7]].Borders);
                             ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells[j].Value;
-
-
-
+                            
                         }
 
                     }

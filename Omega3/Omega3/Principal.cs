@@ -755,163 +755,38 @@ namespace Omega3
         private void particularToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-
-            Vista.Productos.ListaPrecios listaprecios;
-
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(1);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
-
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(1);
 
         }
 
         private void pCOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios;
-
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(2);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(2);
+            
         }
-
-
 
         private void pCOMayoristaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios;
-
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(3);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(3);
+            
         }
 
         private void minoristaSfactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios;
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(4);
 
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(4);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
         }
 
         private void subDistribuidorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios;
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(5);
 
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(5);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
         }
 
         private void preciosNetosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios;
-
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("ListaPrecios"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                listaprecios = new Vista.Productos.ListaPrecios(6);
-                listaprecios.StartPosition = FormStartPosition.CenterScreen;
-                listaprecios.MdiParent = this;
-                listaprecios.Show();
-            }
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(6); ;
+                      
         }
 
         private void exportarListaClientesToolStripMenuItem_Click(object sender, EventArgs e)

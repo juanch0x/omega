@@ -285,7 +285,7 @@ namespace Omega3.Controlador
             string update = "INSERT INTO puntaje_proveedor (aspecto,puntaje,id_proveedor) VALUES ";
 
             //Transporte
-            MessageBox.Show(Convert.ToString(proveedor.puntaje.transporte_posicion));
+            
             update += "(1,"+proveedor.puntaje.transporte_posicion+","+proveedor.Id_proveedor+")";
             update += ",(2," + proveedor.puntaje.transporte_Prestigio + "," + proveedor.Id_proveedor + ")";
             update += ",(3," + proveedor.puntaje.transporte_antecedentes + "," + proveedor.Id_proveedor + ")";

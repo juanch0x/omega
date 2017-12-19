@@ -30,7 +30,7 @@ namespace Omega3.Vista.Proveedores
             proveedor.Id_proveedor = this.proveedor.Id_proveedor;
 
             //FALTA VALIDAR Email secundario y terciario (formato)
-            if (ControladorFuncVariadas.validarTextBoxVacios(txt_codigo_postal, txt_direccion, txt_email, txt_proveedor, txt_provincia, txt_telefono))
+            if (ControladorFuncVariadas.validarTextBoxVacios(txt_codigo_postal, txt_direccion, txt_proveedor, txt_provincia, txt_telefono))
             {
 
                 proveedor.Nombre_proveedor = txt_proveedor.Text;
@@ -45,8 +45,7 @@ namespace Omega3.Vista.Proveedores
                 proveedor.Telefono2 = txt_telefono2.Text;
                 proveedor.Telefono3 = txt_telefono3.Text;
 
-                if (ControladorFuncVariadas.validarEmail(txt_email.Text))
-                {
+                
 
                     proveedor.Email = txt_email.Text;
                     proveedor.Email2 = txt_email2.Text;
@@ -86,8 +85,7 @@ namespace Omega3.Vista.Proveedores
                         
                         
                     }
-                }
-                else { MessageBox.Show("Formato de e-mail incorrecto"); }
+                
                 
 
             }
