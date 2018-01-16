@@ -193,9 +193,7 @@ namespace Omega3
         {
             {
 
-                Vista.Venta.Venta_1 a = new Vista.Venta.Venta_1();
-                a.MdiParent = this;
-                a.Show();
+             
 
                 Vista.Venta.Venta_1 venta;
                 bool encontrado = false;

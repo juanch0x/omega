@@ -110,7 +110,7 @@ namespace Omega3.Controlador
 
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT cod_producto as Cod,producto as Producto,ROUND(IF( dolar = 1, precio_compra * (SELECT valor FROM valor_dolar WHERE id = 1), precio_compra)*IF(id_categoria = 1, 1,10),2)AS Precio,cantidad AS 'Stock' FROM productos";
+            string sqlSelectAll = "SELECT cod_producto as Cod,producto as Producto,ROUND(IF( dolar = 1, precio_compra * (SELECT valor FROM valor_dolar WHERE id = 1), precio_compra)*IF(id_categoria = 1, 1,"+lista+"),2)AS Precio,cantidad AS 'Stock' FROM productos";
 
             Console.WriteLine(sqlSelectAll);
             try
