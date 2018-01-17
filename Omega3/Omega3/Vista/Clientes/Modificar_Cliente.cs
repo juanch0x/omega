@@ -10,9 +10,6 @@ using System.Windows.Forms;
 using Omega3.Modelo;
 using Omega3.Controlador;
 
-
-//arreglar que no modifica clientes
-
 namespace Omega3.Vista.Clientes
 {
     public partial class Modificar_Cliente : Form
@@ -45,7 +42,8 @@ namespace Omega3.Vista.Clientes
                         cliente.Telefono = long.Parse(txt_telefono.Text);
                     }
                     cliente.Provincia = Convert.ToString(combo_provincia.SelectedValue);
-                    cliente.Codigo_postal = Convert.ToInt32(txt_cod_postal.Text);
+                    if (txt_cod_postal.Text.Trim() != "" || !string.IsNullOrEmpty(txt_cod_postal.Text.Trim()))
+                        cliente.Codigo_postal = Convert.ToInt32(txt_cod_postal.Text);
                     cliente.Contacto = txt_contacto.Text;
                     cliente.Localidad = txt_localidad.Text;
                     cliente.Mail_contacto = txt_mail_contacto.Text;
@@ -67,7 +65,7 @@ namespace Omega3.Vista.Clientes
                     {
                         cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
                     }
-                    
+
 
                     if (Controlador.ControlCliente.ModificarCliente(cliente) == 1)
                     {
@@ -75,7 +73,8 @@ namespace Omega3.Vista.Clientes
                         this.Close();
                     }
                     else { MessageBox.Show("Hubo un error, contacte al administrador"); }
-                }else { MessageBox.Show("Email invalido");}
+                }
+                else { MessageBox.Show("Email invalido"); }
             }
         }
 
