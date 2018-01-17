@@ -21,31 +21,31 @@ namespace Omega3.Vista.Clientes
     {
         ComboBox combo_ventana;
         bool desde_otra_ventana;
-        
-        public CrearCliente (ref ComboBox combo_ventana)
+
+        public CrearCliente(ref ComboBox combo_ventana)
         {
 
             this.combo_ventana = combo_ventana;
             desde_otra_ventana = true;
-            
+
             InitializeComponent();
-            
+
         }
 
         public CrearCliente()
         {
-            
+
             InitializeComponent();
             txt_documento.Visible = false;
             desde_otra_ventana = false;
-            
+
         }
 
 
         // Returns JSON string
         string GET(string cuit)
         {
-            string url = "https://soa.afip.gob.ar/sr-padron/v2/persona/"+cuit;
+            string url = "https://soa.afip.gob.ar/sr-padron/v2/persona/" + cuit;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             try
             {
@@ -63,7 +63,7 @@ namespace Omega3.Vista.Clientes
                 {
                     StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
                     String errorText = reader.ReadToEnd();
-                 
+
                 }
                 throw;
             }
@@ -72,7 +72,7 @@ namespace Omega3.Vista.Clientes
 
         private void CrearCliente_Load(object sender, EventArgs e)
         {
-            
+
             txt_documento.MaxLength = 8;
             ControlVentas.llenarCondicion(combo_condicion);
             ControlCliente.llenarProvincias(combo_provincia);
@@ -86,7 +86,8 @@ namespace Omega3.Vista.Clientes
         private void cargar_Click(object sender, EventArgs e)
         {
             datos a = new datos();
-            if (ControladorFuncVariadas.AccesoInternet()) {
+            if (ControladorFuncVariadas.AccesoInternet())
+            {
 
                 if (combo_documento.Text == "CUIT")
                 {
@@ -135,7 +136,8 @@ namespace Omega3.Vista.Clientes
                     }
 
 
-                } }
+                }
+            }
             else { MessageBox.Show("No es posible autocompletar los datos, debido a que no hay conexión a internet"); }
         }
 
@@ -167,15 +169,16 @@ namespace Omega3.Vista.Clientes
                     cliente.Tipo_documento = Convert.ToInt32(combo_documento.SelectedValue);
                     cliente.Razon = txt_razon_social.Text;
                     cliente.Direccion = txt_direccion.Text;
-                    if(txt_telefono.Text.Trim() != "" || !string.IsNullOrEmpty(txt_telefono.Text))
-                    cliente.Telefono = long.Parse(txt_telefono.Text);
+                    if (txt_telefono.Text.Trim() != "" || !string.IsNullOrEmpty(txt_telefono.Text))
+                        cliente.Telefono = long.Parse(txt_telefono.Text);
                     cliente.Contacto = txt_contacto.Text;
                     cliente.Mail_contacto = txt_mail_contacto.Text;
-                    cliente.Codigo_postal = Convert.ToInt32(txt_cod_postal.Text);
+                    if (txt_cod_postal.Text.Trim() != "" || !string.IsNullOrEmpty(txt_cod_postal.Text.Trim()))
+                        cliente.Codigo_postal = Convert.ToInt32(txt_cod_postal.Text);
                     cliente.Localidad = txt_localidad.Text;
                     cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
                     cliente.Cod_provincia = Convert.ToInt32(combo_provincia.SelectedValue);
-                    cliente.Lista = Convert.ToDecimal( combo_lista.SelectedValue);
+                    cliente.Lista = Convert.ToDecimal(combo_lista.SelectedValue);
                     cliente.Nombre1 = txt_nombre1.Text;
                     cliente.Nombre2 = txt_nombre2.Text;
                     cliente.Nombre3 = txt_nombre3.Text;
@@ -186,7 +189,8 @@ namespace Omega3.Vista.Clientes
                     cliente.Telefono2 = txt_telefono2.Text;
                     cliente.Telefono3 = txt_telefono3.Text;
                     cliente.Plazo = txt_plazo.Text;
-                    if (txt_limite.Text.Trim() != "" || !string.IsNullOrEmpty(txt_limite.Text)){
+                    if (txt_limite.Text.Trim() != "" || !string.IsNullOrEmpty(txt_limite.Text))
+                    {
                         cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
                     }
                     cliente.Flete = txt_flete.Text;
@@ -220,22 +224,23 @@ namespace Omega3.Vista.Clientes
 
         private void combo_documento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(combo_documento.Text == "DNI")
+            if (combo_documento.Text == "DNI")
             {
-              //  cargar.Visible = false;
+                //  cargar.Visible = false;
                 txt_documento.Text = "";
                 txt_documento.Visible = true;
                 txt_cuit.Visible = false;
                 txt_documento.Focus();
             }
-            else { //cargar.Visible = true;
+            else
+            { //cargar.Visible = true;
                 txt_cuit.Text = "";
                 txt_documento.Visible = false;
                 txt_cuit.Visible = true;
                 txt_cuit.Focus();
             }
 
-            
+
 
         }
 
@@ -269,7 +274,7 @@ namespace Omega3.Vista.Clientes
 
 
 
-         }
+        }
 
         private void txt_documento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -279,8 +284,8 @@ namespace Omega3.Vista.Clientes
         private void CrearCliente_KeyDown(object sender, KeyEventArgs e)
         {
 
-       
-            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_provincia,combo_documento,combo_condicion,combo_lista))
+
+            if (e.KeyCode == Keys.Escape && ControladorFuncVariadas.comboBoxAbierto(combo_provincia, combo_documento, combo_condicion, combo_lista))
             {
                 this.Close();
             }
@@ -288,7 +293,7 @@ namespace Omega3.Vista.Clientes
 
         private void txt_telefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControladorFuncVariadas.validarSoloNumeros(sender,e);
+            ControladorFuncVariadas.validarSoloNumeros(sender, e);
         }
 
         private void txt_cod_postal_KeyPress(object sender, KeyPressEventArgs e)
@@ -299,7 +304,7 @@ namespace Omega3.Vista.Clientes
 
         private bool validarCampos()
         {
-            
+
             if (txt_direccion.Text.Trim() == "")
             {
                 MessageBox.Show("La dirección es obligatoria");
@@ -317,7 +322,7 @@ namespace Omega3.Vista.Clientes
                 return false;
             }
 
-            else if(combo_provincia.SelectedIndex == -1)
+            else if (combo_provincia.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar una provincia");
                 //lbl_provincia.ForeColor = Color.Red;
@@ -337,7 +342,8 @@ namespace Omega3.Vista.Clientes
                 //lbl_mail.ForeColor = Color.Red;
                 txt_mail_contacto.Focus();
                 return false;
-            }else if (txt_mail_contacto.Text.Trim() != "")
+            }
+            else if (txt_mail_contacto.Text.Trim() != "")
             {
                 if (!ControladorFuncVariadas.validarEmail(txt_mail_contacto.Text))
                 {
@@ -346,28 +352,22 @@ namespace Omega3.Vista.Clientes
                 }
             }
 
-      
-            else if(txt_razon_social.Text.Trim() == "")
+
+            else if (txt_razon_social.Text.Trim() == "")
             {
                 MessageBox.Show("La razón social es obligatoria");
                 //lbl_razon.ForeColor = Color.Red;
                 txt_razon_social.Focus();
                 return false;
             }
-            else if(txt_telefono.Text.Trim() == "")
+            else if (txt_telefono.Text.Trim() == "")
             {
                 MessageBox.Show("El telefono es obligatorio");
                 //lbl_telefono.ForeColor = Color.Red;
                 txt_telefono.Focus();
                 return false;
             }
-            else if (txt_cod_postal.Text.Trim() == "")
-            {
-                MessageBox.Show("El código postal es obligatorio");
-                //lbl_cod_postal.ForeColor = Color.Red;
-                txt_cod_postal.Focus();
-                return false;
-            }
+
             else if (txt_localidad.Text.Trim() == "")
             {
                 MessageBox.Show("El campo localidad es obligatorio");
@@ -375,7 +375,13 @@ namespace Omega3.Vista.Clientes
                 txt_localidad.Focus();
                 return false;
             }
-    
+            else if (txt_cod_postal.Text.Trim() == "" || string.IsNullOrEmpty(txt_cod_postal.Text.Trim()))
+            {
+                MessageBox.Show("El campo código postal es obligatorio");
+                txt_cod_postal.Focus();
+                return false;
+            }
+
 
 
             return true;
@@ -395,30 +401,31 @@ namespace Omega3.Vista.Clientes
 
         }
 
-        
+
     }
 
 
 
     public class Cliente_Json
     {
-        
+
         public string nombre { get; set; }
         public string tipoPersona { get; set; }
         public string tipoClave { get; set; }
         public DomicilioFiscal domicilioFiscal { get; set; }
 
-        public Cliente_Json() {
+        public Cliente_Json()
+        {
             this.nombre = "";
             this.tipoPersona = "";
             domicilioFiscal = new DomicilioFiscal();
-       
+
         }
 
     }
     public class datos
     {
-        public Cliente_Json data  { get; set; }
+        public Cliente_Json data { get; set; }
 
         public datos() { data = new Cliente_Json(); }
 
@@ -430,10 +437,10 @@ namespace Omega3.Vista.Clientes
         public long codPostal { get; set; }
         public int idProvincia { get; set; }
 
-    
+
 
 
     }
 
-  }
+}
 
