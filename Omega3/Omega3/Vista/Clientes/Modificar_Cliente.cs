@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using Omega3.Modelo;
 using Omega3.Controlador;
 
+
+//arreglar que no modifica clientes
+
 namespace Omega3.Vista.Clientes
 {
     public partial class Modificar_Cliente : Form
