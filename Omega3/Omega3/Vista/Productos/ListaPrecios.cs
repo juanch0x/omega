@@ -53,11 +53,30 @@ namespace Omega3.Vista.Productos
             precio.DataPropertyName = "Precio";
             precio.ReadOnly = true;
 
+            precio.HeaderText = "Stock";
+            precio.Name = "Stock";
+            precio.DataPropertyName = "Stock";
+            precio.ReadOnly = true;
+
+            precio.HeaderText = "Total";
+            precio.Name = "Total";
+            precio.DataPropertyName = "Total";
+            precio.ReadOnly = true;
+
+
+
             dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria,precio  });
 
+            String query;
+            if (listaprecio == 10)
+            {
+                query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1),precio_compra),2) as 'Precio',categoria as 'Categoria', cantidad as 'Stock', ROUND(if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1),precio_compra),2) * cantidad as 'Total' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
+            }
+            else
+            {
+                 query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.id_categoria<>1,if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1) * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1),precio_compra * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1)), precio_compra),2)as Precio,categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
+            }
 
-
-            string query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.id_categoria<>1,if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1) * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1),precio_compra * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1)), precio_compra),2)as Precio,categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
             ControlCliente.llenarListaClienteExcel(dgv_tabla, query);
         }
 
@@ -88,8 +107,14 @@ namespace Omega3.Vista.Productos
 
                 ws.Range[ws.Cells[1, 1], ws.Cells[3, 7]].Merge();
 
-
-                ws.Cells[1, 1] = "LISTA DE PRECIOS SIN IVA";
+                if (listaprecio == 10)
+                {
+                    ws.Cells[1, 1] = "STOCK";
+                }
+                else
+                {
+                    ws.Cells[1, 1] = "LISTA DE PRECIOS SIN IVA";
+                }
                 ws.Cells[1, 1].Font.Bold = true;
                 ws.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 ws.Cells[1, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;

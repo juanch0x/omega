@@ -783,13 +783,18 @@ namespace Omega3
 
         private void preciosNetosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(6); ;
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(6); 
                       
         }
 
         private void exportarListaClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Vista.Clientes.ExportarClientesExcel a = new Vista.Clientes.ExportarClientesExcel();
+        }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(10);
         }
     }
 

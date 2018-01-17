@@ -59,6 +59,7 @@ namespace Omega3
             this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.crearClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarClientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarListaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,7 @@ namespace Omega3
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarListaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,7 +131,8 @@ namespace Omega3
             this.listaDePreciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.distribuidoraToolStripMenuItem,
             this.ferreteriaYViverosToolStripMenuItem,
-            this.preciosNetosToolStripMenuItem});
+            this.preciosNetosToolStripMenuItem,
+            this.stockToolStripMenuItem});
             this.listaDePreciosToolStripMenuItem.Name = "listaDePreciosToolStripMenuItem";
             this.listaDePreciosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.listaDePreciosToolStripMenuItem.Text = "Lista de Precios";
@@ -303,6 +305,13 @@ namespace Omega3
             this.listarClientesToolStripMenuItem1.Text = "Listar Clientes";
             this.listarClientesToolStripMenuItem1.Click += new System.EventHandler(this.listarClientesToolStripMenuItem1_Click);
             // 
+            // exportarListaClientesToolStripMenuItem
+            // 
+            this.exportarListaClientesToolStripMenuItem.Name = "exportarListaClientesToolStripMenuItem";
+            this.exportarListaClientesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.exportarListaClientesToolStripMenuItem.Text = "Exportar Lista Clientes";
+            this.exportarListaClientesToolStripMenuItem.Click += new System.EventHandler(this.exportarListaClientesToolStripMenuItem_Click);
+            // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -357,12 +366,12 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // exportarListaClientesToolStripMenuItem
+            // stockToolStripMenuItem
             // 
-            this.exportarListaClientesToolStripMenuItem.Name = "exportarListaClientesToolStripMenuItem";
-            this.exportarListaClientesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.exportarListaClientesToolStripMenuItem.Text = "Exportar Lista Clientes";
-            this.exportarListaClientesToolStripMenuItem.Click += new System.EventHandler(this.exportarListaClientesToolStripMenuItem_Click);
+            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.stockToolStripMenuItem.Text = "Stock";
+            this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -428,6 +437,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem subDistribuidorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preciosNetosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarListaClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
     }
 }
 
