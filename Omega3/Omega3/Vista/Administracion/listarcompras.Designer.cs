@@ -162,7 +162,7 @@
             this.filtro_estado_venta.FormattingEnabled = true;
             this.filtro_estado_venta.Items.AddRange(new object[] {
             "Todos",
-            "Cobrado",
+            "Pagado",
             "Pendiente"});
             this.filtro_estado_venta.Location = new System.Drawing.Point(567, 8);
             this.filtro_estado_venta.Name = "filtro_estado_venta";
