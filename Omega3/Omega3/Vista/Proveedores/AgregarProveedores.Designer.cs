@@ -92,6 +92,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel16 = new System.Windows.Forms.Panel();
             this.txt_email = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
             this.txt_telefono3 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -110,6 +111,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.txt_nombre2 = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
             this.lbl_proveedor = new System.Windows.Forms.Label();
             this.lbl_provincia = new System.Windows.Forms.Label();
             this.lbl_codigo_postal = new System.Windows.Forms.Label();
@@ -126,8 +128,6 @@
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
@@ -256,7 +256,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 26);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(756, 501);
+            this.tabPage6.Size = new System.Drawing.Size(695, 456);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Otros";
             // 
@@ -413,7 +413,7 @@
             this.tabPage4.Controls.Add(this.panel11);
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(756, 501);
+            this.tabPage4.Size = new System.Drawing.Size(695, 456);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pago";
             // 
@@ -531,7 +531,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(756, 501);
+            this.tabPage3.Size = new System.Drawing.Size(695, 456);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Calidad";
             // 
@@ -695,13 +695,13 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(695, 456);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Transporte";
+            this.tabPage2.Text = "Empresa";
             // 
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(99, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(101, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(501, 10);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -958,11 +958,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(117, 3);
+            this.label1.Location = new System.Drawing.Point(212, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(464, 22);
+            this.label1.Size = new System.Drawing.Size(278, 22);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ASPECTOS DEL TRANSPORTE COMO EMPRESA";
+            this.label1.Text = "ASPECTOS DE LA EMPRESA";
             // 
             // tabPage1
             // 
@@ -1014,6 +1014,16 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(184, 22);
             this.txt_email.TabIndex = 6;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(3, 5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(181, 22);
+            this.label31.TabIndex = 50;
+            this.label31.Text = "Datos de Contacto";
             // 
             // lbl_email
             // 
@@ -1187,6 +1197,16 @@
             this.panel15.Size = new System.Drawing.Size(672, 153);
             this.panel15.TabIndex = 34;
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(3, 5);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(200, 22);
+            this.label32.TabIndex = 51;
+            this.label32.Text = "Datos del Proveedor";
+            // 
             // lbl_proveedor
             // 
             this.lbl_proveedor.AutoSize = true;
@@ -1352,26 +1372,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(703, 486);
             this.tabControl1.TabIndex = 15;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(3, 5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(181, 22);
-            this.label31.TabIndex = 50;
-            this.label31.Text = "Datos de Contacto";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(3, 5);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(200, 22);
-            this.label32.TabIndex = 51;
-            this.label32.Text = "Datos del Proveedor";
             // 
             // AgregarProveedores
             // 
