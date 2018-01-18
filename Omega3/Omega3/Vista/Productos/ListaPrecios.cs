@@ -31,6 +31,9 @@ namespace Omega3.Vista.Productos
             var producto = new DataGridViewTextBoxColumn();
             var categoria = new DataGridViewTextBoxColumn();
             var precio = new DataGridViewTextBoxColumn();
+            var stock = new DataGridViewTextBoxColumn();
+            var total = new DataGridViewTextBoxColumn();
+
 
             cod_producto.HeaderText = "Cod Producto";
             cod_producto.Name = "Cod Producto";
@@ -53,19 +56,19 @@ namespace Omega3.Vista.Productos
             precio.DataPropertyName = "Precio";
             precio.ReadOnly = true;
 
-            precio.HeaderText = "Stock";
-            precio.Name = "Stock";
-            precio.DataPropertyName = "Stock";
-            precio.ReadOnly = true;
+            stock.HeaderText = "Stock";
+            stock.Name = "Stock";
+            stock.DataPropertyName = "Stock";
+            stock.ReadOnly = true;
 
-            precio.HeaderText = "Total";
-            precio.Name = "Total";
-            precio.DataPropertyName = "Total";
-            precio.ReadOnly = true;
+            total.HeaderText = "Total";
+            total.Name = "Total";
+            total.DataPropertyName = "Total";
+            total.ReadOnly = true;
 
 
 
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria,precio  });
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria, precio,stock,total });
 
             String query;
             if (listaprecio == 10)
@@ -74,7 +77,7 @@ namespace Omega3.Vista.Productos
             }
             else
             {
-                 query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.id_categoria<>1,if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1) * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1),precio_compra * (((SELECT	valor from markup where id= " + listaprecio + ")/100)+1)), precio_compra),2)as Precio,categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
+                query = "SELECT cod_producto AS 'Cod Producto',producto as Producto,ROUND(if(productos.id_categoria<>1,if(productos.dolar = 1,precio_compra * (SELECT valor from valor_dolar where id = 1) * (((SELECT valor from markup where id= " + listaprecio + ")/100)+1),precio_compra * (((SELECT  valor from markup where id= " + listaprecio + ")/100)+1)), precio_compra),2)as Precio,categoria as 'Categoria' FROM productos LEFT JOIN categoria_producto on productos.id_categoria = categoria_producto.id";
             }
 
             ControlCliente.llenarListaClienteExcel(dgv_tabla, query);
@@ -91,8 +94,8 @@ namespace Omega3.Vista.Productos
             Cursor.Current = Cursors.WaitCursor;
             Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
             Excel.Interactive = false;
-            
-            
+
+
             try
             {
 
@@ -102,29 +105,38 @@ namespace Omega3.Vista.Productos
                 Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
                 Worksheet ws = (Worksheet)Excel.ActiveSheet;
                 Excel.WindowState = XlWindowState.xlMaximized;
+                Microsoft.Office.Interop.Excel.Range cabecera = null;
 
 
 
-                ws.Range[ws.Cells[1, 1], ws.Cells[3, 7]].Merge();
+
 
                 if (listaprecio == 10)
                 {
                     ws.Cells[1, 1] = "STOCK";
+                    ws.Range[ws.Cells[1, 1], ws.Cells[3, 9]].Merge();
+                    ws.Range[ws.Cells[4, 1], ws.Cells[4, 9]].Merge();
+                    cabecera = ws.get_Range("a1", "i4");
+
+
                 }
                 else
                 {
                     ws.Cells[1, 1] = "LISTA DE PRECIOS SIN IVA";
+                    ws.Range[ws.Cells[1, 1], ws.Cells[3, 7]].Merge();
+                    ws.Range[ws.Cells[4, 1], ws.Cells[4, 7]].Merge();
+                    cabecera = ws.get_Range("a1", "g4");
                 }
                 ws.Cells[1, 1].Font.Bold = true;
                 ws.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 ws.Cells[1, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
                 ws.Cells[1, 1].Font.Size = 20;
 
-                Microsoft.Office.Interop.Excel.Range cabecera = ws.get_Range("a1", "g4");
+
                 cabecera.BorderAround2();
                 cabecera.Interior.Color = Color.White;
 
-                ws.Range[ws.Cells[4, 1], ws.Cells[4, 7]].Merge();
+
                 ws.Cells[4, 1] = "Fecha : " + DateTime.Now.Date.ToString("dd/MM/yyyy");
                 ws.Cells[4, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 ws.Cells[4, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
@@ -159,7 +171,7 @@ namespace Omega3.Vista.Productos
                 email.BorderAround2();
                 email.Interior.Color = Color.White;
 
-                
+
                 ws.Cells[5, 7] = "Precio";
                 ws.Cells[5, 7].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 ws.Cells[5, 7].VerticalAlignment = XlVAlign.xlVAlignCenter;
@@ -167,6 +179,27 @@ namespace Omega3.Vista.Productos
                 Microsoft.Office.Interop.Excel.Range precio = ws.get_Range("g5", "g5");
                 precio.BorderAround2();
                 precio.Interior.Color = Color.White;
+
+                if (listaprecio == 10)
+                {
+
+                    ws.Cells[5, 8] = "Stock";
+                    ws.Cells[5, 8].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    ws.Cells[5, 8].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    ws.Cells[5, 8].Font.Bold = true;
+                    Microsoft.Office.Interop.Excel.Range stock = ws.get_Range("h5", "h5");
+                    stock.BorderAround2();
+                    stock.Interior.Color = Color.White;
+
+
+                    ws.Cells[5, 9] = "Total";
+                    ws.Cells[5, 9].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    ws.Cells[5, 9].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    ws.Cells[5, 9].Font.Bold = true;
+                    Microsoft.Office.Interop.Excel.Range total = ws.get_Range("i5", "i5");
+                    total.BorderAround2();
+                    total.Interior.Color = Color.White;
+                }
 
 
                 int fila = 6;
@@ -178,7 +211,7 @@ namespace Omega3.Vista.Productos
 
                         if (j == 0)
                         {
-                            
+
                             ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells[j].Value;
                             AllBorders(ws.Cells[fila, 1].Borders);
                             //ws.Cells[fila, 1].Color = Color.White;
@@ -198,13 +231,13 @@ namespace Omega3.Vista.Productos
                             ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Merge();
                             ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells[j].Value;
                             AllBorders(ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Borders);
-                           // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
+                            // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
 
 
                         }
                         else if (j == 2)
                         {
-                            
+
                             ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells[j].Value;
                             AllBorders(ws.Cells[fila, 7].Borders);
                             //ws.Cells[fila, 7].Color = Color.White;
@@ -222,7 +255,7 @@ namespace Omega3.Vista.Productos
 
 
                 //AllBorders(ws.get_Range("a1", "zz9999").Borders);
-                
+
                 ws.Columns[7].NumberFormat = "$ #.###,00";
 
                 Excel.Interactive = true;
