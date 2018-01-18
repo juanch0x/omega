@@ -321,10 +321,13 @@ namespace Omega3.Vista.Venta
             string valor_producto = combo_producto.Text;
             Decimal valor_iva = Convert.ToDecimal(combo_iva.Text);
             Decimal valor_iva_cero = valor_iva;
-            if (valor_iva == 0) { valor_iva_cero = 1; }
+            //if (valor_iva == 0) { valor_iva_cero = 1; }
             Decimal valor_precio = Convert.ToDecimal(txt_ventas_precio.Text);
             Decimal valor_lista = Convert.ToDecimal(lbl_lista.Text);
             Decimal valor_subtotal = Convert.ToDecimal(txt_ventas_subtotal.Text);
+
+            MessageBox.Show(txt_ventas_subtotal.Text);
+            MessageBox.Show(Convert.ToDecimal(combo_iva.Text).ToString());
 
             Producto a = new Producto();
             bool aux = false;
@@ -341,68 +344,6 @@ namespace Omega3.Vista.Venta
                         aux = true;
                         calcularSubtotal();
 
-                        /* aux = true;
-                         if (producto.Cantidad >= valor_cantidad)
-                         {
-                             producto.Cantidad = producto.Cantidad - valor_cantidad;
-                             dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, valor_codigo, valor_producto, valor_precio.ToString(), combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
-                             MessageBox.Show("Test");
-                             calcularTotalVenta();
-
-
-                             listado_articulos.Add(new Detalle_Facturante
-                             {
-                                 elemento = elemento_clase,
-                                 Bonificacion = valor_bonificacion,
-                                 cantidad = valor_cantidad,
-                                 codigo = valor_codigo.ToString(),
-                                 detalle = valor_producto,
-                                 gravado = true,
-                                 iva = valor_iva,
-                                 precio_unitario = valor_precio * (valor_lista / 100 + 1),
-                                 total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-
-                             });
-                             elemento_clase++;
-                             limpiarCamposCabecera();
-                         }
-                         else
-                         {
-                             DialogResult dialogresult = MessageBox.Show("\t No se dispone del stock suficiente\n ¿Desea agregar el producto a la venta de todas maneras?",
-                                 "¡Alerta!",
-                                     MessageBoxButtons.YesNoCancel,
-                                     MessageBoxIcon.Exclamation,
-                                     MessageBoxDefaultButton.Button1);
-
-                             if (dialogresult == DialogResult.Yes)
-                             {
-
-                                 producto.Cantidad = producto.Cantidad - valor_cantidad;
-                                 dgv_tabla.Rows.Add(txt_ventas_cantidad.Text, valor_codigo, valor_producto, txt_ventas_precio.Text, combo_iva.Text, txt_ventas_subtotal.Text, txt_ventas_lista.Text, null, Convert.ToString(elemento_clase));
-                                 calcularTotalVenta();
-
-
-                                 listado_articulos.Add(new Detalle_Facturante
-                                 {
-                                     elemento = elemento_clase,
-                                     Bonificacion = valor_bonificacion,
-                                     cantidad = valor_cantidad,
-                                     codigo = valor_codigo.ToString(),
-                                     detalle = valor_producto,
-                                     gravado = true,
-                                     iva = valor_iva,
-                                     precio_unitario = valor_precio * (valor_lista / 100 + 1),
-                                     total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-                                 });
-                                 elemento_clase++;
-                                 limpiarCamposCabecera();
-                             }
-                             else if (dialogresult == DialogResult.No)
-                             {
-                                 MessageBox.Show("El producto no fue agregado");
-                             }
-                         }
- */
 
                     }
 
@@ -429,8 +370,8 @@ namespace Omega3.Vista.Venta
                             iva = valor_iva,
                             /*precio_unitario = valor_precio * (valor_lista / 100 + 1),
                             total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)*/
-                            precio_unitario = valor_precio,
-                            total = valor_subtotal / valor_iva_cero
+                            precio_unitario = (valor_subtotal/(valor_iva_cero/100+1))/valor_cantidad,
+                            total = valor_subtotal / (valor_iva_cero/100+1)
 
 
 
@@ -463,8 +404,8 @@ namespace Omega3.Vista.Venta
                                 iva = valor_iva,
                                 //precio_unitario = valor_precio * (valor_lista / 100 + 1),
                                 //total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
-                                precio_unitario = valor_precio,
-                                total = valor_subtotal / valor_iva_cero
+                                precio_unitario = (valor_subtotal / (valor_iva_cero/100+1)) / valor_cantidad,
+                                total = valor_subtotal / (valor_iva_cero/100+1)
 
 
 
