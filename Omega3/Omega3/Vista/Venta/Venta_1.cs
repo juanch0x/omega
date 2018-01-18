@@ -320,9 +320,11 @@ namespace Omega3.Vista.Venta
             int valor_cantidad = Convert.ToInt32(txt_ventas_cantidad.Text);
             string valor_producto = combo_producto.Text;
             Decimal valor_iva = Convert.ToDecimal(combo_iva.Text);
+            Decimal valor_iva_cero = valor_iva;
+            if (valor_iva == 0) { valor_iva_cero = 1; }
             Decimal valor_precio = Convert.ToDecimal(txt_ventas_precio.Text);
             Decimal valor_lista = Convert.ToDecimal(lbl_lista.Text);
-
+            Decimal valor_subtotal = Convert.ToDecimal(txt_ventas_subtotal.Text);
 
             Producto a = new Producto();
             bool aux = false;
@@ -425,8 +427,13 @@ namespace Omega3.Vista.Venta
                             detalle = valor_producto,
                             gravado = true,
                             iva = valor_iva,
-                            precio_unitario = valor_precio * (valor_lista / 100 + 1),
-                            total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                            /*precio_unitario = valor_precio * (valor_lista / 100 + 1),
+                            total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)*/
+                            precio_unitario = valor_precio,
+                            total = valor_subtotal / valor_iva_cero
+
+
+
                         });
                         elemento_clase++;
                         limpiarCamposCabecera();
@@ -454,8 +461,13 @@ namespace Omega3.Vista.Venta
                                 detalle = valor_producto,
                                 gravado = true,
                                 iva = valor_iva,
-                                precio_unitario = valor_precio * (valor_lista / 100 + 1),
-                                total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                                //precio_unitario = valor_precio * (valor_lista / 100 + 1),
+                                //total = valor_precio * (valor_lista / 100 + 1) * Convert.ToDecimal(txt_ventas_cantidad.Text)
+                                precio_unitario = valor_precio,
+                                total = valor_subtotal / valor_iva_cero
+
+
+
                             });
                             elemento_clase++;
                             limpiarCamposCabecera();

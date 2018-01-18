@@ -188,7 +188,7 @@ namespace Omega3.Controlador
             {
 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                    "SELECT producto, IF(dolar = 1, round(precio_compra * (SELECT valor FROM valor_dolar),2), precio_compra) as precio_venta, cantidad FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
+                    "SELECT producto, IF(dolar = 1, round(precio_compra * (SELECT valor FROM valor_dolar),2), precio_compra) as precio_venta, cantidad, id_categoria FROM productos WHERE cod_producto = {0}", cod), Conexion.ObtenerConexion());
 
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
@@ -197,6 +197,7 @@ namespace Omega3.Controlador
                     a.Precio_venta = decimal.Parse(_reader.GetString(1));
                     a.Nombre_producto = _reader.GetString(0);
                     a.Cantidad = Convert.ToInt32(_reader.GetString(2));
+                    a.Categoria = Convert.ToInt32(_reader.GetInt32(3));
 
 
                 }

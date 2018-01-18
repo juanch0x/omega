@@ -85,6 +85,7 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -466,6 +467,7 @@
             // tab_venta
             // 
             this.tab_venta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab_venta.Controls.Add(this.label8);
             this.tab_venta.Controls.Add(this.btn_presupuesto);
             this.tab_venta.Controls.Add(this.label5);
             this.tab_venta.Controls.Add(this.lbl_ventas_total);
@@ -748,6 +750,15 @@
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1036, 472);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "label8";
+            // 
             // Venta_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -841,5 +852,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_remito;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
     }
 }
