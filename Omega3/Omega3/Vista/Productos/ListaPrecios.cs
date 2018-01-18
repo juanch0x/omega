@@ -67,8 +67,14 @@ namespace Omega3.Vista.Productos
             total.ReadOnly = true;
 
 
-
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria, precio,stock,total });
+            if (listaprecio == 10)
+            {
+                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria, precio,stock,total });
+            }
+            else
+            {
+                dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { cod_producto, producto, categoria, precio });
+            }
 
             String query;
             if (listaprecio == 10)
@@ -203,10 +209,11 @@ namespace Omega3.Vista.Productos
 
 
                 int fila = 6;
-
+                int columnas;
+                if (listaprecio == 10) { columnas = 6; } else { columnas = 4; }
                 for (int i = 0; i < dgv_tabla.Rows.Count; i++)
                 {
-                    for (int j = 0; j < 4; j++)
+                    for (int j = 0; j < columnas; j++)
                     {
 
                         if (j == 0)
@@ -242,6 +249,16 @@ namespace Omega3.Vista.Productos
                             AllBorders(ws.Cells[fila, 7].Borders);
                             //ws.Cells[fila, 7].Color = Color.White;
                         }
+                        else if (j == 4)
+                        {
+                            ws.Cells[fila, 8] = dgv_tabla.Rows[i].Cells[j].Value;
+                            AllBorders(ws.Cells[fila, 8].Borders);
+                        }
+                        else if (j == 5)
+                        {
+                            ws.Cells[fila, 9] = dgv_tabla.Rows[i].Cells[j].Value;
+                            AllBorders(ws.Cells[fila, 9].Borders);
+                        }
 
                     }
 
@@ -258,13 +275,17 @@ namespace Omega3.Vista.Productos
 
                 ws.Columns[7].NumberFormat = "$ #.###,00";
 
+                if(listaprecio == 10) { ws.Columns[9].NumberFormat = "$ #.###,00"; }
+
                 Excel.Interactive = true;
                 Excel.Visible = true;
             }
 
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
             finally { Cursor.Current = Cursors.Default; }
+            
         }
+        
 
         private void AllBorders(Borders _borders)
         {
