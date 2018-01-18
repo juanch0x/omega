@@ -159,7 +159,8 @@ namespace Omega3.Controlador
                 article.Cantidad = Convert.ToInt32(row.Cells[0].Value);
                 article.Cod = Convert.ToString(row.Cells[1].Value);
                 article.Descripcion = Convert.ToString(row.Cells[2].Value);
-                article.Precio = Convert.ToDecimal(row.Cells[3].Value);
+                //article.Precio = ((Convert.ToDecimal(row.Cells[5].Value)) / (Convert.ToInt32(row.Cells[4].Value) / 100 + 1)) / Convert.ToInt32(row.Cells[0].Value);
+                article.Precio = ((Convert.ToDecimal(row.Cells[5].Value)) / Convert.ToInt32(row.Cells[0].Value));
                 article.Lista = Convert.ToInt32(row.Cells[4].Value);
                 article.subtotal = Convert.ToDecimal(row.Cells[5].Value);
                 Cabecera.Total += article.subtotal;
