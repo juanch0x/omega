@@ -66,6 +66,7 @@ namespace Omega3.Vista.Clientes
                         cliente.Maximo_credito = Convert.ToDecimal(txt_limite.Text);
                     }
 
+                    
 
                     if (Controlador.ControlCliente.ModificarCliente(cliente) == 1)
                     {

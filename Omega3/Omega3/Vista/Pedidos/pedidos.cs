@@ -39,6 +39,7 @@ namespace Omega3.Vista.Pedidos
 
             //Pongo el boton al fondo 
                 dgv_tabla.Columns[0].DisplayIndex = 9; // or 1, 2, 3 etc
+            dgv_tabla.Columns[3].Visible = false;
             ControlPedidos.ModificarValoresTabla(dgv_tabla);
             ControlPedidos.administrarImagendgv(dgv_tabla);
 

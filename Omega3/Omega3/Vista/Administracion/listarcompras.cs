@@ -16,7 +16,7 @@ namespace Omega3.Vista.Administracion
         public listarcompras()
         {
             InitializeComponent();
-
+            
         }
 
         private void calcularTamanio()
@@ -36,6 +36,8 @@ namespace Omega3.Vista.Administracion
         {
             Omega3.Controlador.ControlCompras.construirTablacomprasrealizadas(dgv_tabla);
             calcularTamanio();
+            txt_desde.Value = DateTime.Now.Date;
+            txt_hasta.Value = DateTime.Now.Date;
         }
 
         private void dgv_tabla_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -134,7 +136,8 @@ namespace Omega3.Vista.Administracion
 
             string query = filtro_estado + filtro_razon + filtro_nfactura + filtro_fecha;
 
-            dt.DefaultView.RowFilter = query;
+             dt.DefaultView.RowFilter = query;
+           // dt.DefaultView.RowFilter = filtro_estado;
             dgv_tabla.Refresh();
 
         }

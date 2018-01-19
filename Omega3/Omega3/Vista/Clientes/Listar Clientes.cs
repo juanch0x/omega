@@ -35,8 +35,8 @@ namespace Omega3.Vista.Clientes
 
                 Modificar_Cliente b = new Modificar_Cliente(cliente);
                 b.ShowDialog();
+                ControlCliente.ListarClientes(dgv_tabla);
 
-                
 
             }
         }

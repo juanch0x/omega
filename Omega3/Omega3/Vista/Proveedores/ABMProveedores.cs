@@ -66,12 +66,12 @@ namespace Omega3.Vista.Proveedores
 
             if (tabla_proveedores.SelectedRows.Count > 0)
             {
-
+                
                 Omega3.Modelo.Proveedor proveedor = new Modelo.Proveedor();
                 proveedor.Id_proveedor = Convert.ToInt32(Convert.ToString(tabla_proveedores.CurrentRow.Cells[0].Value));
                 proveedor.Nombre_proveedor = Convert.ToString(tabla_proveedores.CurrentRow.Cells[1].Value);
-                proveedor.Direccion = Convert.ToString(tabla_proveedores.CurrentRow.Cells[2].Value);
-                proveedor.Provincia = Convert.ToString(tabla_proveedores.CurrentRow.Cells[3].Value);
+                proveedor.Direccion = Convert.ToString(tabla_proveedores.CurrentRow.Cells[3].Value);
+                proveedor.Provincia = Convert.ToString(tabla_proveedores.CurrentRow.Cells[2].Value);
                 proveedor.Telefono = long.Parse(Convert.ToString(tabla_proveedores.CurrentRow.Cells[4].Value));
                 proveedor.Email = Convert.ToString(tabla_proveedores.CurrentRow.Cells[5].Value);
 
