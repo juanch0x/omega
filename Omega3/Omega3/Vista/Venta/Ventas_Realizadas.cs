@@ -319,5 +319,10 @@ namespace Omega3.Vista.Venta
 
 
         }
+
+        private void btn_exportar_Click(object sender, EventArgs e)
+        {
+            ControlVentas.armarExcelVentasRealizadas(dgv_tabla);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
@@ -55,7 +56,7 @@ namespace Omega3.Controlador
                 e.Handled = true;
 
             if (e.KeyChar == '.'
-             && (sender as TextBox).Text.IndexOf('.') > -1)
+             && (sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
@@ -145,7 +146,7 @@ namespace Omega3.Controlador
             return true;
         }
 
-        public static bool validarTextBoxVacios(params TextBox[] lista)
+        public static bool validarTextBoxVacios(params System.Windows.Forms.TextBox[] lista)
         {
             for(int i = 0; i<lista.Length; i++)
             {
@@ -177,7 +178,7 @@ namespace Omega3.Controlador
             return true;
         }
 
-        public static void limpiarTextBox(params TextBox[] lista)
+        public static void limpiarTextBox(params System.Windows.Forms.TextBox[] lista)
         {
             for (int i = 0; i < lista.Length; i++)
                 lista[i].Text = "";
@@ -210,11 +211,11 @@ namespace Omega3.Controlador
             
         }
 
-        public static void cambiarVisibilidadBoton(bool estado,params Button[] botones)
+        public static void cambiarVisibilidadBoton(bool estado,params System.Windows.Forms.Button[] botones)
 
         {
 
-            foreach(Button btn in botones)
+            foreach(System.Windows.Forms.Button btn in botones)
             {
 
                 btn.Visible = estado;
@@ -224,17 +225,17 @@ namespace Omega3.Controlador
 
         }
 
-        public static void cambiarVisibilidadLabel(bool estado,params Label[] etiquetas)
+        public static void cambiarVisibilidadLabel(bool estado,params System.Windows.Forms.Label[] etiquetas)
         {
-            foreach (Label label in etiquetas)
+            foreach (System.Windows.Forms.Label label in etiquetas)
             {
                 label.Visible = estado;
             }
         }
 
-        public static void cambiarVisibilidadTextBox(bool estado,params TextBox[] textbox) {
+        public static void cambiarVisibilidadTextBox(bool estado,params System.Windows.Forms.TextBox[] textbox) {
 
-            foreach(TextBox txt in textbox)
+            foreach(System.Windows.Forms.TextBox txt in textbox)
             {
                 txt.Visible = estado;
             }
@@ -259,6 +260,17 @@ namespace Omega3.Controlador
 
             return filter;
         }
+
+        //Bordes para agregar a los archivos exportados a excel.
+        private void AllBorders(Borders _borders)
+        {
+            _borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+            _borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+            _borders.Color = Color.Black;
+        }
+
 
     }
 

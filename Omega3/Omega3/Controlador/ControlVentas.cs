@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+using System.Drawing;
 
 namespace Omega3.Controlador
 {
@@ -22,7 +24,7 @@ namespace Omega3.Controlador
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
 
             MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             da1.Fill(dt);
 
             combo.ValueMember = "id";
@@ -39,7 +41,7 @@ namespace Omega3.Controlador
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
 
             MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             da1.Fill(dt);
 
             combo.ValueMember = "id";
@@ -55,7 +57,7 @@ namespace Omega3.Controlador
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
 
             MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             da1.Fill(dt);
 
             combo.ValueMember = "id";
@@ -68,7 +70,7 @@ namespace Omega3.Controlador
             string query = "SELECT cod_producto, producto FROM productos";
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
             MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             da1.Fill(dt);
 
             combo.ValueMember = "cod_producto";
@@ -348,7 +350,7 @@ namespace Omega3.Controlador
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
 
             MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             da1.Fill(dt);
 
             combo.ValueMember = "tipo_facturante";
@@ -373,7 +375,7 @@ namespace Omega3.Controlador
 
                 MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
 
-                DataTable table = new DataTable();
+                System.Data.DataTable table = new System.Data.DataTable();
                 MyDA.Fill(table);
 
                 BindingSource bSource = new BindingSource();
@@ -691,7 +693,7 @@ try {
 
                 MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Conexion.ObtenerConexion());
 
-                DataTable table = new DataTable();
+                System.Data.DataTable table = new System.Data.DataTable();
                 MyDA.Fill(table);
 
                 BindingSource bSource = new BindingSource();
@@ -728,10 +730,195 @@ try {
         }
 
 
+        public static void armarExcelVentasRealizadas(DataGridView dgv_tabla)
+        {
+
+            Cursor.Current = Cursors.WaitCursor;
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Interactive = false;
+
+
+            try
+            {
+
+
+                Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+                Worksheet ws = (Worksheet)Excel.ActiveSheet;
+                Excel.WindowState = XlWindowState.xlMaximized;
+                Microsoft.Office.Interop.Excel.Range cabecera = null;
+
+                
+               
+               ws.Cells[1, 1] = "Ventas Realizadas";
+               ws.Range[ws.Cells[1, 1], ws.Cells[3, 11]].Merge();
+               cabecera = ws.get_Range("a1", "k3");
+
+
+                ws.Cells[1, 1].Font.Bold = true;
+                ws.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[1, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[1, 1].Font.Size = 20;
+
+
+                cabecera.BorderAround2();
+                cabecera.Interior.Color = Color.White;
+
+
+                ws.Range[ws.Cells[4, 1], ws.Cells[4, 2]].Merge();
+                ws.Cells[4, 1] = "Razón Social";
+                ws.Cells[4, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 1].Font.Bold = true;
+
+                Microsoft.Office.Interop.Excel.Range razon = ws.get_Range("a4", "b4");
+                razon.BorderAround2();
+                razon.Interior.Color = Color.White;
+
+                                
+                ws.Cells[4, 3] = "Nro Factura";
+                ws.Cells[4, 3].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 3].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 3].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range nrofactura = ws.get_Range("c4", "c4");
+                nrofactura.BorderAround2();
+                nrofactura.Interior.Color = Color.White;
+
+                ws.Cells[4, 4] = "Tipo";
+                ws.Cells[4, 4].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 4].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 4].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range tipo = ws.get_Range("d4", "d4");
+                tipo.BorderAround2();
+                tipo.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 5] = "Remito";
+                ws.Cells[4, 5].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 5].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 5].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range remito = ws.get_Range("e4", "e4");
+                remito.BorderAround2();
+                remito.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 6] = "Total";
+                ws.Cells[4, 6].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 6].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 6].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range total = ws.get_Range("f4", "f4");
+                total.BorderAround2();
+                total.Interior.Color = Color.White;
+
+                ws.Cells[4, 7] = "Fecha";
+                ws.Cells[4, 7].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 7].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 7].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range fecha = ws.get_Range("g4", "g4");
+                fecha.BorderAround2();
+                fecha.Interior.Color = Color.White;
+
+                ws.Cells[4, 8] = "Vencimiento";
+                ws.Cells[4, 8].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 8].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 8].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range vencimiento = ws.get_Range("h4", "h4");
+                vencimiento.BorderAround2();
+                vencimiento.Interior.Color = Color.White;
+
+
+                //********************
+                //Empiezo por cantidad
+                //********************
+
+                /*    int fila = 5;
+                    int columnas;
+                    if (listaprecio == 10) { columnas = 6; } else { columnas = 4; }
+                    for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < columnas; j++)
+                        {
+
+                            if (j == 0)
+                            {
+
+                                ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Cells[fila, 1].Borders);
+                                //ws.Cells[fila, 1].Color = Color.White;
+
+                            }
+                            else if (j == 1)
+                            {
+                                ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Merge();
+                                ws.Cells[fila, 2] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Borders);
+                                //ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Color = Color.White;
+
+                            }
+                            else if (j == 3)
+                            {
+
+                                ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Merge();
+                                ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Borders);
+                                // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
+
+
+                            }
+                            else if (j == 2)
+                            {
+
+                                ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Cells[fila, 7].Borders);
+                                //ws.Cells[fila, 7].Color = Color.White;
+                            }
+                            else if (j == 4)
+                            {
+                                ws.Cells[fila, 8] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Cells[fila, 8].Borders);
+                            }
+                            else if (j == 5)
+                            {
+                                ws.Cells[fila, 9] = dgv_tabla.Rows[i].Cells[j].Value;
+                                AllBorders(ws.Cells[fila, 9].Borders);
+                            }
+
+                        }
+
+
+                        fila++;
+                    }
+                    ws.Columns[2].NumberFormat = "######";
+
+                    //ws.Range("A1:F20").Borders.LineStyle = xlContinuous
+
+
+
+                    //AllBorders(ws.get_Range("a1", "zz9999").Borders);
+
+                    ws.Columns[7].NumberFormat = "$ #.###,00";
+
+       */
+
+                Excel.Interactive = true;
+                Excel.Visible = true;
+                 
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            finally { Cursor.Current = Cursors.Default; }
+
+        }
+
+
+ 
+    
+    }
+
+
     }
 
 
 
 
-    }
+    
 
