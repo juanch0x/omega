@@ -135,7 +135,7 @@ namespace Omega3.Controlador
             cliente.Documento = documento;
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
-               "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva,lista,cod_provincia FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
+               "SELECT tipo_documento, razon_social, direccion, telefono, provincia_nombre, localidad, cod_postal, contacto, mail_contacto, mail_factura, impositiva,lista,cod_provincia,maximo_credito,demora,flete,nombre1,nombre2,nombre3,email1,email2,email3,telefono1,telefono2,telefono3 FROM cliente INNER JOIN provincia ON cliente.cod_provincia = provincia.id WHERE documento = {0}", documento), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
@@ -153,6 +153,21 @@ namespace Omega3.Controlador
                 cliente.Lista = _reader.GetInt32(11);
                 cliente.Cod_provincia = _reader.GetInt32(12);
 
+                cliente.Maximo_credito = _reader.GetDecimal(13);
+                cliente.Plazo = _reader.GetString(14);
+                cliente.Flete = _reader.GetString(15);
+
+                cliente.Nombre1 = _reader.GetString(16);
+                cliente.Nombre2 = _reader.GetString(17);
+                cliente.Nombre3 = _reader.GetString(18);
+
+                cliente.Email1 = _reader.GetString(19);
+                cliente.Email2 = _reader.GetString(20);
+                cliente.Email3 = _reader.GetString(21);
+
+                cliente.Telefono1 = _reader.GetString(22);
+                cliente.Telefono2 = _reader.GetString(23);
+                cliente.Telefono3 = _reader.GetString(24);
             }
 
 

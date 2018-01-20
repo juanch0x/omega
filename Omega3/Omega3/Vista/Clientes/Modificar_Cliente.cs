@@ -51,7 +51,7 @@ namespace Omega3.Vista.Clientes
                     cliente.Impositiva = Convert.ToString(combo_condicion.SelectedValue);
 
                     cliente.Nombre1 = txt_nombre1.Text;
-                    cliente.Nombre1 = txt_nombre2.Text;
+                    cliente.Nombre2 = txt_nombre2.Text;
                     cliente.Nombre3 = txt_nombre3.Text;
                     cliente.Email1 = txt_email1.Text;
                     cliente.Email2 = txt_email2.Text;
@@ -106,6 +106,24 @@ namespace Omega3.Vista.Clientes
             txt_mail_contacto.Text = cliente.Mail_contacto;
             combo_lista.SelectedValue = cliente.Lista;
             combo_condicion.SelectedValue = cliente.Impositiva_Id;
+
+            txt_limite.Text = Convert.ToString(cliente.Maximo_credito);
+            txt_plazo.Text = cliente.Plazo;
+            txt_flete.Text = cliente.Flete;
+
+            txt_nombre1.Text = cliente.Nombre1;
+            txt_nombre2.Text = cliente.Nombre2;
+            txt_nombre3.Text = cliente.Nombre3;
+
+            txt_email1.Text = cliente.Email1;
+            txt_email2.Text = cliente.Email2;
+            txt_email3.Text = cliente.Email3;
+
+            txt_telefono1.Text = cliente.Telefono1;
+            txt_telefono2.Text = cliente.Telefono2;
+            txt_telefono3.Text = cliente.Telefono3;
+
+
         }
     }
 }
