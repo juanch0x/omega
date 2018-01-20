@@ -322,6 +322,7 @@ namespace Omega3.Vista.Venta
 
         private void btn_exportar_Click(object sender, EventArgs e)
         {
+//            MessageBox.Show(dgv_tabla.Rows[1].Cells["Cobrada"].Value.ToString());
             ControlVentas.armarExcelVentasRealizadas(dgv_tabla);
         }
     }

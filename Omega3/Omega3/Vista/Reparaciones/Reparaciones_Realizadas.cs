@@ -291,5 +291,10 @@ namespace Omega3.Vista.Reparaciones
 
             
         }
+
+        private void btn_exportar_excel_Click(object sender, EventArgs e)
+        {
+            ControlReparaciones.armarExcelReparacionesRealizadas(dgv_tabla);
+        }
     }
 }
