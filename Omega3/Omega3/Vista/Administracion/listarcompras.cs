@@ -196,5 +196,12 @@ namespace Omega3.Vista.Administracion
         {
             crearFiltro();
         }
+
+        private void btn_exportar_Click(object sender, EventArgs e)
+        {
+            
+            
+            ControlAdministracion.armarExcelListaCompras(dgv_tabla);
+        }
     }
 }

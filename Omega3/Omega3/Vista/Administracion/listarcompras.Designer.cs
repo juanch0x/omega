@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_filtro_factura = new System.Windows.Forms.TextBox();
             this.txt_filtro_razon = new System.Windows.Forms.TextBox();
+            this.btn_exportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel_tabla.SuspendLayout();
             this.SuspendLayout();
@@ -209,11 +210,22 @@
             this.txt_filtro_razon.TabIndex = 5;
             this.txt_filtro_razon.TextChanged += new System.EventHandler(this.txt_filtro_razon_TextChanged_1);
             // 
+            // btn_exportar
+            // 
+            this.btn_exportar.Location = new System.Drawing.Point(582, 74);
+            this.btn_exportar.Name = "btn_exportar";
+            this.btn_exportar.Size = new System.Drawing.Size(75, 23);
+            this.btn_exportar.TabIndex = 37;
+            this.btn_exportar.Text = "button1";
+            this.btn_exportar.UseVisualStyleBackColor = true;
+            this.btn_exportar.Click += new System.EventHandler(this.btn_exportar_Click);
+            // 
             // listarcompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 387);
+            this.Controls.Add(this.btn_exportar);
             this.Controls.Add(this.txt_filtro_razon);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -227,7 +239,7 @@
             this.Controls.Add(this.txt_filtro_factura);
             this.Controls.Add(this.panel_tabla);
             this.Name = "listarcompras";
-            this.Text = "listarcompras";
+            this.Text = "Lista Compras";
             this.Load += new System.EventHandler(this.listarcompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.panel_tabla.ResumeLayout(false);
@@ -251,5 +263,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_filtro_factura;
         private System.Windows.Forms.TextBox txt_filtro_razon;
+        private System.Windows.Forms.Button btn_exportar;
     }
 }

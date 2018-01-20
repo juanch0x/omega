@@ -271,6 +271,16 @@ namespace Omega3.Controlador
             _borders.Color = Color.Black;
         }
 
+        public static bool validarDateTimeVacio(DateTime fecha)
+        {
+            int aux = DateTime.Compare(fecha, new DateTime(2014, 1, 1));
+
+            if (aux < 0) { return false; }
+            return true;
+
+
+        }
+
 
     }
 
