@@ -18,6 +18,34 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 
+/*
+ ventas por cat
+
+SELECT productos.id_categoria,
+       sum(round(subtotal,2))  as 'Precio Venta',
+       sum(round(
+       	if(productos.dolar = 0,
+       productos.precio_compra * detalle_venta.cantidad,
+       productos.precio_compra * (select valor from valor_dolar where id = 1) * detalle_venta.cantidad)
+       	,2)) as 'Precio Compra'
+FROM   detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto
+GROUP BY productos.id_categoria
+
+lista de productos vendidos por mes
+
+SELECT productos.producto as 'Nombre',
+	   productos.cod_producto as 'Codigo',
+	   detalle_venta.cantidad as 'Cantidad',
+	   productos.precio_compra as 'Precio Compra',
+	   detalle_venta.subtotal / detalle_venta.cantidad as 'Precio Venta',
+	   detalle_venta.subtotal as 'Total',
+       date(venta.fecha_venta)
+FROM   detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto
+					 INNER JOIN venta on detalle_venta.id_venta = venta.id
+WHERE  date(venta.fecha_venta) BETWEEN '2018-01-17' and '2018-01-20'
+*/
+
+
 
 namespace Omega3
 {
