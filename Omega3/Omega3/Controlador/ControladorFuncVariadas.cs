@@ -262,7 +262,7 @@ namespace Omega3.Controlador
         }
 
         //Bordes para agregar a los archivos exportados a excel.
-        private void AllBorders(Borders _borders)
+        public static void AllBorders(Borders _borders)
         {
             _borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
             _borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;

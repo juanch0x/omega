@@ -732,7 +732,7 @@ try {
 
         public static void armarExcelVentasRealizadas(DataGridView dgv_tabla)
         {
-
+            ControladorFuncVariadas control = new ControladorFuncVariadas();
             Cursor.Current = Cursors.WaitCursor;
             Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
             Excel.Interactive = false;
@@ -744,6 +744,7 @@ try {
 
                 Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
                 Worksheet ws = (Worksheet)Excel.ActiveSheet;
+                
                 Excel.WindowState = XlWindowState.xlMaximized;
                 Microsoft.Office.Interop.Excel.Range cabecera = null;
 
@@ -773,6 +774,7 @@ try {
                 Microsoft.Office.Interop.Excel.Range razon = ws.get_Range("a4", "b4");
                 razon.BorderAround2();
                 razon.Interior.Color = Color.White;
+                //razon.Columns.AutoFit();
 
                                 
                 ws.Cells[4, 3] = "Nro Factura";
@@ -826,13 +828,41 @@ try {
                 vencimiento.Interior.Color = Color.White;
 
 
+                ws.Cells[4, 9] = "Fecha Cobro";
+                ws.Cells[4, 9].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 9].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 9].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range fecha_cobro = ws.get_Range("i4", "i4");
+                fecha_cobro.BorderAround2();
+                fecha_cobro.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 10] = "Vendedor";
+                ws.Cells[4, 10].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 10].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 10].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range vendedor = ws.get_Range("j4", "j4");
+                vendedor.BorderAround2();
+                vendedor.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 11] = "Cobrada";
+                ws.Cells[4, 11].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 11].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 11].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range cobrada = ws.get_Range("k4", "k4");
+                cobrada.BorderAround2();
+                cobrada.Interior.Color = Color.White;
+
+
+
                 //********************
                 //Empiezo por cantidad
                 //********************
 
-                /*    int fila = 5;
-                    int columnas;
-                    if (listaprecio == 10) { columnas = 6; } else { columnas = 4; }
+                    int fila = 5;
+                    int columnas = 10;
+                    
                     for (int i = 0; i < dgv_tabla.Rows.Count; i++)
                     {
                         for (int j = 0; j < columnas; j++)
@@ -840,64 +870,87 @@ try {
 
                             if (j == 0)
                             {
-
-                                ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Cells[fila, 1].Borders);
+                                ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Merge();
+                                ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Razon Social"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Borders);
+                                
                                 //ws.Cells[fila, 1].Color = Color.White;
 
                             }
+                            
                             else if (j == 1)
                             {
-                                ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Merge();
-                                ws.Cells[fila, 2] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Borders);
+                                ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Nro Factura"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
                                 //ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Color = Color.White;
 
                             }
-                            else if (j == 3)
+                            
+                            else if (j == 2)
                             {
 
-                                ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Merge();
-                                ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Borders);
+                                ws.Cells[fila, 4] = dgv_tabla.Rows[i].Cells["Tipo"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 4].Borders);
                                 // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
 
 
                             }
-                            else if (j == 2)
+                            
+                            else if (j == 3)
                             {
 
-                                ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Cells[fila, 7].Borders);
+                                ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells["Remito"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 5].Borders);
                                 //ws.Cells[fila, 7].Color = Color.White;
                             }
+                            
                             else if (j == 4)
                             {
-                                ws.Cells[fila, 8] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Cells[fila, 8].Borders);
+                                ws.Cells[fila, 6] = dgv_tabla.Rows[i].Cells["Total"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 6].Borders);
                             }
                             else if (j == 5)
                             {
-                                ws.Cells[fila, 9] = dgv_tabla.Rows[i].Cells[j].Value;
-                                AllBorders(ws.Cells[fila, 9].Borders);
+                                ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells["Fecha"].Value;
+                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 7].Borders);
                             }
 
+                        else if (j == 6)
+                        {
+                            ws.Cells[fila, 8] = dgv_tabla.Rows[i].Cells["Vencimiento"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 8].Borders);
                         }
+
+                        else if (j == 7)
+                        {
+                            ws.Cells[fila, 9] = dgv_tabla.Rows[i].Cells["Fecha de Cobro"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 9].Borders);
+                        }
+
+                        else if (j == 8)
+                        {
+                            ws.Cells[fila, 10] = dgv_tabla.Rows[i].Cells["Vendedor"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 10].Borders);
+                        }
+                        else if (j == 9)
+                        {
+                            if (dgv_tabla.Rows[i].Cells["Cobrada"].Value.ToString() == "True")
+                                ws.Cells[fila, 11] = "Sí";
+                            else
+                                ws.Cells[fila, 11] = "No";
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 11].Borders);
+                        }
+
+                    }
 
 
                         fila++;
                     }
                     ws.Columns[2].NumberFormat = "######";
 
-                    //ws.Range("A1:F20").Borders.LineStyle = xlContinuous
+                    ws.Columns[6].NumberFormat = "$ #.###,00";
+                ws.Columns.AutoFit();
 
-
-
-                    //AllBorders(ws.get_Range("a1", "zz9999").Borders);
-
-                    ws.Columns[7].NumberFormat = "$ #.###,00";
-
-       */
 
                 Excel.Interactive = true;
                 Excel.Visible = true;
