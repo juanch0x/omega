@@ -167,7 +167,7 @@ namespace Omega3.Controlador
 
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
 
-            string sqlSelectAll = "SELECT id as Id, proveedor as Proveedor, motivo as Motivo, vencimiento as Vencimiento, monto as Monto, pagada as Pagada, detalle as Detalle, dia_ingreso as 'Fecha Ingreso', comprobante as Comprobante, iva as Iva, razon as 'Razon Social', fecha_pago as 'Fecha Pago' FROM compras";
+            string sqlSelectAll = "SELECT id as Id, proveedor as Proveedor, motivo as Motivo, vencimiento as Vencimiento, monto as Monto, pagada as Pagada, detalle as Detalle, date(dia_ingreso) as 'Fecha Ingreso', comprobante as Comprobante, iva as Iva, razon as 'Razon Social', date(fecha_pago) as 'Fecha Pago' FROM compras";
             try
             {
 
