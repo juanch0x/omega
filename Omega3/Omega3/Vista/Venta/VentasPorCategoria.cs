@@ -17,6 +17,7 @@ namespace Omega3.Vista.Venta
         {
             InitializeComponent();
             construirTabla();
+            
         }
         public void construirTabla()
         {
@@ -42,9 +43,11 @@ namespace Omega3.Vista.Venta
             precioventa.ReadOnly = true;
 
 
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { categoria,preciocompra,precioventa });
             String query = "SELECT categoria_producto.categoria as 'Categoria',sum(round(subtotal, 2)) as 'Precio Venta',sum(round(if (productos.dolar = 0,productos.precio_compra* detalle_venta.cantidad,productos.precio_compra * (select valor from valor_dolar where id = 1) *detalle_venta.cantidad),2)) as 'Precio Compra'FROM detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto INNER JOIN categoria_producto on productos.id_categoria = categoria_producto.id GROUP BY productos.id_categoria";
 
             ControlVentas.llenarVentasPorCategoria(dgv_tabla, query);
+            Controlador.ControlVentas.armarExcelVentasPorCategoria(dgv_tabla);
         }
 
 
@@ -52,6 +55,11 @@ namespace Omega3.Vista.Venta
         {
 
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

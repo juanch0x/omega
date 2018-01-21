@@ -128,7 +128,7 @@
             this.ClientSize = new System.Drawing.Size(344, 220);
             this.Controls.Add(this.panel1);
             this.Name = "ProductosVendidos";
-            this.Text = "ProductosVendidos";
+            this.Text = "Productos Vendidos";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -19,31 +19,16 @@ namespace Omega3.Vista.Venta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime fechaini = date_inicio.Value;
-            //MessageBox.Show(Convert.tostring(select convert(date,date_inicio)));
-            MessageBox.Show(Convert.ToString(fechaini.ToUniversalTime()));
             Vista.Venta.tablaProductosVendidos tablavendidos;
 
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
+            tablavendidos = new tablaProductosVendidos(date_inicio.Value, date_fin.Value);
 
-                if (form.Name.Equals("tablaProductosVendidos"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
+            //tablavendidos.Show();
 
-            }
+            this.Close();
 
-            if (!encontrado)
-            {
+                       
 
-                tablavendidos = new Vista.Venta.tablaProductosVendidos(date_inicio.Value, date_fin.Value);
-                tablavendidos.StartPosition = FormStartPosition.CenterScreen;
-                tablavendidos.Show();
-                this.Close();
-            }
 
         }
 

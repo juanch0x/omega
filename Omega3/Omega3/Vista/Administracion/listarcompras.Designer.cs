@@ -212,11 +212,11 @@
             // 
             // btn_exportar
             // 
-            this.btn_exportar.Location = new System.Drawing.Point(582, 74);
+            this.btn_exportar.Location = new System.Drawing.Point(431, 67);
             this.btn_exportar.Name = "btn_exportar";
             this.btn_exportar.Size = new System.Drawing.Size(75, 23);
             this.btn_exportar.TabIndex = 37;
-            this.btn_exportar.Text = "button1";
+            this.btn_exportar.Text = "Exportar";
             this.btn_exportar.UseVisualStyleBackColor = true;
             this.btn_exportar.Click += new System.EventHandler(this.btn_exportar_Click);
             // 

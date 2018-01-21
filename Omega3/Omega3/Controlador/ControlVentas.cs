@@ -989,6 +989,309 @@ try {
             }
         }
 
+        public static void armarExcelProductosVendidos(DataGridView dgv_tabla)
+        {
+            ControladorFuncVariadas control = new ControladorFuncVariadas();
+            Cursor.Current = Cursors.WaitCursor;
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Interactive = false;
+
+
+            try
+            {
+
+
+                Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+                Worksheet ws = (Worksheet)Excel.ActiveSheet;
+
+                Excel.WindowState = XlWindowState.xlMaximized;
+                Microsoft.Office.Interop.Excel.Range cabecera = null;
+
+
+
+                ws.Cells[1, 1] = "Productos Vendidos";
+                ws.Range[ws.Cells[1, 1], ws.Cells[3, 7]].Merge();
+                cabecera = ws.get_Range("a1", "g3");
+
+
+                ws.Cells[1, 1].Font.Bold = true;
+                ws.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[1, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[1, 1].Font.Size = 20;
+
+
+                cabecera.BorderAround2();
+                cabecera.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 1] = "Producto";
+                ws.Cells[4, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 1].Font.Bold = true;
+
+                Microsoft.Office.Interop.Excel.Range producto = ws.get_Range("a4", "a4");
+                producto.BorderAround2();
+                producto.Interior.Color = Color.White;
+                
+
+                ws.Cells[4, 2] = "Código";
+                ws.Cells[4, 2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 2].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 2].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range codigo = ws.get_Range("b4", "b4");
+                codigo.BorderAround2();
+                codigo.Interior.Color = Color.White;
+
+                ws.Cells[4, 3] = "Cantidad";
+                ws.Cells[4, 3].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 3].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 3].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range cantidad = ws.get_Range("c4", "c4");
+                cantidad.BorderAround2();
+                cantidad.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 4] = "Precio de Compra";
+                ws.Cells[4, 4].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 4].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 4].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range precio_compra = ws.get_Range("d4", "d4");
+                precio_compra.BorderAround2();
+                precio_compra.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 5] = "Precio de Venta";
+                ws.Cells[4, 5].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 5].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 5].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range precio_venta = ws.get_Range("e4", "e4");
+                precio_venta.BorderAround2();
+                precio_venta.Interior.Color = Color.White;
+
+                ws.Cells[4, 6] = "Total";
+                ws.Cells[4, 6].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 6].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 6].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range total = ws.get_Range("f4", "f4");
+                total.BorderAround2();
+                total.Interior.Color = Color.White;
+
+                ws.Cells[4, 7] = "Fecha";
+                ws.Cells[4, 7].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 7].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 7].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range fecha = ws.get_Range("g4", "g4");
+                fecha.BorderAround2();
+                fecha.Interior.Color = Color.White;
+
+               
+
+                               
+
+                int fila = 5;
+                int columnas = 7;
+
+                for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
+                    {
+
+                        if (j == 0)
+                        {
+                            ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Producto"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 1].Borders);
+                                                        
+
+                        }
+
+                        else if (j == 1)
+                        {
+                            ws.Cells[fila, 2] = dgv_tabla.Rows[i].Cells["Codigo"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 2].Borders);
+                            
+                        }
+
+                        else if (j == 2)
+                        {
+
+                            ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Cantidad"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
+                            
+
+                        }
+
+                        else if (j == 3)
+                        {
+
+                            ws.Cells[fila, 4] = dgv_tabla.Rows[i].Cells["Precio Compra"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 4].Borders);
+                            //ws.Cells[fila, 7].Color = Color.White;
+                        }
+
+                        else if (j == 4)
+                        {
+                            ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells["Precio Venta"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 5].Borders);
+                        }
+                        else if (j == 5)
+                        {
+                            ws.Cells[fila, 6] = dgv_tabla.Rows[i].Cells["Total"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 6].Borders);
+                        }
+
+                        else if (j == 6)
+                        {
+                            ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells["Fecha"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 7].Borders);
+                        }
+
+                        
+                    }
+
+
+                    fila++;
+                }
+                ws.Columns[2].NumberFormat = "######";
+
+                ws.Columns[4].NumberFormat = "$ #.###,00";
+                ws.Columns[5].NumberFormat = "$ #.###,00";
+                ws.Columns[6].NumberFormat = "$ #.###,00";
+                ws.Columns.AutoFit();
+
+
+                Excel.Interactive = true;
+                Excel.Visible = true;
+
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            finally { Cursor.Current = Cursors.Default; }
+
+        }
+
+
+        public static void armarExcelVentasPorCategoria(DataGridView dgv_tabla)
+        {
+            ControladorFuncVariadas control = new ControladorFuncVariadas();
+            Cursor.Current = Cursors.WaitCursor;
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Interactive = false;
+
+
+            try
+            {
+
+
+                Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+                Worksheet ws = (Worksheet)Excel.ActiveSheet;
+
+                Excel.WindowState = XlWindowState.xlMaximized;
+                Microsoft.Office.Interop.Excel.Range cabecera = null;
+
+
+
+                ws.Cells[1, 1] = "Ventas por Categoría";
+                ws.Range[ws.Cells[1, 1], ws.Cells[3, 3]].Merge();
+                cabecera = ws.get_Range("a1", "c3");
+
+
+                ws.Cells[1, 1].Font.Bold = true;
+                ws.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[1, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[1, 1].Font.Size = 20;
+
+
+                cabecera.BorderAround2();
+                cabecera.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 1] = "Categoría";
+                ws.Cells[4, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 1].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 1].Font.Bold = true;
+
+                Microsoft.Office.Interop.Excel.Range categoria = ws.get_Range("a4", "a4");
+                categoria.BorderAround2();
+                categoria.Interior.Color = Color.White;
+
+
+                ws.Cells[4, 2] = "Precio de Compra";
+                ws.Cells[4, 2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 2].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 2].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range precio_compra = ws.get_Range("b4", "b4");
+                precio_compra.BorderAround2();
+                precio_compra.Interior.Color = Color.White;
+
+                ws.Cells[4, 3] = "Precio de Venta";
+                ws.Cells[4, 3].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 3].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 3].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range precio_venta = ws.get_Range("c4", "c4");
+                precio_venta.BorderAround2();
+                precio_venta.Interior.Color = Color.White;
+
+
+               
+
+                int fila = 5;
+                int columnas = 3;
+
+                for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
+                    {
+
+                        if (j == 0)
+                        {
+                            ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Categoria"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 1].Borders);
+
+
+                        }
+
+                        else if (j == 1)
+                        {
+                            ws.Cells[fila, 2] = dgv_tabla.Rows[i].Cells["Precio Compra"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 2].Borders);
+
+                        }
+
+                        else if (j == 2)
+                        {
+
+                            ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Precio Venta"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
+
+
+                        }
+
+                     
+                    }
+
+
+                    fila++;
+                }
+                
+
+                ws.Columns[2].NumberFormat = "$ #.###,00";
+                ws.Columns[3].NumberFormat = "$ #.###,00";
+                
+                ws.Columns.AutoFit();
+
+
+                Excel.Interactive = true;
+                Excel.Visible = true;
+
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            finally { Cursor.Current = Cursors.Default; }
+
+        }
+
+
+
 
     }
 

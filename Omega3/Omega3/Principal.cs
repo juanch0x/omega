@@ -829,32 +829,13 @@ namespace Omega3
         {
 
 
-            
-            Vista.Venta.VentasPorCategoria ventaxcategoria;
 
-            bool encontrado = false;
-            foreach (Form form in this.MdiChildren)
-            {
-
-                if (form.Name.Equals("VentasPorCategoria"))
-                {
-                    encontrado = true;
-                    form.Show();
-                }
-
-            }
-
-            if (!encontrado)
-            {
-
-                ventaxcategoria = new Vista.Venta.VentasPorCategoria();
-                ventaxcategoria.StartPosition = FormStartPosition.CenterScreen;
-                ventaxcategoria.MdiParent = this;
-                ventaxcategoria.Show();
-            }
-
+            Vista.Venta.VentasPorCategoria a;
+            a = new Vista.Venta.VentasPorCategoria();
 
         }
+
+
 
         private void ventasRealizadasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -884,6 +865,19 @@ namespace Omega3
             }
 
         }
+
+
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            Omega3.Vista.Venta.ProductosVendidos a = new Vista.Venta.ProductosVendidos();
+            a.Show();
+
+
+        }
+
+
     }
 
     public class dolar

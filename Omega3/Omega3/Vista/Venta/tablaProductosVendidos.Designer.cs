@@ -58,8 +58,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_tabla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
-            this.dgv_tabla.Location = new System.Drawing.Point(31, 46);
+            this.dgv_tabla.Location = new System.Drawing.Point(0, 0);
             this.dgv_tabla.MultiSelect = false;
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
@@ -67,17 +68,17 @@
             this.dgv_tabla.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla.ShowEditingIcon = false;
-            this.dgv_tabla.Size = new System.Drawing.Size(551, 246);
+            this.dgv_tabla.Size = new System.Drawing.Size(300, 381);
             this.dgv_tabla.TabIndex = 7;
             // 
             // tablaProductosVendidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 357);
+            this.ClientSize = new System.Drawing.Size(300, 381);
             this.Controls.Add(this.dgv_tabla);
             this.Name = "tablaProductosVendidos";
-            this.Text = "tablaProductosVendidos";
+            this.Text = "Tabla Productos Vendidos";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);
 

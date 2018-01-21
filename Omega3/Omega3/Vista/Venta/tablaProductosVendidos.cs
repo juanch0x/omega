@@ -13,12 +13,18 @@ namespace Omega3.Vista.Venta
 {
     public partial class tablaProductosVendidos : Form
     {
-        DateTime inicio, fin;
+        string inicio, fin;
         public tablaProductosVendidos(DateTime inicio, DateTime fin)
         {
             InitializeComponent();
-            this.inicio = inicio;
-            this.fin = fin;
+            this.inicio = inicio.ToString("yyyy-MM-dd");
+            this.fin = fin.ToString("yyyy-MM-dd");
+            construirTabla();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Controlador.ControlVentas.armarExcelProductosVendidos(dgv_tabla);
         }
 
         public void construirTabla()
@@ -29,6 +35,7 @@ namespace Omega3.Vista.Venta
             var preciocompra = new DataGridViewTextBoxColumn();
             var precioventa = new DataGridViewTextBoxColumn();
             var total = new DataGridViewTextBoxColumn();
+            var fecha = new DataGridViewTextBoxColumn();
 
 
 
@@ -62,10 +69,17 @@ namespace Omega3.Vista.Venta
             total.DataPropertyName = "Total";
             total.ReadOnly = true;
 
+            fecha.HeaderText = "Fecha";
+            fecha.Name = "Fecha";
+            fecha.DataPropertyName = "Fecha";
+            fecha.ReadOnly = true;
 
-            String query = "SELECT productos.producto as 'Producto',productos.cod_producto as 'Codigo',detalle_venta.cantidad as 'Cantidad',productos.precio_compra as 'Precio Compra',detalle_venta.subtotal / detalle_venta.cantidad as 'Precio Venta',detalle_venta.subtotal as 'Total',date(venta.fecha_venta) FROM detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE  date(venta.fecha_venta) BETWEEN" + inicio.Date + "and" + fin.Date +"";
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { producto,codigo,cantidad,preciocompra,precioventa,total,fecha});
 
+            String query = "SELECT productos.producto as 'Producto',productos.cod_producto as 'Codigo',detalle_venta.cantidad as 'Cantidad',productos.precio_compra as 'Precio Compra',detalle_venta.subtotal / detalle_venta.cantidad as 'Precio Venta',detalle_venta.subtotal as 'Total',date(venta.fecha_venta) as 'Fecha' FROM detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE  date(venta.fecha_venta) BETWEEN '" + inicio + "' and '" + fin +"'";
+            Console.WriteLine(query);
             ControlVentas.llenarVentasPorCategoria(dgv_tabla, query);
+            Controlador.ControlVentas.armarExcelProductosVendidos(dgv_tabla);
         }
     }
 }
