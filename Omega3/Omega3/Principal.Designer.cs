@@ -67,7 +67,10 @@ namespace Omega3
             this.erogacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasPorCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasRealizadasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -275,7 +278,8 @@ namespace Omega3
             this.toolStripMenuItem2,
             this.clienteToolStripMenuItem1,
             this.proveedoresToolStripMenuItem,
-            this.gastosToolStripMenuItem});
+            this.gastosToolStripMenuItem,
+            this.informesToolStripMenuItem});
             this.administracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
             this.administracionToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
@@ -365,6 +369,22 @@ namespace Omega3
             this.listarComprasToolStripMenuItem.Text = "Listar Compras";
             this.listarComprasToolStripMenuItem.Click += new System.EventHandler(this.listarComprasToolStripMenuItem_Click);
             // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ventasPorCategoriaToolStripMenuItem,
+            this.ventasRealizadasToolStripMenuItem1});
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            this.informesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.informesToolStripMenuItem.Text = "Informes";
+            // 
+            // ventasPorCategoriaToolStripMenuItem
+            // 
+            this.ventasPorCategoriaToolStripMenuItem.Name = "ventasPorCategoriaToolStripMenuItem";
+            this.ventasPorCategoriaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ventasPorCategoriaToolStripMenuItem.Text = "Ventas Por Categoria";
+            this.ventasPorCategoriaToolStripMenuItem.Click += new System.EventHandler(this.ventasPorCategoriaToolStripMenuItem_Click);
+            // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -372,6 +392,13 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(116, 25);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
+            // ventasRealizadasToolStripMenuItem1
+            // 
+            this.ventasRealizadasToolStripMenuItem1.Name = "ventasRealizadasToolStripMenuItem1";
+            this.ventasRealizadasToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.ventasRealizadasToolStripMenuItem1.Text = "Ventas Realizadas";
+            this.ventasRealizadasToolStripMenuItem1.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -438,6 +465,9 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem preciosNetosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarListaClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasPorCategoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem1;
     }
 }
 

@@ -21,14 +21,14 @@ using Newtonsoft.Json;
 /*
  ventas por cat
 
-SELECT productos.id_categoria,
+SELECT categoria_producto.categoria as 'Categoria',
        sum(round(subtotal,2))  as 'Precio Venta',
        sum(round(
        	if(productos.dolar = 0,
        productos.precio_compra * detalle_venta.cantidad,
        productos.precio_compra * (select valor from valor_dolar where id = 1) * detalle_venta.cantidad)
        	,2)) as 'Precio Compra'
-FROM   detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto
+FROM   detalle_venta INNER JOIN productos on detalle_venta.codigo = productos.cod_producto INNER JOIN categoria_producto on productos.id_categoria = categoria_producto.id
 GROUP BY productos.id_categoria
 
 lista de productos vendidos por mes
@@ -823,6 +823,66 @@ namespace Omega3
         private void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Vista.Productos.ListaPrecios listaprecios = new Vista.Productos.ListaPrecios(10);
+        }
+
+        private void ventasPorCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            
+            Vista.Venta.VentasPorCategoria ventaxcategoria;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("VentasPorCategoria"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                ventaxcategoria = new Vista.Venta.VentasPorCategoria();
+                ventaxcategoria.StartPosition = FormStartPosition.CenterScreen;
+                ventaxcategoria.MdiParent = this;
+                ventaxcategoria.Show();
+            }
+
+
+        }
+
+        private void ventasRealizadasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            
+            Vista.Venta.ProductosVendidos ventasRealizadas;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("ProductosVendidos"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                ventasRealizadas = new Vista.Venta.ProductosVendidos();
+                ventasRealizadas.StartPosition = FormStartPosition.CenterScreen;
+                ventasRealizadas.MdiParent = this;
+                ventasRealizadas.Show();
+            }
+
         }
     }
 

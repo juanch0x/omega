@@ -424,6 +424,24 @@
     <Compile Include="Vista\Venta\ListarPresupuestos.Designer.cs">
       <DependentUpon>ListarPresupuestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Venta\ProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\ProductosVendidos.Designer.cs">
+      <DependentUpon>ProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Venta\tablaProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\tablaProductosVendidos.Designer.cs">
+      <DependentUpon>tablaProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Venta\VentasPorCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Venta\VentasPorCategoria.Designer.cs">
+      <DependentUpon>VentasPorCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Venta\Ventas_Realizadas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -596,6 +614,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\ListarPresupuestos.resx">
       <DependentUpon>ListarPresupuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\ProductosVendidos.resx">
+      <DependentUpon>ProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\tablaProductosVendidos.resx">
+      <DependentUpon>tablaProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Venta\VentasPorCategoria.resx">
+      <DependentUpon>VentasPorCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Venta\Ventas_Realizadas.resx">
       <DependentUpon>Ventas_Realizadas.cs</DependentUpon>
