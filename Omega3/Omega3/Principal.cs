@@ -839,7 +839,6 @@ namespace Omega3
 
         private void ventasRealizadasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             
             Vista.Venta.ProductosVendidos ventasRealizadas;
 

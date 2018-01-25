@@ -39,13 +39,13 @@ namespace Omega3.Controlador
                 {
                 if (a.medio_de_pago == 1)
                 {
-                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,recibo) values ({0},{1},{2},'{3}','{4}')",
-                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.recibo);
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}',{5},{6},{7},{8})",
+                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.recibo,a.retencion_iva,a.retencion_ig,a.retencion_iibb,a.retencion_suss);
                 }
                 else
                 {
-                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}')",
-                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.comprobante,vencimiento,a.razon_social,a.banco,a.recibo);
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12})",
+                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.comprobante,vencimiento,a.razon_social,a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
                 }
 
                     MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
@@ -113,6 +113,10 @@ namespace Omega3.Controlador
             var razon_social = new DataGridViewTextBoxColumn();
             var banco = new DataGridViewTextBoxColumn();
             var recibo = new DataGridViewTextBoxColumn();
+            var retencion_iva = new DataGridViewTextBoxColumn();
+            var retencion_ig = new DataGridViewTextBoxColumn();
+            var retencion_iibb = new DataGridViewTextBoxColumn();
+            var retencion_suss = new DataGridViewTextBoxColumn();
 
 
             medio_de_pago.HeaderText = "Medio de Pago";
@@ -155,11 +159,28 @@ namespace Omega3.Controlador
             banco.Name = "Banco";
             banco.ReadOnly = true;
 
+            retencion_iva.HeaderText = "Ret. IVA";
+            retencion_iva.DataPropertyName = "Ret. IVA";
+            retencion_iva.Name = "Ret. IVA";
+            retencion_iva.ReadOnly = true;
+
+            retencion_ig.HeaderText = "Ret. IG";
+            retencion_ig.DataPropertyName = "Ret. IG";
+            retencion_ig.Name = "Ret. IG";
+            retencion_ig.ReadOnly = true;
+
+            retencion_iibb.HeaderText = "Ret. IIBB";
+            retencion_iibb.DataPropertyName = "Ret. IIBB";
+            retencion_iibb.Name = "Ret. IIBB";
+            retencion_iibb.ReadOnly = true;
+
+            retencion_suss.HeaderText = "Ret. SUSS";
+            retencion_suss.DataPropertyName = "Ret. SUSS";
+            retencion_suss.Name = "Ret. SUSS";
+            retencion_suss.ReadOnly = true;
 
 
-
-
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { medio_de_pago,monto,recibo,comprobante,fecha,vencimiento,razon_social,banco  });
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { medio_de_pago,monto,recibo,comprobante,fecha,vencimiento,razon_social,banco,retencion_iva,retencion_ig,retencion_iibb,retencion_suss  });
 
 
             dgv_tabla.AutoGenerateColumns = false;
@@ -182,11 +203,11 @@ namespace Omega3.Controlador
             string sqlSelectAll = string.Empty;
             if (id_reparacion != 0)
             {
-                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco',recibo as 'Recibo' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_reparacion = " + id_reparacion;
+                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco',recibo as 'Recibo',retencion_iva as 'Ret. IVA', retencion_ig as 'Ret. IG', retencion_iibb as 'Ret. IIBB', retencion_suss as 'Ret. SUSS' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_reparacion = " + id_reparacion;
             }
             else
             {
-                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco',recibo as 'Recibo' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_venta = " + id_venta;
+                sqlSelectAll = "SELECT m.descripcion as 'Medio de Pago', monto as 'Monto', comprobante as 'Comprobante', fecha as 'Fecha', vencimiento as 'Vencimiento', razon_social as 'Razon Social', banco as 'Banco',recibo as 'Recibo', retencion_iva as 'Ret. IVA', retencion_ig as 'Ret. IG', retencion_iibb as 'Ret. IIBB', retencion_suss as 'Ret. SUSS' FROM pagosparciales p INNER JOIN medio_de_pago m on p.medio_de_pago = m.id WHERE id_venta = " + id_venta;
             }
             try
             {

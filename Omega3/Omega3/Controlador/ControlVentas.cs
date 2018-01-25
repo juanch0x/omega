@@ -52,7 +52,7 @@ namespace Omega3.Controlador
         public static void llenarMedios_de_Pago(ComboBox combo)
         {
 
-            string query = "SELECT id, descripcion from medio_de_pago";
+            string query = "SELECT id, descripcion from medio_de_pago WHERE id<>6";
 
             MySqlCommand cmd = new MySqlCommand(query, Conexion.ObtenerConexion());
 

@@ -19,6 +19,10 @@ namespace Omega3.Modelo
         public string banco { get; set; }
         public long id_reparacion { get; set; }
         public string recibo { get; set; }
+        public decimal retencion_iva { get; set; }
+        public decimal retencion_ig { get; set; }
+        public decimal retencion_iibb { get; set; }
+        public decimal retencion_suss { get; set; }
 
         public PagoParcial()
         {
@@ -30,6 +34,11 @@ namespace Omega3.Modelo
             banco = "";
             id_reparacion = 0;
             recibo = "";
+            retencion_iva = new decimal(0);
+            retencion_ig = new decimal(0);
+            retencion_iibb = new decimal(0);
+            retencion_suss = new decimal(0);
+
 
         }
 
