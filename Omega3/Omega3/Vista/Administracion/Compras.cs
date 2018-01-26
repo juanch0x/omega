@@ -36,7 +36,7 @@ namespace Omega3.Vista.Administracion
             ComprasaProveedores compras = new ComprasaProveedores();
 
 
-            if (Omega3.Controlador.ControladorFuncVariadas.validarTextBoxVacios(txt_proveedor,txt_motivo, txt_monto,txt_detalle,txt_comprobante,txt_iva,txt_razon))
+            if (Omega3.Controlador.ControladorFuncVariadas.validarTextBoxVacios(txt_proveedor,txt_motivo, txt_monto,txt_detalle,txt_comprobante,txt_iva,txt_razon,iva10,nogravado,percepcioniva,percepcioniibb))
             {
                 compras.Pagada = false;
                 if (radio_pagado.Checked)
@@ -49,7 +49,6 @@ namespace Omega3.Vista.Administracion
                 compras.Vencimiento = txt_fecha.Value;
                 compras.Monto = Convert.ToDecimal(txt_monto.Text);
                 compras.Detalle = txt_detalle.Text;
-
                 compras.Comprobante = txt_comprobante.Text;
                 compras.Iva = Convert.ToDecimal(txt_iva.Text);
                 compras.Razon = txt_razon.Text;
@@ -57,6 +56,8 @@ namespace Omega3.Vista.Administracion
                 compras.Nogravado = Convert.ToDecimal(nogravado.Text);
                 compras.Percepcioniva = Convert.ToDecimal(percepcioniva.Text);
                 compras.Percepcioniibb = Convert.ToDecimal(percepcioniibb.Text);
+
+
 
                 if (Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras) == 1)
                 {
@@ -95,6 +96,26 @@ namespace Omega3.Vista.Administracion
         private void txt_iva_KeyPress(object sender, KeyPressEventArgs e)
         {
             Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender,e);
+        }
+
+        private void iva10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void nogravado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void percepcioniva_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void percepcioniibb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }
     }
 }

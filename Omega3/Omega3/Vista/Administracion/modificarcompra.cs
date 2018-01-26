@@ -29,44 +29,49 @@ namespace Omega3.Vista.Administracion
         {
             Modelo.ComprasaProveedores compras = new Modelo.ComprasaProveedores();
 
-            compras.Id = id;
-            compras.Proveedor = txt_proveedor.Text;
-            compras.Motivo = txt_motivo.Text;
-            compras.Vencimiento = txt_fecha.Value;
-            compras.Monto = Convert.ToDecimal(txt_monto.Text);
-            compras.Comprobante = txt_comprobante.Text;
-            compras.Iva = Convert.ToDecimal(txt_iva.Text);
-            compras.Razon = txt_razon.Text;
-            compras.Detalle = txt_detalle.Text;
-            compras.Fechapago = compra.Fechapago;
-            compras.Iva10 = Convert.ToDecimal(iva10.Text);
-            compras.Nogravado = Convert.ToDecimal(nogravado.Text);
-            compras.Percepcioniva = Convert.ToDecimal(percepcioniva.Text);
-            compras.Percepcioniibb = Convert.ToDecimal(percepcioniibb.Text);
-            if (radio_pagado.Checked==true)
-            {
-                compras.Pagada = true;
-                //compras.Fechapago = DateTime.Now;
-            }
-            else if(radio_no_pagado.Checked == true){
 
-                compras.Pagada = false;
-
-            }
-            
-
-            if(Controlador.ControlCompras.modificarCompra(compras) == 1)
+            if (Omega3.Controlador.ControladorFuncVariadas.validarTextBoxVacios(txt_proveedor, txt_motivo, txt_monto, txt_detalle, txt_comprobante, txt_iva, txt_razon, iva10, nogravado, percepcioniva, percepcioniibb))
             {
 
-                MessageBox.Show("La compra se modifico correctamente");
-                this.Close();
+                compras.Id = id;
+                compras.Proveedor = txt_proveedor.Text;
+                compras.Motivo = txt_motivo.Text;
+                compras.Vencimiento = txt_fecha.Value;
+                compras.Monto = Convert.ToDecimal(txt_monto.Text);
+                compras.Comprobante = txt_comprobante.Text;
+                compras.Iva = Convert.ToDecimal(txt_iva.Text);
+                compras.Razon = txt_razon.Text;
+                compras.Detalle = txt_detalle.Text;
+                compras.Fechapago = compra.Fechapago;
+                compras.Iva10 = Convert.ToDecimal(iva10.Text);
+                compras.Nogravado = Convert.ToDecimal(nogravado.Text);
+                compras.Percepcioniva = Convert.ToDecimal(percepcioniva.Text);
+                compras.Percepcioniibb = Convert.ToDecimal(percepcioniibb.Text);
+                if (radio_pagado.Checked == true)
+                {
+                    compras.Pagada = true;
+                    //compras.Fechapago = DateTime.Now;
+                }
+                else if (radio_no_pagado.Checked == true)
+                {
 
-            }
-            else
-            {
-                MessageBox.Show("Ocurrio un problema al insertar la modificacion");
-            }
+                    compras.Pagada = false;
 
+                }
+
+
+                if (Controlador.ControlCompras.modificarCompra(compras) == 1)
+                {
+
+                    MessageBox.Show("La compra se modifico correctamente");
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un problema al insertar la modificacion");
+                }
+            }
         }
 
         private void modificarcompra_Load(object sender, EventArgs e)
@@ -101,6 +106,36 @@ namespace Omega3.Vista.Administracion
 
 
 
+        }
+
+        private void txt_monto_TextChanged(object sender, EventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void txt_iva_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void iva10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void nogravado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void percepcioniva_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void percepcioniibb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }
     }
 }

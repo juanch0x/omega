@@ -24,6 +24,7 @@ namespace Omega3.Controlador
             string fecha = ControladorFuncVariadas.convertirFecha(compras.Vencimiento);
             string fechapago = ControladorFuncVariadas.convertirFecha(fechapago1);
 
+            if
             
             
 

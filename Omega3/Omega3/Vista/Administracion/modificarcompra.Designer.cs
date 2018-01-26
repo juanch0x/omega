@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.percepcioniibb = new System.Windows.Forms.TextBox();
+            this.percepcioniva = new System.Windows.Forms.TextBox();
+            this.nogravado = new System.Windows.Forms.TextBox();
+            this.iva10 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.Iva = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_razon = new System.Windows.Forms.TextBox();
@@ -51,14 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.percepcioniibb = new System.Windows.Forms.TextBox();
-            this.percepcioniva = new System.Windows.Forms.TextBox();
-            this.nogravado = new System.Windows.Forms.TextBox();
-            this.iva10 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,86 @@
             this.panel1.Size = new System.Drawing.Size(574, 595);
             this.panel1.TabIndex = 0;
             // 
+            // percepcioniibb
+            // 
+            this.percepcioniibb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percepcioniibb.Location = new System.Drawing.Point(237, 350);
+            this.percepcioniibb.Name = "percepcioniibb";
+            this.percepcioniibb.Size = new System.Drawing.Size(305, 26);
+            this.percepcioniibb.TabIndex = 53;
+            this.percepcioniibb.Tag = "Percepcion IIBB";
+            this.percepcioniibb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.percepcioniibb_KeyPress);
+            // 
+            // percepcioniva
+            // 
+            this.percepcioniva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percepcioniva.Location = new System.Drawing.Point(237, 318);
+            this.percepcioniva.Name = "percepcioniva";
+            this.percepcioniva.Size = new System.Drawing.Size(305, 26);
+            this.percepcioniva.TabIndex = 52;
+            this.percepcioniva.Tag = "Percepcion Iva";
+            this.percepcioniva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.percepcioniva_KeyPress);
+            // 
+            // nogravado
+            // 
+            this.nogravado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nogravado.Location = new System.Drawing.Point(237, 286);
+            this.nogravado.Name = "nogravado";
+            this.nogravado.Size = new System.Drawing.Size(305, 26);
+            this.nogravado.TabIndex = 51;
+            this.nogravado.Tag = "No Gravado";
+            this.nogravado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nogravado_KeyPress);
+            // 
+            // iva10
+            // 
+            this.iva10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iva10.Location = new System.Drawing.Point(237, 254);
+            this.iva10.Name = "iva10";
+            this.iva10.Size = new System.Drawing.Size(305, 26);
+            this.iva10.TabIndex = 50;
+            this.iva10.Tag = "Iva";
+            this.iva10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iva10_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(9, 357);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(132, 19);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Percepcion IIBB";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(9, 325);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 19);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "Percepcion IVA";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(9, 293);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(177, 19);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "Concepto no Gravado";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 261);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(82, 19);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Iva 10.5%";
+            // 
             // Iva
             // 
             this.Iva.AutoSize = true;
@@ -138,6 +218,7 @@
             this.txt_iva.Size = new System.Drawing.Size(305, 26);
             this.txt_iva.TabIndex = 34;
             this.txt_iva.Tag = "Iva";
+            this.txt_iva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_iva_KeyPress);
             // 
             // txt_comprobante
             // 
@@ -236,6 +317,7 @@
             this.txt_monto.Size = new System.Drawing.Size(305, 26);
             this.txt_monto.TabIndex = 30;
             this.txt_monto.Tag = "Monto";
+            this.txt_monto.TextChanged += new System.EventHandler(this.txt_monto_TextChanged);
             // 
             // txt_motivo
             // 
@@ -315,82 +397,6 @@
             this.label4.Size = new System.Drawing.Size(60, 19);
             this.label4.TabIndex = 31;
             this.label4.Text = "Motivo";
-            // 
-            // percepcioniibb
-            // 
-            this.percepcioniibb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percepcioniibb.Location = new System.Drawing.Point(237, 350);
-            this.percepcioniibb.Name = "percepcioniibb";
-            this.percepcioniibb.Size = new System.Drawing.Size(305, 26);
-            this.percepcioniibb.TabIndex = 53;
-            this.percepcioniibb.Tag = "Iva";
-            // 
-            // percepcioniva
-            // 
-            this.percepcioniva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percepcioniva.Location = new System.Drawing.Point(237, 318);
-            this.percepcioniva.Name = "percepcioniva";
-            this.percepcioniva.Size = new System.Drawing.Size(305, 26);
-            this.percepcioniva.TabIndex = 52;
-            this.percepcioniva.Tag = "Iva";
-            // 
-            // nogravado
-            // 
-            this.nogravado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nogravado.Location = new System.Drawing.Point(237, 286);
-            this.nogravado.Name = "nogravado";
-            this.nogravado.Size = new System.Drawing.Size(305, 26);
-            this.nogravado.TabIndex = 51;
-            this.nogravado.Tag = "Iva";
-            // 
-            // iva10
-            // 
-            this.iva10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iva10.Location = new System.Drawing.Point(237, 254);
-            this.iva10.Name = "iva10";
-            this.iva10.Size = new System.Drawing.Size(305, 26);
-            this.iva10.TabIndex = 50;
-            this.iva10.Tag = "Iva";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 357);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 19);
-            this.label13.TabIndex = 49;
-            this.label13.Text = "Percepcion IIBB";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(9, 325);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(125, 19);
-            this.label12.TabIndex = 48;
-            this.label12.Text = "Percepcion IVA";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 293);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(177, 19);
-            this.label11.TabIndex = 47;
-            this.label11.Text = "Concepto no Gravado";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 261);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 19);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Iva 10.5%";
             // 
             // modificarcompra
             // 
