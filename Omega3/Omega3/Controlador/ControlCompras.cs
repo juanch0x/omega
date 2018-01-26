@@ -24,23 +24,21 @@ namespace Omega3.Controlador
             string fecha = ControladorFuncVariadas.convertirFecha(compras.Vencimiento);
             string fechapago = ControladorFuncVariadas.convertirFecha(fechapago1);
 
-            
-            
 
             try
             {
 
                 if (pagada == 1)
                 {
-                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon,fecha_pago) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}','{9}')",
-                 compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon, fechapago), Conexion.ObtenerConexion());
+                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon,fecha_pago,iva10,no_gravado,percepcion_iva,percepcion_iibb) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}','{9}','{10}','{11}','{12}','{13}')",
+                 compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon, fechapago,compras.Iva10,compras.Nogravado, compras.Percepcioniva, compras.Percepcioniibb), Conexion.ObtenerConexion());
 
                     retorno = comando.ExecuteNonQuery();
                 }
                 else
                 {
-                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}')",
-                    compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon), Conexion.ObtenerConexion());
+                    MySqlCommand comando = new MySqlCommand(string.Format("Insert into compras (proveedor,motivo,vencimiento,monto,pagada,detalle,comprobante,iva,razon,iva10,no_gravado,percepcion_iva,percepcion_iibb) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}','{9}','{10}',{11},'{12}')",
+                    compras.Proveedor, compras.Motivo, fecha, compras.Monto, pagada, compras.Detalle, compras.Comprobante, compras.Iva, compras.Razon,compras.Iva10,compras.Nogravado,compras.Percepcioniva,compras.Percepcioniibb), Conexion.ObtenerConexion());
 
                     retorno = comando.ExecuteNonQuery();
 
@@ -200,7 +198,7 @@ namespace Omega3.Controlador
             compra.Id = id;
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
-               "SELECT id, proveedor, motivo, vencimiento, monto, pagada, detalle, dia_ingreso, comprobante, iva, razon, fecha_pago FROM compras WHERE id={0}", id), Conexion.ObtenerConexion());
+               "SELECT id, proveedor, motivo, vencimiento, monto, pagada, detalle, dia_ingreso, comprobante, iva, razon, fecha_pago, iva10, no_gravado, percepcion_iva, percepcion_iibb FROM compras WHERE id={0}", id), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
@@ -217,6 +215,10 @@ namespace Omega3.Controlador
                 compra.Iva = _reader.GetDecimal(9);
                 compra.Razon = _reader.GetString(10);
                 compra.Fechapago = _reader.GetDateTime(11);
+                compra.Iva10 = _reader.GetDecimal(12);
+                compra.Nogravado = _reader.GetDecimal(13);
+                compra.Percepcioniva = _reader.GetDecimal(14);
+                compra.Percepcioniibb = _reader.GetDecimal(15);
 
 
             }
@@ -241,16 +243,16 @@ namespace Omega3.Controlador
                     if (compra.Fechapago.Date > fechacompara.Date)
                     {
                         
-                        MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{6}',iva={7},razon='{8}' WHERE id ='{9}'",
-                     compra.Proveedor, compra.Motivo, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento), compra.Monto, 1, compra.Detalle, compra.Comprobante, compra.Iva, compra.Razon, compra.Id), Conexion.ObtenerConexion());
+                        MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{6}',iva={7},razon='{8}',iva10='{9}',no_gravado='{10}',percepcion_iva='{11}',percepcion_iibb='{12}' WHERE id ='{13}'",
+                     compra.Proveedor, compra.Motivo, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento), compra.Monto, 1, compra.Detalle, compra.Comprobante, compra.Iva, compra.Razon,compra.Iva10,compra.Nogravado,compra.Percepcioniva,compra.Percepcioniibb, compra.Id), Conexion.ObtenerConexion());
 
                         retorno = comando.ExecuteNonQuery();
                     }
                     else
                     {
                      
-                        MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{6}',iva={7},razon='{8}',fecha_pago='{9}' WHERE id ='{10}'",
-                   compra.Proveedor, compra.Motivo, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento), compra.Monto, 1, compra.Detalle, compra.Comprobante, compra.Iva, compra.Razon, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(DateTime.Now), compra.Id), Conexion.ObtenerConexion());
+                        MySqlCommand comando = new MySqlCommand(string.Format("UPDATE compras SET proveedor='{0}',motivo='{1}',vencimiento='{2}',monto={3},pagada='{4}',detalle='{5}',comprobante='{6}',iva={7},razon='{8}',fecha_pago='{9}',iva10='{10}',no_gravado='{11}',percepcion_iva='{12}',percepcion_iibb='{13}' WHERE id ='{14}'",
+                   compra.Proveedor, compra.Motivo, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(compra.Vencimiento), compra.Monto, 1, compra.Detalle, compra.Comprobante, compra.Iva, compra.Razon, Omega3.Controlador.ControladorFuncVariadas.convertirFecha(DateTime.Now),compra.Iva10,compra.Nogravado,compra.Percepcioniva,compra.Percepcioniibb, compra.Id), Conexion.ObtenerConexion());
 
                         retorno = comando.ExecuteNonQuery();
                     }

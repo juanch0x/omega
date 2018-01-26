@@ -190,8 +190,8 @@ namespace Omega3.Vista.Venta
 
             foreach (DataGridViewRow item in this.dgv_tabla.SelectedRows)
             {
-                int a = 0;
-                int b = 0;
+                //int a = 0;
+                //int b = 0;
                 if (e.ColumnIndex == 7) //2nd column - DGV_ImageColumn
                 {
 
@@ -246,7 +246,7 @@ namespace Omega3.Vista.Venta
                     venta.documento = long.Parse(cuit.Text);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
-                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
+                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") 
                     {
                         venta.fecha_vencimiento_cheque = fecha_pago.Value;
 
@@ -807,7 +807,7 @@ namespace Omega3.Vista.Venta
                 }
                 else { MessageBox.Show("Hubo un error al insertar en la base de datos."); }
             }
-            catch (Exception ex) { MessageBox.Show("Hubo un error"); }
+            catch (Exception ex) { MessageBox.Show("Hubo un error", Convert.ToString(ex)); }
             finally { Cursor.Current = Cursors.Default; }
         }
 
@@ -920,7 +920,7 @@ namespace Omega3.Vista.Venta
                     venta.documento = long.Parse(cuit.Text);
                     venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
-                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
+                    if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") 
                     {
                         venta.fecha_vencimiento_cheque = fecha_pago.Value;
 
@@ -969,7 +969,7 @@ namespace Omega3.Vista.Venta
                         venta.documento = long.Parse(cuit.Text);
                         venta.medio_de_pago = Convert.ToInt32(combo_pago.SelectedValue.ToString());
 
-                        if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") ;
+                        if (combo_pago.Text == "Cheque" || combo_pago.Text == "Cuenta Corriente") 
                         {
                             venta.fecha_vencimiento_cheque = fecha_pago.Value;
 
