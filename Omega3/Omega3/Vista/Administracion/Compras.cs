@@ -53,6 +53,10 @@ namespace Omega3.Vista.Administracion
                 compras.Comprobante = txt_comprobante.Text;
                 compras.Iva = Convert.ToDecimal(txt_iva.Text);
                 compras.Razon = txt_razon.Text;
+                compras.Iva10 = Convert.ToDecimal(iva10.Text);
+                compras.Nogravado = Convert.ToDecimal(nogravado.Text);
+                compras.Percepcioniva = Convert.ToDecimal(percepcioniva.Text);
+                compras.Percepcioniibb = Convert.ToDecimal(percepcioniibb.Text);
 
                 if (Omega3.Controlador.ControlCompras.Insertarnuevacompra(compras) == 1)
                 {
@@ -67,6 +71,10 @@ namespace Omega3.Vista.Administracion
                     txt_comprobante.Text = "";
                     txt_iva.Text = "";
                     txt_razon.Text = "";
+                    iva10.Text = "";
+                    nogravado.Text = "";
+                    percepcioniva.Text = "";
+                    percepcioniibb.Text = "";
                 }
                 else
                 {

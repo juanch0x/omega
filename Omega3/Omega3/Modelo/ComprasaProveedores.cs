@@ -20,6 +20,10 @@ namespace Omega3.Modelo
         private string _razon;
         private DateTime _diaingreso;
         private DateTime _fechapago;
+        private decimal _iva10;
+        private decimal _nogravado;
+        private decimal _percepcioniva;
+        private decimal _percepcioniibb;
 
         public string Proveedor { get => _proveedor; set => _proveedor = value; }
         public string Motivo { get => _motivo; set => _motivo = value; }
@@ -33,5 +37,9 @@ namespace Omega3.Modelo
         public long Id { get => _id; set => _id = value; }
         public DateTime Diaingreso { get => _diaingreso; set => _diaingreso = value; }
         public DateTime Fechapago { get => _fechapago; set => _fechapago = value; }
+        public decimal Iva10 { get => _iva10; set => _iva10 = value; }
+        public decimal Nogravado { get => _nogravado; set => _nogravado = value; }
+        public decimal Percepcioniva { get => _percepcioniva; set => _percepcioniva = value; }
+        public decimal Percepcioniibb { get => _percepcioniibb; set => _percepcioniibb = value; }
     }
 }

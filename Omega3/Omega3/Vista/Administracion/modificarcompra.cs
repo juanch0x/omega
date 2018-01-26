@@ -39,6 +39,10 @@ namespace Omega3.Vista.Administracion
             compras.Razon = txt_razon.Text;
             compras.Detalle = txt_detalle.Text;
             compras.Fechapago = compra.Fechapago;
+            compras.Iva10 = Convert.ToDecimal(iva10.Text);
+            compras.Nogravado = Convert.ToDecimal(nogravado.Text);
+            compras.Percepcioniva = Convert.ToDecimal(percepcioniva.Text);
+            compras.Percepcioniibb = Convert.ToDecimal(percepcioniibb.Text);
             if (radio_pagado.Checked==true)
             {
                 compras.Pagada = true;
@@ -76,6 +80,10 @@ namespace Omega3.Vista.Administracion
             txt_iva.Text = Convert.ToString(compra.Iva);
             txt_razon.Text = compra.Razon;
             txt_detalle.Text = compra.Detalle;
+            iva10.Text = Convert.ToString(compra.Iva10);
+            percepcioniva.Text = Convert.ToString(compra.Percepcioniva);
+            percepcioniibb.Text = Convert.ToString(compra.Percepcioniibb);
+            nogravado.Text = Convert.ToString(compra.Nogravado);
 
             if (compra.Pagada)
             {
