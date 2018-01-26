@@ -17,3 +17,27 @@
 
 		this.close
 		en la ventana keydown y agregar la ultima propiedad a true
+
+		SELECT
+	  venta.id as 'Id Venta',
+	  venta.fecha_venta as 'Fecha',
+	  venta.usuario as 'Vendedor',
+	  (SELECT razon_social FROM cliente where documento = venta.cliente_documento) as 'Cliente',
+	  (SELECT sum(subtotal) from detalle_venta where id_venta = venta.id) as 'Monto',
+	  if(venta.cobrada = 1,
+	  	(SELECT sum(subtotal) from detalle_venta where id_venta = venta.id  and fecha BETWEEN asd 	asda),
+	  	(SELECT sum(monto) FROM pagosparciales WHERE id_venta = venta.id  and fecha BETWEEN asd 	asda)) as 'Cobrado'
+FROM venta 
+WHERE venta.usuario = 'lalal' and fecha BETWEEN asd 	asda
+
+SELECT
+	  reparaciones.id,
+	  reparaciones.fecha_pago,
+	  reparaciones.usuario,
+	  (SELECT razon_social FROM cliente where documento = reparaciones.documento) as 'Cliente',
+	  (SELECT sum(subtotal) from detalle_reparaciones where reparaciones.id = detalle_reparaciones.id_reparacion) as 'Monto',
+	  if(reparaciones.cobrada = 1,
+	  	(SELECT sum(subtotal) from detalle_reparaciones where reparaciones.id = detalle_reparaciones.id_reparacion),
+	  	(SELECT sum(monto) FROM pagosparciales WHERE id_reparacion = reparaciones.id)) as 'Cobrado'
+FROM reparaciones
+WHERE 1
