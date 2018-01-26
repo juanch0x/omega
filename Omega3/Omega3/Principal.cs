@@ -584,7 +584,7 @@ namespace Omega3
             if (!encontrado)
             {
 
-                proveedores = new Vista.Proveedores.ABMProveedores(); ;
+                proveedores = new Vista.Proveedores.ABMProveedores(); 
                 proveedores.StartPosition = FormStartPosition.CenterScreen;
                 proveedores.MdiParent = this;
                 proveedores.Show();
