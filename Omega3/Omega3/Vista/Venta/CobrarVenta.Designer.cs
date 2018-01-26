@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +42,9 @@
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_deuda = new System.Windows.Forms.Panel();
-            this.lbl_total_pagado = new System.Windows.Forms.Label();
-            this.lbl_total_venta = new System.Windows.Forms.Label();
             this.lbl_deuda = new System.Windows.Forms.Label();
+            this.lbl_total_venta = new System.Windows.Forms.Label();
+            this.lbl_total_pagado = new System.Windows.Forms.Label();
             this.panel_tabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,7 +143,7 @@
             this.panel_tabla.Controls.Add(this.dgv_tabla);
             this.panel_tabla.Location = new System.Drawing.Point(299, 12);
             this.panel_tabla.Name = "panel_tabla";
-            this.panel_tabla.Size = new System.Drawing.Size(587, 255);
+            this.panel_tabla.Size = new System.Drawing.Size(951, 255);
             this.panel_tabla.TabIndex = 11;
             // 
             // dgv_tabla
@@ -153,23 +153,23 @@
             this.dgv_tabla.AllowUserToResizeColumns = false;
             this.dgv_tabla.AllowUserToResizeRows = false;
             this.dgv_tabla.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tabla.GridColor = System.Drawing.SystemColors.MenuText;
             this.dgv_tabla.Location = new System.Drawing.Point(3, 3);
             this.dgv_tabla.MultiSelect = false;
@@ -203,32 +203,10 @@
             this.panel_deuda.Controls.Add(this.lbl_deuda);
             this.panel_deuda.Controls.Add(this.lbl_total_venta);
             this.panel_deuda.Controls.Add(this.lbl_total_pagado);
-            this.panel_deuda.Location = new System.Drawing.Point(76, 273);
+            this.panel_deuda.Location = new System.Drawing.Point(440, 273);
             this.panel_deuda.Name = "panel_deuda";
             this.panel_deuda.Size = new System.Drawing.Size(810, 38);
             this.panel_deuda.TabIndex = 13;
-            // 
-            // lbl_total_pagado
-            // 
-            this.lbl_total_pagado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_total_pagado.AutoSize = true;
-            this.lbl_total_pagado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_pagado.Location = new System.Drawing.Point(677, 17);
-            this.lbl_total_pagado.Name = "lbl_total_pagado";
-            this.lbl_total_pagado.Size = new System.Drawing.Size(114, 16);
-            this.lbl_total_pagado.TabIndex = 0;
-            this.lbl_total_pagado.Text = "lbl_total_pagado";
-            // 
-            // lbl_total_venta
-            // 
-            this.lbl_total_venta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_total_venta.AutoSize = true;
-            this.lbl_total_venta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_venta.Location = new System.Drawing.Point(499, 17);
-            this.lbl_total_venta.Name = "lbl_total_venta";
-            this.lbl_total_venta.Size = new System.Drawing.Size(79, 16);
-            this.lbl_total_venta.TabIndex = 1;
-            this.lbl_total_venta.Text = "Total Venta";
             // 
             // lbl_deuda
             // 
@@ -241,11 +219,33 @@
             this.lbl_deuda.TabIndex = 2;
             this.lbl_deuda.Text = "Deuda";
             // 
+            // lbl_total_venta
+            // 
+            this.lbl_total_venta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_total_venta.AutoSize = true;
+            this.lbl_total_venta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_venta.Location = new System.Drawing.Point(499, 17);
+            this.lbl_total_venta.Name = "lbl_total_venta";
+            this.lbl_total_venta.Size = new System.Drawing.Size(79, 16);
+            this.lbl_total_venta.TabIndex = 1;
+            this.lbl_total_venta.Text = "Total Venta";
+            // 
+            // lbl_total_pagado
+            // 
+            this.lbl_total_pagado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_total_pagado.AutoSize = true;
+            this.lbl_total_pagado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_pagado.Location = new System.Drawing.Point(677, 17);
+            this.lbl_total_pagado.Name = "lbl_total_pagado";
+            this.lbl_total_pagado.Size = new System.Drawing.Size(114, 16);
+            this.lbl_total_pagado.TabIndex = 0;
+            this.lbl_total_pagado.Text = "lbl_total_pagado";
+            // 
             // CobrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 315);
+            this.ClientSize = new System.Drawing.Size(1262, 315);
             this.Controls.Add(this.panel_deuda);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_tabla);

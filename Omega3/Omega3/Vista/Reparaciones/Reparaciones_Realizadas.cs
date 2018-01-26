@@ -272,7 +272,7 @@ namespace Omega3.Vista.Reparaciones
 
                 decimal total_venta = Convert.ToDecimal(selectedRow.Cells["Total"].Value);
                 a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
-                a.nro_factura = Convert.ToString(selectedRow.Cells[2].Value);
+                a.nro_factura = Convert.ToString(selectedRow.Cells["Nro Factura"].Value);
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
 
 

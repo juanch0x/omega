@@ -76,13 +76,15 @@ namespace Omega3.Controlador
             {
                 if (a.medio_de_pago == 1)
                 {
-                    query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion,recibo) values ({0},{1},'{2}',{3},'{4}')",
-                            a.monto, a.medio_de_pago, fecha,a.id_reparacion,a.recibo);
+                    query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},'{2}',{3},'{4}',{5},{6},{7},{8})",
+                            a.monto, a.medio_de_pago, fecha,a.id_reparacion,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
+                    Console.WriteLine(query);
                 }
                 else
                 {
-                    query = string.Format("Insert into pagosparciales (id_reparacion,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}')",
-                            a.id_reparacion, a.monto, a.medio_de_pago, fecha, a.comprobante, vencimiento, a.razon_social, a.banco,a.recibo);
+                    query = string.Format("Insert into pagosparciales (id_reparacion,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12})",
+                            a.id_reparacion, a.monto, a.medio_de_pago, fecha, a.comprobante, vencimiento, a.razon_social, a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
+                    Console.WriteLine(query);
                 }
 
                 MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
