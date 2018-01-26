@@ -42,6 +42,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_generar = new System.Windows.Forms.Button();
             this.panel_efectivo = new System.Windows.Forms.Panel();
             this.dgv_tabla_efectivo = new System.Windows.Forms.DataGridView();
@@ -57,6 +61,8 @@
             this.dgv_tabla_detalle_cheque = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgv_tabla_total = new System.Windows.Forms.DataGridView();
+            this.dgv_tabla_transferencia_detalle = new System.Windows.Forms.DataGridView();
+            this.dgv_tabla_transferencia = new System.Windows.Forms.DataGridView();
             this.panel_efectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_efectivo)).BeginInit();
             this.panel_tarjeta.SuspendLayout();
@@ -71,11 +77,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_detalle_cheque)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_total)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_transferencia_detalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_transferencia)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_generar
             // 
-            this.btn_generar.Location = new System.Drawing.Point(192, 370);
+            this.btn_generar.Location = new System.Drawing.Point(12, 401);
             this.btn_generar.Name = "btn_generar";
             this.btn_generar.Size = new System.Drawing.Size(75, 23);
             this.btn_generar.TabIndex = 0;
@@ -314,7 +322,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.dgv_tabla_detalle_cheque);
-            this.panel4.Location = new System.Drawing.Point(53, 251);
+            this.panel4.Location = new System.Drawing.Point(12, 258);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(514, 80);
             this.panel4.TabIndex = 10;
@@ -401,11 +409,87 @@
             this.dgv_tabla_total.Size = new System.Drawing.Size(451, 69);
             this.dgv_tabla_total.TabIndex = 7;
             // 
+            // dgv_tabla_transferencia_detalle
+            // 
+            this.dgv_tabla_transferencia_detalle.AllowUserToAddRows = false;
+            this.dgv_tabla_transferencia_detalle.AllowUserToDeleteRows = false;
+            this.dgv_tabla_transferencia_detalle.AllowUserToResizeColumns = false;
+            this.dgv_tabla_transferencia_detalle.AllowUserToResizeRows = false;
+            this.dgv_tabla_transferencia_detalle.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla_transferencia_detalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgv_tabla_transferencia_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tabla_transferencia_detalle.ColumnHeadersVisible = false;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla_transferencia_detalle.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgv_tabla_transferencia_detalle.GridColor = System.Drawing.SystemColors.MenuText;
+            this.dgv_tabla_transferencia_detalle.Location = new System.Drawing.Point(575, 258);
+            this.dgv_tabla_transferencia_detalle.MultiSelect = false;
+            this.dgv_tabla_transferencia_detalle.Name = "dgv_tabla_transferencia_detalle";
+            this.dgv_tabla_transferencia_detalle.ReadOnly = true;
+            this.dgv_tabla_transferencia_detalle.RowHeadersVisible = false;
+            this.dgv_tabla_transferencia_detalle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv_tabla_transferencia_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla_transferencia_detalle.ShowEditingIcon = false;
+            this.dgv_tabla_transferencia_detalle.Size = new System.Drawing.Size(173, 69);
+            this.dgv_tabla_transferencia_detalle.TabIndex = 8;
+            // 
+            // dgv_tabla_transferencia
+            // 
+            this.dgv_tabla_transferencia.AllowUserToAddRows = false;
+            this.dgv_tabla_transferencia.AllowUserToDeleteRows = false;
+            this.dgv_tabla_transferencia.AllowUserToResizeColumns = false;
+            this.dgv_tabla_transferencia.AllowUserToResizeRows = false;
+            this.dgv_tabla_transferencia.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tabla_transferencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgv_tabla_transferencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tabla_transferencia.ColumnHeadersVisible = false;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tabla_transferencia.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgv_tabla_transferencia.GridColor = System.Drawing.SystemColors.MenuText;
+            this.dgv_tabla_transferencia.Location = new System.Drawing.Point(777, 258);
+            this.dgv_tabla_transferencia.MultiSelect = false;
+            this.dgv_tabla_transferencia.Name = "dgv_tabla_transferencia";
+            this.dgv_tabla_transferencia.ReadOnly = true;
+            this.dgv_tabla_transferencia.RowHeadersVisible = false;
+            this.dgv_tabla_transferencia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv_tabla_transferencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla_transferencia.ShowEditingIcon = false;
+            this.dgv_tabla_transferencia.Size = new System.Drawing.Size(173, 69);
+            this.dgv_tabla_transferencia.TabIndex = 12;
+            // 
             // CierreDeCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 436);
+            this.Controls.Add(this.dgv_tabla_transferencia);
+            this.Controls.Add(this.dgv_tabla_transferencia_detalle);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -431,6 +515,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_detalle_cheque)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_total)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_transferencia_detalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_transferencia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +538,7 @@
         private System.Windows.Forms.DataGridView dgv_tabla_detalle_cheque;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgv_tabla_total;
+        private System.Windows.Forms.DataGridView dgv_tabla_transferencia_detalle;
+        private System.Windows.Forms.DataGridView dgv_tabla_transferencia;
     }
 }

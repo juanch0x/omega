@@ -39,6 +39,15 @@ namespace Omega3.Vista.Administracion
             query = "SELECT CONCAT(razon_social, ' ', banco, ' ',comprobante) as Titulo,monto as Monto FROM pagosparciales WHERE medio_de_pago = 5 AND date(fecha) = CURRENT_DATE";
             ControlAdministracion.construirTablaPagos(dgv_tabla_detalle_cheque, query);
 
+
+            query = "SELECT round(sum(pagosparciales.monto),2) as Monto, 'Total Transferencias' as 'Titulo' FROM pagosparciales WHERE medio_de_pago = 6 AND date(fecha) = CURRENT_DATE";
+            ControlAdministracion.construirTablaPagos(dgv_tabla_transferencia, query);
+
+            query = "SELECT CONCAT(banco, ' ',comprobante) as Titulo,monto as Monto FROM pagosparciales WHERE medio_de_pago = 6 AND date(fecha) = CURRENT_DATE";
+            ControlAdministracion.construirTablaPagos(dgv_tabla_transferencia_detalle, query);
+
+
+
             query = "SELECT round(sum(monto),2) as Monto, 'Total' as Titulo FROM pagosparciales WHERE date(fecha) = CURRENT_DATE";
             ControlAdministracion.construirTablaPagos(dgv_tabla_total, query);
 
@@ -52,6 +61,7 @@ namespace Omega3.Vista.Administracion
 
         public void crearExcel()
         {
+            
             Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
             Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet ws = (Worksheet)Excel.ActiveSheet;
@@ -200,8 +210,45 @@ namespace Omega3.Vista.Administracion
 
                 }
             }
+            //CABECERA TRANSFERENCIA
+            int fila_transferencia = fila_detalle_cheque + 1;
+            ws.Range[ws.Cells[fila_transferencia,1],ws.Cells[fila_transferencia, 6]].Merge();
+            ws.Range["a" + fila_transferencia, "f" + fila_transferencia].BorderAround2();
+            ws.Range["f" + fila_transferencia, "g" + fila_transferencia].BorderAround2();
+            ws.Range["a" + fila_transferencia, "f" + fila_transferencia].Font.Bold = true;
+            ws.Range["f" + fila_transferencia, "g" + fila_transferencia].Font.Bold = true;
+            ws.Cells[fila_transferencia, 1] = dgv_tabla_transferencia.Rows[0].Cells[0].Value.ToString();
+            ws.Cells[fila_transferencia, 7] = "$" + dgv_tabla_transferencia.Rows[0].Cells[1].Value.ToString();
 
-            int fila_total = fila_detalle_cheque + 1;
+            //DETALLE TRANSFERENCIA
+
+            int fila_detalle_transferencia = fila_transferencia + 1;
+            fila_detalle_transferencia--;
+
+            for (int i = 0; i < dgv_tabla_transferencia_detalle.Rows.Count; i++)
+            {
+
+                fila_detalle_transferencia++;
+                ws.Range[ws.Cells[fila_detalle_transferencia, 1], ws.Cells[fila_detalle_transferencia, 5]].Merge();
+                ws.Range["a" + fila_detalle_transferencia, "e" + fila_detalle_transferencia].BorderAround2();
+                ws.Range["a" + fila_detalle_transferencia, "e" + fila_detalle_transferencia].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
+                ws.Range["e" + fila_detalle_transferencia, "f" + fila_detalle_transferencia].BorderAround2();
+
+                for (int j = 0; j < 2; j++)
+                {
+                    if (j == 0)
+                    {
+                        ws.Cells[fila_detalle_transferencia, 1] = dgv_tabla_transferencia_detalle.Rows[i].Cells[j].Value;
+                    }
+                    else
+                    {
+                        ws.Cells[fila_detalle_transferencia, 6] = dgv_tabla_transferencia_detalle.Rows[i].Cells[j].Value;
+                    }
+
+                }
+            }
+
+            int fila_total = fila_detalle_transferencia + 1;
             ws.Range[ws.Cells[fila_total, 1], ws.Cells[fila_total, 6]].Merge();
             ws.Range["a" + fila_total, "f" + fila_total].BorderAround2();
             ws.Range["f" + fila_total, "g" + fila_total].BorderAround2();
