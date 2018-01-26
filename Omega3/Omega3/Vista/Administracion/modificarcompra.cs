@@ -110,7 +110,7 @@ namespace Omega3.Vista.Administracion
 
         private void txt_monto_TextChanged(object sender, EventArgs e)
         {
-            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+            
         }
 
         private void txt_iva_KeyPress(object sender, KeyPressEventArgs e)
@@ -134,6 +134,11 @@ namespace Omega3.Vista.Administracion
         }
 
         private void percepcioniibb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
+        }
+
+        private void txt_monto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Omega3.Controlador.ControladorFuncVariadas.validarNumerosConComas(sender, e);
         }

@@ -318,6 +318,7 @@
             this.txt_monto.TabIndex = 30;
             this.txt_monto.Tag = "Monto";
             this.txt_monto.TextChanged += new System.EventHandler(this.txt_monto_TextChanged);
+            this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
             // txt_motivo
             // 
