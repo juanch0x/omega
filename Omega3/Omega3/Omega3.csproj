@@ -109,6 +109,7 @@
     <Compile Include="Controlador\ControlProveedor.cs" />
     <Compile Include="Controlador\Conexion.cs" />
     <Compile Include="Controlador\ControlProducto.cs" />
+    <Compile Include="Controlador\ControlRendiciones.cs" />
     <Compile Include="Controlador\ControlReparaciones.cs" />
     <Compile Include="Controlador\ControlUsuario.cs" />
     <Compile Include="Controlador\ControlVenta.cs" />
@@ -340,6 +341,18 @@
     <Compile Include="Vista\Proveedores\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Rendicion\CriterioRendicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Rendicion\CriterioRendicion.Designer.cs">
+      <DependentUpon>CriterioRendicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Rendicion\GenerarRendicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Rendicion\GenerarRendicion.Designer.cs">
+      <DependentUpon>GenerarRendicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reparaciones\BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -570,6 +583,12 @@
     <EmbeddedResource Include="Vista\Proveedores\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Rendicion\CriterioRendicion.resx">
+      <DependentUpon>CriterioRendicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Rendicion\GenerarRendicion.resx">
+      <DependentUpon>GenerarRendicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reparaciones\BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -648,7 +667,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel.png" />

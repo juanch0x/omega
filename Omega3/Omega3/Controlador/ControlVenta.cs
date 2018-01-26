@@ -32,7 +32,7 @@ namespace Omega3.Controlador
             System.IO.StringWriter Output = new System.IO.StringWriter(new StringBuilder());
             System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(objectToSerialise.GetType());
             System.Xml.Serialization.XmlSerializerNamespaces ns = new System.Xml.Serialization.XmlSerializerNamespaces();
-            ns.Add("fac", "http://testing.facturante.com.API");
+            ns.Add("fac", "http://www.facturante.com.API");
             xs.Serialize(Output, objectToSerialise, ns);
             return Output.ToString();
         }
@@ -47,8 +47,8 @@ namespace Omega3.Controlador
 
             request.Autenticacion = new Autenticacion();
             request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = "5500";
@@ -84,7 +84,7 @@ namespace Omega3.Controlador
             request.Encabezado.PercepcionIIBB = 0;
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
-            request.Encabezado.Prefijo = "0002";
+            request.Encabezado.Prefijo = "0004";
             request.Encabezado.Remito = "444";
             request.Encabezado.SubTotal = (decimal)664.46;
             request.Encabezado.SubTotalExcento = 0;
@@ -161,9 +161,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
@@ -238,9 +238,9 @@ namespace Omega3.Controlador
             CrearComprobanteRequest request = new CrearComprobanteRequest();
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
@@ -282,7 +282,7 @@ namespace Omega3.Controlador
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
             //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
-            request.Encabezado.Prefijo = "0002";
+            request.Encabezado.Prefijo = "0004";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             request.Encabezado.TipoComprobante = venta.tipo_factura;
@@ -347,9 +347,9 @@ namespace Omega3.Controlador
             CrearComprobanteRequest request = new CrearComprobanteRequest();
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
 
             request.Cliente = new FacturanteMVC.API.DTOs.Cliente();
             request.Cliente.CodigoPostal = Convert.ToString(cliente.Codigo_postal);
@@ -393,7 +393,7 @@ namespace Omega3.Controlador
             request.Encabezado.PercepcionIVA = 0;
             request.Encabezado.PorcentajeIIBB = 0;
             //CAMBIAR CUANDO NOS PASEMOS A PRODUCCIóN
-            request.Encabezado.Prefijo = "0002";
+            request.Encabezado.Prefijo = "0004";
             /*Se siguen usando? No son obligatorios
             request.Encabezado.Remito = "444";*/
             //request.Encabezado.TipoComprobante = venta.tipo_factura;
@@ -457,9 +457,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);
@@ -511,9 +511,9 @@ namespace Omega3.Controlador
 
 
             request.Autenticacion = new Autenticacion();
-            request.Autenticacion.Usuario = "TEST_API_GENERICO";
-            request.Autenticacion.Hash = "test2016facturante";
-            request.Autenticacion.Empresa = 118; //[Identificador de la empresa a la que pertenece el usuario]
+            request.Autenticacion.Usuario = "comercial@omegadistribuidora.com";
+            request.Autenticacion.Hash = "comercial";
+            request.Autenticacion.Empresa = 6348; //[Identificador de la empresa a la que pertenece el usuario]
             request.IdComprobante = Convert.ToInt32(id_comprobante);
 
             ListadoComprobantesResponse response = comprobanteClient.ListadoComprobantes(request);

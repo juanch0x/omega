@@ -71,6 +71,7 @@ namespace Omega3
             this.ventasPorCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasRealizadasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rendicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -279,7 +280,8 @@ namespace Omega3
             this.clienteToolStripMenuItem1,
             this.proveedoresToolStripMenuItem,
             this.gastosToolStripMenuItem,
-            this.informesToolStripMenuItem});
+            this.informesToolStripMenuItem,
+            this.rendicionesToolStripMenuItem});
             this.administracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
             this.administracionToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
@@ -400,6 +402,13 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
+            // rendicionesToolStripMenuItem
+            // 
+            this.rendicionesToolStripMenuItem.Name = "rendicionesToolStripMenuItem";
+            this.rendicionesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.rendicionesToolStripMenuItem.Text = "Rendiciones";
+            this.rendicionesToolStripMenuItem.Click += new System.EventHandler(this.rendicionesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +477,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPorCategoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rendicionesToolStripMenuItem;
     }
 }
 

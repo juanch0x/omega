@@ -76,7 +76,7 @@
             this.txt_monto.Location = new System.Drawing.Point(165, 59);
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.Size = new System.Drawing.Size(121, 20);
-            this.txt_monto.TabIndex = 2;
+            this.txt_monto.TabIndex = 1;
             this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
             // panel_carga
@@ -90,14 +90,14 @@
             this.panel_carga.Location = new System.Drawing.Point(12, 3);
             this.panel_carga.Name = "panel_carga";
             this.panel_carga.Size = new System.Drawing.Size(306, 124);
-            this.panel_carga.TabIndex = 3;
+            this.panel_carga.TabIndex = 0;
             // 
             // txt_recibo
             // 
             this.txt_recibo.Location = new System.Drawing.Point(165, 91);
             this.txt_recibo.Name = "txt_recibo";
             this.txt_recibo.Size = new System.Drawing.Size(121, 20);
-            this.txt_recibo.TabIndex = 6;
+            this.txt_recibo.TabIndex = 2;
             // 
             // label7
             // 
@@ -146,14 +146,14 @@
             this.panel_cheque.Location = new System.Drawing.Point(12, 215);
             this.panel_cheque.Name = "panel_cheque";
             this.panel_cheque.Size = new System.Drawing.Size(306, 207);
-            this.panel_cheque.TabIndex = 4;
+            this.panel_cheque.TabIndex = 2;
             // 
             // txt_retencion_suss
             // 
             this.txt_retencion_suss.Location = new System.Drawing.Point(166, 184);
             this.txt_retencion_suss.Name = "txt_retencion_suss";
             this.txt_retencion_suss.Size = new System.Drawing.Size(121, 20);
-            this.txt_retencion_suss.TabIndex = 19;
+            this.txt_retencion_suss.TabIndex = 5;
             this.txt_retencion_suss.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_retencion_suss_KeyPress);
             // 
             // txt_retencion_iibb
@@ -161,7 +161,7 @@
             this.txt_retencion_iibb.Location = new System.Drawing.Point(166, 154);
             this.txt_retencion_iibb.Name = "txt_retencion_iibb";
             this.txt_retencion_iibb.Size = new System.Drawing.Size(121, 20);
-            this.txt_retencion_iibb.TabIndex = 18;
+            this.txt_retencion_iibb.TabIndex = 4;
             this.txt_retencion_iibb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_retencion_iibb_KeyPress);
             // 
             // label11
@@ -189,7 +189,7 @@
             this.txt_retencion_ig.Location = new System.Drawing.Point(166, 121);
             this.txt_retencion_ig.Name = "txt_retencion_ig";
             this.txt_retencion_ig.Size = new System.Drawing.Size(121, 20);
-            this.txt_retencion_ig.TabIndex = 15;
+            this.txt_retencion_ig.TabIndex = 3;
             this.txt_retencion_ig.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_retencion_ig_KeyPress);
             // 
             // label9
@@ -207,7 +207,7 @@
             this.txt_retencion_iva.Location = new System.Drawing.Point(166, 92);
             this.txt_retencion_iva.Name = "txt_retencion_iva";
             this.txt_retencion_iva.Size = new System.Drawing.Size(121, 20);
-            this.txt_retencion_iva.TabIndex = 13;
+            this.txt_retencion_iva.TabIndex = 2;
             this.txt_retencion_iva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_retencion_iva_KeyPress);
             // 
             // label8
@@ -245,7 +245,7 @@
             this.txt_razon.Location = new System.Drawing.Point(166, 56);
             this.txt_razon.Name = "txt_razon";
             this.txt_razon.Size = new System.Drawing.Size(121, 20);
-            this.txt_razon.TabIndex = 8;
+            this.txt_razon.TabIndex = 1;
             // 
             // txt_vencimiento
             // 
@@ -254,7 +254,7 @@
             this.txt_vencimiento.MinDate = new System.DateTime(2017, 12, 13, 0, 0, 0, 0);
             this.txt_vencimiento.Name = "txt_vencimiento";
             this.txt_vencimiento.Size = new System.Drawing.Size(121, 20);
-            this.txt_vencimiento.TabIndex = 6;
+            this.txt_vencimiento.TabIndex = 0;
             // 
             // label5
             // 
@@ -271,7 +271,7 @@
             this.txt_banco.Location = new System.Drawing.Point(166, 45);
             this.txt_banco.Name = "txt_banco";
             this.txt_banco.Size = new System.Drawing.Size(121, 20);
-            this.txt_banco.TabIndex = 7;
+            this.txt_banco.TabIndex = 1;
             // 
             // label3
             // 
@@ -318,7 +318,7 @@
             this.panel_transferencia.Location = new System.Drawing.Point(12, 133);
             this.panel_transferencia.Name = "panel_transferencia";
             this.panel_transferencia.Size = new System.Drawing.Size(303, 76);
-            this.panel_transferencia.TabIndex = 14;
+            this.panel_transferencia.TabIndex = 1;
             // 
             // agregarPago
             // 

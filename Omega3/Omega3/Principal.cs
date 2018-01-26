@@ -852,7 +852,38 @@ namespace Omega3
 
         }
 
+        private void rendicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            
 
+            Vista.Rendicion.CriterioRendicion criterioRendicion;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("CriterioRendicion"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                criterioRendicion = new Vista.Rendicion.CriterioRendicion();
+                criterioRendicion.StartPosition = FormStartPosition.CenterScreen;
+                criterioRendicion.MdiParent = this;
+                criterioRendicion.Show();
+            }
+
+        }
+
+
+    }
     }
 
     public class dolar
@@ -861,7 +892,7 @@ namespace Omega3
         public decimal libre { get; set; }
 
     }
-}
+
             
       
             
