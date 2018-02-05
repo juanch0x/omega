@@ -62,6 +62,7 @@
             this.lbl_cuit = new System.Windows.Forms.Label();
             this.razon = new System.Windows.Forms.Label();
             this.tab_venta = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.btn_presupuesto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_ventas_total = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.lbl_venta_descripcion = new System.Windows.Forms.Label();
             this.lbl_venta_codigo = new System.Windows.Forms.Label();
             this.lbl_venta_cantidad = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.panel_cliente.SuspendLayout();
             this.panel_principal.SuspendLayout();
@@ -257,6 +257,7 @@
             this.combo_cliente.Size = new System.Drawing.Size(217, 23);
             this.combo_cliente.TabIndex = 15;
             this.combo_cliente.Enter += new System.EventHandler(this.combo_cliente_Enter);
+            this.combo_cliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combo_cliente_KeyPress);
             this.combo_cliente.Leave += new System.EventHandler(this.combo_cliente_Leave);
             // 
             // buscar_cuit
@@ -482,6 +483,15 @@
             this.tab_venta.TabIndex = 1;
             this.tab_venta.Text = "Venta";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1036, 472);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "label8";
+            // 
             // btn_presupuesto
             // 
             this.btn_presupuesto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
@@ -602,7 +612,6 @@
             // 
             // combo_producto
             // 
-            this.combo_producto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.combo_producto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_producto.FormattingEnabled = true;
             this.combo_producto.Location = new System.Drawing.Point(252, 28);
@@ -749,15 +758,6 @@
             this.lbl_venta_cantidad.Size = new System.Drawing.Size(78, 19);
             this.lbl_venta_cantidad.TabIndex = 0;
             this.lbl_venta_cantidad.Text = "Cantidad";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1036, 472);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "label8";
             // 
             // Venta_1
             // 

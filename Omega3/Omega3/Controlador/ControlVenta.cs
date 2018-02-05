@@ -220,8 +220,8 @@ namespace Omega3.Controlador
             }
 
             combo.AutoCompleteCustomSource = coleccion;
-            combo.AutoCompleteMode = AutoCompleteMode.Suggest;
-            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+           // combo.AutoCompleteMode = AutoCompleteMode.Suggest;
+          //  combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
         }
 

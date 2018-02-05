@@ -693,16 +693,7 @@ namespace Omega3.Vista.Venta
 
         private void combo_producto_Leave(object sender, EventArgs e)
         {
-            if (combo_producto.SelectedIndex == -1)
-            {
-                //MessageBox.Show("Debe elegir un producto de la lista.");
-                //panel_principal.SelectedIndex = 1;
-                //combo_producto.Focus();
-                //combo_producto.SelectionStart = 0;
-                //combo_producto.SelectionLength = combo_producto.Text.Length;
-                //combo_producto.DroppedDown = true;
-                //    combo_producto.Text = "";
-            }
+
         }
 
 
@@ -847,7 +838,9 @@ namespace Omega3.Vista.Venta
         private void combo_producto_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
+            //ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
+            var a = new ControladorFuncVariadas();
+            a.AutoComplete(combo_producto, e);
 
         }
 
@@ -875,7 +868,8 @@ namespace Omega3.Vista.Venta
 
         private void combo_cliente_Leave(object sender, EventArgs e)
         {
-            if (combo_cliente.SelectedIndex == -1)
+            //if (combo_cliente.SelectedIndex == -1)
+            if(combo_cliente.Text.Trim() == "" || string.IsNullOrEmpty(combo_cliente.Text))
             {
                 combo_cliente.ForeColor = Color.Gray;
                 combo_cliente.SelectedIndex = -1;
@@ -1031,6 +1025,13 @@ namespace Omega3.Vista.Venta
             {
                 MessageBox.Show(producto.Cod_producto.ToString() + " " + producto.Cantidad);
             }
+        }
+
+        private void combo_cliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var a = new ControladorFuncVariadas();
+            a.AutoComplete(combo_cliente, e);
+
         }
     }
 }
