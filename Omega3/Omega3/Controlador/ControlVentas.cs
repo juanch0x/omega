@@ -712,21 +712,36 @@ try {
 
         public static int obtenerCategoria (long cod_producto)
         {
-            int id_categoria=0;
+            int id_categoria = 0;
+            MySqlCommand insere = new MySqlCommand();
 
-
-                MySqlCommand _comando = new MySqlCommand(String.Format(
-               "SELECT id_categoria FROM productos where cod_producto = {0}", cod_producto), Conexion.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
-            while (_reader.Read())
+            using (MySqlConnection MyConn = new MySqlConnection(Conexion.connectionString))
             {
+                MyConn.Open();
+                insere.Connection = MyConn;
+                insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
+                insere.Parameters.AddWithValue("@cod", cod_producto);
+                MySqlDataReader _reader = insere.ExecuteReader();
+                while (_reader.Read())
+                {
 
-                id_categoria = _reader.GetInt32(0);
+                    id_categoria = _reader.GetInt32(0);
 
+                }
+                _reader.Close();
+                MyConn.Close();
             }
 
 
+
             return id_categoria;
+
+            
+            
+
+            
+
+
         }
 
 
