@@ -721,14 +721,16 @@ try {
                 insere.Connection = MyConn;
                 insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
                 insere.Parameters.AddWithValue("@cod", cod_producto);
-                MySqlDataReader _reader = insere.ExecuteReader();
-                while (_reader.Read())
+                using (MySqlDataReader _reader = insere.ExecuteReader())
                 {
+                    while (_reader.Read())
+                    {
 
-                    id_categoria = _reader.GetInt32(0);
+                        id_categoria = _reader.GetInt32(0);
 
+                    }
+                    _reader.Close();
                 }
-                _reader.Close();
                 MyConn.Close();
             }
 
