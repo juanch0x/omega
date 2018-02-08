@@ -838,9 +838,9 @@ namespace Omega3.Vista.Venta
         private void combo_producto_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            //ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
-            var a = new ControladorFuncVariadas();
-            a.AutoComplete(combo_producto, e);
+            ControladorFuncVariadas.autoCompletarCombo(sender, e, combo_producto);
+            //var a = new ControladorFuncVariadas();
+            //a.AutoComplete(combo_producto, e);
 
         }
 
