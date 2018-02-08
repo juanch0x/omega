@@ -717,21 +717,28 @@ try {
 
             using (MySqlConnection MyConn = new MySqlConnection(Conexion.connectionString))
             {
-                MyConn.Open();
-                insere.Connection = MyConn;
-                insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
-                insere.Parameters.AddWithValue("@cod", cod_producto);
-                using (MySqlDataReader _reader = insere.ExecuteReader())
+                try
                 {
-                    while (_reader.Read())
+                    MyConn.Open();
+                    insere.Connection = MyConn;
+                    insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
+                    insere.Parameters.AddWithValue("@cod", cod_producto);
+                    using (MySqlDataReader _reader = insere.ExecuteReader())
+
                     {
+                        while (_reader.Read())
+                        {
 
-                        id_categoria = _reader.GetInt32(0);
+                            id_categoria = _reader.GetInt32(0);
 
+                        }
+                        _reader.Close();
                     }
-                    _reader.Close();
+                    MyConn.Close();
                 }
-                MyConn.Close();
+                catch (MySqlException ex) { MessageBox.Show(ex.ToString());}
+                finally { MyConn.Close(); }
+
             }
             
 
