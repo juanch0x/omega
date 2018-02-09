@@ -713,45 +713,49 @@ try {
         public static int obtenerCategoria (long cod_producto)
         {
             int id_categoria = 0;
-            MySqlCommand insere = new MySqlCommand();
+            
 
-            using (MySqlConnection MyConn = new MySqlConnection(Conexion.connectionString))
+            using (var MyConn = new MySqlConnection(Conexion.connectionString))
             {
-                try
-                {
-                    MyConn.Open();
-                    insere.Connection = MyConn;
-                    insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
-                    insere.Parameters.AddWithValue("@cod", cod_producto);
-                    using (MySqlDataReader _reader = insere.ExecuteReader())
-
+               
+                    try
                     {
-                        while (_reader.Read())
+
+                    using (var insere = new MySqlCommand())
+                    {
+                        
+                        MyConn.Open();
+                        insere.Connection = MyConn;
+                        insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
+                        insere.Parameters.AddWithValue("@cod", cod_producto);
+                        /*using (var _reader = insere.ExecuteReader())
+
                         {
+                            while (_reader.Read())
+                            {
 
-                            id_categoria = _reader.GetInt32(0);
+                                id_categoria = _reader.GetInt32(0);
 
-                        }
-                        _reader.Close();
-                    }
-                    MyConn.Close();
-                }
+
+                            _reader.Close();*/
+
+                        id_categoria = Convert.ToInt32(insere.ExecuteScalar());
+
+
+                        MyConn.Close();
+                        MyConn.ClearAllPoolsAsync();
+                    }} 
                 catch (MySqlException ex) { MessageBox.Show(ex.ToString());}
                 finally { MyConn.Close(); }
-
             }
+        
             
 
 
             return id_categoria;
 
-            
-            
 
-            
-
-
-        }
+    }
 
 
         public static void armarExcelVentasRealizadas(DataGridView dgv_tabla)
