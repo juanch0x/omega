@@ -161,7 +161,6 @@ namespace Omega3.Controlador
                 article.Cantidad = Convert.ToInt32(row.Cells[0].Value);
                 article.Cod = Convert.ToString(row.Cells[1].Value);
                 article.Descripcion = Convert.ToString(row.Cells[2].Value);
-                //article.Precio = ((Convert.ToDecimal(row.Cells[5].Value)) / (Convert.ToInt32(row.Cells[4].Value) / 100 + 1)) / Convert.ToInt32(row.Cells[0].Value);
                 article.Precio = ((Convert.ToDecimal(row.Cells[5].Value)) / Convert.ToInt32(row.Cells[0].Value));
                 article.Lista = Convert.ToInt32(row.Cells[4].Value);
                 article.subtotal = Convert.ToDecimal(row.Cells[5].Value);
@@ -1318,6 +1317,77 @@ try {
 
         }
 
+
+
+        public static void mostrarFacturaNegro(long id_venta)
+        {
+
+            string query = string.Empty;
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                query = "SELECT venta.cliente_documento, venta.fecha_venta, cliente.razon_social, cliente.direccion, detalle_venta.cantidad, detalle_venta.codigo, productos.producto, detalle_venta.descuento, detalle_venta.subtotal FROM venta INNER JOIN cliente ON venta.cliente_documento = cliente.documento INNER JOIN detalle_venta ON venta.id = detalle_venta.id_venta INNER JOIN productos ON detalle_venta.codigo = productos.cod_producto WHERE venta.id = " + id_venta + "";
+
+                Factura_Negro Cabecera = new Factura_Negro();
+                Cabecera.Total = 0;
+                using (var MyConn = new MySqlConnection(Conexion.connectionString))
+                {
+                    MyConn.Open();
+                    using (var comando = new MySqlCommand(query, MyConn))
+                    {
+
+                        using (MySqlDataReader _reader = comando.ExecuteReader())
+                        {
+
+                            while (_reader.Read())
+                            {
+
+                                //Factura
+                                Cabecera.Nombre = _reader.GetString(2);
+                                Cabecera.Documento = _reader.GetString(0);
+                                Cabecera.Direccion = _reader.GetString(3);
+                                Cabecera.Fecha = _reader.GetDateTime(1);
+
+                                //Detalle
+
+
+                                Detalle_Negro article = new Detalle_Negro();
+
+                                article.Cantidad = _reader.GetInt32(4);
+                                article.Cod = _reader.GetString(5);
+                                article.Descripcion = _reader.GetString(6);
+                                article.Lista = _reader.GetInt32(7);
+                                article.subtotal = _reader.GetDecimal(8);
+                                article.Precio = article.subtotal / article.Cantidad;
+                                Cabecera.Total += article.subtotal;
+
+
+                                Cabecera.Detail.Add(article);
+
+                            }
+
+
+
+                        }
+
+                    }
+
+
+                }
+
+
+                Vista.Venta.Comprobante_Oscuro frm = new Vista.Venta.Comprobante_Oscuro();
+
+
+                frm.Cabecera.Add(Cabecera);
+
+                frm.Detalle = Cabecera.Detail;
+                frm.Show();
+            }catch(Exception ex) { Console.WriteLine(ex.ToString()); }
+            finally { Cursor.Current = Cursors.Default; }
+
+        }
 
 
 

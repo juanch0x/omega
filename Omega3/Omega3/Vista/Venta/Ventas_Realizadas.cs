@@ -230,6 +230,10 @@ namespace Omega3.Vista.Venta
                         catch (Exception ex) { MessageBox.Show("Excepción detectada -> "+ex.ToString()+" comuniquese con su proveedor de software");}
                         finally { Cursor.Current = Cursors.Default; }
                     }
+                    else
+                    {
+                        ControlVentas.mostrarFacturaNegro(long.Parse(dgv_tabla.Rows[dgv_tabla.CurrentCell.RowIndex].Cells["Id"].Value.ToString()));
+                    }
 
 
 

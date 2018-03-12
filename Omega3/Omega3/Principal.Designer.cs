@@ -70,8 +70,8 @@ namespace Omega3
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasRealizadasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -394,6 +394,13 @@ namespace Omega3
             this.ventasRealizadasToolStripMenuItem1.Text = "Ventas Realizadas";
             this.ventasRealizadasToolStripMenuItem1.Click += new System.EventHandler(this.ventasRealizadasToolStripMenuItem1_Click);
             // 
+            // rendicionesToolStripMenuItem
+            // 
+            this.rendicionesToolStripMenuItem.Name = "rendicionesToolStripMenuItem";
+            this.rendicionesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.rendicionesToolStripMenuItem.Text = "Rendiciones";
+            this.rendicionesToolStripMenuItem.Click += new System.EventHandler(this.rendicionesToolStripMenuItem_Click);
+            // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -401,13 +408,6 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(116, 25);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
-            // 
-            // rendicionesToolStripMenuItem
-            // 
-            this.rendicionesToolStripMenuItem.Name = "rendicionesToolStripMenuItem";
-            this.rendicionesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
-            this.rendicionesToolStripMenuItem.Text = "Rendiciones";
-            this.rendicionesToolStripMenuItem.Click += new System.EventHandler(this.rendicionesToolStripMenuItem_Click);
             // 
             // Principal
             // 

@@ -882,7 +882,10 @@ namespace Omega3
 
         }
 
-
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            ControlVentas.mostrarFacturaNegro(13);
+        }
     }
     }
 
