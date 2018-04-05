@@ -224,12 +224,12 @@ namespace Omega3.Controlador
             if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
             {
                 insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,cobrada,fecha_cobro,tipo,remito,ordencompra) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}','1',CURRENT_DATE,{7},{8},'{9}')",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo,venta.remito,venta.ordendeCompra);
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User, tipo, venta.remito, venta.ordendeCompra);
             }
             else
             {
                 insertarventa = string.Format("Insert into venta (cliente_documento, medio_de_pago, vencimiento, nro_factura, tipo_factura, fecha_venta,usuario,tipo,remito,ordencompra) values ('{0}','{1}','{2}', '{3}','{4}','{5}','{6}',{7},{8},'{9}')",
-                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User,tipo,venta.remito,venta.ordendeCompra);
+                  venta.documento, venta.medio_de_pago, fecha_vencimiento, venta.nrofactura, venta.tipo_factura, fecha_venta, Usuario.User, tipo, venta.remito, venta.ordendeCompra);
             }
 
 
@@ -303,7 +303,7 @@ namespace Omega3.Controlador
             }
 
 
-            //ACKHASHDASDASHDAKDJA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA ACA 
+
             if (tipo != 1)
             {
                 if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
@@ -314,7 +314,7 @@ namespace Omega3.Controlador
 
             return lastinserted;
 
-            
+
         }
         public static String convertirFecha(DateTime dt)
         {
@@ -360,7 +360,7 @@ namespace Omega3.Controlador
 
 
         public static void llenar_ventas_realizadas(DataGridView dgv_tabla)
-        
+
         {
 
 
@@ -368,7 +368,7 @@ namespace Omega3.Controlador
 
             //string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,15) as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
             //  string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,15) as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
-            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link, v.ordencompra as 'orden_compra' FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
             try
             {
 
@@ -381,113 +381,120 @@ namespace Omega3.Controlador
                 bSource.DataSource = table;
 
 
-                 dgv_tabla.DataSource = bSource;
+                dgv_tabla.DataSource = bSource;
 
                 // dgv_tabla.Columns["id"].Visible = false;
-                
+
             }
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
-            
+
         }
-    
+
 
         public static void construirTablaVentasRealizadas(DataGridView dgv_tabla)
         {
 
-             var id = new DataGridViewTextBoxColumn();
-             var razon = new DataGridViewTextBoxColumn();
-             var nrofactura = new DataGridViewTextBoxColumn();
-             var tipo = new DataGridViewTextBoxColumn();
-             var remito = new DataGridViewTextBoxColumn();
-             var total = new DataGridViewTextBoxColumn();
-             var fecha = new DataGridViewTextBoxColumn();
-             var link = new DataGridViewTextBoxColumn();
-             var url = new DataGridViewImageColumn();
-             var cobrada = new DataGridViewCheckBoxColumn();
-             var fecha_cobro = new DataGridViewTextBoxColumn();
-             var fecha_vto = new DataGridViewTextBoxColumn();
-             var vendedor = new DataGridViewTextBoxColumn();
+            var id = new DataGridViewTextBoxColumn();
+            var razon = new DataGridViewTextBoxColumn();
+            var nrofactura = new DataGridViewTextBoxColumn();
+            var tipo = new DataGridViewTextBoxColumn();
+            var remito = new DataGridViewTextBoxColumn();
+            var total = new DataGridViewTextBoxColumn();
+            var fecha = new DataGridViewTextBoxColumn();
+            var link = new DataGridViewTextBoxColumn();
+            var url = new DataGridViewImageColumn();
+            var cobrada = new DataGridViewCheckBoxColumn();
+            var fecha_cobro = new DataGridViewTextBoxColumn();
+            var fecha_vto = new DataGridViewTextBoxColumn();
+            var vendedor = new DataGridViewTextBoxColumn();
+            var orden_de_compra = new DataGridViewTextBoxColumn();
 
-
-             razon.HeaderText = "Razon Social";
+            razon.HeaderText = "Razon Social";
             razon.DataPropertyName = "Razon Social";
             razon.Name = "Razon Social";
-             razon.ReadOnly = true;
+            razon.ReadOnly = true;
             razon.Width = 200;
-             
 
-             nrofactura.HeaderText = "Nro Factura";
-             nrofactura.Name = "Nro Factura";
-             nrofactura.ReadOnly = true;
-             nrofactura.DataPropertyName = "Nro Factura";
-            
 
-             tipo.HeaderText = "Tipo";
-             tipo.Name = "Tipo";
-             tipo.DataPropertyName = "Tipo";
-             tipo.ReadOnly = true;
-//             tipo.Width = 45;
+            nrofactura.HeaderText = "Nro Factura";
+            nrofactura.Name = "Nro Factura";
+            nrofactura.ReadOnly = true;
+            nrofactura.DataPropertyName = "Nro Factura";
+
+
+            tipo.HeaderText = "Tipo";
+            tipo.Name = "Tipo";
+            tipo.DataPropertyName = "Tipo";
+            tipo.ReadOnly = true;
+            //             tipo.Width = 45;
 
             remito.HeaderText = "Remito";
-             remito.Name = "Remito";
-             remito.DataPropertyName = "Remito";
-             remito.ReadOnly = true;
+            remito.Name = "Remito";
+            remito.DataPropertyName = "Remito";
+            remito.ReadOnly = true;
 
-             total.HeaderText = "Total";
-             total.Name = "Total";
+            total.HeaderText = "Total";
+            total.Name = "Total";
             total.DataPropertyName = "Total";
-             total.ReadOnly = true;
+            total.ReadOnly = true;
 
-             fecha.HeaderText = "Fecha";
-             fecha.Name = "Fecha";
+            fecha.HeaderText = "Fecha";
+            fecha.Name = "Fecha";
             fecha.DataPropertyName = "Fecha";
-             fecha.ReadOnly = true;
+            fecha.ReadOnly = true;
 
-             link.HeaderText = "Link";
-             link.Name = "Link";
-             link.DataPropertyName = "Link";
-             link.ReadOnly = true;
+            link.HeaderText = "Link";
+            link.Name = "Link";
+            link.DataPropertyName = "Link";
+            link.ReadOnly = true;
             link.Visible = false;
 
-             fecha_cobro.HeaderText = "Fecha de Cobro";
-             fecha_cobro.Name = "Fecha de Cobro";
+            fecha_cobro.HeaderText = "Fecha de Cobro";
+            fecha_cobro.Name = "Fecha de Cobro";
             fecha_cobro.DataPropertyName = "Fecha de Cobro";
-             fecha_cobro.ReadOnly = true;
+            fecha_cobro.ReadOnly = true;
 
-             cobrada.HeaderText = "Cobrada";
-             cobrada.Name = "Cobrada";
+            cobrada.HeaderText = "Cobrada";
+            cobrada.Name = "Cobrada";
             cobrada.DataPropertyName = "Cobrada";
-             //cobrada.Visible = false;
-             cobrada.ReadOnly = true;
+            //cobrada.Visible = false;
+            cobrada.ReadOnly = true;
 
-             fecha_vto.HeaderText = "Vencimiento";
-             fecha_vto.Name = "Vencimiento";
+            fecha_vto.HeaderText = "Vencimiento";
+            fecha_vto.Name = "Vencimiento";
             fecha_vto.DataPropertyName = "Vencimiento";
-             fecha_vto.ReadOnly = true;
+            fecha_vto.ReadOnly = true;
 
-             vendedor.HeaderText = "Vendedor";
-             vendedor.Name = "Vendedor";
+            vendedor.HeaderText = "Vendedor";
+            vendedor.Name = "Vendedor";
             vendedor.DataPropertyName = "Vendedor";
-             vendedor.ReadOnly = true;
+            vendedor.ReadOnly = true;
 
-             id.HeaderText = "Id";
-             id.Name = "Id";
+            id.HeaderText = "Id";
+            id.Name = "Id";
             id.DataPropertyName = "Id";
-             id.ReadOnly = true;
-             id.Visible = false;
+            id.ReadOnly = true;
+            id.Visible = false;
 
             url.Name = "URL";
             url.HeaderText = "URL";
             url.DataPropertyName = "URL";
             url.ReadOnly = true;
 
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] {id, razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link,url });
+            orden_de_compra.Name = "orden_compra";
+            orden_de_compra.HeaderText = "orden_compra";
+            orden_de_compra.DataPropertyName = "orden_compra";
+            orden_de_compra.ReadOnly = true;
+            //orden_de_compra.Visible = false;
+
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id, razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, url, orden_de_compra });
 
 
             dgv_tabla.AutoGenerateColumns = false;
 
             llenar_ventas_realizadas(dgv_tabla);
-            
+
 
         }
 
@@ -495,7 +502,7 @@ namespace Omega3.Controlador
 
         public static decimal Total_Vendido_Hoy()
         {
-            
+
             decimal resultado = new decimal();
             resultado = 0;
 
@@ -508,10 +515,10 @@ namespace Omega3.Controlador
             }
 
             return resultado;
-       
+
         }
 
-        public static decimal  Total_Reparado_Hoy()
+        public static decimal Total_Reparado_Hoy()
         {
             string aux;
             decimal resultado = new decimal();
@@ -523,7 +530,7 @@ namespace Omega3.Controlador
                 resultado = Convert.ToDecimal(aux);
             else
                 resultado = 0;
-            
+
 
             return resultado;
 
@@ -554,21 +561,21 @@ namespace Omega3.Controlador
             MySqlConnection conexion;
 
 
-try { 
+            try {
                 conexion = Conexion.ObtenerConexion();
 
-            if (venta.cobrada) { aux = 1; }else { aux = 0; }
+                if (venta.cobrada) { aux = 1; } else { aux = 0; }
 
-       
 
-            string consulta = string.Format("Update venta set nro_factura='{0}', cobrada='{1}', remito='{2}', fecha_cobro = CURRENT_DATE where id={3}",
-                venta.nrofactura, aux, venta.remito, venta.id);
-            MySqlCommand comando = new MySqlCommand(consulta, conexion);
-            Console.WriteLine(consulta);
 
-            retorno = comando.ExecuteNonQuery();
-            conexion.Close();
-            }catch (MySqlException a) { Console.WriteLine(a); }
+                string consulta = string.Format("Update venta set nro_factura='{0}', cobrada='{1}', remito='{2}', fecha_cobro = CURRENT_DATE where id={3}",
+                    venta.nrofactura, aux, venta.remito, venta.id);
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                Console.WriteLine(consulta);
+
+                retorno = comando.ExecuteNonQuery();
+                conexion.Close();
+            } catch (MySqlException a) { Console.WriteLine(a); }
             return retorno;
 
         }
@@ -579,7 +586,7 @@ try {
         ////*****PARA ACTUALIZAR EL NRO FACTURA Y LA URL******////
         ////**************************************************////
 
-        public int ActualizarFacturaYUrl(string id_comprobante,long id)
+        public int ActualizarFacturaYUrl(string id_comprobante, long id)
         {
 
             ControlVenta control = new ControlVenta();
@@ -600,11 +607,11 @@ try {
 
             numfactura += info[2];
 
-              
 
 
 
-            int retorno=0;
+
+            int retorno = 0;
             try
             {
                 MySqlCommand comando = new MySqlCommand(string.Format("Update venta set nro_factura='{0}', URL='{1}' where id={2}",
@@ -613,7 +620,7 @@ try {
                 retorno = comando.ExecuteNonQuery();
                 conexion.Close();
             }
-            catch (SqlException ex) { MessageBox.Show("Error "+ex.ToString());
+            catch (SqlException ex) { MessageBox.Show("Error " + ex.ToString());
                 MessageBox.Show("Hubo un error creando el comprobante, porfavor cheuqueelo en Facturante");
             }
             return retorno;
@@ -638,7 +645,7 @@ try {
             razon.Name = "Razon Social";
             razon.ReadOnly = true;
             razon.Width = 200;
-                      
+
 
             total.HeaderText = "Total";
             total.Name = "Total";
@@ -649,7 +656,7 @@ try {
             fecha.Name = "Fecha";
             fecha.DataPropertyName = "Fecha";
             fecha.ReadOnly = true;
-                       
+
 
             vendedor.HeaderText = "Vendedor";
             vendedor.Name = "Vendedor";
@@ -660,7 +667,7 @@ try {
             id.Name = "Id";
             id.DataPropertyName = "Id";
             id.ReadOnly = true;
-            
+
 
             url.Name = "URL";
             url.HeaderText = "Ver";
@@ -709,20 +716,20 @@ try {
         }
 
 
-        public static int obtenerCategoria (long cod_producto)
+        public static int obtenerCategoria(long cod_producto)
         {
             int id_categoria = 0;
-            
+
 
             using (var MyConn = new MySqlConnection(Conexion.connectionString))
             {
-               
-                    try
-                    {
+
+                try
+                {
 
                     using (var insere = new MySqlCommand())
                     {
-                        
+
                         MyConn.Open();
                         insere.Connection = MyConn;
                         insere.CommandText = "SELECT id_categoria FROM productos where cod_producto = @cod";
@@ -743,18 +750,18 @@ try {
 
                         MyConn.Close();
                         MyConn.ClearAllPoolsAsync();
-                    }} 
-                catch (MySqlException ex) { MessageBox.Show(ex.ToString());}
+                    } }
+                catch (MySqlException ex) { MessageBox.Show(ex.ToString()); }
                 finally { MyConn.Close(); }
             }
-        
-            
+
+
 
 
             return id_categoria;
 
 
-    }
+        }
 
 
         public static void armarExcelVentasRealizadas(DataGridView dgv_tabla)
@@ -771,15 +778,15 @@ try {
 
                 Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
                 Worksheet ws = (Worksheet)Excel.ActiveSheet;
-                
+
                 Excel.WindowState = XlWindowState.xlMaximized;
                 Microsoft.Office.Interop.Excel.Range cabecera = null;
 
-                
-               
-               ws.Cells[1, 1] = "Ventas Realizadas";
-               ws.Range[ws.Cells[1, 1], ws.Cells[3, 11]].Merge();
-               cabecera = ws.get_Range("a1", "k3");
+
+
+                ws.Cells[1, 1] = "Ventas Realizadas";
+                ws.Range[ws.Cells[1, 1], ws.Cells[3, 12]].Merge();
+                cabecera = ws.get_Range("a1", "l3");
 
 
                 ws.Cells[1, 1].Font.Bold = true;
@@ -803,7 +810,7 @@ try {
                 razon.Interior.Color = Color.White;
                 //razon.Columns.AutoFit();
 
-                                
+
                 ws.Cells[4, 3] = "Nro Factura";
                 ws.Cells[4, 3].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 ws.Cells[4, 3].VerticalAlignment = XlVAlign.xlVAlignCenter;
@@ -882,65 +889,75 @@ try {
                 cobrada.Interior.Color = Color.White;
 
 
+                //Órden de compra!
+                ws.Cells[4, 12] = "Órden de Compra";
+                ws.Cells[4, 12].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells[4, 12].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                ws.Cells[4, 12].Font.Bold = true;
+                Microsoft.Office.Interop.Excel.Range orden = ws.get_Range("l4", "l4");
+                orden.BorderAround2();
+                orden.Interior.Color = Color.White;
+
+
 
                 //********************
                 //Empiezo por cantidad
                 //********************
 
-                    int fila = 5;
-                    int columnas = 10;
-                    
-                    for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+                int fila = 5;
+                int columnas = 11;
+
+                for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
                     {
-                        for (int j = 0; j < columnas; j++)
+
+                        if (j == 0)
+                        {
+                            ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Merge();
+                            ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Razon Social"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Borders);
+
+                            //ws.Cells[fila, 1].Color = Color.White;
+
+                        }
+
+                        else if (j == 1)
+                        {
+                            ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Nro Factura"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
+                            //ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Color = Color.White;
+
+                        }
+
+                        else if (j == 2)
                         {
 
-                            if (j == 0)
-                            {
-                                ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Merge();
-                                ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Razon Social"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Range[ws.Cells[fila, 1], ws.Cells[fila, 2]].Borders);
-                                
-                                //ws.Cells[fila, 1].Color = Color.White;
-
-                            }
-                            
-                            else if (j == 1)
-                            {
-                                ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Nro Factura"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
-                                //ws.Range[ws.Cells[fila, 2], ws.Cells[fila, 4]].Color = Color.White;
-
-                            }
-                            
-                            else if (j == 2)
-                            {
-
-                                ws.Cells[fila, 4] = dgv_tabla.Rows[i].Cells["Tipo"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 4].Borders);
-                                // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
+                            ws.Cells[fila, 4] = dgv_tabla.Rows[i].Cells["Tipo"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 4].Borders);
+                            // ws.Range[ws.Cells[fila, 5], ws.Cells[fila, 6]].Color = Color.White;
 
 
-                            }
-                            
-                            else if (j == 3)
-                            {
+                        }
 
-                                ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells["Remito"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 5].Borders);
-                                //ws.Cells[fila, 7].Color = Color.White;
-                            }
-                            
-                            else if (j == 4)
-                            {
-                                ws.Cells[fila, 6] = dgv_tabla.Rows[i].Cells["Total"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 6].Borders);
-                            }
-                            else if (j == 5)
-                            {
-                                ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells["Fecha"].Value;
-                                ControladorFuncVariadas.AllBorders(ws.Cells[fila, 7].Borders);
-                            }
+                        else if (j == 3)
+                        {
+
+                            ws.Cells[fila, 5] = dgv_tabla.Rows[i].Cells["Remito"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 5].Borders);
+                            //ws.Cells[fila, 7].Color = Color.White;
+                        }
+
+                        else if (j == 4)
+                        {
+                            ws.Cells[fila, 6] = dgv_tabla.Rows[i].Cells["Total"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 6].Borders);
+                        }
+                        else if (j == 5)
+                        {
+                            ws.Cells[fila, 7] = dgv_tabla.Rows[i].Cells["Fecha"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 7].Borders);
+                        }
 
                         else if (j == 6)
                         {
@@ -967,21 +984,27 @@ try {
                                 ws.Cells[fila, 11] = "No";
                             ControladorFuncVariadas.AllBorders(ws.Cells[fila, 11].Borders);
                         }
+                        else if (j == 10)
+                        {
+                            //ws.Cells[fila, 12] = dgv_tabla.Rows[i].Cells["orden_compra"].Value;
+                            ws.Cells[fila, 12] = dgv_tabla.Rows[i].Cells["orden_compra"].Value;
+                            ControladorFuncVariadas.AllBorders(ws.Cells[fila, 12].Borders);
+                        }
 
                     }
 
 
-                        fila++;
-                    }
-                    ws.Columns[2].NumberFormat = "######";
+                    fila++;
+                }
+                ws.Columns[2].NumberFormat = "######";
 
-                    ws.Columns[6].NumberFormat = "$ #.###,00";
+                ws.Columns[6].NumberFormat = "$ #.###,00";
                 ws.Columns.AutoFit();
 
 
                 Excel.Interactive = true;
                 Excel.Visible = true;
-                 
+
             }
 
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
@@ -1059,7 +1082,7 @@ try {
                 Microsoft.Office.Interop.Excel.Range producto = ws.get_Range("a4", "a4");
                 producto.BorderAround2();
                 producto.Interior.Color = Color.White;
-                
+
 
                 ws.Cells[4, 2] = "Código";
                 ws.Cells[4, 2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
@@ -1111,9 +1134,9 @@ try {
                 fecha.BorderAround2();
                 fecha.Interior.Color = Color.White;
 
-               
 
-                               
+
+
 
                 int fila = 5;
                 int columnas = 7;
@@ -1127,7 +1150,7 @@ try {
                         {
                             ws.Cells[fila, 1] = dgv_tabla.Rows[i].Cells["Producto"].Value;
                             ControladorFuncVariadas.AllBorders(ws.Cells[fila, 1].Borders);
-                                                        
+
 
                         }
 
@@ -1135,7 +1158,7 @@ try {
                         {
                             ws.Cells[fila, 2] = dgv_tabla.Rows[i].Cells["Codigo"].Value;
                             ControladorFuncVariadas.AllBorders(ws.Cells[fila, 2].Borders);
-                            
+
                         }
 
                         else if (j == 2)
@@ -1143,7 +1166,7 @@ try {
 
                             ws.Cells[fila, 3] = dgv_tabla.Rows[i].Cells["Cantidad"].Value;
                             ControladorFuncVariadas.AllBorders(ws.Cells[fila, 3].Borders);
-                            
+
 
                         }
 
@@ -1172,7 +1195,7 @@ try {
                             ControladorFuncVariadas.AllBorders(ws.Cells[fila, 7].Borders);
                         }
 
-                        
+
                     }
 
 
@@ -1259,7 +1282,7 @@ try {
                 precio_venta.Interior.Color = Color.White;
 
 
-               
+
 
                 int fila = 5;
                 int columnas = 3;
@@ -1293,17 +1316,17 @@ try {
 
                         }
 
-                     
+
                     }
 
 
                     fila++;
                 }
-                
+
 
                 ws.Columns[2].NumberFormat = "$ #.###,00";
                 ws.Columns[3].NumberFormat = "$ #.###,00";
-                
+
                 ws.Columns.AutoFit();
 
 
@@ -1384,7 +1407,7 @@ try {
 
                 frm.Detalle = Cabecera.Detail;
                 frm.Show();
-            }catch(Exception ex) { Console.WriteLine(ex.ToString()); }
+            } catch (Exception ex) { Console.WriteLine(ex.ToString()); }
             finally { Cursor.Current = Cursors.Default; }
 
         }
