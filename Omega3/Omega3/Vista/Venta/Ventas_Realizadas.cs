@@ -54,6 +54,7 @@ namespace Omega3.Vista.Venta
 
                 decimal total_venta = Convert.ToDecimal(selectedRow.Cells["Total"].Value);
                 a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
+                a.documento = long.Parse(Convert.ToString(selectedRow.Cells["documento"].Value));
                 a.nrofactura = Convert.ToString(selectedRow.Cells[2].Value);
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
                 
@@ -328,6 +329,16 @@ namespace Omega3.Vista.Venta
         {
 //            MessageBox.Show(dgv_tabla.Rows[1].Cells["Cobrada"].Value.ToString());
             ControlVentas.armarExcelVentasRealizadas(dgv_tabla);
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            int sum = 0;
+            for (int i = 0; i < dgv_tabla.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(dgv_tabla.Rows[i].Cells["Total"].Value);
+            }
+            MessageBox.Show(sum.ToString());
         }
     }
 }

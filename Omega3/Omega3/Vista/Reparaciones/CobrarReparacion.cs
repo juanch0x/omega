@@ -141,7 +141,7 @@ namespace Omega3.Vista.Reparaciones
 
         private void btn_agregar_pago_Click(object sender, EventArgs e)
         {
-            PagosParciales.agregarPagoParcialReparacion a = new PagosParciales.agregarPagoParcialReparacion(reparacion.id,total_venta,total_pagado);
+            PagosParciales.agregarPagoParcialReparacion a = new PagosParciales.agregarPagoParcialReparacion(reparacion.id,total_venta,total_pagado, reparacion.documento);
             a.ShowDialog();
             ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, reparacion.id, reparacion.id);
             calcularTotalPagado();

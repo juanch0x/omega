@@ -17,17 +17,19 @@ namespace Omega3.Vista.PagosParciales
         long id_venta;
         decimal total_venta;
         decimal total_pagado;
+        long documento;
         public agregarPago()
         {
             InitializeComponent();
         }
 
-        public agregarPago(long id_venta,decimal total_venta,decimal total_pagado)
+        public agregarPago(long id_venta,decimal total_venta,decimal total_pagado,long documento)
         {
             InitializeComponent();
             this.id_venta = id_venta;
             this.total_venta = total_venta;
             this.total_pagado = total_pagado;
+            this.documento = documento;
         }
 
         private void agregarPago_Load(object sender, EventArgs e)
@@ -106,8 +108,8 @@ namespace Omega3.Vista.PagosParciales
                 a.monto = Convert.ToDecimal(txt_monto.Text);
                 
                     a.razon_social = txt_razon.Text;
-                
-                
+
+                a.documento = documento;
                 a.banco = txt_banco.Text;
                 a.comprobante = txt_comprobante.Text;
                 a.vencimiento = txt_vencimiento.Value;

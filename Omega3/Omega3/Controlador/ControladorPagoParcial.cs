@@ -39,13 +39,13 @@ namespace Omega3.Controlador
                 {
                 if (a.medio_de_pago == 1)
                 {
-                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}',{5},{6},{7},{8})",
-                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.recibo,a.retencion_iva,a.retencion_ig,a.retencion_iibb,a.retencion_suss);
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss,documento) values ({0},{1},{2},'{3}','{4}',{5},{6},{7},{8},{9})",
+                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.recibo,a.retencion_iva,a.retencion_ig,a.retencion_iibb,a.retencion_suss, a.documento);
                 }
                 else
                 {
-                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12})",
-                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.comprobante,vencimiento,a.razon_social,a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss,documento) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12},{13})",
+                            a.id_venta, a.monto, a.medio_de_pago, fecha,a.comprobante,vencimiento,a.razon_social,a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss,a.documento);
                 }
 
                     MySqlCommand comando = new MySqlCommand(query, Conexion.ObtenerConexion());
@@ -76,14 +76,14 @@ namespace Omega3.Controlador
             {
                 if (a.medio_de_pago == 1)
                 {
-                    query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},'{2}',{3},'{4}',{5},{6},{7},{8})",
-                            a.monto, a.medio_de_pago, fecha,a.id_reparacion,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
+                    query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss,documento) values ({0},{1},'{2}',{3},'{4}',{5},{6},{7},{8},{9})",
+                            a.monto, a.medio_de_pago, fecha,a.id_reparacion,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss,a.documento);
                     Console.WriteLine(query);
                 }
                 else
                 {
-                    query = string.Format("Insert into pagosparciales (id_reparacion,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12})",
-                            a.id_reparacion, a.monto, a.medio_de_pago, fecha, a.comprobante, vencimiento, a.razon_social, a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss);
+                    query = string.Format("Insert into pagosparciales (id_reparacion,monto,medio_de_pago,fecha,comprobante,vencimiento,razon_social,banco,recibo,retencion_iva,retencion_ig,retencion_iibb,retencion_suss) values ({0},{1},{2},'{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12},{13})",
+                            a.id_reparacion, a.monto, a.medio_de_pago, fecha, a.comprobante, vencimiento, a.razon_social, a.banco,a.recibo, a.retencion_iva, a.retencion_ig, a.retencion_iibb, a.retencion_suss,a.documento);
                     Console.WriteLine(query);
                 }
 
@@ -234,7 +234,7 @@ namespace Omega3.Controlador
 
 
 
-        public static int agregarPagoVentaEfectivo(DataGridView dgv_tabla,long id_venta,int medio_de_pago)
+        public static int agregarPagoVentaEfectivo(DataGridView dgv_tabla,long id_venta,int medio_de_pago, long documento)
         {
 
 
@@ -253,8 +253,8 @@ namespace Omega3.Controlador
             try
             {
                 
-                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha) values ({0},{1},{2},'{3}')",
-                            id_venta, monto, medio_de_pago, fecha);
+                    query = string.Format("Insert into pagosparciales (id_venta,monto,medio_de_pago,fecha,documento) values ({0},{1},{2},'{3}',{4})",
+                            id_venta, monto, medio_de_pago, fecha, documento);
                 
                 
 
@@ -273,7 +273,7 @@ namespace Omega3.Controlador
             return retorno;
         }
 
-        public static int agregarPagoReparacionEfectivo(long id_reparacion,int medio_de_pago)
+        public static int agregarPagoReparacionEfectivo(long id_reparacion,int medio_de_pago, long documento)
         {
             decimal monto = new decimal(0);
             string consulta = string.Empty;
@@ -299,8 +299,8 @@ namespace Omega3.Controlador
             
 
 
-                query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion) values ({0},{1},'{2}',{3})",
-                        monto, medio_de_pago, fecha,id_reparacion);
+                query = string.Format("Insert into pagosparciales (monto,medio_de_pago,fecha,id_reparacion, documento) values ({0},{1},'{2}',{3}, {4})",
+                        monto, medio_de_pago, fecha,id_reparacion,documento);
 
 
 

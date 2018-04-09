@@ -80,6 +80,7 @@ namespace Omega3.Vista.Reparaciones
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+                reparacion.documento = cliente.Documento;
                 if (ControlReparaciones.FinalizarReparacion(id_reparacion,reparacion) == 1)
             {
                     venta.remito = 0;
@@ -172,7 +173,8 @@ namespace Omega3.Vista.Reparaciones
             try
                 {
                     Cursor.Current = Cursors.WaitCursor;
-                    if (ControlReparaciones.FinalizarReparacion(id_reparacion, reparacion,1) == 1)
+                    reparacion.documento = cliente.Documento;
+                    if (ControlReparaciones.FinalizarReparacion(id_reparacion, reparacion,1 ) == 1)
                     {
 
                     Vista.Informes.Comprobante_Reparacion x = new Informes.Comprobante_Reparacion(id_reparacion);

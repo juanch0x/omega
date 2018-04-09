@@ -308,7 +308,7 @@ namespace Omega3.Controlador
             {
                 if (venta.medio_de_pago == 1 || venta.medio_de_pago == 3 || venta.medio_de_pago == 4)
                 {
-                    ControladorPagoParcial.agregarPagoVentaEfectivo(dgv_tabla, lastinserted, venta.medio_de_pago);
+                    ControladorPagoParcial.agregarPagoVentaEfectivo(dgv_tabla, lastinserted, venta.medio_de_pago, venta.documento);
                 }
             }
 
@@ -368,7 +368,7 @@ namespace Omega3.Controlador
 
             //string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,15) as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
             //  string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,15) as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
-            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link, v.ordencompra as 'orden_compra' FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_venta) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro',date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link, v.ordencompra as 'orden_compra', c.documento as 'documento' FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta WHERE tipo <> 1 GROUP BY v.id";
             try
             {
 
@@ -396,6 +396,7 @@ namespace Omega3.Controlador
 
             var id = new DataGridViewTextBoxColumn();
             var razon = new DataGridViewTextBoxColumn();
+            var documento = new DataGridViewTextBoxColumn();
             var nrofactura = new DataGridViewTextBoxColumn();
             var tipo = new DataGridViewTextBoxColumn();
             var remito = new DataGridViewTextBoxColumn();
@@ -414,6 +415,12 @@ namespace Omega3.Controlador
             razon.Name = "Razon Social";
             razon.ReadOnly = true;
             razon.Width = 200;
+
+            documento.HeaderText = "documento";
+            documento.DataPropertyName = "documento";
+            documento.Name = "documento";
+            documento.ReadOnly = true;
+            documento.Visible = false;
 
 
             nrofactura.HeaderText = "Nro Factura";
@@ -485,10 +492,11 @@ namespace Omega3.Controlador
             orden_de_compra.HeaderText = "orden_compra";
             orden_de_compra.DataPropertyName = "orden_compra";
             orden_de_compra.ReadOnly = true;
-            //orden_de_compra.Visible = false;
+            orden_de_compra.Visible = false;
 
+            
 
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id, razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, url, orden_de_compra });
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id, razon, nrofactura, tipo, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, url, orden_de_compra,documento });
 
 
             dgv_tabla.AutoGenerateColumns = false;

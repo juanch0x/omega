@@ -23,6 +23,7 @@ namespace Omega3.Modelo
         public decimal retencion_ig { get; set; }
         public decimal retencion_iibb { get; set; }
         public decimal retencion_suss { get; set; }
+        public long documento { get; set; }
 
         public PagoParcial()
         {
@@ -38,6 +39,7 @@ namespace Omega3.Modelo
             retencion_ig = new decimal(0);
             retencion_iibb = new decimal(0);
             retencion_suss = new decimal(0);
+            documento = 0;
 
 
         }

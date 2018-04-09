@@ -782,9 +782,7 @@ namespace Omega3.Vista.Venta
 
                     id_comprobante = control.Facturar(venta, cliente, listado_articulos);
 
-                    //Creo un nuevo thread para evitar el problema de la factura..
-
-                    //var task = Task.Factory.StartNew(() => actualizarBaseDedatos(id_comprobante));
+                    
                     var task = Task.Factory.StartNew(() => controlventas.ActualizarFacturaYUrl(id_comprobante, ultimoid));
 
                     limpiarParteCliente();
@@ -808,8 +806,6 @@ namespace Omega3.Vista.Venta
         {
             if (dgv_tabla.Columns[e.ColumnIndex].Name == "Borrar")
             {
-
-
                 e.Value = Properties.Resources.dgv_tabla_cancelar;
             }
         }

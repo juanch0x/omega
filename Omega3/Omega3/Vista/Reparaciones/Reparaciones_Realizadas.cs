@@ -274,6 +274,7 @@ namespace Omega3.Vista.Reparaciones
                 a.id = long.Parse(Convert.ToString(selectedRow.Cells["Id"].Value));
                 a.nro_factura = Convert.ToString(selectedRow.Cells["Nro Factura"].Value);
                 a.remito = long.Parse(Convert.ToString(selectedRow.Cells["Remito"].Value));
+                a.documento = long.Parse(Convert.ToString(selectedRow.Cells["Documento"].Value));
 
 
                 if (Convert.ToInt32(selectedRow.Cells["Cobrada"].Value) == 1)

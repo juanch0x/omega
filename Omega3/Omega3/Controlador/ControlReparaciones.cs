@@ -431,7 +431,7 @@ namespace Omega3.Controlador
                 if (informacion.medio_de_pago == 1 || informacion.medio_de_pago == 3 || informacion.medio_de_pago == 4)
                 {
                     
-                    ControladorPagoParcial.agregarPagoReparacionEfectivo(id_reparacion, informacion.medio_de_pago);
+                    ControladorPagoParcial.agregarPagoReparacionEfectivo(id_reparacion, informacion.medio_de_pago, informacion.documento);
                 }
 
             }catch (MySqlException a) { Console.WriteLine(a); }
@@ -507,7 +507,8 @@ namespace Omega3.Controlador
             var informacion = new DataGridViewImageColumn();
             var maquina = new DataGridViewTextBoxColumn();
             var problema = new DataGridViewTextBoxColumn();
-            
+            var documento = new DataGridViewTextBoxColumn();
+
 
             razon.HeaderText = "Razon Social";
             razon.DataPropertyName = "Razon Social";
@@ -593,7 +594,13 @@ namespace Omega3.Controlador
             informacion.DataPropertyName = "Informacion";
             informacion.ReadOnly = true;
 
-            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id,razon,maquina, tipo,nrofactura, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, informacion,url });
+            documento.Name = "Documento";
+            documento.HeaderText = "Documento";
+            documento.DataPropertyName = "Documento";
+            documento.ReadOnly = true;
+            documento.Visible = false;
+
+            dgv_tabla.Columns.AddRange(new DataGridViewColumn[] { id,razon,maquina, tipo,nrofactura, remito, total, fecha, fecha_vto, fecha_cobro, vendedor, cobrada, link, informacion,url, documento });
 
 
             dgv_tabla.AutoGenerateColumns = false;
@@ -611,7 +618,7 @@ namespace Omega3.Controlador
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
 
             //string sqlSelectAll = "SELECT v.id as Id, c.razon_social as 'Razon Social', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, v.fecha_venta as Fecha,v.fecha_cobro as 'Fecha de Cobro',v.vencimiento as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM venta v INNER JOIN cliente c on c.documento = v.cliente_documento INNER JOIN detalle_venta d on v.id = d.id_venta GROUP BY v.id";
-            string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,20) as 'Razon Social', v.maquina as 'Maquina', v.problema as 'Problema', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_pago) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro', date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link FROM reparaciones v INNER JOIN cliente c on c.documento = v.documento LEFT JOIN detalle_reparaciones d on v.id = d.id_reparacion WHERE entregado=1 GROUP BY v.id";
+            string sqlSelectAll = "SELECT v.id as Id, left (c.razon_social,20) as 'Razon Social', v.maquina as 'Maquina', v.problema as 'Problema', v.nro_factura as 'Nro Factura', v.tipo_factura as Tipo, v.remito as Remito, sum(d.subtotal) as Total, date(v.fecha_pago) as Fecha, date(v.fecha_cobro) as 'Fecha de Cobro', date(v.vencimiento) as Vencimiento, v.cobrada as Cobrada, v.usuario as Vendedor, v.URL as Link, v.documento as Documento FROM reparaciones v INNER JOIN cliente c on c.documento = v.documento LEFT JOIN detalle_reparaciones d on v.id = d.id_reparacion WHERE entregado=1 GROUP BY v.id";
 
             try
             {

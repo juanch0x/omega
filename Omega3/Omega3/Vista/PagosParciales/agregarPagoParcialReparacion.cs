@@ -15,14 +15,16 @@ namespace Omega3.Vista.PagosParciales
     public partial class agregarPagoParcialReparacion : Form
     {
       long id_reparacion;
+        long documento;
       decimal total_venta;
       decimal total_pagado;
-        public agregarPagoParcialReparacion(long id_venta, decimal total_venta, decimal total_pagado)
+        public agregarPagoParcialReparacion(long id_venta, decimal total_venta, decimal total_pagado, long documento)
         {
             InitializeComponent();
             this.id_reparacion = id_venta;
             this.total_venta = total_venta;
             this.total_pagado = total_pagado;
+            this.documento = documento;
         }
 
         private void agregarPagoParcialReparacion_Load(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace Omega3.Vista.PagosParciales
                 if (total_venta >= (total_pagado + a.monto))
                 {
 
-
+                    a.documento = documento;
                     if (ControladorPagoParcial.agregarPagoParcialReparacion(a) == 1)
                     {
                         MessageBox.Show("El pago se agregó correctamente!");
@@ -137,5 +139,6 @@ namespace Omega3.Vista.PagosParciales
 
 
         }
+
     }
 }

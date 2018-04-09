@@ -19,7 +19,7 @@ namespace Omega3.Vista.Venta
         decimal total_venta = new decimal(0);
         decimal total_pagado = new decimal(0);
         bool modificar = false;
-        public CobrarVenta(Modelo.Venta venta, decimal total_venta)
+        public CobrarVenta(Modelo.Venta venta, decimal total_venta/*, /*string documento*/)
         {
             InitializeComponent();
             this.venta = venta;
@@ -93,7 +93,7 @@ namespace Omega3.Vista.Venta
         private void btn_agregar_pago_Click(object sender, EventArgs e)
         {
             
-            Vista.PagosParciales.agregarPago a = new PagosParciales.agregarPago(venta.id,total_venta,total_pagado);
+            Vista.PagosParciales.agregarPago a = new PagosParciales.agregarPago(venta.id,total_venta,total_pagado,venta.documento);
             a.ShowDialog();
 
             ControladorPagoParcial.llenar_pagosparciales(dgv_tabla, venta.id);
