@@ -34,8 +34,8 @@ namespace Omega3.Vista.PagosParciales
 
         private void agregarPago_Load(object sender, EventArgs e)
         {
-            panel_cheque.Enabled = false;
-            panel_transferencia.Enabled = false;
+            panel_cheque.Enabled = true;
+            panel_transferencia.Enabled = true;
             txt_monto.MaxLength = 9;
 
             ControladorPagoParcial.llenarMedioDePago(combo_medio_de_pago);
@@ -49,7 +49,7 @@ namespace Omega3.Vista.PagosParciales
 
         private void combo_medio_de_pago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(combo_medio_de_pago.Text == "Cheque")
+            /*if(combo_medio_de_pago.Text == "Cheque")
             {
 
 
@@ -93,7 +93,7 @@ namespace Omega3.Vista.PagosParciales
                         txt.Text = "";
                     }
                 }
-            }
+            }*/
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)

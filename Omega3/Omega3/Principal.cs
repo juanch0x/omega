@@ -886,6 +886,33 @@ namespace Omega3
         {
             ControlVentas.mostrarFacturaNegro(13);
         }
+
+        private void estadoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vista.Administracion.CuentaCorriente cuentacorriente;
+
+            bool encontrado = false;
+            foreach (Form form in this.MdiChildren)
+            {
+
+                if (form.Name.Equals("CuentaCorriente"))
+                {
+                    encontrado = true;
+                    form.Show();
+                }
+
+            }
+
+            if (!encontrado)
+            {
+
+                cuentacorriente = new Vista.Administracion.CuentaCorriente();
+                cuentacorriente.StartPosition = FormStartPosition.CenterScreen;
+                cuentacorriente.MdiParent = this;
+                cuentacorriente.Show();
+            }
+        }
     }
     }
 

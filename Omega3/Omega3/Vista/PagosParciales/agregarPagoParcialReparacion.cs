@@ -15,7 +15,7 @@ namespace Omega3.Vista.PagosParciales
     public partial class agregarPagoParcialReparacion : Form
     {
       long id_reparacion;
-        long documento;
+      long documento;
       decimal total_venta;
       decimal total_pagado;
         public agregarPagoParcialReparacion(long id_venta, decimal total_venta, decimal total_pagado, long documento)
@@ -29,7 +29,7 @@ namespace Omega3.Vista.PagosParciales
 
         private void agregarPagoParcialReparacion_Load(object sender, EventArgs e)
         {
-            panel_cheque.Enabled = false;
+            panel_cheque.Enabled = true;
             txt_monto.MaxLength = 9;
 
             ControladorPagoParcial.llenarMedioDePago(combo_medio_de_pago);
@@ -42,7 +42,7 @@ namespace Omega3.Vista.PagosParciales
 
         private void combo_medio_de_pago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (combo_medio_de_pago.Text == "Cheque")
+            /*if (combo_medio_de_pago.Text == "Cheque")
             {
 
 
@@ -86,7 +86,7 @@ namespace Omega3.Vista.PagosParciales
                         txt.Text = "";
                     }
                 }
-            }
+            }*/
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)

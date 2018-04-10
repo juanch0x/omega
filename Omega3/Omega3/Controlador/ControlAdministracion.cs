@@ -33,7 +33,7 @@ namespace Omega3.Controlador
             }
             return 0;
         }
-
+//
         public static void construirTablaPagos(DataGridView dgv_tabla,string query)
         {
 
@@ -336,6 +336,83 @@ namespace Omega3.Controlador
         }
 
 
+        public static Deuda obtenerDeudas(long documento)
+        {
 
+            Deuda deuda = null;
+
+
+            string query = string.Empty;
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                query = "SELECT * FROM venta";
+
+                Factura_Negro Cabecera = new Factura_Negro();
+                Cabecera.Total = 0;
+                using (var MyConn = new MySqlConnection(Conexion.connectionString))
+                {
+                    MyConn.Open();
+                    using (var comando = new MySqlCommand())
+                    {
+                        comando.Connection = MyConn;
+                        /*comando.CommandText = "SELECT " +
+                        "(SELECT sum(detalle_venta.subtotal) FROM detalle_venta INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE venta.cliente_documento = @dni AND venta.tipo <> 1) as 'Total Comprado' " +
+                        ", (SELECT sum(pagosparciales.monto) FROM pagosparciales WHERE pagosparciales.documento = @dni) as 'Total Pagado' " +
+                        ", (SELECT sum(detalle_venta.subtotal) FROM detalle_venta INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE venta.cliente_documento = @dni AND venta.tipo <> 1) " +
+                        "- (SELECT sum(pagosparciales.monto) FROM pagosparciales WHERE pagosparciales.documento = @dni) as 'Deuda' " +
+                        "FROM cliente WHERE cliente.documento = @dni";*/
+
+                        comando.CommandText = "SELECT " +
+                        "IFNULL((SELECT sum(detalle_venta.subtotal) FROM detalle_venta INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE venta.cliente_documento = @dni AND venta.tipo <> 1),0) as 'Total Comprado' " +
+                        ", IFNULL((SELECT sum(pagosparciales.monto) FROM pagosparciales WHERE pagosparciales.documento = @dni),0) as 'Total Pagado' " +
+                        ", IFNULL((SELECT sum(detalle_venta.subtotal) FROM detalle_venta INNER JOIN venta on detalle_venta.id_venta = venta.id WHERE venta.cliente_documento = @dni AND venta.tipo <> 1) " +
+                        "- (SELECT sum(pagosparciales.monto) FROM pagosparciales WHERE pagosparciales.documento = @dni),0) as 'Deuda' " +
+                        "FROM cliente WHERE cliente.documento = @dni";
+
+                        comando.Parameters.AddWithValue("@dni", documento);
+
+                        using (MySqlDataReader _reader = comando.ExecuteReader())
+                        {
+
+                            while (_reader.Read())
+                            {
+                           
+                                deuda = new Deuda
+                                {
+                                    total_comprado = _reader.GetString(0),
+                                    total_pagado = _reader.GetString(1),
+                                    deuda = _reader.GetString(2)
+
+                                };                           
+
+                            }
+                        }
+
+                    }
+
+
+                }
+            }catch(MySqlException ex) { Console.WriteLine("Excepción MYSQL"); }
+
+
+                return deuda;
+        }
+
+
+    }
+    public class Deuda
+    {
+    public string total_comprado { get; set; }
+    public string total_pagado { get; set; }
+    public string deuda { get; set; }
+
+    public Deuda()
+        {
+            total_comprado = string.Empty;
+            total_pagado = string.Empty;
+            deuda = string.Empty;
+        }
     }
 }

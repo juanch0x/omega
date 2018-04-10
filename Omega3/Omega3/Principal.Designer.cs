@@ -72,6 +72,7 @@ namespace Omega3
             this.ventasRealizadasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rendicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -299,7 +300,8 @@ namespace Omega3
             this.clienteToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearClienteToolStripMenuItem,
             this.listarClientesToolStripMenuItem1,
-            this.exportarListaClientesToolStripMenuItem});
+            this.exportarListaClientesToolStripMenuItem,
+            this.estadoDeCuentaToolStripMenuItem});
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
             this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(177, 26);
             this.clienteToolStripMenuItem1.Text = "Cliente";
@@ -409,6 +411,13 @@ namespace Omega3
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
+            // estadoDeCuentaToolStripMenuItem
+            // 
+            this.estadoDeCuentaToolStripMenuItem.Name = "estadoDeCuentaToolStripMenuItem";
+            this.estadoDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.estadoDeCuentaToolStripMenuItem.Text = "Estado de Cuenta";
+            this.estadoDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadoDeCuentaToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +487,7 @@ namespace Omega3
         private System.Windows.Forms.ToolStripMenuItem ventasPorCategoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasRealizadasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rendicionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem;
     }
 }
 

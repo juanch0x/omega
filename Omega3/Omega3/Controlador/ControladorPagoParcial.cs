@@ -231,9 +231,7 @@ namespace Omega3.Controlador
             catch (Exception ex) { Console.WriteLine("Hubo un error llenando la tabla de ventas: " + ex); }
 
         }
-
-
-
+        
         public static int agregarPagoVentaEfectivo(DataGridView dgv_tabla,long id_venta,int medio_de_pago, long documento)
         {
 

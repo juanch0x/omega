@@ -152,6 +152,12 @@
     <Compile Include="Vista\Administracion\Compras.Designer.cs">
       <DependentUpon>Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Administracion\CuentaCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Administracion\CuentaCorriente.Designer.cs">
+      <DependentUpon>CuentaCorriente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Administracion\listarcompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Administracion\Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Administracion\CuentaCorriente.resx">
+      <DependentUpon>CuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Administracion\listarcompras.resx">
       <DependentUpon>listarcompras.cs</DependentUpon>
